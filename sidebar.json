@@ -1,0 +1,30 @@
+{
+    "path": "pages",
+    "name": "pages",
+    "children": [
+        {
+            "path": "pages/folder",
+            "name": "folder",
+            "children": [
+                {
+                    "path": "pages/folder/another-doc.mdx",
+                    "name": "another-doc.mdx",
+                    "meta": {},
+                    "title": "Another doc",
+                    "url": "/folder/another-doc"
+                }
+            ],
+            "size": null,
+            "type": "directory"
+        },
+        {
+            "path": "pages/index.mdx",
+            "name": "index.mdx",
+            "meta": {},
+            "title": "Getting started",
+            "url": "/"
+        }
+    ],
+    "size": null,
+    "type": "directory"
+}
