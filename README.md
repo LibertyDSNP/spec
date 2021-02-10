@@ -6,9 +6,10 @@ Alternatively, the latest iteration of the spec can be viewed non-formatted [her
 
 ## Running Locally
 
-To run the spec generator locally and preview the formatted spec website, use the following command:
+To run the spec generator locally and preview the formatted spec website, use the following commands:
 
 ```
+npm install
 npm run dev
 ```
 
