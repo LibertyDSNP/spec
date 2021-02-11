@@ -1,6 +1,6 @@
 # Liberty Protocol Spec
 
-This is repository holds the technical specification for the Liberty Protocol.
+This repository holds the technical specification for the Liberty Protocol.
 The current official specification can be viewed in its compiled form [here](TBD).
 Alternatively, the latest iteration of the spec can be viewed non-formatted [here](tree/main/pages).
 
