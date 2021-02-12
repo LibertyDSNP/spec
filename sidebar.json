@@ -3,6 +3,21 @@
     "name": "pages",
     "children": [
         {
+            "path": "pages/DSNP",
+            "name": "DSNP",
+            "children": [
+                {
+                    "path": "pages/DSNP/DSNPMessages.md",
+                    "name": "DSNPMessages.md",
+                    "meta": {},
+                    "title": "DSNPMessages",
+                    "url": "/DSNP/DSNPMessages"
+                }
+            ],
+            "size": null,
+            "type": "directory"
+        },
+        {
             "path": "pages/folder",
             "name": "folder",
             "children": [

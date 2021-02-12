@@ -5,7 +5,6 @@
 ---------- | ---------
 | 0.1     | Proposed |
 
-## Table of Contents
 ## Purpose
 1. Describe the form and content of DSNP Messages posted to the blockchain used for all Liberty Platform activities. Only some of these activities will have the full message posted to chain. Examples:
     * Announcements (profile changes, public posts, reactions)
@@ -17,25 +16,29 @@
 
 ## Assumptions
 * Chain messages are on Ethereum
-* Posting messages is via Ethereum log events
-* Signature algorithm is secp256k1 which enables `ecreover` to get public keys
+* Message data is posted via [Ethereum log events](https://medium.com/mycrypto/understanding-event-logs-on-the-ethereum-blockchain-f4ae7ba50378)
+* Signature algorithm is [secp256k1](https://en.bitcoin.it/wiki/Secp256k1). This allows the use `ecreover` 
+  to get public keys. A public key also need not be included in a log event for ease of validation. 
 
 ## DSNP Message Formats
-We have considered two possibilities, independent message formats based on action type, and a unified message format.
+We have considered two possibilities, a [variable message format](#Variable-Message-Format), and a [unified message format](#unified-message-format).
 
-### Separated Message Format
+###  Variable Message Format
 This format is the current preference.
 
 * All actions are posted to chain with some or all pertinent information about the action
 * Different information is posted depending on the action.
 * **Advantages**
-    * can index many actions without requesting off-chain data
+    * can index all actions without requesting off-chain data
     * can validate most actions without requesting off-chain data
     * can archive some actions without requesting off-chain data
 * **Disadvantages**
     * more data (likely more costly up front) than a simple URI
 
-#### Log message format
+**Log message format ** 
+
+This is what would be posted as a Log event in Ethereum:
+
 | field | description | type |
 |-------|-------------|------|
 | topic | Ethereum log topic | bytes|
@@ -44,9 +47,10 @@ This format is the current preference.
 | DSNPMessageData | serialized, compressed message| bytes |
 
 
-### DSNP action types
-#### Post
-Public post (was Announcement)
+### DSNP actions
+These actions would be serialized and compressed and emitted in the log event as the `DSNPMessageData` field.
+
+**Broadcast:** a public post (was Announcement)
 
 | field     | description | type |
 |-------    |-------------| ----|
@@ -54,8 +58,7 @@ Public post (was Announcement)
 | hash      | content hash |  bytes
 | uri       | content uri | bytes
 
-#### Drop
-Dead drop message
+**Drop:** a dead drop message
 
 | field | description | type
 |-------|-------------| ---|
@@ -63,36 +66,27 @@ Dead drop message
 | uri  | content uri  |  bytes
 | hash | content hash |  bytes
 
-#### GraphChange
-public follow/unfollow
+**GraphChange:** a public follow/unfollow
 
 | field | description | type
 |-------|-------------| ---|
 |address  | social identity|  bytes
 |actionType | follow/unfollow| number/enum
 
-#### PrivateGraphChange
-private follow/unfollow
-
-| field | description | type
-|-------|-------------| ---|
-|bytes | encrypted follow/unfollow action | bytes
-
-#### Inbox
-| field | description | type
-|-------|-------------| ---|
-|hash string | content hash | bytes
-|uri  | content uri  | bytes
-
-#### KeyList, PrivateGraphKeyList, EncryptionKeyList
-Keylist rotation
+**KeyList, PrivateGraphKeyList, EncryptionKeyList:** a keylist rotation
 
 | field | description | type
 |-------|-------------| ---|
 |keylist | new list of valid keys | [bytes]
 
-#### Profile
-Profile updates such as name or icon change
+**Inbox:** a direct message
+
+| field | description | type
+|-------|-------------| ---|
+|hash string | content hash | bytes
+|uri  | content uri  | bytes
+
+**Profile:** a profile update such as name or icon change
 
 | field | description | type
 |-------|-------------| ---|
@@ -100,16 +94,24 @@ Profile updates such as name or icon change
 |iconUri| profile icon uri  |bytes
 |hash | content hash |   bytes
 
-#### Reaction
-visual reply to a post
+**EXCLUDED for testnet:**
+
+**PrivateGraphChange:** a private follow/unfollow
+
+| field | description | type
+|-------|-------------| ---|
+|bytes | encrypted follow/unfollow action | bytes
+
+**Reaction:** a visual reply to a post
 
 | field | description | type
 |-------|-------------| ---|
 |emoji | the encoded reaction  | number
 |inReplyTo | message ID the reaction is for |  bytes
 
+
 ### Unified Message Format
-This is currently not the recommended solution but is presented as a comparison.
+This is currently not the recommended solution, but is presented as a comparison.
 
 * All actions are posted to the chain with some pertinent information about the action
 * The same information is posted regardless of action
