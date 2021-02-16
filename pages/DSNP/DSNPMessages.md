@@ -43,12 +43,12 @@ This is what would be posted as a Log event in Ethereum:
 |-------|-------------|------|
 | topic | Ethereum log topic | bytes|
 | fromAddress | social identity |bytes |
-| actionType | DSNP action type |number/enum |
-| DSNPMessageData | serialized, compressed message| bytes |
+| DSNPType | DSNP message type |number/enum |
+| DSNPData | serialized, compressed message data| bytes |
 
 
-### DSNP actions
-These actions would be serialized and compressed and emitted in the log event as the `DSNPMessageData` field.
+### DSNP Messages
+These messages would be serialized and compressed and emitted in the log event as the `DSNPData` field.
 
 **Broadcast:** a public post (was Announcement)
 
