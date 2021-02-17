@@ -7,18 +7,20 @@
 
 ## Purpose
 1. Describe the form and content of DSNP Messages posted to the blockchain used for all Liberty Platform activities. Only some of these activities will have the full message posted to chain. Examples:
-    * Announcements (profile changes, public posts, reactions)
+    * Public messages (profile changes, public posts, reactions)
     * Direct messages between accounts (dead drop, inbox)
     * Key changes (private graph keylist, encryption keylist, public key rotation)
     * Graph changes (follow/unfollow)
-1. Specify an on-chain message formatProvide data size estimations
+1. Specify an on-chain message format
+1. Provide data size estimations
 1. Facilitate use of SDK and interpretation of on-chain data
 
 ## Assumptions
 * Chain messages are on Ethereum
 * Message data is posted via [Ethereum log events](https://medium.com/mycrypto/understanding-event-logs-on-the-ethereum-blockchain-f4ae7ba50378)
 * Signature algorithm is [secp256k1](https://en.bitcoin.it/wiki/Secp256k1). This allows the use `ecreover` 
-  to get public keys. A public key also need not be included in a log event for ease of validation. 
+  to get public keys. A public key also need not be included in a log event for ease of validation.
+* content hashes are created via the same [keccak-256 hashing algorithm](https://en.wikipedia.org/wiki/SHA-3) used by Ethereum.  
 
 ## DSNP Message Formats
 We have considered two possibilities, a [variable message format](#Variable-Message-Format), and a [unified message format](#unified-message-format).
@@ -46,47 +48,73 @@ This is what would be posted as a Log event in Ethereum:
 | DSNPType | DSNP message type |number/enum |
 | DSNPData | serialized, compressed message data| bytes |
 
-
 ### DSNP Messages
-These messages would be serialized and compressed and emitted in the log event as the `DSNPData` field.
+These messages would be serialized, compressed where feasible, and emitted in the log event as the `DSNPData` field.
 
-**Broadcast:** a public post (was Announcement)
+For details on how messages are serialized, see [DSNP Message Serialization](DSNP-Message-Serialization.md)
+
+#### Broadcast
+a public post (was Announcement)
 
 | field     | description | type |
 |-------    |-------------| ----|
-| inReplyTo | content hash | bytes
-| hash      | content hash |  bytes
+| inReplyTo | keccak-256 hash of content | bytes
+| hash      | keccak-256 hash of content |  bytes
 | uri       | content uri | bytes
 
-**Drop:** a dead drop message
+#### Drop
+a dead drop message
 
 | field | description | type
 |-------|-------------| ---|
 | ddid | dead drop id |  bytes
 | uri  | content uri  |  bytes
-| hash | content hash |  bytes
+| hash | keccak-256 hash of content |  bytes
 
-**GraphChange:** a public follow/unfollow
+#### GraphChange 
+a public follow/unfollow
 
 | field | description | type
 |-------|-------------| ---|
 |address  | social identity|  bytes
 |actionType | follow/unfollow| number/enum
 
-**KeyList, PrivateGraphKeyList, EncryptionKeyList:** a keylist rotation
+#### KeyList, PrivateGraphKeyList, EncryptionKeyList
+
+a keylist rotation
 
 | field | description | type
 |-------|-------------| ---|
 |keylist | new list of valid keys | [bytes]
 
-**Inbox:** a direct message
+#### Inbox
+a direct message
 
 | field | description | type
 |-------|-------------| ---|
-|hash string | content hash | bytes
+|hash string | keccak-256 hash of content | bytes
 |uri  | content uri  | bytes
 
-**Profile:** a profile update such as name or icon change
+#### EncryptedInbox
+an encrypted direct message.  This describes the format once decrypted.
+
+| field | description | type
+|-------|-------------| ---|
+|hash string | keccak-256 hash of content | bytes
+|uri  | content uri  | bytes
+
+#### Reaction
+a visual reply to a post
+
+| field | description | type
+|-------|-------------| ---|
+|emoji | the encoded reaction  | number
+|inReplyTo | message ID the reaction is for |  bytes
+
+### Possible Message Types
+
+#### Profile####
+a profile update such as name or icon change
 
 | field | description | type
 |-------|-------------| ---|
@@ -94,20 +122,22 @@ These messages would be serialized and compressed and emitted in the log event a
 |iconUri| profile icon uri  |bytes
 |hash | content hash |   bytes
 
-**EXCLUDED for testnet:**
-
-**PrivateGraphChange:** a private follow/unfollow
-
-| field | description | type
-|-------|-------------| ---|
-|bytes | encrypted follow/unfollow action | bytes
-
-**Reaction:** a visual reply to a post
+#### Private
+An encrypted message of unknown type. See [DSNP Message Types: Private Messages](./DSNP-Message-Types.md#Private-Messages) for details.
 
 | field | description | type
 |-------|-------------| ---|
-|emoji | the encoded reaction  | number
-|inReplyTo | message ID the reaction is for |  bytes
+| data | encrypted graph change data | bytes
+| hash | keccak-256 hash of unencrypted content | bytes
+
+#### PrivateBroadcast
+An encrypted Broadcast decipherable by specific accounts . This describes the format once decrypted.
+
+| field     | description | type |
+|-------    |-------------| ----|
+| inReplyTo | keccak-256 hash of content | bytes
+| hash      | keccak-256 hash of content |  bytes
+| uri       | content uri | bytes
 
 
 ### Unified Message Format

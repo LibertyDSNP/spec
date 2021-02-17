@@ -7,11 +7,25 @@
             "name": "DSNP",
             "children": [
                 {
-                    "path": "pages/DSNP/DSNPMessages.md",
-                    "name": "DSNPMessages.md",
+                    "path": "pages/DSNP/DSNP-Message-Serialization.md",
+                    "name": "DSNP-Message-Serialization.md",
                     "meta": {},
-                    "title": "DSNPMessages",
-                    "url": "/DSNP/DSNPMessages"
+                    "title": "DSNP Message Serialization",
+                    "url": "/DSNP/DSNP-Message-Serialization"
+                },
+                {
+                    "path": "pages/DSNP/DSNP-Message-Types.md",
+                    "name": "DSNP-Message-Types.md",
+                    "meta": {},
+                    "title": "DSNP Message Types",
+                    "url": "/DSNP/DSNP-Message-Types"
+                },
+                {
+                    "path": "pages/DSNP/DSNP-Messages.md",
+                    "name": "DSNP-Messages.md",
+                    "meta": {},
+                    "title": "DSNP Messages",
+                    "url": "/DSNP/DSNP-Messages"
                 }
             ],
             "size": null,
