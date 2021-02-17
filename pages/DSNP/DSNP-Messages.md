@@ -113,7 +113,7 @@ a visual reply to a post
 
 ### Possible Message Types
 
-#### Profile####
+#### Profile
 a profile update such as name or icon change
 
 | field | description | type
@@ -160,3 +160,17 @@ This is currently not the recommended solution, but is presented as a comparison
 | action type | the type of action | bytes
 | fromAddress | social identity | bytes
 | uri | uri of stored action information | bytes
+
+### All data on chain
+One possibility is not to have any data stored off-chain; instead, even the ActivityPub content would be posted to chain. 
+The disadvantages far outweigh the advantages:
+
+* ** Advantages **
+    * Validation, indexing, discovery are much easier
+* ** Disadvantages **
+    * This amount of data would rapidly slow down the network
+    * Makes garbage collection trickier
+    * The posting of illegal content could potentially shut down the network
+    * Garbage collection, validation, privacy concerns, and dealing with illegal content become interdependent, and would pose conflicting interests.
+    * Would still need archive to store at least some content
+    * Unknown, likely chilling effect on incentive models

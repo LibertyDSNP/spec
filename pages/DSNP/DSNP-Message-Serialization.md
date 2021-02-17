@@ -12,7 +12,15 @@
 ## Assumptions
 * All assumptions from [DSNP Messages](DSNP-Messages.md)
 * Content will be compressed where feasible
+* Serialization is in JSON (highly subject to change)
 
+### Note on Serialization method
+At the time of this writing, we are using JSON serialization, however, the following other formats are being seriously considered:
+
+* compressed JSON
+* [RLP (Recursive Length Prefix)](https://eth.wiki/en/fundamentals/rlp)
+* [eth2 serialization] (https://ethresear.ch/t/blob-serialisation/1705)
+* [CBOR (Concise Binary Object Representation)](https://en.wikipedia.org/wiki/CBOR)
 
 ## Serializing Identifiable Messages
 Identifiable messages are those with a DSNP Message Type other than `Private`.  They may still be private messages, but it's known what _type_ of message it is.
@@ -28,7 +36,6 @@ First serialize the message, as with this GraphChange, which is a follow of addr
 }
 ```
 
- 
 ## Serializing Private Messages
 If it's not desired to provide the message type, use the Private message type value, and provide the actual message type in the data format. The types of messages that might use the `Private` type are:
 
