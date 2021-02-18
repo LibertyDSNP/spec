@@ -10,7 +10,7 @@
 1. Facilitate use of SDK
 
 ## Assumptions
-* All assumptions from [DSNP Messages](DSNP-Messages.md)
+* All assumptions from [DSNP Messages](/DSNP/DSNP-Messages)
 * Content will be compressed where feasible
 * Serialization is in JSON (highly subject to change)
 
@@ -40,18 +40,18 @@ First serialize the message, as with this GraphChange, which is a follow of addr
 If it's not desired to provide the message type, use the Private message type value, and provide the actual message type in the data format. The types of messages that might use the `Private` type are:
 
 * GraphChange
-* ProfileChange  
+* Profile  
 * Inbox
 * Broadcast
 
-Rather than using one of the private/encrypted DSNP message types, instead wrap the serialized data and include the public message type, as in this uncompressed example for a GraphChange:
+Rather than using one of the private/encrypted DSNP message types, instead wrap the serialized data and include the public message type, as in this uncompressed example for a Profile change message:
 
 ```json
 {
-  "dsnpMessageType": 1,
+  "dsnpMessageType": 0,
   "object": {
-    "address": "0x3c0ffee5",
-    "actionType": 0
+    "name": "Richard Burbage",
+    "iconUri": "http://www.placekitten.com/400/600"
   }
 }
 ```

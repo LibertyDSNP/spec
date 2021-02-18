@@ -51,7 +51,7 @@ This is what would be posted as a Log event in Ethereum:
 ### DSNP Messages
 These messages would be serialized, compressed where feasible, and emitted in the log event as the `DSNPData` field.
 
-For details on how messages are serialized, see [DSNP Message Serialization](DSNP-Message-Serialization.md)
+For details on how messages are serialized, see [DSNP Message Serialization](/DSNP/DSNP-Message-Serialization)
 
 #### Broadcast
 a public post (was Announcement)
@@ -92,7 +92,7 @@ a direct message
 
 | field | description | type
 |-------|-------------| ---|
-|hash string | keccak-256 hash of content | bytes
+|hash | keccak-256 hash of content | bytes
 |uri  | content uri  | bytes
 
 #### EncryptedInbox
@@ -100,7 +100,7 @@ an encrypted direct message.  This describes the format once decrypted.
 
 | field | description | type
 |-------|-------------| ---|
-|hash string | keccak-256 hash of content | bytes
+|hash | keccak-256 hash of content | bytes
 |uri  | content uri  | bytes
 
 #### Reaction
@@ -120,10 +120,9 @@ a profile update such as name or icon change
 |-------|-------------| ---|
 |name | new name | bytes
 |iconUri| profile icon uri  |bytes
-|hash | content hash |   bytes
 
 #### Private
-An encrypted message of unknown type. See [DSNP Message Types: Private Messages](./DSNP-Message-Types.md#Private-Messages) for details.
+An encrypted message of unknown type. See [DSNP Message Types: Private Messages](/DSNP/DSNP-Message-Types#private-messages) for details.
 
 | field | description | type
 |-------|-------------| ---|
@@ -165,9 +164,9 @@ This is currently not the recommended solution, but is presented as a comparison
 One possibility is not to have any data stored off-chain; instead, even the ActivityPub content would be posted to chain. 
 The disadvantages far outweigh the advantages:
 
-* ** Advantages **
+* **Advantages**
     * Validation, indexing, discovery are much easier
-* ** Disadvantages **
+* **Disadvantages**
     * This amount of data would rapidly slow down the network
     * Makes garbage collection trickier
     * The posting of illegal content could potentially shut down the network
