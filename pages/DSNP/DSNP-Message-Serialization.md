@@ -19,7 +19,7 @@ At the time of this writing, we are using JSON serialization, however, the follo
 
 * compressed JSON
 * [RLP (Recursive Length Prefix)](https://eth.wiki/en/fundamentals/rlp)
-* [eth2 serialization] (https://ethresear.ch/t/blob-serialisation/1705)
+* [eth2 serialization] (https://ethresear.ch/t/blob-serialisation/1705), which is a proposal that is planned to replace RLP.
 * [CBOR (Concise Binary Object Representation)](https://en.wikipedia.org/wiki/CBOR)
 
 ## Serializing Identifiable Messages
