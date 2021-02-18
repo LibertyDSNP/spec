@@ -45,8 +45,8 @@ This is what would be posted as a Log event in Ethereum:
 |-------|-------------|------|
 | topic | Ethereum log topic | bytes|
 | fromAddress | social identity |bytes |
-| DSNPType | DSNP message type |number/enum |
-| DSNPData | serialized, compressed message data| bytes |
+| dsnpType | DSNP message type |number/enum |
+| dsnpData | serialized, possibly compressed message data| bytes |
 
 ### DSNP Messages
 These messages would be serialized, compressed where feasible, and emitted in the log event as the `DSNPData` field.
@@ -58,9 +58,12 @@ a public post (was Announcement)
 
 | field     | description | type |
 |-------    |-------------| ----|
-| inReplyTo | keccak-256 hash of content | bytes
-| hash      | keccak-256 hash of content |  bytes
+| inReplyTo | messageID replied to | bytes
+| messageID | keccak-256 hash of content stored at uri |  bytes
 | uri       | content uri | bytes
+ 
+
+**NOTE** If origin broadcasts and replies stay the same type, inReplyTo is allowed to be blank.  If replies are separated into their own type, the inReplyTo field here will be dropped.
 
 #### Drop
 a dead drop message
@@ -69,7 +72,7 @@ a dead drop message
 |-------|-------------| ---|
 | ddid | dead drop id |  bytes
 | uri  | content uri  |  bytes
-| hash | keccak-256 hash of content |  bytes
+| messageID | keccak-256 hash of content |  bytes
 
 #### GraphChange 
 a public follow/unfollow
@@ -92,7 +95,7 @@ a direct message
 
 | field | description | type
 |-------|-------------| ---|
-|hash | keccak-256 hash of content | bytes
+|messageID | keccak-256 hash of content | bytes
 |uri  | content uri  | bytes
 
 #### EncryptedInbox
@@ -100,7 +103,7 @@ an encrypted direct message.  This describes the format once decrypted.
 
 | field | description | type
 |-------|-------------| ---|
-|hash | keccak-256 hash of content | bytes
+|messageID | keccak-256 hash of content | bytes
 |uri  | content uri  | bytes
 
 #### Reaction
@@ -120,6 +123,7 @@ a profile update such as name or icon change
 |-------|-------------| ---|
 |name | new name | bytes
 |iconUri| profile icon uri  |bytes
+| iconHash |  keccak-256 hash of content at iconUri | bytes
 
 #### Private
 An encrypted message of unknown type. See [DSNP Message Types: Private Messages](/DSNP/DSNP-Message-Types#private-messages) for details.
@@ -127,16 +131,19 @@ An encrypted message of unknown type. See [DSNP Message Types: Private Messages]
 | field | description | type
 |-------|-------------| ---|
 | data | encrypted graph change data | bytes
-| hash | keccak-256 hash of unencrypted content | bytes
+| messageID | keccak-256 hash of unencrypted content | bytes
 
 #### PrivateBroadcast
 An encrypted Broadcast decipherable by specific accounts . This describes the format once decrypted.
 
 | field     | description | type |
 |-------    |-------------| ----|
-| inReplyTo | keccak-256 hash of content | bytes
-| hash      | keccak-256 hash of content |  bytes
+| inReplyTo | messageID replied to | bytes
+| messageID      | keccak-256 hash of content stored at URI |  bytes
 | uri       | content uri | bytes
+
+#### Reply
+This is a message type that would allow a Broadcast to drop the `inReplyTo` field.  In such case a Reply is exactly like Broadcast above, but `inReplyTo` is not allowed to be blank.
 
 
 ### Unified Message Format
