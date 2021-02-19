@@ -23,7 +23,7 @@
 * content hashes are created via the same [keccak-256 hashing algorithm](https://en.wikipedia.org/wiki/SHA-3) used by Ethereum.  
 
 ## DSNP Message Formats
-We have considered two possibilities, a [variable message format](#Variable-Message-Format), and a [unified message format](#unified-message-format).
+We have seriously considered two possibilities, a [variable message format](#Variable-Message-Format), and a [unified message format](#unified-message-format).  Others are listed at the end of this page.
 
 ###  Variable Message Format
 This format is the current preference.
@@ -48,6 +48,10 @@ This is what would be posted as a Log event in Ethereum:
 | dsnpType | DSNP message type |number/enum |
 | dsnpData | serialized, possibly compressed message data| bytes |
 
+#### Some other options:
+* Emit no topic, have a single contract that subscribers watch for events from.  Subscribers can perform filtering based on the `dsnpTopic` field.
+* The topic is the dsnpType (possibly not an enum).  Subscribers could listen for desired topics.
+
 ### DSNP Messages
 These messages would be serialized, compressed where feasible, and emitted in the log event as the `DSNPData` field.
 
@@ -58,8 +62,8 @@ a public post (was Announcement)
 
 | field     | description | type |
 |-------    |-------------| ----|
-| inReplyTo | messageID replied to | bytes
-| messageID | keccak-256 hash of content stored at uri |  bytes
+| inReplyTo | messageID replied to | bytes32
+| messageID | keccak-256 hash of content stored at uri |  bytes32
 | uri       | content uri | bytes
  
 
@@ -72,7 +76,7 @@ a dead drop message
 |-------|-------------| ---|
 | ddid | dead drop id |  bytes
 | uri  | content uri  |  bytes
-| messageID | keccak-256 hash of content |  bytes
+| messageID | keccak-256 hash of content |  bytes32
 
 #### GraphChange 
 a public follow/unfollow
@@ -95,15 +99,15 @@ a direct message
 
 | field | description | type
 |-------|-------------| ---|
-|messageID | keccak-256 hash of content | bytes
+|messageID | keccak-256 hash of content | bytes32
 |uri  | content uri  | bytes
 
 #### EncryptedInbox
-an encrypted direct message.  This describes the format once decrypted.
+an encrypted direct message.  This describes the format once decrypted.  Possibly combine both of these and expect that all Inbox messages are encrypted.
 
 | field | description | type
 |-------|-------------| ---|
-|messageID | keccak-256 hash of content | bytes
+|messageID | keccak-256 hash of content | bytes32
 |uri  | content uri  | bytes
 
 #### Reaction
@@ -112,7 +116,7 @@ a visual reply to a post
 | field | description | type
 |-------|-------------| ---|
 |emoji | the encoded reaction  | number
-|inReplyTo | message ID the reaction is for |  bytes
+|inReplyTo | messageID the reaction is for |  bytes32
 
 ### Possible Message Types
 
@@ -121,9 +125,9 @@ a profile update such as name or icon change
 
 | field | description | type
 |-------|-------------| ---|
-|name | new name | bytes
-|iconUri| profile icon uri  |bytes
-| iconHash |  keccak-256 hash of content at iconUri | bytes
+|uri    | uri for the profile data  |bytes
+| messageID |  keccak-256 hash of content at uri | bytes32
+
 
 #### Private
 An encrypted message of unknown type. See [DSNP Message Types: Private Messages](/DSNP/DSNP-Message-Types#private-messages) for details.
@@ -131,15 +135,15 @@ An encrypted message of unknown type. See [DSNP Message Types: Private Messages]
 | field | description | type
 |-------|-------------| ---|
 | data | encrypted graph change data | bytes
-| messageID | keccak-256 hash of unencrypted content | bytes
+| messageID | keccak-256 hash of unencrypted content | bytes32
 
 #### PrivateBroadcast
 An encrypted Broadcast decipherable by specific accounts . This describes the format once decrypted.
 
 | field     | description | type |
 |-------    |-------------| ----|
-| inReplyTo | messageID replied to | bytes
-| messageID      | keccak-256 hash of content stored at URI |  bytes
+| inReplyTo | messageID replied to | bytes32
+| messageID      | keccak-256 hash of content stored at URI |  bytes32
 | uri       | content uri | bytes
 
 #### Reply
@@ -154,6 +158,8 @@ This is currently not the recommended solution, but is presented as a comparison
 * The rest of the information for the action is stored off chain.
 * **Advantages**
     * less data on chain --> lower up-front costs and lower node storage requirements
+    * privacy management is easier -- for example, "right to be forgotten" is easier to comply with since 
+        data is external, off-chain.
 * **Disadvantages**
     * indexing requires retrieving content @ uri
     * archiving requires retrieving more content @ uri
@@ -175,8 +181,10 @@ The disadvantages far outweigh the advantages:
     * Validation, indexing, discovery are much easier
 * **Disadvantages**
     * This amount of data would rapidly slow down the network
-    * Makes garbage collection trickier
     * The posting of illegal content could potentially shut down the network
     * Garbage collection, validation, privacy concerns, and dealing with illegal content become interdependent, and would pose conflicting interests.
     * Would still need archive to store at least some content
     * Unknown, likely chilling effect on incentive models
+
+### No data except hashes on chain
+Only hashes of the events are stored on chain; everything else is interpreted via API(s)

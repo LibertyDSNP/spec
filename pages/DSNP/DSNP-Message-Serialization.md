@@ -54,14 +54,13 @@ Rather than using one of the private/encrypted DSNP message types, instead wrap 
 {
   "dsnpType": 3,
   "dsnpData": {
-    "name": "Richard Burbage",
-    "iconUri": "http://www.placekitten.com/400/600",
-    "iconHash": "0x8c83cac8226fb6cbb05755139ee361b37554553e1851e0f2f3327ee97e26219f"
+    "uri": "http://www.placekitten.com/400/600",
+    "messageID": "0x8c83cac8226fb6cbb05755139ee361b37554553e1851e0f2f3327ee97e26219f"
   }
 }
 ```
 
-The messageID here is the keccak-256 hash of what is supposed to be at `iconUri`, for validation purposes.
+The messageID here is the keccak-256 hash of what is supposed to be at `uri`, for validation purposes. 
 
 This JSON object would then be compressed and encrypted, then added to a Private type DSNP message. The hash supplied for the actual DSNP message is the hash of the encrypted compressed data.
 
@@ -76,7 +75,11 @@ The DSNP message object would look something like this:
 
 The messageID in the Private message is the hash of the dsnpData field.
 
-Thus the decrypted PrivateGraphChange is nothing more than a Profile message wrapped in an object with a message type.
+Thus the decrypted message data is nothing more than a Profile message wrapped in an object, plus a message type.
 
 **NOTE:** Dead drop messages (Drop), cannot be made private this way. The dead drop ID, which is a necessary shared secret for decryption, would not be available.
 
+### Hash validity
+Where ever there is a messageID, as stated earlier it means a keccak-256 hash of the content at the referenced URI. This hash cannot be checked at the contract level for validity, in the sense of being actually the hash of the uri content, however it is not allowed to be either zero length or 256 zeroes. 
+
+The one exception would be if is decided that Replies are separate types from other Broadcast messages; in such case an "original post" is one that has a "zero hash" for its inReplyTo field.
