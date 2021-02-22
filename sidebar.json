@@ -7,6 +7,13 @@
             "name": "DSNP",
             "children": [
                 {
+                    "path": "pages/DSNP/DSNP-Announce.md",
+                    "name": "DSNP-Announce.md",
+                    "meta": {},
+                    "title": "DSNP Announce",
+                    "url": "/DSNP/DSNP-Announce"
+                },
+                {
                     "path": "pages/DSNP/DSNP-Message-Serialization.md",
                     "name": "DSNP-Message-Serialization.md",
                     "meta": {},
