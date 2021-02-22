@@ -7,48 +7,174 @@
             "name": "DSNP",
             "children": [
                 {
-                    "path": "pages/DSNP/DSNP-Message-Serialization.md",
-                    "name": "DSNP-Message-Serialization.md",
-                    "meta": {},
-                    "title": "DSNP Message Serialization",
-                    "url": "/DSNP/DSNP-Message-Serialization"
+                    "path": "pages/DSNP/Archives",
+                    "name": "Archives",
+                    "children": [
+                        {
+                            "path": "pages/DSNP/Archives/Overview.md",
+                            "name": "Overview.md",
+                            "meta": {},
+                            "title": "Overview",
+                            "url": "/DSNP/Archives/Overview"
+                        }
+                    ],
+                    "size": null,
+                    "type": "directory"
                 },
                 {
-                    "path": "pages/DSNP/DSNP-Message-Types.md",
-                    "name": "DSNP-Message-Types.md",
-                    "meta": {},
-                    "title": "DSNP Message Types",
-                    "url": "/DSNP/DSNP-Message-Types"
+                    "path": "pages/DSNP/Graph",
+                    "name": "Graph",
+                    "children": [
+                        {
+                            "path": "pages/DSNP/Graph/Overview.md",
+                            "name": "Overview.md",
+                            "meta": {},
+                            "title": "Overview",
+                            "url": "/DSNP/Graph/Overview"
+                        }
+                    ],
+                    "size": null,
+                    "type": "directory"
                 },
                 {
-                    "path": "pages/DSNP/DSNP-Messages.md",
-                    "name": "DSNP-Messages.md",
+                    "path": "pages/DSNP/Identity",
+                    "name": "Identity",
+                    "children": [
+                        {
+                            "path": "pages/DSNP/Identity/Overview.md",
+                            "name": "Overview.md",
+                            "meta": {},
+                            "title": "Overview",
+                            "url": "/DSNP/Identity/Overview"
+                        }
+                    ],
+                    "size": null,
+                    "type": "directory"
+                },
+                {
+                    "path": "pages/DSNP/Keys",
+                    "name": "Keys",
+                    "children": [
+                        {
+                            "path": "pages/DSNP/Keys/Overview.md",
+                            "name": "Overview.md",
+                            "meta": {},
+                            "title": "Overview",
+                            "url": "/DSNP/Keys/Overview"
+                        }
+                    ],
+                    "size": null,
+                    "type": "directory"
+                },
+                {
+                    "path": "pages/DSNP/Messages",
+                    "name": "Messages",
+                    "children": [
+                        {
+                            "path": "pages/DSNP/Messages/Overview.md",
+                            "name": "Overview.md",
+                            "meta": {},
+                            "title": "Overview",
+                            "url": "/DSNP/Messages/Overview"
+                        },
+                        {
+                            "path": "pages/DSNP/Messages/Serialization.md",
+                            "name": "Serialization.md",
+                            "meta": {},
+                            "title": "Serialization",
+                            "url": "/DSNP/Messages/Serialization"
+                        },
+                        {
+                            "path": "pages/DSNP/Messages/Types.md",
+                            "name": "Types.md",
+                            "meta": {},
+                            "title": "Types",
+                            "url": "/DSNP/Messages/Types"
+                        }
+                    ],
+                    "size": null,
+                    "type": "directory"
+                },
+                {
+                    "path": "pages/DSNP/Overview.md",
+                    "name": "Overview.md",
                     "meta": {},
-                    "title": "DSNP Messages",
-                    "url": "/DSNP/DSNP-Messages"
+                    "title": "Overview",
+                    "url": "/DSNP/Overview"
+                },
+                {
+                    "path": "pages/DSNP/Verified_Attributes",
+                    "name": "Verified_Attributes",
+                    "children": [
+                        {
+                            "path": "pages/DSNP/Verified_Attributes/Overview.md",
+                            "name": "Overview.md",
+                            "meta": {},
+                            "title": "Overview",
+                            "url": "/DSNP/Verified_Attributes/Overview"
+                        }
+                    ],
+                    "size": null,
+                    "type": "directory"
+                },
+                {
+                    "path": "pages/DSNP/Future_Proposals.md",
+                    "name": "Future_Proposals.md",
+                    "meta": {},
+                    "title": "Future Proposals",
+                    "url": "/DSNP/Future_Proposals"
                 }
             ],
             "size": null,
             "type": "directory"
         },
         {
-            "path": "pages/folder",
-            "name": "folder",
+            "path": "pages/Preface",
+            "name": "Preface",
             "children": [
                 {
-                    "path": "pages/folder/another-doc.mdx",
-                    "name": "another-doc.mdx",
+                    "path": "pages/Preface/Community.md",
+                    "name": "Community.md",
                     "meta": {},
-                    "title": "Another doc",
-                    "url": "/folder/another-doc"
+                    "title": "Community",
+                    "url": "/Preface/Community"
+                },
+                {
+                    "path": "pages/Preface/How_to_Read_This_Spec.md",
+                    "name": "How_to_Read_This_Spec.md",
+                    "meta": {},
+                    "title": "How to Read This Spec",
+                    "url": "/Preface/How_to_Read_This_Spec"
+                },
+                {
+                    "path": "pages/Preface/Introduction.md",
+                    "name": "Introduction.md",
+                    "meta": {},
+                    "title": "Introduction",
+                    "url": "/Preface/Introduction"
                 }
             ],
             "size": null,
             "type": "directory"
         },
         {
-            "path": "pages/index.mdx",
-            "name": "index.mdx",
+            "path": "pages/Reference",
+            "name": "Reference",
+            "children": [
+                {
+                    "path": "pages/Reference/glossary.md",
+                    "name": "glossary.md",
+                    "meta": {},
+                    "title": "Glossary",
+                    "url": "/Reference/glossary"
+                }
+            ],
+            "size": null,
+            "type": "directory"
+        },
+        {
+            "path": "pages/index.md",
+            "name": "index.md",
             "meta": {},
             "title": "Welcome",
             "url": "/"
