@@ -1,6 +1,7 @@
 import { DokzProvider, GithubLink, ColorModeSwitch } from "dokz";
 import React, { Fragment } from "react";
 import Head from "next/head";
+import Image from "next/image";
 import { ChakraProvider } from "@chakra-ui/react";
 
 export default function App(props) {
@@ -15,10 +16,15 @@ export default function App(props) {
                 />
             </Head>
             <DokzProvider
+                headerLogo={<Image src="/Unfinished-logo.jpg"
+                                   alt="unfinished logo"
+                                   height={50}
+                                   width={230}
+                />}
                 headerItems={[
                     <GithubLink
                         key="0"
-                        url="https://github.com/remorses/dokz"
+                        url="https://github.com/LibertyDSNP/spec"
                     />,
                     <ColorModeSwitch key="1" />,
                 ]}
