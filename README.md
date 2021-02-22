@@ -1,4 +1,4 @@
-# Liberty Protocol Spec
+# FORK OF Liberty Protocol Spec
 
 This repository holds the technical specification for the Liberty Protocol.
 The current official specification can be viewed in its compiled form [here](TBD).
