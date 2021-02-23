@@ -15,12 +15,17 @@ npm run dev
 
 Once the local server is running, a live-reloading preview of the spec can be viewed at http://localhost:3000.
 
-## Choosing a version
-
-As of the time of this writing the meaning of version numbers hasn't been settled. Please choose 0.1 for the version until further notice.
+## Tools and frameworks used in this repo
+* [Dokz](https://dokz.site/docs)
+* [MDX](https://mdxjs.com/)
+* [Chakra-UI](https://chakra-ui.com/docs/getting-started)
 
 ## Naming
 Use dashes (`-`) between words in file names so that they appear in the Table of Contents correctly.  Use .mdx if you want to import React components in the page.
+
+## Choosing a version
+
+As of the time of this writing the meaning of version numbers hasn't been settled. Please choose 0.1 for the version until further notice.
 
 # Contributing a specification
 * Spec files are written in markdown (.md) format, and are located in the _pages_ directory.
