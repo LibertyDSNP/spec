@@ -17,20 +17,21 @@
 * Message types are preset, but the DSNP Message contract will be upgradeable to allow more types.
 * Message type values outside the contract presets are invalid
 
-| name     | description | value |
-|-------    |-------------| ----|
-| Private | message and message type are private; message data is encrypted | 0 |
-| GraphChange | follow or unfollow an account | 1 |
-| Broadcast | a public post or reply | 2 |
-| Profile | a Profile change | 3 |
-| KeyList | KeyList rotation | 4 |
-| PrivateGraphKeylist | PrivateGraph keylist rotation | 5 |
-| EncryptionKeyList | Encryption keyList rotation | 6 |
-| Reaction | a public visual reply to a Broadcast | 7 |
-| PrivateGraphChange | an encrypted follow or unfollow | 8
-| Drop | a dead drop message | 9
-| EncryptedInbox | an encrypted direct message | 10
-| PrivateBroadcast | an encrypted broadcast | 11
+| name     | route | description | value |
+|-------   |-------------|-------------| ----|
+| Private | Personal Id | message and message type are private; message data is encrypted | 0 |
+| GraphChange | Personal Id | follow or unfollow an account | 1 |
+| Broadcast | Sender's Id | a public post | 2 |
+| Reply | Message Id | a public reply | 3 |
+| Profile | Sender's Id | a Profile change | 4 |
+| KeyList | Personal Id | KeyList rotation | 5 |
+| PrivateGraphKeylist | Personal Id | PrivateGraph keylist rotation | 6 |
+| EncryptionKeyList | Personal Id | Encryption keyList rotation | 7 |
+| Reaction | Message Id | a public visual reply to a Broadcast | 8 |
+| PrivateGraphChange | Personal Id | an encrypted follow or unfollow | 9 |
+| Drop | Dead Drop Id | a dead drop message | 10 |
+| EncryptedInbox | Receiver's Id | an encrypted direct message | 11 |
+| PrivateBroadcast | TBD | an encrypted broadcast | 12 |
 
 ## Private Messages
 If it's not desired to specify a message type, use the `Private` value as the message type.

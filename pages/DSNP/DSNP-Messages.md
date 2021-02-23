@@ -43,8 +43,8 @@ This is what would be posted as a Log event in Ethereum:
 
 | field | description | type |
 |-------|-------------|------|
-| topic | Ethereum log topic | bytes|
-| fromAddress | social identity |bytes |
+| topic | Ethereum log topic | bytes32 |
+| dsnpRoute | Route identifier |bytes32 |
 | dsnpType | DSNP message type |number/enum |
 | dsnpData | serialized, possibly compressed message data| bytes |
 
@@ -62,19 +62,27 @@ a public post (was Announcement)
 
 | field     | description | type |
 |-------    |-------------| ----|
-| inReplyTo | messageID replied to | bytes32
+| dnspRoute (fromAddress) | id of the sender | bytes20
 | messageID | keccak-256 hash of content stored at uri |  bytes32
 | uri       | content uri | bytes
- 
 
-**NOTE** If origin broadcasts and replies stay the same type, inReplyTo is allowed to be blank.  If replies are separated into their own type, the inReplyTo field here will be dropped.
+#### Reply
+a public reply post
+
+| field     | description | type |
+|-------    |-------------| ----|
+| dnspRoute (inReplyTo) | messageID replied to | bytes32
+| messageID | keccak-256 hash of content stored at uri |  bytes32
+| fromAddress | sender's identity | bytes20
+| uri       | content uri | bytes
+ 
 
 #### Drop
 a dead drop message
 
 | field | description | type
 |-------|-------------| ---|
-| ddid | dead drop id |  bytes
+| dnspRoute (ddid) | dead drop id |  bytes20
 | uri  | content uri  |  bytes
 | messageID | keccak-256 hash of content |  bytes32
 
@@ -83,7 +91,7 @@ a public follow/unfollow
 
 | field | description | type
 |-------|-------------| ---|
-|address  | social identity|  bytes
+| dnspRoute (personalID) | personal id of the sender | bytes20
 |actionType | follow/unfollow| number/enum
 
 #### KeyList, PrivateGraphKeyList, EncryptionKeyList
@@ -92,6 +100,7 @@ a keylist rotation
 
 | field | description | type
 |-------|-------------| ---|
+| dnspRoute (personalID) | personal id of the sender | bytes20
 |keylist | new list of valid keys | [bytes]
 
 #### Inbox
@@ -99,6 +108,7 @@ a direct message
 
 | field | description | type
 |-------|-------------| ---|
+| dnspRoute (recipientID) | id of the recipient | bytes20 
 |messageID | keccak-256 hash of content | bytes32
 |uri  | content uri  | bytes
 
@@ -107,6 +117,7 @@ an encrypted direct message.  This describes the format once decrypted.  Possibl
 
 | field | description | type
 |-------|-------------| ---|
+| dnspRoute (recipientID) | id of the recipient | bytes20
 |messageID | keccak-256 hash of content | bytes32
 |uri  | content uri  | bytes
 
@@ -115,8 +126,8 @@ a visual reply to a post
 
 | field | description | type
 |-------|-------------| ---|
-|emoji | the encoded reaction  | number
-|inReplyTo | messageID the reaction is for |  bytes32
+|dnspRoute (inReplyTo) | messageID the reaction is for |  bytes32
+|emoji | the encoded reaction  | number / utf-8 bytes
 
 ### Possible Message Types
 
@@ -125,6 +136,7 @@ a profile update such as name or icon change
 
 | field | description | type
 |-------|-------------| ---|
+| dnspRoute (fromAddress) | id of the sender | bytes20
 |uri    | uri for the profile data  |bytes
 | messageID |  keccak-256 hash of content at uri | bytes32
 
@@ -134,6 +146,7 @@ An encrypted message of unknown type. See [DSNP Message Types: Private Messages]
 
 | field | description | type
 |-------|-------------| ---|
+| dnspRoute (personalID) | personal id of the sender | bytes20
 | data | encrypted graph change data | bytes
 | messageID | keccak-256 hash of unencrypted content | bytes32
 
@@ -142,6 +155,7 @@ An encrypted Broadcast decipherable by specific accounts . This describes the fo
 
 | field     | description | type |
 |-------    |-------------| ----|
+| dnspRoute (fromAddress) | id of the sender | bytes20
 | inReplyTo | messageID replied to | bytes32
 | messageID      | keccak-256 hash of content stored at URI |  bytes32
 | uri       | content uri | bytes
