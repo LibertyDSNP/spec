@@ -1,10 +1,10 @@
 ## Network connections
 An Archivist will require network connections to all content URIs posted on chain.
 
-## Validations that Archivists may perform
+## Validations that Archivists could perform
 * Signature validation - proof that author provided a real signature
 * Signature authentication - proof that the From address is the signer, or that signer is a valid delegate  (proof of authorship)
-* Additional signatures from forum, service nodes must be validated in the same way
+* Additional signatures from forum, service nodes must be validated in the same way as above
 * There is retrievable content at the URI given in the DSNP message
 * The content hash is valid - that is, the URI serves the claimed data
 
