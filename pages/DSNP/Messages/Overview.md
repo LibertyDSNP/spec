@@ -1,4 +1,7 @@
-# DSNP Messages
+---
+name: Messages
+---
+
 ## Specification Status
 
 | Version | Status |
@@ -18,7 +21,7 @@
 ## Assumptions
 * Chain messages are on Ethereum
 * Message data is posted via [Ethereum log events](https://medium.com/mycrypto/understanding-event-logs-on-the-ethereum-blockchain-f4ae7ba50378)
-* Signature algorithm is [secp256k1](https://en.bitcoin.it/wiki/Secp256k1). This allows the use `ecreover` 
+* Signature algorithm is [secp256k1](https://en.bitcoin.it/wiki/Secp256k1). This allows the use `ecreover`
   to get public keys. A public key also need not be included in a log event for ease of validation.
 * content hashes are created via the same [keccak-256 hashing algorithm](https://en.wikipedia.org/wiki/SHA-3) used by Ethereum.  
 
@@ -37,7 +40,7 @@ This format is the current preference.
 * **Disadvantages**
     * more data (likely more costly up front) than a simple URI
 
-**Log message format ** 
+**Log message format **
 
 This is what would be posted as a Log event in Ethereum:
 
@@ -65,7 +68,7 @@ a public post (was Announcement)
 | inReplyTo | messageID replied to | bytes32
 | messageID | keccak-256 hash of content stored at uri |  bytes32
 | uri       | content uri | bytes
- 
+
 
 **NOTE** If origin broadcasts and replies stay the same type, inReplyTo is allowed to be blank.  If replies are separated into their own type, the inReplyTo field here will be dropped.
 
@@ -78,7 +81,7 @@ a dead drop message
 | uri  | content uri  |  bytes
 | messageID | keccak-256 hash of content |  bytes32
 
-#### GraphChange 
+#### GraphChange
 a public follow/unfollow
 
 | field | description | type
@@ -158,7 +161,7 @@ This is currently not the recommended solution, but is presented as a comparison
 * The rest of the information for the action is stored off chain.
 * **Advantages**
     * less data on chain --> lower up-front costs and lower node storage requirements
-    * privacy management is easier -- for example, "right to be forgotten" is easier to comply with since 
+    * privacy management is easier -- for example, "right to be forgotten" is easier to comply with since
         data is external, off-chain.
 * **Disadvantages**
     * indexing requires retrieving content @ uri
@@ -174,7 +177,7 @@ This is currently not the recommended solution, but is presented as a comparison
 | uri | uri of stored action information | bytes
 
 ### All data on chain
-One possibility is not to have any data stored off-chain; instead, even the ActivityPub content would be posted to chain. 
+One possibility is not to have any data stored off-chain; instead, even the ActivityPub content would be posted to chain.
 The disadvantages far outweigh the advantages:
 
 * **Advantages**

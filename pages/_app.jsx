@@ -57,7 +57,6 @@ export default function App(props) {
                         "Verified_Attributes": {
                           "Overview.md": true,
                         },
-                        "Future_Proposals.md": true,
                     },
                     "Reference": {
                         "glossary.md": true,
