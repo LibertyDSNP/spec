@@ -9,23 +9,31 @@ import { Image } from "@chakra-ui/react";
 ## Purpose
 1. Specify the Archivist message format
 
+## Assumptions
+* Chain messages are on Ethereum
+* Message data is posted via [Ethereum log events](https://medium.com/mycrypto/understanding-event-logs-on-the-ethereum-blockchain-f4ae7ba50378)
+* Signature algorithm is [secp256k1](https://en.bitcoin.it/wiki/Secp256k1). This allows the use `ecreover`
+to get public keys. A public key also need not be included in a log event for ease of validation.
+* content hashes are created via the same [keccak-256 hashing algorithm](https://en.wikipedia.org/wiki/SHA-3) used by Ethereum.
+
 ## Archive Entry
 An archive entry is a combination of data in a DSNP message and from the block in which it is included.
 It is a key-value map consisting of the following fields:
 
-|field|description|type|
-|---|---|---|
-| `author` | social identity of author of the content. | bytes |
-| `blockHeight` | the block number this message was included in | number |
-| `fromAddress`| social identity of message sender | bytes |
-| `logIndex` | the index within the logs of this message | number
-| `messageID` | keccak-256 hash of this data, minus the messageID |  bytes32
-| `dsnpType` | DSNP message type |number/enum. see [DSNP Message Types](/DSNP/DSNP-Message-Types) |
-| `dsnpData` | DSNP message data | see fields in [DSNP Messages](/DSNP/DSNP-Messages) |
-| `signatures` | list of additional signatures referencing this message | array of Signatures |
-| `transactionIndex` | the index of the transaction this message is associated with | number
+|field|description|type|required?|
+|---|---|---|---|
+| `author` | social identity of author of the content. | bytes | YES
+| `blockHeight` | the block number this message was included in | number | YES
+| `fromAddress`| social identity of message sender | bytes | YES
+| `logIndex` | the index within the logs of this message | number | YES
+| `messageID` | keccak-256 hash of this data, minus the messageID |  bytes3 | YES
+| `dsnpType` | DSNP message type |number/enum. see [DSNP Message Types](/DSNP/DSNP-Message-Types) | YES
+| `dsnpData` | DSNP message data | see fields in [DSNP Messages](/DSNP/DSNP-Messages) | YES
+| `signatures` | list of additional signatures referencing this message | array of Signatures | YES
+| `transactionIndex` | the index of the transaction this message is associated with | number | YES
 
-### DETAILS
+## FIELDS DETAILS
+
 ### `author`
 * bytes
 * The social identity of the composer of the message data. This may be the same as `fromAddress`, however, if the author is different, it means the message sender is a delegated sender of this message, authorized by `author`.  Validators may opt to verify that the sender is authorized, however, this will be enforced by the social identity contract.
@@ -33,6 +41,14 @@ It is a key-value map consisting of the following fields:
 ### `blockHeight`
 * number
 * The block in which this DSNP Message is included.
+
+### `dsnpType`
+   * number
+   * Indicates what type of message this is, useful for indexers and filters.
+
+### `dsnpData`
+   * varies
+   * This can be encrypted, and/or serialized, and compressed where feasible.  The decrypted, fully deserialzed version must be one of the types described in [DSNP Messages](/DSNP/DSNP-Messages).
 
 ### `fromAddress`
 * bytes
@@ -45,14 +61,6 @@ It is a key-value map consisting of the following fields:
 ### `messageID`
 * bytes32
 * The keccak-256 hash of all of this data in a keccak-256 hash with the messageID field being blank. In other words, produce the hash with messageID set to 0-length bytes, then set messageID to the result.
-
-### `dsnpType`
-   * number
-   * Indicates what type of message this is, useful for indexers and filters.
-
-### `dsnpData`
-   * varies
-   * This can be encrypted, and/or serialized, and compressed where feasible.  The decrypted, fully deserialzed version must be one of the types described in [DSNP Messages](/DSNP/DSNP-Messages).
 
 ### `signatures`
    * array
@@ -70,14 +78,12 @@ A _Batch_ is data that is referenced by a Batch Announcement.
 | messageID | keccak-256 hash of content stored at uri |  bytes32
 | fromAddress| social identity of batch announcer,i.e. message sender | bytes |
 | signature | announcer's signature | Signature |
+| uri | the location of this archive | bytes |
+| archiveData| a set of ArchiveEntries | map`[ArchiveEntry]`|
 
-*  List of Validated Announcements
-    * announcementID  = Keccak256 hash of the content found at uri →
-        * Announcement archival data
-        * ServiceNodeID-1 -> signature, result
-        * ServiceNodeID-2 -> signature, result
-        * …
-        * ServiceNodeID-N -> signature, result
+the set of ArchiveEntries is intended to be key-value map, with the key
+being the _messageID_ i.e., the same as that in the ArchiveEntry itself.
+
 
 ## Archive Segment
 An archive segment is a clump of data that is archived. It consists of a map of messageIDs pointing to either:
