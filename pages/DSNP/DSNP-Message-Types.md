@@ -19,18 +19,18 @@
 
 | name     | route | description | value |
 |-------   |-------------|-------------| ----|
-| Private | Personal Id | message and message type are private; message data is encrypted | 0 |
-| GraphChange | Personal Id | follow or unfollow an account | 1 |
-| Broadcast | Sender's Id | a public post | 2 |
-| Reply | Message Id | a public reply | 3 |
-| Profile | Sender's Id | a Profile change | 4 |
-| KeyList | Personal Id | KeyList rotation | 5 |
-| PrivateGraphKeylist | Personal Id | PrivateGraph keylist rotation | 6 |
-| EncryptionKeyList | Personal Id | Encryption keyList rotation | 7 |
-| Reaction | Message Id | a public visual reply to a Broadcast | 8 |
-| PrivateGraphChange | Personal Id | an encrypted follow or unfollow | 9 |
-| Drop | Dead Drop Id | a dead drop message | 10 |
-| EncryptedInbox | Receiver's Id | an encrypted direct message | 11 |
+| Private | Personal Route ID | message and message type are private; message data is encrypted | 0 |
+| GraphChange | Personal Route ID | follow or unfollow an account | 1 |
+| Broadcast | Sender's ID | a public post | 2 |
+| Reply | Message ID | a public reply | 3 |
+| Profile | Sender's ID | a Profile change | 4 |
+| KeyList | Personal Route ID | KeyList rotation | 5 |
+| PrivateGraphKeylist | Personal Route ID | PrivateGraph keylist rotation | 6 |
+| EncryptionKeyList | Personal Route ID | Encryption keyList rotation | 7 |
+| Reaction | Message ID | a public visual reply to a Broadcast | 8 |
+| PrivateGraphChange | Personal Route ID | an encrypted follow or unfollow | 9 |
+| Drop | Dead Drop ID | a dead drop message | 10 |
+| EncryptedInbox | Receiver's ID | an encrypted direct message | 11 |
 | PrivateBroadcast | TBD | an encrypted broadcast | 12 |
 
 ## Private Messages
