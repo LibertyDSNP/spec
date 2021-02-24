@@ -2,6 +2,8 @@
 name: Archives
 ---
 
+# Archives
+
 This spec is intended to describe the archival process.
 
 ## Specification Status
@@ -12,6 +14,12 @@ This spec is intended to describe the archival process.
 
 ## Purpose
 
+TBD
+
 ## Assumptions
 
+TBD
+
 ## Details
+
+TBD

@@ -2,6 +2,8 @@
 name: Message Serialization
 ---
 
+# Message Serialization
+
 ## Specification Status
 
 | Version | Status |

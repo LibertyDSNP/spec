@@ -2,6 +2,8 @@
 name: Messages
 ---
 
+# Messages Overview
+
 ## Specification Status
 
 | Version | Status |

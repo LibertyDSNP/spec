@@ -2,6 +2,8 @@
 name: Message Types
 ---
 
+# Message Types
+
 ## Specification Status
 
 | Version | Status |

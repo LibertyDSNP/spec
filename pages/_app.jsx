@@ -30,17 +30,9 @@ export default function App(props) {
                 ]}
                 sidebarOrdering={{
                     "index.md": true,
-                    "Preface": {
-                      "Introduction.md": true,
-                      "How_to_Read_This_Spec.md": true,
-                      "Community.md": true,
-                    },
                     "DSNP": {
-                        "Overview.md": true,
+                        "Implementation_Status.md": true,
                         "Identity": {
-                          "Overview.md": true,
-                        },
-                        "Keys": {
                           "Overview.md": true,
                         },
                         "Graph": {
@@ -54,9 +46,10 @@ export default function App(props) {
                         "Archives": {
                           "Overview.md": true,
                         },
-                        "Verified_Attributes": {
-                          "Overview.md": true,
-                        },
+                        "Future Proposals": {
+                          "Keys": true,
+                          "Verified_Attributes": true,
+                        }
                     },
                     "Reference": {
                         "glossary.md": true,

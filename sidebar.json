@@ -22,6 +22,28 @@
                     "type": "directory"
                 },
                 {
+                    "path": "pages/DSNP/Future_Proposals",
+                    "name": "Future_Proposals",
+                    "children": [
+                        {
+                            "path": "pages/DSNP/Future_Proposals/Keys.md",
+                            "name": "Keys.md",
+                            "meta": {},
+                            "title": "Keys",
+                            "url": "/DSNP/Future_Proposals/Keys"
+                        },
+                        {
+                            "path": "pages/DSNP/Future_Proposals/Verified_Attributes.md",
+                            "name": "Verified_Attributes.md",
+                            "meta": {},
+                            "title": "Verified Attributes",
+                            "url": "/DSNP/Future_Proposals/Verified_Attributes"
+                        }
+                    ],
+                    "size": null,
+                    "type": "directory"
+                },
+                {
                     "path": "pages/DSNP/Graph",
                     "name": "Graph",
                     "children": [
@@ -52,19 +74,11 @@
                     "type": "directory"
                 },
                 {
-                    "path": "pages/DSNP/Keys",
-                    "name": "Keys",
-                    "children": [
-                        {
-                            "path": "pages/DSNP/Keys/Overview.md",
-                            "name": "Overview.md",
-                            "meta": {},
-                            "title": "Keys",
-                            "url": "/DSNP/Keys/Overview"
-                        }
-                    ],
-                    "size": null,
-                    "type": "directory"
+                    "path": "pages/DSNP/Implementation_Status.md",
+                    "name": "Implementation_Status.md",
+                    "meta": {},
+                    "title": "Implementation Status",
+                    "url": "/DSNP/Implementation_Status"
                 },
                 {
                     "path": "pages/DSNP/Messages",
@@ -94,57 +108,6 @@
                     ],
                     "size": null,
                     "type": "directory"
-                },
-                {
-                    "path": "pages/DSNP/Verified_Attributes",
-                    "name": "Verified_Attributes",
-                    "children": [
-                        {
-                            "path": "pages/DSNP/Verified_Attributes/Overview.md",
-                            "name": "Overview.md",
-                            "meta": {},
-                            "title": "Verified Attributes",
-                            "url": "/DSNP/Verified_Attributes/Overview"
-                        }
-                    ],
-                    "size": null,
-                    "type": "directory"
-                },
-                {
-                    "path": "pages/DSNP/overview.md",
-                    "name": "overview.md",
-                    "meta": {},
-                    "title": "Overview",
-                    "url": "/DSNP/overview"
-                }
-            ],
-            "size": null,
-            "type": "directory"
-        },
-        {
-            "path": "pages/Preface",
-            "name": "Preface",
-            "children": [
-                {
-                    "path": "pages/Preface/Community.md",
-                    "name": "Community.md",
-                    "meta": {},
-                    "title": "Community",
-                    "url": "/Preface/Community"
-                },
-                {
-                    "path": "pages/Preface/How_to_Read_This_Spec.md",
-                    "name": "How_to_Read_This_Spec.md",
-                    "meta": {},
-                    "title": "How to Read This Spec",
-                    "url": "/Preface/How_to_Read_This_Spec"
-                },
-                {
-                    "path": "pages/Preface/Introduction.md",
-                    "name": "Introduction.md",
-                    "meta": {},
-                    "title": "Introduction",
-                    "url": "/Preface/Introduction"
                 }
             ],
             "size": null,
@@ -169,7 +132,7 @@
             "path": "pages/index.md",
             "name": "index.md",
             "meta": {},
-            "title": "Welcome",
+            "title": "Introduction",
             "url": "/"
         }
     ],
