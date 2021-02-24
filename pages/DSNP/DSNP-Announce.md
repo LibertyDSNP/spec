@@ -33,7 +33,7 @@ interface DSNPAnnounce {
 |-------|-------------|------|
 | dsnpRoute | Route target | bytes32 indexed |
 | dsnpType | Enum from [DSNP Message Types](/DSNP/DSNP-Message-Types) | unit16 |
-| data | Matching serialized data from [DSNP Messages](/DSNP/DSNP-Messages) | bytes |
+| dsnpData | Matching serialized data from [DSNP Messages](/DSNP/DSNP-Messages) | bytes |
 
 ### DSNP Route Field
 
