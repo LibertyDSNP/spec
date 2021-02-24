@@ -25,13 +25,13 @@ The DSNPMmessage event is a standard event topic to be used for all DSNP Message
 
 ```solidity
 interface DSNPAnnounce {
-    event DSNPMessage(address from, uint16 dsnpType, bytes32 data);
+    event DSNPMessage(address dnspFrom, uint16 dsnpType, bytes[] dnspData);
 }
 ```
 
 | field | description | type |
 |-------|-------------|------|
-| from | Social Identity From Address | address / uint160 / bytes20 |
+| dnspFrom | Social Identity From Address | address / uint160 / bytes20 |
 | dsnpType | Enum from [DSNP Message Types](/DSNP/DSNP-Message-Types) | unit16 |
 | data | Matching serialized data from [DSNP Messages](/DSNP/DSNP-Messages) | bytes |
 
