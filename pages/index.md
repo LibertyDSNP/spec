@@ -2,15 +2,8 @@
 name: Welcome
 ---
 
-1. Overview
-  - What is the Liberty Protocol
-  - What are the high-level components
-  - What are our goals
-1. How to Read Spec
-  - Basic layout
-  - Disclaimers (i.e. this document is a work in progress)
-  - Searching
-1. Community
-  - What is the Unfinished Foundation
-  - How to find help (Discourse Forum, GitHub Issues, etc)
-  - How to contribute (GitHub)
+# Welcome
+
+Welcome to the Liberty Protocol specification!
+Here you can find a detailed documentation regarding the current state of the protocol, previous iterations and proposals for future extensions.
+**At this time, the protocol specification is still very much a work in progress and the information within is subject to frequent changes.**

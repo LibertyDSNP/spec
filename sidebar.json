@@ -14,7 +14,7 @@
                             "path": "pages/DSNP/Archives/Overview.md",
                             "name": "Overview.md",
                             "meta": {},
-                            "title": "Overview",
+                            "title": "Archives",
                             "url": "/DSNP/Archives/Overview"
                         }
                     ],
@@ -29,7 +29,7 @@
                             "path": "pages/DSNP/Graph/Overview.md",
                             "name": "Overview.md",
                             "meta": {},
-                            "title": "Overview",
+                            "title": "Graph",
                             "url": "/DSNP/Graph/Overview"
                         }
                     ],
@@ -44,7 +44,7 @@
                             "path": "pages/DSNP/Identity/Overview.md",
                             "name": "Overview.md",
                             "meta": {},
-                            "title": "Overview",
+                            "title": "Identity",
                             "url": "/DSNP/Identity/Overview"
                         }
                     ],
@@ -59,7 +59,7 @@
                             "path": "pages/DSNP/Keys/Overview.md",
                             "name": "Overview.md",
                             "meta": {},
-                            "title": "Overview",
+                            "title": "Keys",
                             "url": "/DSNP/Keys/Overview"
                         }
                     ],
@@ -74,33 +74,26 @@
                             "path": "pages/DSNP/Messages/Overview.md",
                             "name": "Overview.md",
                             "meta": {},
-                            "title": "Overview",
+                            "title": "Messages",
                             "url": "/DSNP/Messages/Overview"
                         },
                         {
                             "path": "pages/DSNP/Messages/Serialization.md",
                             "name": "Serialization.md",
                             "meta": {},
-                            "title": "Serialization",
+                            "title": "Message Serialization",
                             "url": "/DSNP/Messages/Serialization"
                         },
                         {
                             "path": "pages/DSNP/Messages/Types.md",
                             "name": "Types.md",
                             "meta": {},
-                            "title": "Types",
+                            "title": "Message Types",
                             "url": "/DSNP/Messages/Types"
                         }
                     ],
                     "size": null,
                     "type": "directory"
-                },
-                {
-                    "path": "pages/DSNP/Overview.md",
-                    "name": "Overview.md",
-                    "meta": {},
-                    "title": "Overview",
-                    "url": "/DSNP/Overview"
                 },
                 {
                     "path": "pages/DSNP/Verified_Attributes",
@@ -110,7 +103,7 @@
                             "path": "pages/DSNP/Verified_Attributes/Overview.md",
                             "name": "Overview.md",
                             "meta": {},
-                            "title": "Overview",
+                            "title": "Verified Attributes",
                             "url": "/DSNP/Verified_Attributes/Overview"
                         }
                     ],
@@ -118,11 +111,11 @@
                     "type": "directory"
                 },
                 {
-                    "path": "pages/DSNP/Future_Proposals.md",
-                    "name": "Future_Proposals.md",
+                    "path": "pages/DSNP/overview.md",
+                    "name": "overview.md",
                     "meta": {},
-                    "title": "Future Proposals",
-                    "url": "/DSNP/Future_Proposals"
+                    "title": "Overview",
+                    "url": "/DSNP/overview"
                 }
             ],
             "size": null,
