@@ -67,7 +67,7 @@ The id of a message the new message is related to.
 Used for replies, reactions, and other message related metadata.
 If you want to gather additional messages about a message you are showing, look for this route.
 
-#### Route Field Example: Personal Id
+#### Route Field Example: Personal Route Id
 
 Messages that are for a user and their applications only.
 Usually contains encrypted data.
