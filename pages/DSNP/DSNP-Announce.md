@@ -31,7 +31,7 @@ interface DSNPAnnounce {
 
 | field | description | type |
 |-------|-------------|------|
-| dnspFrom | Social Identity From Address | address / uint160 / bytes20 |
+| dnspFrom | Social Identity From Address | address |
 | dsnpType | Enum from [DSNP Message Types](/DSNP/DSNP-Message-Types) | unit16 |
 | data | Matching serialized data from [DSNP Messages](/DSNP/DSNP-Messages) | bytes |
 
@@ -39,7 +39,7 @@ interface DSNPAnnounce {
 
 The event topic for DSNPMessage follows the standard Solidity event name to hash standard.
 ```
-0x98aa3317938b163d794c4cf04dce050dbf5b96a939a7387b4b7c38f3cafcbf06 = keccak-256("DSNPMessage(from,uint16,bytes32)")
+0xd4248342bca04dd21d5e78bc87bf14992ef919be52514fc229e12a9977949cb9 = keccak-256("DSNPMessage(address,uint16,bytes32)")
 ```
 
 ### Announce Requirements
