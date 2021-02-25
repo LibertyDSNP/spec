@@ -1,4 +1,9 @@
-# DSNP Message Types
+---
+name: Message Types
+---
+
+# Message Types
+
 ## Specification Status
 
 | Version | Status |
@@ -7,7 +12,7 @@
 
 ## Purpose
 1. List valid message types and their [DSNP Message](/DSNP/DSNP-Messages) type assigned enumeration
-1. Facilitate use of SDK 
+1. Facilitate use of SDK
 1. Facilitate interpretation of on-chain data and message results
 1. Estimate data size
 
@@ -36,5 +41,5 @@
 If it's not desired to specify a message type, use the `Private` value as the message type.
 
 Note that a Drop, i.e. a dead drop message cannot be made private with this message, since the dead drop ID, which is a necessary shared secret for decryption, would not be available.
-                                                 
+
 See [DSNP Message Serialization](/DSNP/DSNP-Message-Serialization) for more detail

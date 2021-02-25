@@ -1,4 +1,9 @@
-# DSNP Message Serialization
+---
+name: Message Serialization
+---
+
+# Message Serialization
+
 ## Specification Status
 
 | Version | Status |
@@ -60,7 +65,7 @@ Rather than using one of the private/encrypted DSNP message types, instead wrap 
 }
 ```
 
-The messageID here is the keccak-256 hash of what is supposed to be at `uri`, for validation purposes. 
+The messageID here is the keccak-256 hash of what is supposed to be at `uri`, for validation purposes.
 
 This JSON object would then be compressed and encrypted, then added to a Private type DSNP message. The hash supplied for the actual DSNP message is the hash of the encrypted compressed data.
 
@@ -71,7 +76,7 @@ The DSNP message object would look something like this:
   "messageID": "0x4dda635953920eb0b1e3725a084fce713458bcfd9d75bf43bfbb96443680628c",
   "dsnpData": "GyA5NTRM34AqyNc/bK9YAoLGBVFMac4FR92xtxyK1SacVg6lICgZ82uSXAYcHHrkfDN+douVwQDVtAkbABHg0g=="
 }
-``` 
+```
 
 The messageID in the Private message is the hash of the dsnpData field.
 
@@ -80,6 +85,6 @@ Thus the decrypted message data is nothing more than a Profile message wrapped i
 **NOTE:** Dead drop messages (Drop), cannot be made private this way. The dead drop ID, which is a necessary shared secret for decryption, would not be available.
 
 ### Hash validity
-Where ever there is a messageID, as stated earlier it means a keccak-256 hash of the content at the referenced URI. This hash cannot be checked at the contract level for validity, in the sense of being actually the hash of the uri content, however it is not allowed to be either zero length or 256 zeroes. 
+Where ever there is a messageID, as stated earlier it means a keccak-256 hash of the content at the referenced URI. This hash cannot be checked at the contract level for validity, in the sense of being actually the hash of the uri content, however it is not allowed to be either zero length or 256 zeroes.
 
 The one exception would be if is decided that Replies are separate types from other Broadcast messages; in such case an "original post" is one that has a "zero hash" for its inReplyTo field.

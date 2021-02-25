@@ -29,9 +29,30 @@ export default function App(props) {
                     <ColorModeSwitch key="1" />,
                 ]}
                 sidebarOrdering={{
-                    "index.mdx": true,
-                    Documents_Group: {
-                        "another.mdx": true,
+                    "index.md": true,
+                    "DSNP": {
+                        "Implementation_Status.md": true,
+                        "Identity": {
+                          "Overview.md": true,
+                        },
+                        "Graph": {
+                          "Overview.md": true,
+                        },
+                        "Messages": {
+                          "Overview.md": true,
+                          "Serialization.md": true,
+                          "Types.md": true,
+                        },
+                        "Archives": {
+                          "Overview.md": true,
+                        },
+                        "Future Proposals": {
+                          "Keys": true,
+                          "Verified_Attributes": true,
+                        }
+                    },
+                    "Reference": {
+                        "glossary.md": true,
                     },
                 }}
             >
