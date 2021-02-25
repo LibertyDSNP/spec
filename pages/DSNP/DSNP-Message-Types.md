@@ -17,7 +17,7 @@
 * Message types are preset, but the DSNP Message contract will be upgradeable to allow more types.
 * Message type values outside the contract presets are invalid
 
-| name     | route | description | value |
+| name     | dsnpRoute | description | value |
 |-------   |-------------|-------------| ----|
 | Private | Personal Route ID | message and message type are private; message data is encrypted | 0 |
 | GraphChange | Personal Route ID | follow or unfollow an account | 1 |
@@ -31,7 +31,7 @@
 | PrivateGraphChange | Personal Route ID | an encrypted follow or unfollow | 9 |
 | Drop | Dead Drop ID | a dead drop message | 10 |
 | EncryptedInbox | Receiver's ID | an encrypted direct message | 11 |
-| PrivateBroadcast | TBD | an encrypted broadcast | 12 |
+| PrivateBroadcast | Sender's ID | an encrypted broadcast | 12 |
 
 ## Private Messages
 If it's not desired to specify a message type, use the `Private` value as the message type.

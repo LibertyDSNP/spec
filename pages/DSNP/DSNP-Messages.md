@@ -60,18 +60,24 @@ For details on how messages are serialized, see [DSNP Message Serialization](/DS
 #### Broadcast
 a public post (was Announcement)
 
-| field     | description | type |
-|-------    |-------------| ----|
-| dnspRoute (fromAddress) | id of the sender | bytes20
+| dsnpRoute description
+|---
+| ID of the sender
+
+| dsnpData field | description | type |
+| ------------- |------------- | ---- |
 | messageID | keccak-256 hash of content stored at uri |  bytes32
 | uri       | content uri | bytes
 
 #### Reply
 a public reply post
 
-| field     | description | type |
-|-------    |-------------| ----|
-| dnspRoute (inReplyTo) | messageID replied to | bytes32
+| dsnpRoute description
+|---
+| messageID that the reply references
+
+| dsnpData field | description | type |
+| ------------- |------------- | ---- |
 | messageID | keccak-256 hash of content stored at uri |  bytes32
 | fromAddress | sender's identity | bytes20
 | uri       | content uri | bytes
@@ -80,53 +86,75 @@ a public reply post
 #### Drop
 a dead drop message
 
-| field | description | type
-|-------|-------------| ---|
-| dnspRoute (ddid) | dead drop id |  bytes20
+| dsnpRoute description
+|---
+| **dsnpRoute**: The Dead Drop ID (See [DeadDrops](TBD))
+
+
+| dsnpData field | description | type |
+| ------------- |------------- | ---- |
 | uri  | content uri  |  bytes
 | messageID | keccak-256 hash of content |  bytes32
 
 #### GraphChange 
 a public follow/unfollow
 
-| field | description | type
-|-------|-------------| ---|
-| dnspRoute (personalID) | personal id of the sender | bytes20
+| dsnpRoute description
+|---
+| personal ID of the sender
+
+| dsnpData field | description | type |
+| ------------- |------------- | ---- |
 |actionType | follow/unfollow| number/enum
 
 #### KeyList, PrivateGraphKeyList, EncryptionKeyList
 
 a keylist rotation
 
-| field | description | type
-|-------|-------------| ---|
-| dnspRoute (personalID) | personal id of the sender | bytes20
+| dsnpRoute description
+|---
+| personal ID of the sender
+
+| dsnpData field | description | type |
+| ------------- |------------- | ---- |
 |keylist | new list of valid keys | [bytes]
 
 #### Inbox
 a direct message
 
-| field | description | type
-|-------|-------------| ---|
-| dnspRoute (recipientID) | id of the recipient | bytes20 
+| dsnpRoute description
+|---
+| ID of the intended recipient
+
+| dsnpData field | description | type |
+| ------------- |------------- | ---- |
+| fromAddress | id of the sender | bytes20
 |messageID | keccak-256 hash of content | bytes32
 |uri  | content uri  | bytes
 
 #### EncryptedInbox
 an encrypted direct message.  This describes the format once decrypted.  Possibly combine both of these and expect that all Inbox messages are encrypted.
 
-| field | description | type
-|-------|-------------| ---|
-| dnspRoute (recipientID) | id of the recipient | bytes20
+| dsnpRoute description
+|---
+| ID of the intended recipient
+
+| dsnpData field | description | type |
+| ------------- |------------- | ---- |
+| fromAddress | id of the sender | bytes20
 |messageID | keccak-256 hash of content | bytes32
 |uri  | content uri  | bytes
 
 #### Reaction
 a visual reply to a post
 
-| field | description | type
-|-------|-------------| ---|
-|dnspRoute (inReplyTo) | messageID the reaction is for |  bytes32
+| dsnpRoute description
+|---
+| messageID that the reply references
+
+| dsnpData field | description | type |
+| ------------- |------------- | ---- |
+| fromAddress | id of the sender | bytes20
 |emoji | the encoded reaction  | number / utf-8 bytes
 
 ### Possible Message Types
@@ -134,34 +162,39 @@ a visual reply to a post
 #### Profile
 a profile update such as name or icon change
 
-| field | description | type
-|-------|-------------| ---|
-| dnspRoute (fromAddress) | id of the sender | bytes20
+| dsnpRoute description
+|---
+| ID of the sender
+
+| dsnpData field | description | type |
+| ------------- |------------- | ---- |
 |uri    | uri for the profile data  |bytes
 | messageID |  keccak-256 hash of content at uri | bytes32
-
 
 #### Private
 An encrypted message of unknown type. See [DSNP Message Types: Private Messages](/DSNP/DSNP-Message-Types#private-messages) for details.
 
-| field | description | type
-|-------|-------------| ---|
-| dnspRoute (personalID) | personal id of the sender | bytes20
+| dsnpRoute description
+|---
+| personal ID of the sender
+
+| dsnpData field | description | type |
+| ------------- |------------- | ---- |
 | data | encrypted graph change data | bytes
 | messageID | keccak-256 hash of unencrypted content | bytes32
 
 #### PrivateBroadcast
 An encrypted Broadcast decipherable by specific accounts . This describes the format once decrypted.
 
-| field     | description | type |
-|-------    |-------------| ----|
-| dnspRoute (fromAddress) | id of the sender | bytes20
+| dsnpRoute description
+|---
+| ID of the sender
+
+| dsnpData field | description | type |
+| ------------- |------------- | ---- |
 | inReplyTo | messageID replied to | bytes32
 | messageID      | keccak-256 hash of content stored at URI |  bytes32
 | uri       | content uri | bytes
-
-#### Reply
-This is a message type that would allow a Broadcast to drop the `inReplyTo` field.  In such case a Reply is exactly like Broadcast above, but `inReplyTo` is not allowed to be blank.
 
 
 ### Unified Message Format
