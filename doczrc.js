@@ -1,6 +1,5 @@
 export default {
   typescript: true,
-  files: "pages/**/*.md",
   ignore: ["CODEOFCONDUCT.md", "LICENSE.md", "README.md"],
   menu: [
     "Introduction",
