@@ -22,21 +22,20 @@ name: Message Types
 * Message types are preset, but the DSNP Message contract will be upgradeable to allow more types.
 * Message type values outside the contract presets are invalid
 
-| name     | dsnpRoute | description | value |
-|-------   |-------------|-------------| ----|
-| Private | Personal Route ID | message and message type are private; message data is encrypted | 0 |
-| GraphChange | Personal Route ID | follow or unfollow an account | 1 |
-| Broadcast | Sender's ID | a public post | 2 |
-| Reply | Message ID | a public reply | 3 |
-| Profile | Sender's ID | a Profile change | 4 |
-| KeyList | Personal Route ID | KeyList rotation | 5 |
-| PrivateGraphKeylist | Personal Route ID | PrivateGraph keylist rotation | 6 |
-| EncryptionKeyList | Personal Route ID | Encryption keyList rotation | 7 |
-| Reaction | Message ID | a public visual reply to a Broadcast | 8 |
-| PrivateGraphChange | Personal Route ID | an encrypted follow or unfollow | 9 |
-| Drop | Dead Drop ID | a dead drop message | 10 |
-| EncryptedInbox | Receiver's ID | an encrypted direct message | 11 |
-| PrivateBroadcast | Sender's ID | an encrypted broadcast | 12 |
+| name     | description | value |
+|-------   |-------------| ----|
+| Private | message and message type are private; message data is encrypted | 0 |
+| GraphChange | follow or unfollow an account | 1 |
+| Broadcast | a public post or reply | 2 |
+| Profile | a Profile change | 3 |
+| KeyList | KeyList rotation | 4 |
+| PrivateGraphKeylist | PrivateGraph keylist rotation | 5 |
+| EncryptionKeyList | Encryption keyList rotation | 6 |
+| Reaction | a public visual reply to a Broadcast | 7 |
+| PrivateGraphChange | an encrypted follow or unfollow | 8
+| Drop | a dead drop message | 9
+| EncryptedInbox | an encrypted direct message | 10
+| PrivateBroadcast | an encrypted broadcast | 11
 
 ## Private Messages
 If it's not desired to specify a message type, use the `Private` value as the message type.
