@@ -111,10 +111,6 @@ a keylist rotation
 #### Inbox
 a direct message
 
-| dsnpRoute description
-|---
-| ID of the intended recipient
-
 | dsnpData field | description | type |
 | ------------- |------------- | ---- |
 | toAddress | ID of the recipient | bytes20
