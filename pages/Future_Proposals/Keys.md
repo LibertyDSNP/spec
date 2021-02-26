@@ -1,5 +1,7 @@
 ---
 name: Keys
+route: /Future_Proposals/Keys
+menu: "Future Proposals"
 ---
 
 # Keys

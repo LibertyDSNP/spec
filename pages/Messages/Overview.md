@@ -1,5 +1,7 @@
 ---
 name: Overview
+route: /Messages/Overview
+menu: Messages
 ---
 
 # Messages Overview
