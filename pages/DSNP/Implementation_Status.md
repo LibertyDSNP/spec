@@ -11,5 +11,5 @@ Component | Description                                                | Status
 ----------|------------------------------------------------------------|--------
 Identity  | Specification regarding the representation of users        | Draft
 Graph     | Specification regarding relationships between users        | Draft
-Messages  | Specification regarding content posted on the protocol     | Draft
-Archives  | Specification regarding long term storage of data          | Draft
+Messages  | Specification regarding content posted on the protocol     | Tentative
+Archives  | Specification regarding long term storage of data          | Tentative

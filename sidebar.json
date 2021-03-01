@@ -7,6 +7,13 @@
             "name": "Archivists",
             "children": [
                 {
+                    "path": "pages/Archivists/Format.mdx",
+                    "name": "Format.mdx",
+                    "meta": {},
+                    "title": "Format",
+                    "url": "/Archivists/Format"
+                },
+                {
                     "path": "pages/Archivists/Overview.md",
                     "name": "Overview.md",
                     "meta": {},
@@ -21,28 +28,6 @@
             "path": "pages/DSNP",
             "name": "DSNP",
             "children": [
-                {
-                    "path": "pages/DSNP/Archives",
-                    "name": "Archives",
-                    "children": [
-                        {
-                            "path": "pages/DSNP/Archives/Messages.mdx",
-                            "name": "Messages.mdx",
-                            "meta": {},
-                            "title": "Messages",
-                            "url": "/DSNP/Archives/Messages"
-                        },
-                        {
-                            "path": "pages/DSNP/Archives/Overview.md",
-                            "name": "Overview.md",
-                            "meta": {},
-                            "title": "Overview",
-                            "url": "/DSNP/Archives/Overview"
-                        }
-                    ],
-                    "size": null,
-                    "type": "directory"
-                },
                 {
                     "path": "pages/DSNP/Future_Proposals",
                     "name": "Future_Proposals",
@@ -117,21 +102,21 @@
                             "path": "pages/DSNP/Messages/Overview.mdx",
                             "name": "Overview.mdx",
                             "meta": {},
-                            "title": "Messages",
+                            "title": "Overview",
                             "url": "/DSNP/Messages/Overview"
                         },
                         {
                             "path": "pages/DSNP/Messages/Serialization.md",
                             "name": "Serialization.md",
                             "meta": {},
-                            "title": "Message Serialization",
+                            "title": "Serialization",
                             "url": "/DSNP/Messages/Serialization"
                         },
                         {
                             "path": "pages/DSNP/Messages/Types.md",
                             "name": "Types.md",
                             "meta": {},
-                            "title": "Message Types",
+                            "title": "Types",
                             "url": "/DSNP/Messages/Types"
                         }
                     ],
