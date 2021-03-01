@@ -48,8 +48,7 @@ This is what would be posted as a Log event in Ethereum:
 
 | field | description | type |
 |-------|-------------|------|
-| topic | Ethereum log topic | bytes|
-| fromAddress | social identity |bytes |
+| topic | Ethereum log topic | bytes32 |
 | dsnpType | DSNP message type |number/enum |
 | dsnpData | serialized, possibly compressed message data| bytes |
 
@@ -65,94 +64,112 @@ For details on how messages are serialized, see [DSNP Message Serialization](/DS
 #### Broadcast
 a public post (was Announcement)
 
-| field     | description | type |
-|-------    |-------------| ----|
-| inReplyTo | messageID replied to | bytes32
+| dsnpData field | description | type |
+| ------------- |------------- | ---- |
+| fromAddress | ID of the sender | bytes20
 | messageID | keccak-256 hash of content stored at uri |  bytes32
-| uri       | content uri | bytes
+| uri       | content uri | bytes[]
 
 
-**NOTE** If origin broadcasts and replies stay the same type, inReplyTo is allowed to be blank.  If replies are separated into their own type, the inReplyTo field here will be dropped.
+#### Reply
+a public reply post
+
+| dsnpData field | description | type |
+| ------------- |------------- | ---- |
+| inReplyTo | ID of the message the reply references |  bytes32
+| messageID | keccak-256 hash of content stored at uri |  bytes32
+| fromAddress | ID of the sender | bytes20
+| uri       | content uri | bytes[]
+ 
 
 #### Drop
 a dead drop message
 
-| field | description | type
-|-------|-------------| ---|
-| ddid | dead drop id |  bytes
-| uri  | content uri  |  bytes
+| dsnpData field | description | type |
+| ------------- |------------- | ---- |
+| deadDropID | The Dead Drop ID (See [DeadDrops](TBD) | bytes32
+| uri  | content uri  |  bytes[]
 | messageID | keccak-256 hash of content |  bytes32
 
 #### GraphChange
 a public follow/unfollow
 
-| field | description | type
-|-------|-------------| ---|
-|address  | social identity|  bytes
-|actionType | follow/unfollow| number/enum
+| dsnpData field | description | type |
+| ------------- |------------- | ---- |
+| fromAddress | ID of the sender | bytes20
+| actionType | follow/unfollow| number/enum
 
 #### KeyList, PrivateGraphKeyList, EncryptionKeyList
 
 a keylist rotation
 
-| field | description | type
-|-------|-------------| ---|
-|keylist | new list of valid keys | [bytes]
+| dsnpData field | description | type |
+| ------------- |------------- | ---- |
+| fromAddress | ID of the sender | bytes20
+| keylist | new list of valid keys | bytes[]
 
 #### Inbox
 a direct message
 
-| field | description | type
-|-------|-------------| ---|
-|messageID | keccak-256 hash of content | bytes32
-|uri  | content uri  | bytes
+| dsnpData field | description | type |
+| ------------- |------------- | ---- |
+| toAddress | ID of the recipient | bytes20
+| fromAddress | id of the sender | bytes20
+| messageID | keccak-256 hash of content | bytes32
+| uri  | content uri  | bytes[]
 
 #### EncryptedInbox
-an encrypted direct message.  This describes the format once decrypted.  Possibly combine both of these and expect that all Inbox messages are encrypted.
+an encrypted direct message.
+This describes the format once decrypted.
+Possibly combine both of these and expect that all Inbox messages are encrypted.
 
-| field | description | type
-|-------|-------------| ---|
-|messageID | keccak-256 hash of content | bytes32
-|uri  | content uri  | bytes
+| dsnpData field | description | type |
+| ------------- |------------- | ---- |
+| toAddress | ID of the recipient | bytes20
+| fromAddress | ID of the sender | bytes20
+| messageID | keccak-256 hash of content | bytes32
+| uri  | content uri  | bytes[]
 
 #### Reaction
 a visual reply to a post
 
-| field | description | type
-|-------|-------------| ---|
-|emoji | the encoded reaction  | number
-|inReplyTo | messageID the reaction is for |  bytes32
+| dsnpData field | description | type |
+| ------------- |------------- | ---- |
+| inReplyTo | ID of the message the reaction references |  bytes32
+| fromAddress | id of the sender | bytes20
+| emoji | the encoded reaction  | number / utf-8 bytes[]
 
 ### Possible Message Types
 
 #### Profile
 a profile update such as name or icon change
 
-| field | description | type
-|-------|-------------| ---|
-|uri    | uri for the profile data  |bytes
+| dsnpData field | description | type |
+| ------------- |------------- | ---- |
+| fromAddress | id of the sender | bytes20
+| uri    | uri for the profile data  |bytes[]
 | messageID |  keccak-256 hash of content at uri | bytes32
 
-
 #### Private
-An encrypted message of unknown type. See [DSNP Message Types: Private Messages](/DSNP/DSNP-Message-Types#private-messages) for details.
+An encrypted message of unknown type.
+See [DSNP Message Types: Private Messages](/DSNP/DSNP-Message-Types#private-messages) for details.
 
-| field | description | type
-|-------|-------------| ---|
-| data | encrypted graph change data | bytes
+| dsnpData field | description | type |
+| ------------- |------------- | ---- |
+| fromAddress | id of the sender | bytes20
+| data | encrypted graph change data | bytes[]
 | messageID | keccak-256 hash of unencrypted content | bytes32
 
 #### PrivateBroadcast
-An encrypted Broadcast decipherable by specific accounts . This describes the format once decrypted.
+An encrypted Broadcast decipherable by specific accounts.
+This describes the format once decrypted.
 
-| field     | description | type |
-|-------    |-------------| ----|
-| inReplyTo | messageID replied to | bytes32
+| dsnpData field | description | type |
+| ------------- |------------- | ---- |
+| fromAddress | id of the sender | bytes20
+| inReplyTo | ID of the message the broadcast references |  bytes32
 | messageID      | keccak-256 hash of content stored at URI |  bytes32
-| uri       | content uri | bytes
-
-#### Reply
-This is a message type that would allow a Broadcast to drop the `inReplyTo` field.  In such case a Reply is exactly like Broadcast above, but `inReplyTo` is not allowed to be blank.
+| uri       | content uri | bytes[]
 
 
 ### Unified Message Format

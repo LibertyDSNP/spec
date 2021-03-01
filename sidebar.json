@@ -85,6 +85,13 @@
                     "name": "Messages",
                     "children": [
                         {
+                            "path": "pages/DSNP/Messages/Announce.md",
+                            "name": "Announce.md",
+                            "meta": {},
+                            "title": "Announce",
+                            "url": "/DSNP/Messages/Announce"
+                        },
+                        {
                             "path": "pages/DSNP/Messages/Overview.md",
                             "name": "Overview.md",
                             "meta": {},

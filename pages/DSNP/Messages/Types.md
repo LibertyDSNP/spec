@@ -23,7 +23,7 @@ name: Message Types
 * Message type values outside the contract presets are invalid
 
 | name     | description | value |
-|-------    |-------------| ----|
+|-------   |-------------| ----|
 | Private | message and message type are private; message data is encrypted | 0 |
 | GraphChange | follow or unfollow an account | 1 |
 | Broadcast | a public post or reply | 2 |
