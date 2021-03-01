@@ -8,7 +8,7 @@ name: Message Serialization
 
 | Version | Status |
 ---------- | ---------
-| 0.1     | Proposed |
+| 0.1     | Draft |
 
 ## Purpose
 1. Describe the form and method of DSNP message serialization.

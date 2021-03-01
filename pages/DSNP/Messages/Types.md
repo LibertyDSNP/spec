@@ -8,7 +8,7 @@ name: Message Types
 
 | Version | Status |
 ---------- | ---------
-| 0.1     | Proposed |
+| 0.1     | Draft |
 
 ## Purpose
 1. List valid message types and their [DSNP Message](/DSNP/DSNP-Messages) type assigned enumeration

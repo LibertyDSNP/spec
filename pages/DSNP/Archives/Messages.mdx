@@ -1,10 +1,14 @@
 import { Image } from "@chakra-ui/react";
 
+---
+name: Messages
+---
+
 ## Specification Status
 
 | Version | Status |
 ---------- | ---------
-| 0.1     | Proposed |
+| 0.1     | Draft |
 
 ## Purpose
 1. Specify the Archivist message format
@@ -26,7 +30,7 @@ It is a key-value map consisting of the following fields:
 | `blockHeight` | the block number this message was included in | number | YES
 | `fromAddress`| social identity of message sender | bytes | YES
 | `logIndex` | the index within the logs of this message | number | YES
-| `messageID` | keccak-256 hash of this data, minus the messageID |  bytes3 | YES
+| `messageID` | keccak-256 hash of this archive entry fields, with blank messageID |  bytes3 | YES
 | `dsnpType` | DSNP message type |number/enum. see [DSNP Message Types](/DSNP/DSNP-Message-Types) | YES
 | `dsnpData` | DSNP message data | see fields in [DSNP Messages](/DSNP/DSNP-Messages) | YES
 | `signatures` | list of additional signatures referencing this message | array of Signatures | YES
@@ -43,12 +47,12 @@ It is a key-value map consisting of the following fields:
 * The block in which this DSNP Message is included.
 
 ### `dsnpType`
-   * number
-   * Indicates what type of message this is, useful for indexers and filters.
+* number
+* Indicates what type of message this is, useful for indexers and filters.
 
 ### `dsnpData`
-   * varies
-   * This can be encrypted, and/or serialized, and compressed where feasible.  The decrypted, fully deserialzed version must be one of the types described in [DSNP Messages](/DSNP/DSNP-Messages).
+* varies
+* This can be encrypted, and/or serialized, and compressed where feasible.  The decrypted, fully deserialzed version must be one of the types described in [DSNP Messages](/DSNP/DSNP-Messages).
 
 ### `fromAddress`
 * bytes
@@ -60,15 +64,16 @@ It is a key-value map consisting of the following fields:
 
 ### `messageID`
 * bytes32
-* The keccak-256 hash of all of this data in a keccak-256 hash with the messageID field being blank. In other words, produce the hash with messageID set to 0-length bytes, then set messageID to the result.
+* The keccak-256 hash of all of the Archive Entry fields in a keccak-256 hash with the messageID field being blank.
+In other words, produce the hash with messageID set to 0-length bytes, then set messageID to the result.
 
 ### `signatures`
-   * array
-   * all the signatures applied to this message at the time of archival.
+* array
+* all the signatures applied to this message at the time of archival.
 
 ### `transactionIndex`
-   * number
-   * The transaction index in which this DSNP Message is included
+* number
+* The transaction index in which this DSNP Message is included
 
 ## Batch
 A _Batch_ is data that is referenced by a Batch Announcement.
