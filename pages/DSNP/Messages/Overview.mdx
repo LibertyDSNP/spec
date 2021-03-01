@@ -1,5 +1,5 @@
 ---
-name: Messages
+name: Overview
 ---
 
 # Messages Overview
@@ -8,7 +8,7 @@ name: Messages
 
 | Version | Status |
 ---------- | ---------
-| 0.1     | Proposed |
+| 0.1     | Tentative |
 
 ## Purpose
 1. Describe the form and content of DSNP Messages posted to the blockchain used for all Liberty Platform activities. Only some of these activities will have the full message posted to chain. Examples:
@@ -23,9 +23,9 @@ name: Messages
 ## Assumptions
 * Chain messages are on Ethereum
 * Message data is posted via [Ethereum log events](https://medium.com/mycrypto/understanding-event-logs-on-the-ethereum-blockchain-f4ae7ba50378)
-* Signature algorithm is [secp256k1](https://en.bitcoin.it/wiki/Secp256k1). This allows the use `ecreover`
+* Signature algorithm is [secp256k1](https://en.bitcoin.it/wiki/Secp256k1). This allows the use of `ecreover`
   to get public keys. A public key also need not be included in a log event for ease of validation.
-* content hashes are created via the same [keccak-256 hashing algorithm](https://en.wikipedia.org/wiki/SHA-3) used by Ethereum.  
+* content hashes are created via the same [keccak-256 hashing algorithm](https://en.wikipedia.org/wiki/SHA-3) used by Ethereum.
 
 ## DSNP Message Formats
 We have seriously considered two possibilities, a [variable message format](#Variable-Message-Format), and a [unified message format](#unified-message-format).  Others are listed at the end of this page.
@@ -80,7 +80,7 @@ a public reply post
 | messageID | keccak-256 hash of content stored at uri |  bytes32
 | fromAddress | ID of the sender | bytes20
 | uri       | content uri | bytes[]
- 
+
 
 #### Drop
 a dead drop message

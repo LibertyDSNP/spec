@@ -1,9 +1,13 @@
-# DSNP Announce
+---
+name: Announce
+---
+# Announcing Messages
+
 ## Specification Status
 
 | Version | Status |
 ---------- | ---------
-| 0.1     | Draft |
+| 0.1     | Tentative |
 
 ## Purpose
 1. Describe the method to announce [DSNP Messages](/DSNP/Overview) to the blockchain.
@@ -17,7 +21,7 @@
   to get public keys. A public key also need not be included in a log event for ease of validation.
 * content hashes are created via the same [keccak-256 hashing algorithm](https://en.wikipedia.org/wiki/SHA-3) used by Ethereum.
 
-## DSNP Announce
+## Announcing DSNP Events
 
 ### DSNPBatch Event
 
