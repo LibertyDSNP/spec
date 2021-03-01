@@ -3,6 +3,21 @@
     "name": "pages",
     "children": [
         {
+            "path": "pages/Archivists",
+            "name": "Archivists",
+            "children": [
+                {
+                    "path": "pages/Archivists/Overview.md",
+                    "name": "Overview.md",
+                    "meta": {},
+                    "title": "Overview",
+                    "url": "/Archivists/Overview"
+                }
+            ],
+            "size": null,
+            "type": "directory"
+        },
+        {
             "path": "pages/DSNP",
             "name": "DSNP",
             "children": [
@@ -11,10 +26,17 @@
                     "name": "Archives",
                     "children": [
                         {
+                            "path": "pages/DSNP/Archives/Messages.mdx",
+                            "name": "Messages.mdx",
+                            "meta": {},
+                            "title": "Messages",
+                            "url": "/DSNP/Archives/Messages"
+                        },
+                        {
                             "path": "pages/DSNP/Archives/Overview.md",
                             "name": "Overview.md",
                             "meta": {},
-                            "title": "Archives",
+                            "title": "Overview",
                             "url": "/DSNP/Archives/Overview"
                         }
                     ],
@@ -92,8 +114,8 @@
                             "url": "/DSNP/Messages/Announce"
                         },
                         {
-                            "path": "pages/DSNP/Messages/Overview.md",
-                            "name": "Overview.md",
+                            "path": "pages/DSNP/Messages/Overview.mdx",
+                            "name": "Overview.mdx",
                             "meta": {},
                             "title": "Messages",
                             "url": "/DSNP/Messages/Overview"
