@@ -25,7 +25,7 @@ Once the local server is running, a live-reloading preview of the spec can be vi
 ### Formatting, names, etc.
 1. The initial spec status is _Draft_.  Please see [Process](#Process) for details.
 1. Choose a target version number of the platform for the spec.
-1. Use the official outline for specifications1. Respect and observe good file organization practices. For example, if your spec relates to DSNP please put the spec in the _DSNP_ folder and not anywhere else.
+1. Use the official outline for specifications. Respect and observe good file organization practices. For example, if your spec relates to DSNP please put the spec in the _DSNP_ folder and not anywhere else.
 1. Spec files are written in markdown (.md) format, and are located in the _pages_ directory.
 1. Use dashes (`-`) between words in file names so that they appear in the Table of Contents correctly.  Use MDX format (`.mdx` extension) if you want to import React components in the page.
 1. When documenting an API, et, use the following field template:
@@ -67,6 +67,12 @@ For updates to an existing spec,
 1. Follow the process for New Specs, above, through step 3, except bump the version as appropriate when you post the Draft PR.
 1. Once the updated spec is merged, the current spec shows "Tentative" status, + the new version number.
 1. Proceed with step 4 as before, as appropriate.
+
+## Development
+To run the spellchecker interactively, use:
+```bash
+ mdspell './pages/**/*.md' './*.md' '!./LICENSE.md'  --en-US --ignore-numbers
+```
 
 
 
