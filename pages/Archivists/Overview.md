@@ -1,5 +1,8 @@
 ---
 name: Overview
+route: /Archivists/Overview
+menu: Archivists
+
 ---
 # DSNPArchives Overview
 The job of an Archivist is to permanently store Batch content and DSNPMessages in a format that is easily validated and retrieved.

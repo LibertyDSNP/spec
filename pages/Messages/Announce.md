@@ -1,5 +1,7 @@
 ---
 name: Announce
+route: /Messages/Announce
+menu: Messages
 ---
 # Announcing Messages
 

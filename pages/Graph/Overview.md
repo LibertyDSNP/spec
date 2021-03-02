@@ -1,5 +1,7 @@
 ---
-name: Graph
+name: Overview
+route: /Graph/Overview
+menu: Graph
 ---
 
 # Graph

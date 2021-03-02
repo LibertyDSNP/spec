@@ -1,5 +1,7 @@
 ---
 name: Serialization
+route: /Messages/Serialization
+menu: Messages
 ---
 
 # Message Serialization

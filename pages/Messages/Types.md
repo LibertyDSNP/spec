@@ -1,5 +1,7 @@
 ---
 name: Types
+route: /Messages/Types
+menu: Messages
 ---
 
 # Message Types
