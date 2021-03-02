@@ -26,9 +26,10 @@ export default {
       ]
     },
     {
-      name: "Archives",
+      name: "Archivists",
       menu: [
-        "Overview"
+        "Overview",
+        "Format"
       ]
     },
     {

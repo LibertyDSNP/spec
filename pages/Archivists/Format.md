@@ -1,7 +1,7 @@
-import { Image } from "@chakra-ui/react";
-
 ---
 name: Format
+route: /Archivists/Format
+menu: Archivists
 ---
 
 # Archive Storage Format
@@ -102,8 +102,4 @@ A Signature consists of two fields:
 * `result` - optional, bytes. A result of an operation performed. For example, if a signing entity wished to prove that they had performed some sort of validation or analysis on the message, they would put the result of the analysis in this field. It could be a meaningful number or string, some sort of proof hash, etc.
 
 ## Diagram
-<Image
-src="https://github.com/LibertyDSNP/spec/blob/c9f55041950e7f54ce07d0f32de6b35d4fa4e7c0/images/ArchiveMessages.png?raw=true"
-alt="Archive Messages Diagram"
-/>
-
+![Archive Messages Diagram](https://github.com/LibertyDSNP/spec/blob/c9f55041950e7f54ce07d0f32de6b35d4fa4e7c0/images/ArchiveMessages.png?raw=true)
