@@ -31,8 +31,8 @@ menu: Messages
 | Broadcast | a public post or reply | 2 |
 | Profile | a Profile change | 3 |
 | KeyList | KeyList rotation | 4 |
-| PrivateGraphKeylist | PrivateGraph keylist rotation | 5 |
-| EncryptionKeyList | Encryption keyList rotation | 6 |
+| PrivateGraphKeylist | PrivateGraph KeyList rotation | 5 |
+| EncryptionKeyList | Encryption KeyList rotation | 6 |
 | Reaction | a public visual reply to a Broadcast | 7 |
 | PrivateGraphChange | an encrypted follow or unfollow | 8
 | Drop | a dead drop message | 9

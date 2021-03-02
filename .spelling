@@ -1,0 +1,35 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+DSNPArchives
+DSNPMessages
+DSNP
+URIs
+TBD
+blockchain
+Ethereum
+secp256k1
+keccak-256
+DSNPBatch
+dsnpHash
+dsnpUri
+DSNPAnnounce
+ERC165
+testnet
+mainnet
+RLP
+eth2
+CBOR
+GraphChange
+KeyList
+PrivateGraphKeylist
+EncryptionKeyList
+messageID
+dsnpData
+inReplyTo
+PrivateGraph
+PrivateGraphChange
+EncryptedInbox
+PrivateBroadcast
