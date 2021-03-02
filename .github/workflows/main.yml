@@ -5,7 +5,7 @@ on:
       - main
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-20.04
     strategy:
       matrix:
         node-version: [14.6.0]
