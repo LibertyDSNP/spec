@@ -12,7 +12,8 @@
     "scripts": {
         "dev": "docz dev",
         "build": "docz build",
-        "serve": "docz serve"
+        "serve": "docz serve",
+        "lint": "true"
     },
     "dependencies": {
         "@emotion/react": "^11.1.1",
