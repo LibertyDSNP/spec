@@ -50,11 +50,11 @@ Identifiable messages are those with a DSNP Message Type other than `Private`.  
 ## Serializing Private Messages
 If it's not desired to provide the message type, use the Private message type value, and provide the actual message type in the data format. The types of messages that are best suited for the `Private` type are those which would need to be viewed only by the user, that is:
 
-   * GraphChange
-   * Profile
-   * KeyList
-   * PrivateGraphKeylist
-   * EncryptionKeyList
+* GraphChange
+* Profile
+* KeyList
+* PrivateGraphKeylist
+* EncryptionKeyList
 
 It's also possible to use this for Inbox and Broadcast messages, however, any client that does this would need to listen to all messages and try to decrypt them to see if they have access, so it is not recommended.
 
@@ -90,6 +90,6 @@ Thus the decrypted message data is nothing more than a Profile message wrapped i
 **NOTE:** Dead drop messages (Drop), cannot be made private this way. The dead drop ID, which is a necessary shared secret for decryption, would not be available.
 
 ### Hash validity
-Where ever there is a messageID, as stated earlier it means a keccak-256 hash of the content at the referenced URI. This hash cannot be checked at the contract level for validity, in the sense of being actually the hash of the uri content, however it is not allowed to be either zero length or 256 zeroes.
+Where ever there is a messageID, as stated earlier it means a keccak-256 hash of the content at the referenced URI. This hash cannot be checked at the contract level for validity, in the sense of being actually the hash of the URI content, however it is not allowed to be either zero length or 256 zeroes.
 
 The one exception would be if is decided that Replies are separate types from other Broadcast messages; in such case an "original post" is one that has a "zero hash" for its inReplyTo field.

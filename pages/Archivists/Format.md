@@ -52,7 +52,7 @@ A _Batch_ is data that is referenced by a Batch Announcement. It consists of one
 |field|description|type|
 |---|---|---|
 | `archives`| a set of ArchiveEntries | map`[ArchiveEntry]`|
-| `batchID` | keccak-256 hash of content stored at uri |  bytes32
+| `batchID` | keccak-256 hash of content stored at URI |  bytes32
 | `blockHeight` | the block number this message was included in | number |
 | `fromAddress`| social identity of batch announcer,i.e. message sender | bytes |
 | `logIndex` | the index within the logs of this message | number |

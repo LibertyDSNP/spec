@@ -27,7 +27,7 @@ TBD - Quick summary on the threat of misinformation; ask Shannon for input
 
 TBD - Quick summary of the monopolization of social media and communication media in general; Braxton maybe?
 
-# How to Read This Spec
+# How to Read This Specification
 
 The specification is divided into several modules found in the DSNP section of this website.
 Each module describes a self-contained aspect of the DSNP and includes documents detailing the function and intended use the module.
@@ -37,14 +37,14 @@ Additionally, the status of each module is also compiled in the [Implementation 
 As further extensions of the protocol are created, more modules may be added to the DSNP directory and status table.
 Proposals for some of these future extensions can be found in the Future Proposals directory under DSNP, however these proposals should be regarded with caution as they are largely incomplete and may be subject to change or deletion without notice.
 
-# Spec status definitions
+# Specification status definitions
 
 | Name | Description |
 | --- | --- |
-| **Draft** | Spec is posted as draft PR. It's open for comment and major changes. |
+| **Draft** | Specification is posted as draft PR. It's open for comment and major changes. |
 | **Proposed** | Ready for formal review. It should be done except for minor changes. |
-| **Tentative** | This is the accepted plan. The spec should not change unless there are blocking issues. |
-| **Final** | This version will not change. Changes require a new spec process and new spec version number. |
+| **Tentative** | This is the accepted plan. The specification should not change unless there are blocking issues. |
+| **Final** | This version will not change. Changes require a new specification process and new specification version number. |
 
 For more detail on the specification process and how to contribute, please see the [GitHub repo](https://github.com/LibertyDSNP/spec).
 

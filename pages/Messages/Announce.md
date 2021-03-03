@@ -64,5 +64,5 @@ The contract address and link to code to be updated here once completed.
 
 | Network | Address |
 |---------|---------|
-| testnet | tbd |
-| Beta Mainnet | tbd |
+| testnet | TBD |
+| Beta Mainnet | TBD |
