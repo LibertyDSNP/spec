@@ -69,9 +69,9 @@ For updates to an existing spec,
 1. Proceed with step 4 as before, as appropriate.
 
 ## Development
-To run the spellchecker interactively, use:
+To run the spellchecker interactively, which allows you to add items to the dictionary, use:
 ```bash
- mdspell './pages/**/*.md' './*.md' '!./LICENSE.md'  --en-US --ignore-numbers
+ npm run spellfix
 ```
 
 

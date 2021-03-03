@@ -50,11 +50,11 @@ Identifiable messages are those with a DSNP Message Type other than `Private`.  
 ## Serializing Private Messages
 If it's not desired to provide the message type, use the Private message type value, and provide the actual message type in the data format. The types of messages that are best suited for the `Private` type are those which would need to be viewed only by the user, that is:
 
-   * GraphChange
-   * Profile
-   * KeyList
-   * PrivateGraphKeylist
-   * EncryptionKeyList
+* GraphChange
+* Profile
+* KeyList
+* PrivateGraphKeylist
+* EncryptionKeyList
 
 It's also possible to use this for Inbox and Broadcast messages, however, any client that does this would need to listen to all messages and try to decrypt them to see if they have access, so it is not recommended.
 

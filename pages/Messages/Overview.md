@@ -1,5 +1,5 @@
 ---
-name: Overview
+name: Overview 
 route: /Messages/Overview
 menu: Messages
 ---
@@ -16,7 +16,7 @@ menu: Messages
 1. Describe the form and content of DSNP Messages posted to the blockchain used for all Liberty Platform activities. Only some of these activities will have the full message posted to chain. Examples:
     * Public messages (profile changes, public posts, reactions)
     * Direct messages between accounts (dead drop, inbox)
-    * Key changes (private graph keylist, encryption keylist, public key rotation)
+    * Key changes (private graph KeyList, encryption KeyList, public key rotation)
     * Graph changes (follow/unfollow)
 1. Specify an on-chain message format
 1. Provide data size estimations
@@ -32,7 +32,7 @@ menu: Messages
 ## DSNP Message Formats
 We have seriously considered two possibilities, a [variable message format](#Variable-Message-Format), and a [unified message format](#unified-message-format).  Others are listed at the end of this page.
 
-###  Variable Message Format
+### Variable Message Format
 This format is the current preference.
 
 * All actions are posted to chain with some or all pertinent information about the action
@@ -69,8 +69,8 @@ a public post (was Announcement)
 | dsnpData field | description | type |
 | ------------- |------------- | ---- |
 | fromAddress | ID of the sender | bytes20
-| messageID | keccak-256 hash of content stored at uri |  bytes32
-| uri       | content uri | bytes[]
+| messageID | keccak-256 hash of content stored at URI |  bytes32
+| uri       | content URI | bytes[]
 
 
 #### Reply
@@ -103,12 +103,12 @@ a public follow/unfollow
 
 #### KeyList, PrivateGraphKeyList, EncryptionKeyList
 
-a keylist rotation
+a KeyList rotation
 
 | dsnpData field | description | type |
 | ------------- |------------- | ---- |
 | fromAddress | ID of the sender | bytes20
-| keylist | new list of valid keys | bytes[]
+| keyList | new list of valid keys | bytes[]
 
 #### Inbox
 a direct message
