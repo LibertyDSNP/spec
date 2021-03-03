@@ -1,14 +1,13 @@
 # Glossary
 
 * **Account** - See "Social Identity"
-* **Announcement** - A item of data, typically an image or note, either directly posted or hashed then posted to the blockchain
+* **Announcement** - An item of data, typically an image or note, posted to the blockchain
 * **Announcer** - The contract that posts new content from a publisher to the blockchain through batches or batch announcements by an archivist
 * **Publisher** - A user or bot who posts new content to an announcer
 * **Bad actor** - A user intentionally using the application for bad-faith or illegal purposes
 * **Bot** - An automated account, sometimes malicious but often providing some service ("Hey Alexa, what's the weather?")
 * **Consumer** - Someone who reads content from social media
 * **Contract address** - The unique number associated with a smart contract posted on the blockchain
-* **Happy path** - The expected user flow assuming no errors or bad actors
 * **Hash** - A string of characters generated from a hash function, see "Hash function"
 * **Hash function** - A cryptographic function whose output is effectively unique for any given input without any information from the input being accessible in the output
 * **Hash Collision** - The vanishingly unlikely possibility of a hash providing the same output for two different inputs
