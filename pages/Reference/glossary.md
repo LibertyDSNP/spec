@@ -1,3 +1,9 @@
+---
+name: Glossary
+route: /Reference/Glossary
+menu: Reference
+---
+
 # Glossary
 
 * **Account** - See "Social Identity"

@@ -1,5 +1,7 @@
 ---
-name: Graph
+name: Overview
+route: /Graph/Overview
+menu: Graph
 ---
 
 # Graph
@@ -11,7 +13,7 @@ This section should also cover how our graph representation could be applied to 
 
 | Version | Status |
 ---------- | ---------
-| 0.1     | Proposed |
+| 0.1     | Draft |
 
 ## Purpose
 

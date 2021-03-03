@@ -1,5 +1,7 @@
 ---
 name: Verified Attributes
+route: /Future_Proposals/Verified_Attributes
+menu: "Future Proposals"
 ---
 
 # Verified Attributes

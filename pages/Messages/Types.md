@@ -1,5 +1,7 @@
 ---
-name: Message Types
+name: Types
+route: /Messages/Types
+menu: Messages
 ---
 
 # Message Types
@@ -8,7 +10,7 @@ name: Message Types
 
 | Version | Status |
 ---------- | ---------
-| 0.1     | Proposed |
+| 0.1     | Tentative |
 
 ## Purpose
 1. List valid message types and their [DSNP Message](/DSNP/DSNP-Messages) type assigned enumeration
@@ -23,7 +25,7 @@ name: Message Types
 * Message type values outside the contract presets are invalid
 
 | name     | description | value |
-|-------    |-------------| ----|
+|-------   |-------------| ----|
 | Private | message and message type are private; message data is encrypted | 0 |
 | GraphChange | follow or unfollow an account | 1 |
 | Broadcast | a public post or reply | 2 |

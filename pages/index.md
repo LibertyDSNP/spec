@@ -1,5 +1,6 @@
 ---
 name: Introduction
+route: /
 ---
 
 # Introduction
@@ -35,6 +36,18 @@ Generally, each of these documents will include sections on the purpose of the m
 Additionally, the status of each module is also compiled in the [Implementation Status](/DSNP/Implementation_Status) table for ease of access.
 As further extensions of the protocol are created, more modules may be added to the DSNP directory and status table.
 Proposals for some of these future extensions can be found in the Future Proposals directory under DSNP, however these proposals should be regarded with caution as they are largely incomplete and may be subject to change or deletion without notice.
+
+# Spec status definitions
+
+| Name | Description |
+| --- | --- |
+| **Draft** | Spec is posted as draft PR. It's open for comment and major changes. |
+| **Proposed** | Ready for formal review. It should be done except for minor changes. |
+| **Tentative** | This is the accepted plan. The spec should not change unless there are blocking issues. |
+| **Final** | This version will not change. Changes require a new spec process and new spec version number. |
+
+For more detail on the specification process and how to contribute, please see the [GitHub repo](https://github.com/LibertyDSNP/spec).
+
 
 # Learning More
 
