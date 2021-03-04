@@ -139,7 +139,7 @@ a visual reply to a post
 | ------------- |------------- | ---- |
 | inReplyTo | ID of the message the reaction references |  bytes32
 | fromAddress | id of the sender | bytes20
-| emoji | the encoded reaction  | number / utf-8 bytes[]
+| emoji | the encoded reaction  | number / UTF-8 bytes[]
 
 ### Possible Message Types
 
