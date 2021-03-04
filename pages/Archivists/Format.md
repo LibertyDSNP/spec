@@ -58,7 +58,7 @@ A _Batch_ is data that is referenced by a Batch Announcement. It consists of one
 | `logIndex` | the index within the logs of this message | number |
 | `signature` | announcer's signature | Signature |
 | `transactionIndex` | the index of the transaction this message is associated with | number |
-| `uri` | the location of this archive | bytes |
+| `uri` | the location of this archive | string |
 
 
 ### `archives`
@@ -93,7 +93,7 @@ the social identity of the batch announcer, i.e. the message sender.
 * The transaction index in which this DSNP Message is included
 
 ### `uri`
-* bytes
+* string
 * The permanent URI address where this archive is stored.
 
 ## Signature

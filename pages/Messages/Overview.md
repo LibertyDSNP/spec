@@ -10,7 +10,7 @@ menu: Messages
 
 | Version | Status |
 ---------- | ---------
-| 0.1     | Tentative |
+| 0.2     | Draft |
 
 ## Purpose
 1. Describe the form and content of DSNP Messages posted to the blockchain used for all Liberty Platform activities. Only some of these activities will have the full message posted to chain. Examples:
@@ -70,7 +70,7 @@ a public post (was Announcement)
 | ------------- |------------- | ---- |
 | fromAddress | ID of the sender | bytes20
 | messageID | keccak-256 hash of content stored at URI |  bytes32
-| uri       | content URI | bytes[]
+| uri       | content URI | string
 
 
 #### Reply
@@ -81,7 +81,7 @@ a public reply post
 | inReplyTo | ID of the message the reply references |  bytes32
 | messageID | keccak-256 hash of content stored at uri |  bytes32
 | fromAddress | ID of the sender | bytes20
-| uri       | content uri | bytes[]
+| uri       | content uri | string
 
 
 #### Drop
@@ -90,7 +90,7 @@ a dead drop message
 | dsnpData field | description | type |
 | ------------- |------------- | ---- |
 | deadDropID | The Dead Drop ID (See [DeadDrops](TBD) | bytes32
-| uri  | content uri  |  bytes[]
+| uri  | content uri  |  string
 | messageID | keccak-256 hash of content |  bytes32
 
 #### GraphChange
@@ -118,7 +118,7 @@ a direct message
 | toAddress | ID of the recipient | bytes20
 | fromAddress | id of the sender | bytes20
 | messageID | keccak-256 hash of content | bytes32
-| uri  | content uri  | bytes[]
+| uri  | content uri  | string
 
 #### EncryptedInbox
 an encrypted direct message.
@@ -130,7 +130,7 @@ Possibly combine both of these and expect that all Inbox messages are encrypted.
 | toAddress | ID of the recipient | bytes20
 | fromAddress | ID of the sender | bytes20
 | messageID | keccak-256 hash of content | bytes32
-| uri  | content uri  | bytes[]
+| uri  | content uri  | string
 
 #### Reaction
 a visual reply to a post
@@ -149,7 +149,7 @@ a profile update such as name or icon change
 | dsnpData field | description | type |
 | ------------- |------------- | ---- |
 | fromAddress | id of the sender | bytes20
-| uri    | uri for the profile data  |bytes[]
+| uri    | uri for the profile data  |string
 | messageID |  keccak-256 hash of content at uri | bytes32
 
 #### Private
@@ -159,7 +159,7 @@ See [DSNP Message Types: Private Messages](/DSNP/DSNP-Message-Types#private-mess
 | dsnpData field | description | type |
 | ------------- |------------- | ---- |
 | fromAddress | id of the sender | bytes20
-| data | encrypted graph change data | bytes[]
+| data | encrypted graph change data | string
 | messageID | keccak-256 hash of unencrypted content | bytes32
 
 #### PrivateBroadcast
@@ -171,7 +171,7 @@ This describes the format once decrypted.
 | fromAddress | id of the sender | bytes20
 | inReplyTo | ID of the message the broadcast references |  bytes32
 | messageID      | keccak-256 hash of content stored at URI |  bytes32
-| uri       | content uri | bytes[]
+| uri       | content uri | string
 
 
 ### Unified Message Format
@@ -195,7 +195,7 @@ This is currently not the recommended solution, but is presented as a comparison
 | topic | Ethereum log topic |  bytes
 | action type | the type of action | bytes
 | fromAddress | social identity | bytes
-| uri | uri of stored action information | bytes
+| uri | uri of stored action information | string
 
 ### All data on chain
 One possibility is not to have any data stored off-chain; instead, even the ActivityPub content would be posted to chain.
