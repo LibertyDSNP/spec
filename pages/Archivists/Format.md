@@ -10,7 +10,7 @@ menu: Archivists
 
 | Version | Status |
 ---------- | ---------
-| 0.2     | Draft |
+| 0.2     | Tentative |
 
 ## Purpose
 1. Specify the off-chain Archivist _storage_ format
@@ -40,7 +40,7 @@ It is a key-value map consisting of the following fields:
 
 ### `dsnpData`
 * varies
-* This can be encrypted, and/or serialized, and compressed where feasible.  The decrypted, fully deserialzed version must be one of the types described in [DSNP Messages](/DSNP/DSNP-Messages).
+* This can be encrypted, and/or serialized, and compressed where feasible.  The decrypted, fully deserialized version must be one of the types described in [DSNP Messages](/DSNP/DSNP-Messages).
 
 ### `signatures`
 * array

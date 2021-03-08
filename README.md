@@ -16,9 +16,8 @@ npm run dev
 Once the local server is running, a live-reloading preview of the spec can be viewed at http://localhost:3000.
 
 ## Tools and frameworks used in this repo
-* [Dokz](https://dokz.site/docs)
+* [Docz](https://www.docz.site/)
 * [MDX](https://mdxjs.com/)
-* [Chakra-UI](https://chakra-ui.com/docs/getting-started)
 
 # Contributing a specification
 

@@ -24,16 +24,16 @@
         "docz": "^2.3.1",
         "markdown-spellcheck": "^1.3.0",
         "react": "^17.0.1",
-        "react-dom": "^17.0.1",
-        "remark": "^13.0.0",
-        "remark-cli": "^9.0.0",
-        "remark-lint": "^8.0.0",
-        "remark-preset-lint-recommended": "^5.0.0"
+        "react-dom": "^17.0.1"
     },
     "devDependencies": {
         "@types/react": "^17.0.1",
         "@types/react-dom": "^17.0.1",
-        "compose-function": "3.0.3"
+        "compose-function": "3.0.3",
+        "remark": "^13.0.0",
+        "remark-cli": "^9.0.0",
+        "remark-lint": "^8.0.0",
+        "remark-preset-lint-recommended": "^5.0.0"
     },
     "remarkConfig": {
         "plugins": [

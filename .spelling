@@ -35,12 +35,11 @@ PrivateGraphChange
 EncryptedInbox
 PrivateBroadcast
 spec
-Dokz
 MDX
 semver
 specs
 enum
-deserialzed
+deserialized
 ArchiveEntries
 bytes32
 archiveEntryID
@@ -53,8 +52,9 @@ DeadDrops
 actionType
 PrivateGraphKeyList
 toAddress
-utf-8
+UTF-8
 ActivityPub
 Braxton
 Alexa
 prosumer
+Docz
