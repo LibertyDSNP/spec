@@ -10,7 +10,7 @@ menu: Messages
 
 | Version | Status |
 ---------- | ---------
-| 0.2     | Draft |
+| 0.2     | Tentative |
 
 ## Purpose
 1. Describe the form and content of DSNP Messages posted to the blockchain used for all Liberty Platform activities. Only some of these activities will have the full message posted to chain. Examples:

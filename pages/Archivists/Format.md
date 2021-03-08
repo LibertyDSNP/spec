@@ -10,7 +10,7 @@ menu: Archivists
 
 | Version | Status |
 ---------- | ---------
-| 0.2     | Draft |
+| 0.2     | Tentative |
 
 ## Purpose
 1. Specify the off-chain Archivist _storage_ format
