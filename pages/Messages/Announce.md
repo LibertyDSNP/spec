@@ -30,29 +30,29 @@ menu: Messages
 The DSNPBatch event is a standard event topic to be used for announcing a location that a list of [DSNP Messages](/DSNP/DSNP-Messages) can be found.
 
 ```solidity
-interface DSNPAnnounce {
-    event DSNPBatch(bytes32 dsnpHash, bytes[] dsnpUri);
+interface IAnnounce {
+    event DSNPBatch(bytes32 dsnpHash, string dsnpUri);
 }
 ```
 
 | field | description | type |
 |-------|-------------|------|
 | dsnpHash | Keccak-256 hash of each hash included in the batch | bytes32 |
-| dsnpUri | Uri containing the batch file matching [DSNP Messages](/DSNP/Overview) | bytes |
+| dsnpUri | Uri containing the batch file matching [DSNP Messages](/DSNP/Overview) | string |
 
 
 ### Event Topic
 
 The event topic for DSNPBatch follows the standard Solidity event name to hash standard.
 ```
-0xb4ac029c8b5c911494e703c67200023f015b73f7b42c3cb4b580b5588fac2d10 = keccak-256("DSNPBatch(bytes32,bytes[])")
+0xb4ac029c8b5c911494e703c67200023f015b73f7b42c3cb4b580b5588fac2d10 = keccak-256("DSNPBatch(bytes32,string)")
 ```
 
 ### Announce Requirements
 
 | Interface | Required |
 |-----------|----------|
-| DSNPAnnounce | Required |
+| IAnnounce | Required |
 | [ERC165](https://eips.ethereum.org/EIPS/eip-165) | Optional |
 
 ## Default Announce Contract

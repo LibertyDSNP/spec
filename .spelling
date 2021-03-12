@@ -15,7 +15,6 @@ keccak-256
 DSNPBatch
 dsnpHash
 dsnpUri
-DSNPAnnounce
 ERC165
 testnet
 mainnet
@@ -58,3 +57,4 @@ Braxton
 Alexa
 prosumer
 Docz
+IAnnounce
