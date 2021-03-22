@@ -33,7 +33,7 @@ The specification is divided into several modules found in the DSNP section of t
 Each module describes a self-contained aspect of the DSNP and includes documents detailing the function and intended use the module.
 Generally, each of these documents will include sections on the purpose of the module, assumptions made in the document and the current status of the specification.
 
-Additionally, the status of each module is also compiled in the [Implementation Status](/DSNP/Implementation_Status) table for ease of access.
+Additionally, the status of each module is also compiled in the [Implementation Status](/Implementation_Status) table for ease of access.
 As further extensions of the protocol are created, more modules may be added to the DSNP directory and status table.
 Proposals for some of these future extensions can be found in the Future Proposals directory under DSNP, however these proposals should be regarded with caution as they are largely incomplete and may be subject to change or deletion without notice.
 

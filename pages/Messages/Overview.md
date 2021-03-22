@@ -61,7 +61,7 @@ This is what would be posted as a Log event in Ethereum:
 ### DSNP Messages
 These messages would be serialized, compressed where feasible, and emitted in the log event as the `DSNPData` field.
 
-For details on how messages are serialized, see [DSNP Message Serialization](/DSNP/DSNP-Message-Serialization)
+For details on how messages are serialized, see [DSNP Message Serialization](/Messages/Serialization)
 
 #### Broadcast
 a public post (was Announcement)
@@ -154,7 +154,7 @@ a profile update such as name or icon change
 
 #### Private
 An encrypted message of unknown type.
-See [DSNP Message Types: Private Messages](/DSNP/DSNP-Message-Types#private-messages) for details.
+See [DSNP Message Types: Private Messages](/Messages/Types#private-messages) for details.
 
 | dsnpData field | description | type |
 | ------------- |------------- | ---- |
