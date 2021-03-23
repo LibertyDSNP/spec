@@ -58,3 +58,7 @@ Alexa
 prosumer
 Docz
 IAnnounce
+MessagePack
+Protobuf
+BSON
+SQLite

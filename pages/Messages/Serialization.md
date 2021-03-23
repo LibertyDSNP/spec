@@ -13,7 +13,7 @@ menu: Messages
 | 0.1     | Tentative |
 
 ## Purpose
-1. Describe the form and method of DSNP message serialization.
+1. Describe the form and method of DSNP message serialization for posting messages in Ethereum logs.
 1. Facilitate use of SDK
 
 ## Assumptions
@@ -22,12 +22,14 @@ menu: Messages
 * Serialization is in JSON (highly subject to change)
 
 ### Note on Serialization method
-At the time of this writing, we are using JSON serialization, however, the following other formats are being seriously considered:
-
-* compressed JSON
+During early development we are using plain JSON for serialization, however, this is unlikely to remain the case. Possibilities:
 * [RLP (Recursive Length Prefix)](https://eth.wiki/en/fundamentals/rlp)
 * [eth2 serialization](https://ethresear.ch/t/blob-serialisation/1705), which is a proposal that is planned to replace RLP.
 * [CBOR (Concise Binary Object Representation)](https://en.wikipedia.org/wiki/CBOR)
+* MessagePack
+* Protobuf
+* BSON
+* SQLite
 
 ## Serializing Identifiable Messages
 Identifiable messages are those with a DSNP Message Type other than `Private`.  They may still be private messages, but it's known what _type_ of message it is.
