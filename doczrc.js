@@ -1,5 +1,5 @@
 export default {
-  base: "/spec/",
+  base: "/",
   typescript: true,
   ignore: ["CODEOFCONDUCT.md", "LICENSE.md", "README.md"],
   menu: [
