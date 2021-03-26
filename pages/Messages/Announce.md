@@ -12,7 +12,7 @@ menu: Messages
 | 0.1     | Tentative |
 
 ## Purpose
-1. Describe the method to announce [DSNP Messages](/DSNP/Overview) to the blockchain.
+1. Describe the method to announce [DSNP Messages](/Messages/Overview) to the blockchain.
 1. Provide Solidity code examples (pending final contract)
 1. Facilitate use of SDK and locating of on-chain data
 
@@ -27,7 +27,7 @@ menu: Messages
 
 ### DSNPBatch Event
 
-The DSNPBatch event is a standard event topic to be used for announcing a location that a list of [DSNP Messages](/DSNP/DSNP-Messages) can be found.
+The DSNPBatch event is a standard event topic to be used for announcing a location that a list of [DSNP Messages](/Messages/Overview) can be found.
 
 ```solidity
 interface IAnnounce {
@@ -38,7 +38,7 @@ interface IAnnounce {
 | field | description | type |
 |-------|-------------|------|
 | dsnpHash | Keccak-256 hash of each hash included in the batch | bytes32 |
-| dsnpUri | Uri containing the batch file matching [DSNP Messages](/DSNP/Overview) | string |
+| dsnpUri | Uri containing the batch file matching [DSNP Messages](/Messages/Overview) | string |
 
 
 ### Event Topic

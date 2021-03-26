@@ -17,7 +17,7 @@ menu: Messages
 1. Facilitate use of SDK
 
 ## Assumptions
-* All assumptions from [DSNP Messages](/DSNP/DSNP-Messages)
+* All assumptions from [DSNP Messages](/Messages/Overview)
 * Content may be compressed where feasible
 * Serialization is in JSON (highly subject to change)
 

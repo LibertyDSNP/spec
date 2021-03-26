@@ -1,6 +1,6 @@
 ---
 name: Implementation Status
-route: /implementation_status
+route: /Implementation_Status
 ---
 
 # Implementation Status
