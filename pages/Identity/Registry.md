@@ -85,16 +85,16 @@ interface IRegistry {
      * @throws if not found
      * @returns Address of the contract
      */
-    function resolve(string handle) view external returns (address);
+    function resolveHandleToAddress(string handle) view external returns (address);
 
     /**
-     * @dev Resolve a handle to a contract address
+     * @dev Resolve an id to a contract address
      * @param id The id to resolve
      * 
      * @throws if not found
      * @returns Address of the contract
      */
-    function resolveById(uint64 id) view external returns (address);
+    function resolveIdToAddress(uint64 id) view external returns (address);
 
     /**
      * @dev Resolve a handle to the id
@@ -103,7 +103,7 @@ interface IRegistry {
      * @throws if not found
      * @returns The uint64 id for the handle
      */
-    function resolveToId(string handle) view external returns (uint64);
+    function resolveHandleToId(string handle) view external returns (uint64);
 
     /**
      * @dev Register a new handle
@@ -143,12 +143,12 @@ interface IRegistry {
      * @param r ECDSA Signature r value
      * @param s ECDSA Signature s value
      * @param v EIP-155 calculated Signature v value
-     * @param addr Address for the handle to point at
-     * @param handle The handle for the address
+     * @param newAddr New address for the handle to point at
+     * @param handle The handle to alter
      * 
-     * MUST be signed by someone who is authorized on the contract via `EIP 1271(addr).isValidSignature`
+     * MUST be signed by someone who is authorized on the contract via `EIP 1271(oldAddr).isValidSignature`
      * MUST emit DSNPHandle
      */
-    function registerBySignature(bytes32 r, bytes32 s, uint32 v, address addr, string handle) external;
+    function setAddrSignature(bytes32 r, bytes32 s, uint32 v, address newAddr, string handle) external;
 }
 ```
