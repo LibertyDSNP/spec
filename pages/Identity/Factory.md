@@ -6,7 +6,7 @@ menu: Identity
 
 # Identity Factory
 
-The lest expensive way to create a new identity is through a identity factory.
+The least expensive way to create a new identity is through an identity factory.
 Official contracts will provide one or more of these standard interfaces to easily generate an identity with different upgrade paths. 
 
 ## Specification Status
@@ -18,7 +18,7 @@ Official contracts will provide one or more of these standard interfaces to easi
 ## Purpose
 1. Describe how an Identity Factory can create an identity
 1. Describe how an Identity Factory can allow someone else to pay for the creation an identity
-1. Constrict the creation of identities without owner permission
+1. Restrict the creation of identities without owner permission
 
 ## Assumptions
 * All assumptions from [DSNP Identity](/Identity/Overview)
