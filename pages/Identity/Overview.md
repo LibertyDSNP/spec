@@ -310,7 +310,7 @@ that are proxies such as those produced by the default [Identity Factory](/Ident
 | IIdentification | Required |
 | [EIP 1271](https://eips.ethereum.org/EIPS/eip-1271) | Required |
 | [EIP 165](https://eips.ethereum.org/EIPS/eip-165) | Required |
-| [EIP 173](https://eips.ethereum.org/EIPS/eip-173) | Option 1: Required <br> Option 2: Optional |
+| [EIP 173](https://eips.ethereum.org/EIPS/eip-173) | Option 1: Required <br /> Option 2: Optional |
 | [EIP 897](https://eips.ethereum.org/EIPS/eip-897) | Proxy Contracts Only |
 
 ## Rejected Solutions
