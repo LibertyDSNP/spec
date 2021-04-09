@@ -1,7 +1,7 @@
 ---
 name: Factory
 route: /Identity/Factory
-menu: Factory
+menu: Identity
 ---
 
 # Identity Factory

@@ -1,7 +1,7 @@
 ---
 name: Registry
 route: /Identity/Registry
-menu: Registry
+menu: Identity
 ---
 
 # Identity Registry
