@@ -16,7 +16,7 @@ Any contract that matches the [DSNP Identity](/Identity/Overview) interfaces is 
 
 | Version | Status |
 ---------- | ---------
-| 0.1     | Draft |
+| 0.1     | Tentative |
 
 ## Purpose
 1. Describe how an Identity Factory can create an identity
