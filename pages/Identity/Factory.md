@@ -7,7 +7,10 @@ menu: Identity
 # Identity Factory
 
 The least expensive way to create a new identity is through an identity factory.
-Official contracts will provide one or more of these standard interfaces to easily generate an identity with different upgrade paths. 
+Official contracts will provide one or more of these standard interfaces to easily generate an identity with different upgrade paths.
+
+**Remember:** Using a factory or even a proxy is just an optimization and *NOT* required.
+Any contract that matches the [DSNP Identity](/Identity/Overview) interfaces is valid.
 
 ## Specification Status
 
@@ -82,7 +85,7 @@ interface IIdentityCloneFactory {
     function createClone(address logic) public returns (address);
 
     /**
-     * @dev Creates a new identity with the erecover address as the owner
+     * @dev Creates a new identity with the ecrecover address as the owner
      * @dev [EIP 1167](https://eips.ethereum.org/EIPS/eip-1167) Proxy
      * @param r ECDSA Signature r value
      * @param s ECDSA Signature s value
@@ -91,7 +94,7 @@ interface IIdentityCloneFactory {
      * 
      * @returns The address of the newly created Identity
      */
-    function createCloneBySignature(bytes32 r, bytes32 s, uint32 v, address logic) public returns (address);
+    function createCloneByEIP712Sig(bytes32 r, bytes32 s, uint32 v, address logic) external returns (address);
 }
 ```
 
@@ -117,7 +120,7 @@ interface IIdentityUpgradableFactory {
      *
      * @returns The current logic contract suggested by this factory
      */
-    function getLogic() public external view returns (address);
+    function getLogic() external view returns (address);
 
     /**
      * @dev Creates a new identity with the message sender as the owner
@@ -125,7 +128,7 @@ interface IIdentityUpgradableFactory {
      * 
      * @returns The address of the newly created Identity
      */
-    function createUpgradable() public external returns (address);
+    function createUpgradable() external returns (address);
     
     /**
      * @dev Creates a new identity with the message sender as the owner
@@ -133,10 +136,10 @@ interface IIdentityUpgradableFactory {
      * 
      * @returns The address of the newly created Identity
      */
-    function createUpgradable(address logic) public returns (address);
+    function createUpgradable(address logic) external returns (address);
 
     /**
-     * @dev Creates a new identity with the erecover address as the owner
+     * @dev Creates a new identity with the ecrecover address as the owner
      * @param r ECDSA Signature r value
      * @param s ECDSA Signature s value
      * @param v EIP-155 calculated Signature v value
@@ -144,7 +147,7 @@ interface IIdentityUpgradableFactory {
      * 
      * @returns The address of the newly created Identity
      */
-    function createUpgradableBySignature(bytes32 r, bytes32 s, uint32 v, address logic) public returns (address);
+    function createUpgradableByEIP712Sig(bytes32 r, bytes32 s, uint32 v, address logic) external returns (address);
 }
 ```
 
@@ -164,7 +167,7 @@ interface IIdentityBeaconFactory {
      *
      * @returns The current beacon contract suggested by this factory
      */
-    function getBeacon() public external view returns (address);
+    function getBeacon() external view returns (address);
 
     /**
      * @dev Creates a new identity with the message sender as the owner
@@ -172,7 +175,7 @@ interface IIdentityBeaconFactory {
      * 
      * @returns The address of the newly created Identity
      */
-    function createBeacon() public external returns (address);
+    function createBeacon() external returns (address);
     
     /**
      * @dev Creates a new identity with the message sender as the owner
@@ -180,10 +183,10 @@ interface IIdentityBeaconFactory {
      * 
      * @returns The address of the newly created Identity
      */
-    function createBeacon(address beacon) public external returns (address);
+    function createBeacon(address beacon) external returns (address);
     
     /**
-     * @dev Creates a new identity with the erecover address as the owner
+     * @dev Creates a new identity with the ecrecover address as the owner
      * @param r ECDSA Signature r value
      * @param s ECDSA Signature s value
      * @param v EIP-155 calculated Signature v value
@@ -191,7 +194,7 @@ interface IIdentityBeaconFactory {
      *
      * @returns The address of the newly created Identity
      */
-    function createBeaconBySignature(bytes32 r, bytes32 s, uint32 v, address beacon) public external returns (address);
+    function createBeaconByEIP712Sig(bytes32 r, bytes32 s, uint32 v, address beacon) external returns (address);
 }
 ```
 
@@ -209,7 +212,7 @@ interface IBeacon {
      * @dev Must return an address that can be used as a delegate call target.
      *      This follows the interface from OpenZeppelin 4.0.0 [IBeacon](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.0.0/contracts/proxy/beacon/IBeacon.sol)
      *
-     * {BeaconProxy} will check that this address is a contract.
+     * @return A contract address that implements the logic for the proxy
      */
     function implementation() external view returns (address);
 }

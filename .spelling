@@ -80,3 +80,4 @@ EIPs
 NFT
 ENS
 uint64
+ecrecover
