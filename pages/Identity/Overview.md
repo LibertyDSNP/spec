@@ -51,117 +51,26 @@ Creation of any new identity MUST be authorized by the owner's address.
 The official [Identity Factory](/Identity/Factory) must be used for initial creation of a new identity.
 
 
-## Option 1: Single Owner
-
-Each identity contract may only have one owner, although delegations may provide for other methods of transferring ownership. 
-
-The contract MUST implement [EIP 173](https://eips.ethereum.org/EIPS/eip-173) which provides methods that confirm ownership and facilitate ownership transfer.
-
-## Option 2: Permissioned Owners
+### Permissioned Owners
 
 Ownership is managed through using permissions.
 While at least one owner is required, additional public keys may be considered to have ownership and may remove or add other owners.
 
-A contract MAY implement [EIP 173](https://eips.ethereum.org/EIPS/eip-173) which provides standard methods that confirm ownership and facilitate ownership transfer.
-
 ## Delegation
 
 Delegation allows adding public keys that are allowed to sign announcements
-or perform other actions in addition to the "owner" public key. 
+or perform other actions in addition to the "owner" public key.
 
-### Option 1: Single Permission
-
-Delegates are assumed to all have the same permission, although that permission may be different than that of the owner.
-Exact permissions are TBD, but MUST NOT include the ability to add additional delegates. 
+### Interface
 
 ```solidity
 /**
  * @dev DSNP Identity Interface for managing delegates
  */
 interface IDelegation {
-    
-    /**
-     * @dev Log for addition of a new delegate
-     * @param delegate Address delegated
-     */
-    event DSNPAddDelegate(address delegate);
 
     /**
-     * @dev Log for removal of a delegate
-     * @param delegate Address revoked 
-     * @param endBlock Block number considered to be the end of the delegate permissions
      */
-    event DSNPRemoveDelegate(address delegate, uint64 endBlock);
-
-    /**
-     * @dev Add Delegate (default permissions determined by implementation)
-     * @param newDelegate Address to delegate new permissions to 
-     * 
-     * MUST be called by the owner
-     * MUST consider newDelegate to be valid from the beginning to time
-     * MUST emit DSNPAddDelegate
-     */
-    function delegate(address newDelegate) external;
-
-    /**
-     * @dev Add Delegate By EIP-712 Signature (default permissions determined by implementation)
-     * @param r ECDSA Signature r value
-     * @param s ECDSA Signature s value
-     * @param v EIP-155 calculated Signature v value
-     * @param newDelegate Address to delegate new permissions to
-     * 
-     * MUST be signed by the owner
-     * MUST consider newDelegate to be valid from the beginning to time
-     * MUST emit DSNPAddDelegate
-     */
-    function delegateBySignature(bytes32 r, bytes32 s, uint32 v, address newDelegate) external;
-
-    /**
-     * @dev Remove delegate
-     * @param delegate Address to remove all permissions from
-     * @param endBlock Block number to consider the permissions terminated (MUST be > 0x0). 
-     * 
-     * MUST be called from owner or the delegate  
-     * MUST store endBlock for response in isAuthorizedToAnnounce
-     * MUST emit DSNPRemoveDelegate
-     */
-    function delegateRemove(address delegate, uint64 endBlock) external;
-
-    /**
-     * @dev Remove delegate By EIP-712 signature (default permissions determined by implementation)
-     * @param delegate Address to remove all permissions from
-     * @param endBlock Block number to consider the permissions terminated (MUST be > 0x0).
-     * @param r ECDSA Signature r value
-     * @param s ECDSA Signature s value
-     * @param v EIP-155 calculated Signature v value
-     * 
-     * MUST be signed by owner or by the delegate
-     * MUST store endBlock for response in isAuthorizedToAnnounce
-     * MUST emit DSNPRemoveDelegate
-     */
-    function delegateRemoveBySignature(bytes32 r, bytes32 s, uint32 v, address delegate, uint64 endBlock) external;
-
-    /**
-     * @dev Checks to see if address is authorized to announce messages
-     * @param addr Address that is used to test against erecover
-     * @param blockNumber Check for authorization at a particular block number
-     * @return boolean 
-     * 
-     * @dev Return MAY change as deauthorization can revoke past messages
-     */
-    function isAuthorizedToAnnounce(address addr, uint64 blockNumber) external view returns (bool);
-}
-```
-
-### Option 2: With Permissions
-
-Specific permissions are granted when the delegate is added.
-
-```solidity
-/**
- * @dev DSNP Identity Interface for managing delegates
- */
-interface IDelegation {
 
     /**
      * @dev Should we do a Bitwise permission system instead of enum?
@@ -232,40 +141,18 @@ interface IDelegation {
      * MUST store endBlock for response in isAuthorizedToAnnounce
      * MUST emit DSNPRemoveDelegate
      */
-    function delegateRemoveBySignature(bytes32 r, bytes32 s, uint32 v, address delegate, uint64 endBlock) external;
+    function delegateRemoveByEIP712Sig(bytes32 r, bytes32 s, uint32 v, address delegate, uint64 endBlock) external;
 
     /**
      * @dev Checks to see if address is authorized to announce messages
-     * @param addr Address that is used to test against erecover
+     * @param addr Address that is used to test with ecrecover
      * @param permission Level of permission check. See Permission for details
      * @param blockNumber Check for authorization at a particular block number
      * @return boolean 
      * 
      * @dev Return MAY change as deauthorization can revoke past messages
      */
-    function isAuthorizedToAnnounce(address addr, Permission permission, uint64 blockNumber) external view returns (bool);
-}
-```
-
-
-## Identification
-
-In order to maintain chain level flexibility (see [Networks](/Networks) for more details),
-an identifier outside of the contract address is needed to maintain the graph data integrity without need for a translation.
-The `IIdentification` interface provides the mapping back to the identifier from the contract (see [Registry](/Identity/Registry) for more details) . 
-
-```solidity
-/**
- * @dev Easy way to map back to the identifier, but must be validated
- */
-interface IIdentification {
-    /**
-     * @dev Returns the identifier for the contract.
-     * @dev May be validated by testing against (TBD)
-     * 
-     * @return string 
-     */
-    function getId() external view returns (string);
+    function isAuthorizedTo(address addr, Permission permission, uint64 blockNumber) external view returns (bool);
 }
 ```
 
@@ -295,6 +182,8 @@ It is required to support optional interfaces and upgrade expansion.
 ### EIP 173
 
 [EIP 173](https://eips.ethereum.org/EIPS/eip-173) provides methods that confirm ownership and provide methods to transfer ownership.
+Implementations that choose to use this interface will need to consider that transferring ownership should revoke all existing delegations,
+or at a minimum all delegates at `Role.OWNER`.
 
 ### EIP 897
 
@@ -310,16 +199,27 @@ that are proxies such as those produced by the default [Identity Factory](/Ident
 | IIdentification | Required |
 | [EIP 1271](https://eips.ethereum.org/EIPS/eip-1271) | Required |
 | [EIP 165](https://eips.ethereum.org/EIPS/eip-165) | Required |
-| [EIP 173](https://eips.ethereum.org/EIPS/eip-173) | Option 1: Required <br /> Option 2: Optional |
 | [EIP 897](https://eips.ethereum.org/EIPS/eip-897) | Proxy Contracts Only |
+| [EIP 173](https://eips.ethereum.org/EIPS/eip-173) | Optional |
 
 ## Rejected Solutions
 
 * Centralized smart contract maintaining identifiers and owners
   * Top Rejection Reasons:
-    * A centralized contract must either be controlled by the foundation, a DAO, or non-upgradable.
+    * A centralized contract must either be controlled by the foundation, a DAO, or non-upgradable
     * Does not allow for complete flexibility in ownership
 * Using a single public key as an identifier
   * Top Rejection Reasons:
     * Does not allow for flexibility in ownership
-    * Completely dependent on off-chain software and processing for verification of delegation  
+    * Completely dependent on off-chain software and processing for verification of delegation
+* Using a single owner model
+  * A single owner (as well as the existing EIP 173 to manage it) was considered as opposed to the multi-owner role system
+  * Top Rejection Reasons:
+    * Does not allow for flexibility in ownership
+    * Single-owner increases the likelihood of users using choosing less secure key management practices
+    * Multi-owner pairs better with a permissioned system
+* Using a simple two-tier permission model
+  * Owner level and "everything" else
+  * Top Rejection Reasons:
+    * Limits options for future specific roles such as social recovery
+    * Cost savings were minimal when paired with a role based system
