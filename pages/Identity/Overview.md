@@ -70,21 +70,66 @@ or perform other actions in addition to the "owner" public key.
 interface IDelegation {
 
     /**
-     */
-
-    /**
-     * @dev Should we do a Bitwise permission system instead of enum?
+     * @dev Enumerated Permissions
+     *      Roles have different permissions
      */
     enum Permission {
-        NONE, OWNER, ANNOUNCER
+        /**
+         * @dev 0x0 NONE reserved for no permissions 
+         */
+        NONE,
+
+        /**
+         * @dev 0x1 Announce any DSNP message
+         */
+        ANNOUNCE,
+
+        /**
+         * @dev 0x2 Add new delegate
+         */
+        OWNERSHIP_TRANSFER,
+
+        /**
+         * @dev 0x3 Add new delegates
+         */
+        DELEGATE_ADD,
+
+        /**
+         * @dev 0x4 Remove delegates
+         */
+        DELEGATE_REMOVE
     }
-    
+
+    /**
+     * @dev Enumerated Roles
+     *      Roles have different permissions 
+     *      For example: 
+     */
+    enum Role {
+        /**
+         * @dev 0x0 NONE reserved for no permissions 
+         */
+        NONE,
+
+        /**
+         * @dev 0x1 OWNER:
+         *      - Permission.*
+         */
+        OWNER,
+
+        /**
+         * @dev 0x2 ANNOUNCER:
+         *      - Permission.ANNOUNCE
+         */
+        ANNOUNCER
+    }
+
     /**
      * @dev Log for addition of a new delegate
      * @param delegate Address delegated
-     * @param permission Level of permission granted
+     * @param role Permission Role
      */
-    event DSNPAddDelegate(address delegate, Permission permission);
+    event DSNPAddDelegate(address delegate, Role role);
 
     /**
      * @dev Log for removal of a delegate
@@ -102,7 +147,7 @@ interface IDelegation {
      * MUST consider newDelegate to be valid from the beginning to time
      * MUST emit DSNPAddDelegate
      */
-    function delegate(address newDelegate, Permission permission) external;
+    function delegate(address newDelegate, Role role) external;
 
     /**
      * @dev Add or change permissions for delegate by EIP-712 signature
@@ -116,7 +161,7 @@ interface IDelegation {
      * MUST consider newDelegate to be valid from the beginning to time
      * MUST emit DSNPAddDelegate
      */
-    function delegateBySignature(bytes32 r, bytes32 s, uint32 v, address newDelegate, Permission permission) external;
+    function delegateByEIP712Sig(bytes32 r, bytes32 s, uint32 v, address newDelegate, Role role) external;
 
     /**
      * @dev Remove Delegate
