@@ -5,10 +5,13 @@ export default {
   menu: [
     "Introduction",
     "Implementation Status",
+    "Networks",
     {
       name: "Identity",
       menu: [
-        "Overview"
+        "Overview",
+        "Factory",
+        "Registry"
       ]
     },
     {
