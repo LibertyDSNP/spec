@@ -14,8 +14,8 @@
         "dev": "docz dev",
         "build": "docz build",
         "serve": "docz serve",
-        "spellcheck": "mdspell './pages/**/*.md' './*.md' '!./LICENSE.md'  --en-US --ignore-numbers --report",
-        "spellfix": "mdspell './pages/**/*.md' './*.md' '!./LICENSE.md'  --en-US --ignore-numbers",
+        "spellcheck": "mdspell './pages/**/*.md' './*.md' '!./LICENSE.md' --en-us --ignore-numbers --report",
+        "spellfix": "mdspell './pages/**/*.md' './*.md' '!./LICENSE.md' --en-us --ignore-numbers",
         "lint-md": "remark ./pages/**/*.md",
         "lint": "npm run lint-md && npm run spellcheck"
     },
