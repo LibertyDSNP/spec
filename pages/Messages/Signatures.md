@@ -41,7 +41,7 @@ Additional signatures may as be used to extend this specification with new featu
 The process for generating a signature to be provided with a DSNP message to an archivist is as follows:
 
 1. Remove any additional signatures from the message's activity pub contents.
-1. Hash the stringified JSON using [keccak-256](https://en.wikipedia.org/wiki/SHA-3).
+1. Hash the serialized JSON using [keccak-256](https://en.wikipedia.org/wiki/SHA-3).
 1. Sign the hash using [secp256k1](https://www.secg.org/sec2-v2.pdf).
 
 ### Additional Signatures
