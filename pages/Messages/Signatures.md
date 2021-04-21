@@ -32,7 +32,7 @@ The process for generating signatures for DSNP messages consists of three distin
 1. Sign the hash
 
 Before serializing, keys in the DSNP message should be sorted alphabetically using [default JavaScript string comparison](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator) order.
-Serialization should be done using the standard [`JSON.stringify()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) method available in NodeJS or any web browser.
+Serialization should be done as described in the [Serialization spec](/Identity/Serialization).
 Next, the serialized string should be hashed using [keccak-256](https://en.wikipedia.org/wiki/SHA-3).
 Finally, the fixed length hash generated can then be signed using [secp256k1](https://google.com/search?hl=en&q=secp256k1) and the publishing user's private key.
 
