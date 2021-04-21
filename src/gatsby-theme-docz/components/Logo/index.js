@@ -2,4 +2,4 @@
 import React from "react";
 import logo from "./logo.png";
 
-export const Logo = () => <img src={logo} alt="Unfinished Labs" height={50} width={230} />
+export const Logo = () => <img src={logo} alt="Unfinished Labs" height={55} width={230} />
