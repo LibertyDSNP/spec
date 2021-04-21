@@ -207,16 +207,6 @@ It is an open question if we want to require a standard set of upgrade interface
 
 ## Additional Required Interfaces
 
-### EIP 1271
-
-[EIP 1271](https://eips.ethereum.org/EIPS/eip-1271) allows the identity contract to validate a signature.
-To support delegation, this interface allows a contract to validate against the signature of the owner.
-
-Unlike `IDelegation.isAuthorizedToAnnounce` which supports permission levels and end block number,
-`isValidSignature` will only respond to currently permissioned addresses at the owner level.
-
-**REMEMBER**: Implementation *MUST ONLY* return true for the owner level. 
-
 ### EIP 165
 
 [EIP 165](https://eips.ethereum.org/EIPS/eip-165) provides standard interface detection.
@@ -235,17 +225,25 @@ or at a minimum all delegates at `Role.OWNER`.
 [EIP 897](https://eips.ethereum.org/EIPS/eip-897) is for DSNP identity contracts
 that are proxies such as those produced by the default [Identity Factory](/Identity/Factory).
 
+### EIP 1271
+
+[EIP 1271](https://eips.ethereum.org/EIPS/eip-1271) allows the identity contract to validate a signature.
+To support delegation, this interface allows a contract to validate against the signature of the owner.
+
+Unlike `IDelegation.isAuthorizedToAnnounce` which supports permission levels and end block number,
+`isValidSignature` will only respond to currently permissioned addresses at the owner level.
+
+**REMEMBER**: Implementation *MUST ONLY* return true for active owner level.
 
 ### Identity Requirements
 
 | Interface | Required |
 |-----------|----------|
 | IDelegation | Required |
-| IIdentification | Required |
-| [EIP 1271](https://eips.ethereum.org/EIPS/eip-1271) | Required |
 | [EIP 165](https://eips.ethereum.org/EIPS/eip-165) | Required |
 | [EIP 897](https://eips.ethereum.org/EIPS/eip-897) | Proxy Contracts Only |
 | [EIP 173](https://eips.ethereum.org/EIPS/eip-173) | Optional |
+| [EIP 1271](https://eips.ethereum.org/EIPS/eip-1271) | Optional |
 
 ## Rejected Solutions
 
