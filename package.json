@@ -1,8 +1,8 @@
 {
     "name": "liberty-protocol-spec",
     "version": "0.0.1",
-    "private": true,
     "description": "Detailed documentation regarding the current state of the protocol",
+    "license": "CC-BY-SA-4.0",
     "files": [
         "src/",
         "pages/",
