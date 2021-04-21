@@ -4,15 +4,15 @@ export default {
   ignore: ["CODEOFCONDUCT.md", "LICENSE.md", "README.md"],
   themeConfig: {
     colors: {
-      primary: "#26e990",
-      secondary: "#26e990",
-      accent: "#26e990",
+      primary: "#21cf80",
+      secondary: "#21cf80",
+      accent: "#21cf80",
       header: {
         bg: "#424242",
       },
       sidebar: {
-        navLinkActive: "#26e990",
-        bg: "#ededed",
+        navLinkActive: "#21cf80",
+        bg: "#f7f7f7",
       },
       muted: '#f6f6f6',
       modes: {
