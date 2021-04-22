@@ -83,3 +83,4 @@ uint64
 ecrecover
 Punycode
 TODO
+unicode

@@ -99,7 +99,7 @@ It will be reconsidered for Mainnet.
 
 ### NFT Concerns
 
-* EIP-721 ownership standards don't need permissioned levels
+* EIP 721 ownership standards don't need permissioned levels
 * Dual ownership standard support adds unneeded complexity
 * Identity contract ownership requires receive and transfer support
 
