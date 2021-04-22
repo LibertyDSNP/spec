@@ -68,42 +68,29 @@ Resolutions are possible between any of the three pieces of data: Handle, DSNP I
 While a utility method is provided for ease of moving from handle to the contract address,
 the other resolutions require using contract log events.
 
-### Handle -> Contract Address
+### Current Handle -> Current Contract Address
 
-The `IRegistry.resolveHandleToAddress` method is the most efficient,
-but one may also use a two step process using a dual lookup with the methods below moving first to DSNP Id, then to the contract address.
+The `IRegistry.resolveHandleToAddress` method is the most efficient for discovery of current values.
+Perform a log search using the `DSNPId` event to discover all contract addresses and DSNP Ids that have had a given handle. 
 
-### Current Handle -> DSNP Id
+### Current Handle -> Current DSNP Id
 
-The `IRegistry.resolveHandleToId` method is the most efficient,
-but remember it will only give the current DSNP Id, not the historical handles of the DSNP Id or other DSNP Ids that may have had the handle in the past.
-For historical data use the `DSNPIdHandle` event log.
+The `IRegistry.resolveHandleToId` method is the most efficient for discovery of current values.
+Perform a log search using the `DSNPId` event to discover all contract addresses and DSNP Ids that have had a given handle.
 
-### Handle <-> DSNP Id
+### Other Lookups & Historical Values
 
-The `DSNPIdHandle` event is provided to resolve a handle to any DSNP Id that has had that handle
-or DSNP Id to all the handles it has had.
-The DSNP Id and handle are indexed in the event so use a log search using the event and the search data as topics.
+The `DSNPId` event is provided to resolve DSNP Ids, handles, and contract addresses.
+The DSNP Id, handle, and contract address are indexed in the event so use a log search using the event and the search data as topics.
 
-A search by handle may produce more than one DSNP Id, meaning that a handle was previously attached to a different DSNP Id.
-There is no guarantee that the DSNP Id will be the current handle for that Id, merely that it was assigned at that time.
+A search by handle may produce more than one DSNP Id or contract address, meaning that a handle was previously attached to a different DSNP Id or contract address.
+There is no guarantee that the searched handle will be currently attached to any of the DSNP Ids or contract addresses in the result.
 
-A search by DSNP Id may produce more than one result, meaning that the DSNP Id has had more than one handle.
-The most recent event (the one with the highest block number), will be the current handle for the given DSNP Id.
+A search by contract address may produce more than one result meaning that the contract address is currently or previously attached to other DSNP Ids.
+To test for the current value, the query would need to be run again with each of the resulting DSNP Ids retrieving the most recent `DSNPId` event.
 
-### DSNP Id <-> Contract Address
-
-The `DSNPIdAddress` event is provided to easily resolve a DSNP Id to an address or reverse an address to one or more DSNP Ids.
-The DSNP Id and contract address are indexed in the event so use a log search using the event and the search data as topics.
-
-A search by DSNP Id may produce more than one contract address,
-meaning that the DSNP Id was previously attached to a different contract.
-The most recent event (the one with the highest block number), will be the current contract address for the given DSNP Id.
-
-A search by contract address may produce more than one DSNP Ids.
-There is no guarantee that the DSNP Id will be currently attached to any of the results.
-To test for the current value, the query would need to be run again with each of the resulting DSNP Ids retrieving the most recent `DSNPIdAddress` event.
-
+A search by DSNP Id will retrieve the history of all handles and contract addresses that have been connected to that DSNP Id.
+The most recent event (the one with the highest block number), will give the current handle and contract address for the given DSNP Id.
 
 ## EIP 721
 
