@@ -12,7 +12,7 @@ This specification is intended to cover the concept of identity within the proto
 
 | Version | Status |
 ---------- | ---------
-| 0.1     | Tentative |
+| 0.2     | Tentative |
 
 ## Purpose
 
