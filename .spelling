@@ -82,5 +82,6 @@ ENS
 uint64
 ecrecover
 Punycode
+punycode
 TODO
 unicode
