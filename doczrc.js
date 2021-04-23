@@ -68,6 +68,7 @@ export default {
       menu: [
         "Overview",
         "Serialization",
+        "Signatures",
         "Types"
       ]
     },
