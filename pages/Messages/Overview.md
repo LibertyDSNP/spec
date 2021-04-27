@@ -18,21 +18,21 @@ menu: Messages
     * Direct messages between accounts (dead drop, inbox)
     * Key changes (private graph KeyList, encryption KeyList, public key rotation)
     * Graph changes (follow/unfollow)
-1. Specify an on-chain message format
+1. Specify an on-chain announcement format
 1. Provide data size estimations
 1. Facilitate use of SDK and interpretation of on-chain data
 
 ## Assumptions
-* Chain messages are on Ethereum
-* Message data is posted via [Ethereum log events](https://medium.com/mycrypto/understanding-event-logs-on-the-ethereum-blockchain-f4ae7ba50378)
-* Signature algorithm is [secp256k1](https://en.bitcoin.it/wiki/Secp256k1). This allows the use of `ecreover`
-  to get public keys. A public key also need not be included in a log event for ease of validation.
-* content hashes are created via the same [keccak-256 hashing algorithm](https://en.wikipedia.org/wiki/SHA-3) used by Ethereum.
+* Announcements are on Ethereum.
+* Announcement data is posted via [Ethereum log events](https://medium.com/mycrypto/understanding-event-logs-on-the-ethereum-blockchain-f4ae7ba50378).
+* Signature algorithm is [secp256k1](https://en.bitcoin.it/wiki/Secp256k1). This allows the use of `ecreover` to get public keys. A public key also need not be included in a log event for ease of validation.
+* Content hashes are created via the same [keccak-256 hashing algorithm](https://en.wikipedia.org/wiki/SHA-3) used by Ethereum.
 
-## DSNP Message Formats
-We have seriously considered two possibilities, a [variable message format](#Variable-Message-Format), and a [unified message format](#unified-message-format).  Others are listed at the end of this page.
+## DSNP Announcement Formats
+We have seriously considered two possibilities, a [variable announcement format](#Variable-Announcement-Format), and a [unified announcement format](#unified-announcement-format).
+Others are listed at the end of this page.
 
-### Variable Message Format
+### Variable Announcement Format
 This format is the current preference.
 
 * All actions are posted to chain with some or all pertinent information about the action
@@ -44,7 +44,7 @@ This format is the current preference.
 * **Disadvantages**
     * more data (likely more costly up front) than a simple URI
 
-**Log message format **
+#### Log Event Format
 
 This is what would be posted as a Log event in Ethereum:
 
@@ -58,13 +58,13 @@ This is what would be posted as a Log event in Ethereum:
 * Emit no topic, have a single contract that subscribers watch for events from.  Subscribers can perform filtering based on the `dsnpTopic` field.
 * The topic is the dsnpType (possibly not an enum).  Subscribers could listen for desired topics.
 
-### DSNP Messages
-These messages would be serialized, compressed where feasible, and emitted in the log event as the `DSNPData` field.
+### DSNP Announcement
+These announcements would be serialized, compressed where feasible, and emitted in the log event as the `DSNPData` field.
 
 For details on how messages are serialized, see [DSNP Message Serialization](/Messages/Serialization)
 
 #### Broadcast
-a public post (was Announcement)
+a public post
 
 | dsnpData field | description | type |
 | ------------- |------------- | ---- |
@@ -78,7 +78,7 @@ a public reply post
 
 | dsnpData field | description | type |
 | ------------- |------------- | ---- |
-| inReplyTo | ID of the message the reply references |  bytes32
+| inReplyTo | ID of the announcement the reply references |  bytes32
 | messageID | keccak-256 hash of content stored at uri |  bytes32
 | fromAddress | ID of the sender | bytes20
 | uri       | content uri | string
@@ -141,7 +141,7 @@ a visual reply to a post
 | fromAddress | id of the sender | bytes20
 | emoji | the encoded reaction  | number / UTF-8 bytes[]
 
-### Possible Message Types
+### Possible Announcement Types
 
 #### Profile
 a profile update such as name or icon change
@@ -174,7 +174,7 @@ This describes the format once decrypted.
 | uri       | content uri | string
 
 
-### Unified Message Format
+### Unified Announcement Format
 This is currently not the recommended solution, but is presented as a comparison.
 
 * All actions are posted to the chain with some pertinent information about the action
