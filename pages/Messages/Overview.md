@@ -13,6 +13,7 @@ menu: Messages
 | 0.2     | Tentative |
 
 ## Purpose
+
 1. Describe the form and content of DSNP Messages posted to the blockchain used for all Liberty Platform activities. Only some of these activities will have the full message posted to chain. Examples:
     * Public messages (profile changes, public posts, reactions)
     * Direct messages between accounts (dead drop, inbox)
@@ -23,16 +24,19 @@ menu: Messages
 1. Facilitate use of SDK and interpretation of on-chain data
 
 ## Assumptions
+
 * Announcements are on Ethereum.
 * Announcement data is posted via [Ethereum log events](https://medium.com/mycrypto/understanding-event-logs-on-the-ethereum-blockchain-f4ae7ba50378).
 * Signature algorithm is [secp256k1](https://en.bitcoin.it/wiki/Secp256k1). This allows the use of `ecreover` to get public keys. A public key also need not be included in a log event for ease of validation.
 * Content hashes are created via the same [keccak-256 hashing algorithm](https://en.wikipedia.org/wiki/SHA-3) used by Ethereum.
 
 ## DSNP Announcement Formats
+
 We have seriously considered two possibilities, a [variable announcement format](#Variable-Announcement-Format), and a [unified announcement format](#unified-announcement-format).
 Others are listed at the end of this page.
 
 ### Variable Announcement Format
+
 This format is the current preference.
 
 * All actions are posted to chain with some or all pertinent information about the action
@@ -55,16 +59,19 @@ This is what would be posted as a Log event in Ethereum:
 | dsnpData | serialized, possibly compressed message data| bytes |
 
 #### Some other options:
+
 * Emit no topic, have a single contract that subscribers watch for events from.  Subscribers can perform filtering based on the `dsnpTopic` field.
 * The topic is the dsnpType (possibly not an enum).  Subscribers could listen for desired topics.
 
 ### DSNP Announcement
+
 These announcements would be serialized, compressed where feasible, and emitted in the log event as the `DSNPData` field.
 
 For details on how messages are serialized, see [DSNP Message Serialization](/Messages/Serialization)
 
 #### Broadcast
-a public post
+
+A public post.
 
 | dsnpData field | description | type |
 | ------------- |------------- | ---- |
@@ -74,7 +81,8 @@ a public post
 
 
 #### Reply
-a public reply post
+
+A public reply post.
 
 | dsnpData field | description | type |
 | ------------- |------------- | ---- |
@@ -85,7 +93,8 @@ a public reply post
 
 
 #### Drop
-a dead drop message
+
+A dead drop message.
 
 | dsnpData field | description | type |
 | ------------- |------------- | ---- |
@@ -94,7 +103,8 @@ a dead drop message
 | contentHash | keccak-256 hash of content |  bytes32
 
 #### GraphChange
-a public follow/unfollow
+
+A public follow/unfollow.
 
 | dsnpData field | description | type |
 | ------------- |------------- | ---- |
@@ -103,7 +113,7 @@ a public follow/unfollow
 
 #### KeyList, PrivateGraphKeyList, EncryptionKeyList
 
-a KeyList rotation
+A KeyList rotation.
 
 | dsnpData field | description | type |
 | ------------- |------------- | ---- |
@@ -111,7 +121,8 @@ a KeyList rotation
 | keyList | new list of valid keys | bytes[]
 
 #### Inbox
-a direct message
+
+A direct message.
 
 | dsnpData field | description | type |
 | ------------- |------------- | ---- |
@@ -121,7 +132,8 @@ a direct message
 | uri  | content uri  | string
 
 #### EncryptedInbox
-an encrypted direct message.
+
+An encrypted direct message.
 This describes the format once decrypted.
 Possibly combine both of these and expect that all Inbox messages are encrypted.
 
@@ -133,7 +145,8 @@ Possibly combine both of these and expect that all Inbox messages are encrypted.
 | uri  | content uri  | string
 
 #### Reaction
-a visual reply to a post
+
+A visual reply to a post.
 
 | dsnpData field | description | type |
 | ------------- |------------- | ---- |
@@ -144,7 +157,8 @@ a visual reply to a post
 ### Possible Announcement Types
 
 #### Profile
-a profile update such as name or icon change
+
+A profile update such as name or icon change.
 
 | dsnpData field | description | type |
 | ------------- |------------- | ---- |
@@ -153,6 +167,7 @@ a profile update such as name or icon change
 | contentHash |  keccak-256 hash of content at uri | bytes32
 
 #### Private
+
 An encrypted message of unknown type.
 See [DSNP Message Types: Private Messages](/Messages/Types#private-messages) for details.
 
@@ -163,6 +178,7 @@ See [DSNP Message Types: Private Messages](/Messages/Types#private-messages) for
 | contentHash | keccak-256 hash of unencrypted content | bytes32
 
 #### PrivateBroadcast
+
 An encrypted Broadcast decipherable by specific accounts.
 This describes the format once decrypted.
 
@@ -175,6 +191,7 @@ This describes the format once decrypted.
 
 
 ### Unified Announcement Format
+
 This is currently not the recommended solution, but is presented as a comparison.
 
 * All actions are posted to the chain with some pertinent information about the action
@@ -198,6 +215,7 @@ This is currently not the recommended solution, but is presented as a comparison
 | uri | uri of stored action information | string
 
 ### All data on chain
+
 One possibility is not to have any data stored off-chain; instead, even the ActivityPub content would be posted to chain.
 The disadvantages far outweigh the advantages:
 
@@ -211,4 +229,5 @@ The disadvantages far outweigh the advantages:
     * Unknown, likely chilling effect on incentive models
 
 ### No data except hashes on chain
+
 Only hashes of the events are stored on chain; everything else is interpreted via API(s)
