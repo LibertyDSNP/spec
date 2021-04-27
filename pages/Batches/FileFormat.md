@@ -22,8 +22,7 @@ Batch files are stored and transferred in Apache Parquet format.
 * All assumptions from [DSNP Messages](/Messages/Overview)
 
 ## Details
-Parameters for Batch file storage should be chosen with client applications in mind; consumer devices must be able
-query, download and sift through downloaded batch files without adversely affecting user experience by way of
+Parameters for Batch file storage should be chosen with client applications in mind; consumer devices must be able to query, download and sift through downloaded batch files without adversely affecting user experience by way of
 long download times, heavy processing requirements which may quickly sap battery power, or by using lots of memory.
 
 This has implications for row group size as well as configuring bloom filters for the batch file, however, since it is possible to announce multiple batches in one announcement, the announcer can announce more data than  is in a single batch file.
@@ -38,7 +37,7 @@ Benchmarking is TBD.
 ## Storage and transfer requirements
 Batch files need to be quickly and easily searchable. Minimal storage size and fast, simple querying, identification and transfer are preferred to guarantees of no false positives or advanced data manipulation and column relationships.  The files ideally are parseable by client applications, web views or browsers running pure JavaScript without a need to convert the format.
 
-DNSP doesn't need a database; the data is not relational, DSNP messages are not complicated, having just a few key-value pairs. Applications need to know if a given Batch file has any information they are interested in without downloading the file first.
+DNSP doesn't need a database; the data is not relational. The columns:rows ratio will be  at most 1:1000, likely more at 1:10k, within one batch file. Applications need to know if a given Batch file has any information they are interested in without downloading the file first.
 
 ## Parquet
 1. Parquet is a **column-oriented format**. Since DSNP Batch Message data will have a very small column-to-row ratio compared to a typical web application database, it makes sense to prefer a column-oriented format.
