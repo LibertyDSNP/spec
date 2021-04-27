@@ -55,7 +55,7 @@ In the case of other types of announcements, message may be used an alias for an
 #### Event
 
 Events refer specifically to log events on the Ethereum blockchain.
-To avoid confusion with other terms, we will not officially refer to announcements, content or messages as events, however they may be referred to as such unnofficially in more casual conversation such as forum posts, GitHub issues or pull requests.
+To avoid confusion with other terms, we will not officially refer to announcements, content or messages as events, however they may be referred to as such unofficially in more casual conversation such as forum posts, GitHub issues or pull requests.
 
 ## DSNP Announcement Formats
 
