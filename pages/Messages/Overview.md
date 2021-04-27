@@ -69,7 +69,7 @@ a public post
 | dsnpData field | description | type |
 | ------------- |------------- | ---- |
 | fromAddress | ID of the sender | bytes20
-| messageID | keccak-256 hash of content stored at URI |  bytes32
+| contentHash | keccak-256 hash of content stored at URI |  bytes32
 | uri       | content URI | string
 
 
@@ -79,7 +79,7 @@ a public reply post
 | dsnpData field | description | type |
 | ------------- |------------- | ---- |
 | inReplyTo | ID of the announcement the reply references |  bytes32
-| messageID | keccak-256 hash of content stored at uri |  bytes32
+| contentHash | keccak-256 hash of content stored at uri |  bytes32
 | fromAddress | ID of the sender | bytes20
 | uri       | content uri | string
 
@@ -91,7 +91,7 @@ a dead drop message
 | ------------- |------------- | ---- |
 | deadDropID | The Dead Drop ID (See [DeadDrops](TBD) | bytes32
 | uri  | content uri  |  string
-| messageID | keccak-256 hash of content |  bytes32
+| contentHash | keccak-256 hash of content |  bytes32
 
 #### GraphChange
 a public follow/unfollow
@@ -117,7 +117,7 @@ a direct message
 | ------------- |------------- | ---- |
 | toAddress | ID of the recipient | bytes20
 | fromAddress | id of the sender | bytes20
-| messageID | keccak-256 hash of content | bytes32
+| contentHash | keccak-256 hash of content | bytes32
 | uri  | content uri  | string
 
 #### EncryptedInbox
@@ -129,7 +129,7 @@ Possibly combine both of these and expect that all Inbox messages are encrypted.
 | ------------- |------------- | ---- |
 | toAddress | ID of the recipient | bytes20
 | fromAddress | ID of the sender | bytes20
-| messageID | keccak-256 hash of content | bytes32
+| contentHash | keccak-256 hash of content | bytes32
 | uri  | content uri  | string
 
 #### Reaction
@@ -150,7 +150,7 @@ a profile update such as name or icon change
 | ------------- |------------- | ---- |
 | fromAddress | id of the sender | bytes20
 | uri    | uri for the profile data  |string
-| messageID |  keccak-256 hash of content at uri | bytes32
+| contentHash |  keccak-256 hash of content at uri | bytes32
 
 #### Private
 An encrypted message of unknown type.
@@ -160,17 +160,17 @@ See [DSNP Message Types: Private Messages](/Messages/Types#private-messages) for
 | ------------- |------------- | ---- |
 | fromAddress | id of the sender | bytes20
 | data | encrypted graph change data | string
-| messageID | keccak-256 hash of unencrypted content | bytes32
+| contentHash | keccak-256 hash of unencrypted content | bytes32
 
 #### PrivateBroadcast
 An encrypted Broadcast decipherable by specific accounts.
 This describes the format once decrypted.
 
 | dsnpData field | description | type |
-| ------------- |------------- | ---- |
+| -------------- |------------ | ---- |
 | fromAddress | id of the sender | bytes20
 | inReplyTo | ID of the message the broadcast references |  bytes32
-| messageID      | keccak-256 hash of content stored at URI |  bytes32
+| contentHash      | keccak-256 hash of content stored at URI |  bytes32
 | uri       | content uri | string
 
 
