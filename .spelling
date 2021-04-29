@@ -86,6 +86,7 @@ punycode
 TODO
 unicode
 SDK
+SDKs
 JSON
 namespace
 unfollow
@@ -100,3 +101,4 @@ ICANN
 contentHash
 W3C
 Mastodon
+0.8.x.

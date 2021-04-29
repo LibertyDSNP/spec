@@ -48,6 +48,10 @@ Proposals for some of these future extensions can be found in the Future Proposa
 
 For more detail on the specification process and how to contribute, please see the [GitHub repo](https://github.com/LibertyDSNP/spec).
 
+# Solidity Interfaces
+
+All included Solidity interfaces are targeting the Solidity language version 0.8.x.
+Other versions may be available in the [official contracts code repository](https://github.com/LibertyDSNP/contracts).
 
 # Learning More
 
