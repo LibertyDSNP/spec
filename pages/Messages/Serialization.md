@@ -13,7 +13,7 @@ menu: Messages
 | 0.1     | Tentative |
 
 ## Purpose
-1. Describe the form and method of DSNP message serialization for posting messages in Ethereum logs.
+1. Describe the form and method of DSNP message serialization for posting announcements in Ethereum logs.
 1. Facilitate use of SDK
 
 ## Assumptions
@@ -34,7 +34,7 @@ During early development we are using plain JSON for serialization, however, thi
 ## Serializing Identifiable Messages
 Identifiable messages are those with a DSNP Message Type other than `Private`.  They may still be private messages, but it's known what _type_ of message it is.
 
-1. Serialize the message, as with this GraphChange, which is a follow of address `0x3c0ffee5`:
+1. Serialize the announcement, as with this GraphChange, which is a follow of address `0x3c0ffee5`:
     ```json
     {
         "address": "0x3c0ffee5",
