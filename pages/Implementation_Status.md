@@ -29,10 +29,10 @@ Here is a high level roadmap to what content is coming next!
 | Spec Outline | Done (2021 Q1) |
 | Batch Announce First Draft  | Done (2021 Q1) |
 | Spec Live! | Done (2021 Q1) |
-| Identity Contract & Delegation | In Progress |
+| Identity Contract & Delegation | Done (2021 Q2) |
 | Batch Announce File Format | In Progress |
-| Identity Factory | 2021 |
-| Graph Handle Registry | 2021 |
+| Identity Factory | Done (2021 Q2) |
+| Graph Handle Registry | Done (2021 Q2) |
 | Batch Announce Filter System | 2021 |
 | Graph Data | 2021 |
 | Messages Revision | 2021 |
@@ -43,3 +43,11 @@ Here is a high level roadmap to what content is coming next!
 | Private Graph (Post 1.0) | Future |
 | Private Messaging (Post 1.0) | Future |
 | Verified Attributes (Post 1.0) | Future |
+
+## Contracts and Interfaces
+
+Official DSNP interfaces and implementations code may be found in [GitHub](https://github.com/LibertyDSNP/contracts).
+
+## DSNP SDKs
+
+- [Official TypeScript/JavaScript](https://github.com/LibertyDSNP/sdk-ts)
