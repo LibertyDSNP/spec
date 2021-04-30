@@ -26,12 +26,12 @@ menu: Messages
 DSNP message identifiers at minimum consist of a string with three parts, a protocol, a user identifier and a content hash, like so:
 
 ```
-dsnp://0123/456789abcdef0123
+dsnp://0123456789abcdef/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
 ```
 
 In this example, `dsnp://` is the protocol indicating that the latest version of this specification should be used.
-`0123` is the identifier representing a user as described in the [Identity Registry](/Identity/Registry) specification.
-`456789abcdef0123` is the hash of the content as described in the [Messages Serialization](/Messages/Serialization) specification.
+`0123456789abcdef` is the identifier representing a user as described in the [Identity Registry](/Identity/Registry) specification.
+`0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef` is the hash of the content as described in the [Messages Serialization](/Messages/Serialization) specification.
 
 ### Protocol
 
@@ -48,7 +48,7 @@ If no version number is provided at all, i.e. `dsnp://`, then the most recent av
 
 The user identifier section of the identifier string should adhere to the relevant version of the [Identity Registry](/Identity/Registry) specification.
 Generally, this will be a hexadecimal representation of the user's 64 bit registry identifier number.
-For example, `2B02` would indicate user number 11,010.
+For example, `0123456789abcdef` would indicate user number 81,985,529,216,486,895.
 
 ### Content Hash
 
@@ -70,7 +70,7 @@ However, clients should be aware that their requested format, or any alternative
 The following is an example of a identifier specifying a preference for an XML response:
 
 ```
-dsnp://0123/456789abcdef0123.xml
+dsnp://0123456789abcdef/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef.xml
 ```
 
 ### Additional Request Options
@@ -78,7 +78,7 @@ dsnp://0123/456789abcdef0123.xml
 Further options may also be provided to the server at the end of the message identifier in the style of [URL parameters](https://developer.mozilla.org/en-US/docs/Web/API/URL/searchParams), like so:
 
 ```
-dsnp://0123/456789abcdef0123?includeReplies=true
+dsnp://0123456789abcdef/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef?includeReplies=true
 ```
 
 These options are largely dependent on the server implementation and what options the server operator chooses to make available, but in the interest of consistency, the following options are recommended for optional support:
