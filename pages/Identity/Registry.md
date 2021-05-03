@@ -138,7 +138,7 @@ interface IRegistry {
      * 
      * MUST reject if the handle is already in use
      * MUST emit DSNPRegistryUpdate
-     * MUST confirm contract at address implements `IDelegation` via an EIP 165 `supportsInterface` call.
+     * MUST check that addr implements IDelegation interface
      */
     function register(address addr, string handle) external returns (uint64);
 
@@ -150,6 +150,7 @@ interface IRegistry {
      * MUST be called by someone who is authorized on the contract
      *      via `IDelegation(oldAddr).isAuthorizedTo(oldAddr, Permission.OWNERSHIP_TRANSFER, block.number)`
      * MUST emit DSNPRegistryUpdate
+     * MUST check that newAddr implements IDelegation interface
      */
     function changeAddress(address newAddr, string handle) external;
 
