@@ -35,7 +35,7 @@ In Parquet, the Bloom filter type is Split Block; the calculation for filter bit
 Absent benchmarks, the False Positive Rate currently defaults to 0.001.
  
 ## API
-Batch announcements will be done via the SDK API for Announcements.  Bloom filter settings will be set as described above in the SDK.  This may be configurable without changing the source code at a later date.  
+Batch announcements are done via the SDK API for Announcements.  Bloom filter settings are set as described above in the SDK.  This may be configurable without changing the source code at a later date.  
 
 ## Benchmarks
 TBD
@@ -45,7 +45,7 @@ TBD
 ### Requirements
 Batch files need to be quickly and easily searchable. Minimal storage size and fast, simple querying, identification and transfer are preferred to guarantees of no false positives or advanced data manipulation and column relationships.  The files ideally are parseable by client applications, web views or browsers running pure JavaScript without a need to convert the format.
 
-DNSP doesn't need a database; the data is not relational. The columns:rows ratio will be  at most 1:1000, likely more at 1:10k, within one batch file. Applications need to know if a given Batch file has any information they are interested in without downloading the file first.
+DNSP doesn't need a database; the data is not relational. The columns:rows ratio are  at most 1:1000, likely more at 1:10k, within one batch file. Applications need to know if a given Batch file has any information they are interested in without downloading the file first.
 
 ### Why Parquet?
 1. Parquet is a **column-oriented format**. Since DSNP Batch Message data will have a very small column-to-row ratio compared to a typical web application database, it makes sense to prefer a column-oriented format.
@@ -58,6 +58,6 @@ DNSP doesn't need a database; the data is not relational. The columns:rows ratio
 1. Parquet **uses schemas**, which additionally reduces file size.
 
 ### Rejected alternatives
-1. Cassandra, RocksDB, CouchDB, MongoDB, HBASE were rejected since DSNP data needs neither a database for storage nor the overhead of one. Each of these was designed for use cases from somewhat to drastically different to DSNP.
+1. Cassandra, RocksDB, CouchDB, MongoDB, HBASE were rejected since DSNP data needs neither a database for storage nor the overhead of one. Each of these was designed for use cases ranging from somewhat to drastically different to DSNP.
 1. JSON, BSON and SQLite, while used for storage sometimes, are intended for serialization. They are schemaless, which results in redundant information and therefore a larger size than formats with schemas. They also don't support Bloom filters; instead they'd have to be indexed somehow, or searched each time, which would be impractically slow or essentially mean using a database anyway.  The exception is SQLite, which does support more advanced queries, however, it was designed for in-memory storage.
 
