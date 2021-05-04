@@ -14,7 +14,11 @@ while maintaining all graph connections, public and private.
 
 | Version | Status |
 ---------- | ---------
+<<<<<<< HEAD
 | 0.2     | Tentative |
+=======
+| 0.3     | Tentative |
+>>>>>>> add nonce parameter to EIP 712 signatures with justification
 
 ## Purpose
 1. Describes how the Identity Registry resolves a DSNP Id to an identity contract address
@@ -53,6 +57,10 @@ So punycode does not properly present non-Latin characters which isn't reaching 
 
 Clients resolving handles MUST implement a method to detect potential homographs and check both user settings and potentially check the registry for additional potential matching DSNP Ids.
 
+### EIP 712 Methods, Replay Attacks and Nonces
+
+The Registry supports EIP 712 methods to permit a second party to pay gas costs for address and handle changes. Once an EIP 712 transaction is made, anyone may replay that action without further authorization. This breaks our security guarantees when the registration owner has made an additional change to either address or handle. To mitigate this, the Registry contract MUST store a nonce for every registration. When it receives an EIP 712 transaction, it MUST check that the nonce parameter matches the stored nonce, and it MUST increment the stored nonce if the transaction succeeds.
+
 ## DSNP Ids
 
 Ethereum contract addresses are currently 160 bit values which is much larger than needed for unique identification.
@@ -78,6 +86,10 @@ To retrieve historical values, perform a log search using the `DSNPRegistryUpdat
 
 The `IRegistry.resolveHandleToId` method is the most efficient for discovery of current values.
 To retrieve historical values, perform a log search using the `DSNPRegistryUpdate` event.
+
+### Current Handle -> Nonce
+
+The `IRegistry.resolveHandleToNonce` method is the only method for discovery of the current nonce.
 
 ### Other Lookups & Historical Values
 
@@ -161,6 +173,7 @@ interface IRegistry {
      * @param v EIP-155 calculated Signature v value
      * @param newAddr New address for the DSNP Id to point at
      * @param handle The handle to modify
+     * @param nonce The expected nonce for this update (must match return value of resolveHandleToNonce())
      * 
      * MUST be signed by someone who is authorized on the contract
      *      via `IDelegation(oldAddr).isAuthorizedTo(ecrecovedAddr, Permission.OWNERSHIP_TRANSFER, block.number)`
@@ -168,7 +181,7 @@ interface IRegistry {
      * TODO: FIX THE ISSUE OF newAddr not being a part of the creation
      * MUST emit DSNPRegistryUpdate
      */
-    function changeAddressByEIP712Sig(bytes32 r, bytes32 s, uint32 v, address newAddr, string handle) external;
+    function changeAddressByEIP712Sig(bytes32 r, bytes32 s, uint32 v, address newAddr, string handle, uint64 nonce) external;
 
     /**
      * @dev Alter a DSNP Id handle
@@ -189,13 +202,14 @@ interface IRegistry {
      * @param v EIP-155 calculated Signature v value
      * @param oldHandle The previous handle for modification
      * @param newHandle The new handle to use for discovery
+     * @param nonce The expected nonce for this update (must match return value of resolveHandleToNonce())
      * 
      * MUST NOT allow a registration of a handle that is already in use
      * MUST be signed by someone who is authorized on the contract
      *      via `IDelegation(handle -> addr).isAuthorizedTo(ecrecovedAddr, Permission.OWNERSHIP_TRANSFER, block.number)`
      * MUST emit DSNPRegistryUpdate
      */
-    function changeHandleByEIP712Sig(bytes32 r, bytes32 s, uint32 v, string oldHandle, string newHandle) external;
+    function changeHandleByEIP712Sig(bytes32 r, bytes32 s, uint32 v, string oldHandle, string newHandle, uint64 nonce) external;
 
     /**
      * @dev Resolve a handle to a contract address
@@ -214,5 +228,14 @@ interface IRegistry {
      * @returns DSNP Id
      */
     function resolveHandleToId(string handle) view external returns (uint64);
+
+    /**
+     * @dev Resolve a handle to a EIP 712 nonce
+     * @param handle The handle to resolve
+     * 
+     * @throws if not found
+     * @returns expected nonce for next EIP 712 update
+     */
+    function resolveHandleToNonce(string handle) view external returns (uint64);
 }
 ```
