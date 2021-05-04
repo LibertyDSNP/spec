@@ -61,6 +61,8 @@ Clients resolving handles MUST implement a method to detect potential homographs
 
 The Registry supports EIP 712 methods to permit a second party to pay gas costs for address and handle changes. Once an EIP 712 transaction is made, anyone may replay that action without further authorization. This breaks our security guarantees when the registration owner has made an additional change to either address or handle. To mitigate this, the Registry contract MUST store a nonce for every registration. When it receives an EIP 712 transaction, it MUST check that the nonce parameter matches the stored nonce, and it MUST increment the stored nonce if the transaction succeeds.
 
+If a handle is changed, the registry MUST preserve the stored nonce for the old handle.
+
 ## DSNP Ids
 
 Ethereum contract addresses are currently 160 bit values which is much larger than needed for unique identification.
