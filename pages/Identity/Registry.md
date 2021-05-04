@@ -14,7 +14,7 @@ while maintaining all graph connections, public and private.
 
 | Version | Status |
 ---------- | ---------
-| 0.1     | Tentative |
+| 0.2     | Tentative |
 
 ## Purpose
 1. Describes how the Identity Registry resolves a DSNP Id to an identity contract address
