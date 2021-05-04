@@ -35,11 +35,8 @@ In this example, `dsnp://` is the protocol indicating that the latest version of
 
 ### Protocol
 
-The protocol section of an identifier can be used to indicate which version of the DSNP specification should be used to identify content.
-If present, any number after the string `dsnp` should indicate the specific version.
-For example, `dsnp2://` would indicate that version 2 of the specification should be used.
-
-If no version number is provided at all, i.e. `dsnp://`, then the most recent available version of the spec should be used.
+As of this specification version, the protocol string should always be the string `dsnp://`.
+In future specification versions, this string may change to indicate non-backward-compatible changes.
 
 ### User Identifier
 
