@@ -91,7 +91,7 @@ To retrieve historical values, perform a log search using the `DSNPRegistryUpdat
 
 ### Current Handle -> Nonce
 
-The `IRegistry.resolveHandleToNonce` method is the only method for discovery of the current nonce.
+The `IRegistry.resolveHandleToNonce` method is the only method for discovery of the next nonce to use.
 
 ### Other Lookups & Historical Values
 
