@@ -14,7 +14,7 @@ while maintaining all graph connections, public and private.
 
 | Version | Status |
 ---------- | ---------
-| 0.1     | Tentative |
+| 0.2     | Tentative |
 
 ## Purpose
 1. Describes how the Identity Registry resolves a DSNP Id to an identity contract address
@@ -137,26 +137,10 @@ interface IRegistry {
      * @param handle The handle for discovery
      * 
      * MUST reject if the handle is already in use
-     * MUST be called by someone who is authorized on the contract
-     *      via `IDelegation(addr).isAuthorizedTo(msg.sender, Permission.OWNERSHIP_TRANSFER, block.number)`
      * MUST emit DSNPRegistryUpdate
+     * MUST check that addr implements IDelegation interface
      */
     function register(address addr, string handle) external returns (uint64);
-
-    /**
-     * @dev Register a new DSNP Id by EIP-712 Signature
-     * @param r ECDSA Signature r value
-     * @param s ECDSA Signature s value
-     * @param v EIP-155 calculated Signature v value
-     * @param addr Address for the new DSNP Id to point at
-     * @param handle The handle for discovery
-     * 
-     * MUST reject if the handle is already in use 
-     * MUST be signed by someone who is authorized on the contract
-     *      via `IDelegation(addr).isAuthorizedTo(ecrecovedAddr, Permission.OWNERSHIP_TRANSFER, block.number)`
-     * MUST emit DSNPRegistryUpdate
-     */
-    function registerByEIP712Sig(bytes32 r, bytes32 s, uint32 v, address addr, string handle) external returns (uint64);
 
     /**
      * @dev Alter a DSNP Id resolution address
@@ -166,6 +150,7 @@ interface IRegistry {
      * MUST be called by someone who is authorized on the contract
      *      via `IDelegation(oldAddr).isAuthorizedTo(oldAddr, Permission.OWNERSHIP_TRANSFER, block.number)`
      * MUST emit DSNPRegistryUpdate
+     * MUST check that newAddr implements IDelegation interface
      */
     function changeAddress(address newAddr, string handle) external;
 
