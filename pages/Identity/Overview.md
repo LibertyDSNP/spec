@@ -12,7 +12,7 @@ This specification is intended to cover the concept of identity within the proto
 
 | Version | Status |
 ---------- | ---------
-| 0.2     | Tentative |
+| 0.3     | Tentative |
 
 ## Purpose
 
@@ -151,9 +151,9 @@ interface IDelegation {
 
     /**
      * @dev Add or change permissions for delegate by EIP-712 signature
+     * @param v EIP-155 calculated Signature v value
      * @param r ECDSA Signature r value
      * @param s ECDSA Signature s value
-     * @param v EIP-155 calculated Signature v value
      * @param newDelegate Address to delegate new permissions to
      * @param permission Permission level
      * 
@@ -161,7 +161,7 @@ interface IDelegation {
      * MUST consider newDelegate to be valid from the beginning to time
      * MUST emit DSNPAddDelegate
      */
-    function delegateByEIP712Sig(bytes32 r, bytes32 s, uint32 v, address newDelegate, Role role) external;
+    function delegateByEIP712Sig(uint8 v, bytes32 r, bytes32 s, address newDelegate, Role role) external;
 
     /**
      * @dev Remove Delegate
@@ -178,15 +178,15 @@ interface IDelegation {
      * @dev Remove Delegate By EIP-712 Signature
      * @param delegate Address to remove all permissions from
      * @param endBlock Block number to consider the permissions terminated (MUST be > 0x0).
+     * @param v EIP-155 calculated Signature v value
      * @param r ECDSA Signature r value
      * @param s ECDSA Signature s value
-     * @param v EIP-155 calculated Signature v value
      * 
      * MUST be signed by the delegate, owner, or other delegate with permissions
      * MUST store endBlock for response in isAuthorizedToAnnounce
      * MUST emit DSNPRemoveDelegate
      */
-    function delegateRemoveByEIP712Sig(bytes32 r, bytes32 s, uint32 v, address delegate, uint64 endBlock) external;
+    function delegateRemoveByEIP712Sig(uint8 v, bytes32 r, bytes32 s, address delegate, uint64 endBlock) external;
 
     /**
      * @dev Checks to see if address is authorized to announce messages

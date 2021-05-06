@@ -16,7 +16,7 @@ Any contract that matches the [DSNP Identity](/Identity/Overview) interfaces is 
 
 | Version | Status |
 ---------- | ---------
-| 0.1     | Tentative |
+| 0.2     | Tentative |
 
 ## Purpose
 1. Describe how an Identity Factory can create an identity
@@ -87,14 +87,14 @@ interface IIdentityCloneFactory {
     /**
      * @dev Creates a new identity with the ecrecover address as the owner
      * @dev [EIP 1167](https://eips.ethereum.org/EIPS/eip-1167) Proxy
+     * @param v EIP-155 calculated Signature v value
      * @param r ECDSA Signature r value
      * @param s ECDSA Signature s value
-     * @param v EIP-155 calculated Signature v value
      * @param logic The Logic address to use for identity creation
      * 
      * @returns The address of the newly created Identity
      */
-    function createCloneByEIP712Sig(bytes32 r, bytes32 s, uint32 v, address logic) external returns (address);
+    function createCloneByEIP712Sig(uint8 v, bytes32 r, bytes32 s, address logic) external returns (address);
 }
 ```
 
@@ -140,14 +140,14 @@ interface IIdentityUpgradableFactory {
 
     /**
      * @dev Creates a new identity with the ecrecover address as the owner
+     * @param v EIP-155 calculated Signature v value
      * @param r ECDSA Signature r value
      * @param s ECDSA Signature s value
-     * @param v EIP-155 calculated Signature v value
      * @param logic The logic address to use for identity creation
      * 
      * @returns The address of the newly created Identity
      */
-    function createUpgradableByEIP712Sig(bytes32 r, bytes32 s, uint32 v, address logic) external returns (address);
+    function createUpgradableByEIP712Sig(uint8 v, bytes32 r, bytes32 s, address logic) external returns (address);
 }
 ```
 
@@ -187,14 +187,14 @@ interface IIdentityBeaconFactory {
     
     /**
      * @dev Creates a new identity with the ecrecover address as the owner
+     * @param v EIP-155 calculated Signature v value
      * @param r ECDSA Signature r value
      * @param s ECDSA Signature s value
-     * @param v EIP-155 calculated Signature v value
      * @param beacon The beacon address to use for identity creation
      *
      * @returns The address of the newly created Identity
      */
-    function createBeaconByEIP712Sig(bytes32 r, bytes32 s, uint32 v, address beacon) external returns (address);
+    function createBeaconByEIP712Sig(uint8 v, bytes32 r, bytes32 s, address beacon) external returns (address);
 }
 ```
 
