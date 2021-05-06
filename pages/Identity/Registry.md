@@ -14,7 +14,7 @@ while maintaining all graph connections, public and private.
 
 | Version | Status |
 ---------- | ---------
-| 0.3     | Tentative |
+| 0.4     | Tentative |
 
 ## Purpose
 1. Describes how the Identity Registry resolves a DSNP Id to an identity contract address
@@ -136,6 +136,17 @@ It will be reconsidered for Mainnet.
  *   mapping(string => [id, address]) internal handleToIdAndAddress;
  */
 interface IRegistry {
+    struct AddressChange {
+        uint32 nonce;
+        address addr;
+        string handle;
+    }
+
+    struct HandleChange {
+        uint32 nonce;
+        string oldHandle;
+        string newHandle;
+    }
 
     /**
      * @dev Log when a resolution address is changed
@@ -170,20 +181,17 @@ interface IRegistry {
 
     /**
      * @dev Alter a DSNP Id resolution address by EIP-712 Signature
+     * @param v EIP-155 calculated Signature v value
      * @param r ECDSA Signature r value
      * @param s ECDSA Signature s value
-     * @param v EIP-155 calculated Signature v value
-     * @param newAddr New address for the DSNP Id to point at
-     * @param handle The handle to modify
-     * @param nonce The expected nonce for this update (must match return value of resolveHandleToNonce())
+     * @param change Change data containing nonce, new address and handle
      * 
      * MUST be signed by someone who is authorized on the contract
      *      via `IDelegation(oldAddr).isAuthorizedTo(ecrecovedAddr, Permission.OWNERSHIP_TRANSFER, block.number)`
      * MUST check that newAddr implements IDelegation interface
-     * TODO: FIX THE ISSUE OF newAddr not being a part of the creation
      * MUST emit DSNPRegistryUpdate
      */
-    function changeAddressByEIP712Sig(bytes32 r, bytes32 s, uint32 v, address newAddr, string handle, uint32 nonce) external;
+    function changeAddressByEIP712Sig(uint8 v, bytes32 r, bytes32 s, AddressChange calldata change) external;
 
     /**
      * @dev Alter a DSNP Id handle
@@ -199,19 +207,17 @@ interface IRegistry {
 
     /**
      * @dev Alter a DSNP Id handle by EIP-712 Signature
+     * @param v EIP-155 calculated Signature v value
      * @param r ECDSA Signature r value
      * @param s ECDSA Signature s value
-     * @param v EIP-155 calculated Signature v value
-     * @param oldHandle The previous handle for modification
-     * @param newHandle The new handle to use for discovery
-     * @param nonce The expected nonce for this update (must match return value of resolveHandleToNonce())
+     * @param change Change data containing nonce, old handle and new handle
      * 
      * MUST NOT allow a registration of a handle that is already in use
      * MUST be signed by someone who is authorized on the contract
      *      via `IDelegation(handle -> addr).isAuthorizedTo(ecrecovedAddr, Permission.OWNERSHIP_TRANSFER, block.number)`
      * MUST emit DSNPRegistryUpdate
      */
-    function changeHandleByEIP712Sig(bytes32 r, bytes32 s, uint32 v, string oldHandle, string newHandle, uint32 nonce) external;
+    function changeHandleByEIP712Sig(uint8 v, bytes32 r, bytes32 s, HandleChange calldata change) external;
 
     /**
      * @dev Resolve a handle to a contract address
