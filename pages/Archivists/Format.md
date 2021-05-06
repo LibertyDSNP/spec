@@ -40,7 +40,7 @@ It is a key-value map consisting of the following fields:
 
 ### `dsnpData`
 * varies
-* This can be encrypted, and/or serialized, and compressed where feasible.  The decrypted, fully deserialized version must be one of the types described in [DSNP Messages](/Messages/Overview).
+* This can be encrypted where approriate. The decrypted, fully deserialized version must be one of the types described in [DSNP Messages](/Messages/Overview).
 
 ### `signatures`
 * array

@@ -82,7 +82,7 @@ This is what would be posted as a Log event in Ethereum:
 |-------|-------------|------|
 | topic | Ethereum log topic | bytes32 |
 | dsnpType | DSNP message type |number/enum |
-| dsnpData | serialized, possibly compressed message data| bytes |
+| dsnpData | message data| bytes |
 
 #### Some other options:
 
@@ -91,9 +91,7 @@ This is what would be posted as a Log event in Ethereum:
 
 ### DSNP Announcement
 
-These announcements would be serialized, compressed where feasible, and emitted in the log event as the `DSNPData` field.
-
-For details on how messages are serialized, see [DSNP Message Serialization](/Messages/Serialization)
+These announcements would be added to batch files for announcement on the blockchain.
 
 #### Broadcast
 
