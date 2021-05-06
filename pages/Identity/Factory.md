@@ -64,7 +64,7 @@ Implementations of upgradable proxies MUST use EIP 1967 style data storage.
 ## Factory
 
 An identity factory will give easy methods to allow for the creation of proxy contracts that function as DSNP Identities.
-Official implementation contract addresses will be published once deployed. 
+Official implementation contract addresses will be published once deployed.
 
 ### Clone Interface
 
@@ -75,6 +75,12 @@ Clones follow [EIP 1167](https://eips.ethereum.org/EIPS/eip-1167) for a **non-up
  * @dev DSNP Identity Factory Interface for creating identities via [EIP 1167](https://eips.ethereum.org/EIPS/eip-1167)
  */
 interface IIdentityCloneFactory {
+
+    /**
+     * @dev event to log the created proxy contract address
+     */
+    event ProxyCreated(address addr);
+
     /**
      * @dev Creates a new identity with the message sender as the owner
      * @dev [EIP 1167](https://eips.ethereum.org/EIPS/eip-1167) Proxy 
@@ -92,7 +98,8 @@ interface IIdentityCloneFactory {
      * @param s ECDSA Signature s value
      * @param logic The Logic address to use for identity creation
      * 
-     * @returns The address of the newly created Identity
+     * @dev This MUST emit ProxyCreated with the address of the new proxy contract
+     * @returns The address of the newly created identity proxy contract
      */
     function createCloneByEIP712Sig(uint8 v, bytes32 r, bytes32 s, address logic) external returns (address);
 }
@@ -107,6 +114,11 @@ Upgradable Proxies can be upgraded by the owner or permissioned delegates.
  * @dev DSNP Identity Factory Interface for creating upgradable identities
  */
 interface IIdentityUpgradableFactory {
+
+    /**
+     * @dev event to log the created proxy contract address
+     */
+    event ProxyCreated(address addr);
 
     /**
      * @dev Logs updates to the suggested logic contract
@@ -126,7 +138,8 @@ interface IIdentityUpgradableFactory {
      * @dev Creates a new identity with the message sender as the owner
      *      and will be pointed at the default identity logic address.
      * 
-     * @returns The address of the newly created Identity
+     * @dev This MUST emit ProxyCreated with the address of the new proxy contract
+     * @returns The address of the newly created identity proxy contract
      */
     function createUpgradable() external returns (address);
     
@@ -134,7 +147,8 @@ interface IIdentityUpgradableFactory {
      * @dev Creates a new identity with the message sender as the owner
      * @param logic The Logic address to use for identity creation
      * 
-     * @returns The address of the newly created Identity
+     * @dev This MUST emit ProxyCreated with the address of the new proxy contract
+     * @returns The address of the newly created identity proxy contract
      */
     function createUpgradable(address logic) external returns (address);
 
@@ -145,7 +159,8 @@ interface IIdentityUpgradableFactory {
      * @param s ECDSA Signature s value
      * @param logic The logic address to use for identity creation
      * 
-     * @returns The address of the newly created Identity
+     * @dev This MUST emit ProxyCreated with the address of the new proxy contract
+     * @returns The address of the newly created identity proxy contract
      */
     function createUpgradableByEIP712Sig(uint8 v, bytes32 r, bytes32 s, address logic) external returns (address);
 }
@@ -161,6 +176,11 @@ This is the suggested factory for use on Betanet to remain up to date.
  * @dev DSNP Identity Factory Interface for creating beacon following identities
  */
 interface IIdentityBeaconFactory {
+
+    /**
+     * @dev event to log the created proxy contract address
+     */
+    event ProxyCreated(address addr);
     
     /**
      * @dev This MUST NOT be upgradable by the owner of the factory
@@ -173,7 +193,8 @@ interface IIdentityBeaconFactory {
      * @dev Creates a new identity with the message sender as the owner
      *      Uses the beacon defined by getBeacon()
      * 
-     * @returns The address of the newly created Identity
+     * @dev This MUST emit ProxyCreated with the address of the new proxy contract
+     * @returns The address of the newly created identity proxy contract
      */
     function createBeacon() external returns (address);
     
@@ -181,7 +202,8 @@ interface IIdentityBeaconFactory {
      * @dev Creates a new identity with the message sender as the owner
      * @param beacon The beacon address to use for identity creation
      * 
-     * @returns The address of the newly created Identity
+     * @dev This MUST emit ProxyCreated with the address of the new proxy contract
+     * @returns The address of the newly created identity proxy contract
      */
     function createBeacon(address beacon) external returns (address);
     
@@ -192,7 +214,8 @@ interface IIdentityBeaconFactory {
      * @param s ECDSA Signature s value
      * @param beacon The beacon address to use for identity creation
      *
-     * @returns The address of the newly created Identity
+     * @dev This MUST emit ProxyCreated with the address of the new proxy contract
+     * @returns The address of the newly created identity proxy contract
      */
     function createBeaconByEIP712Sig(uint8 v, bytes32 r, bytes32 s, address beacon) external returns (address);
 }
