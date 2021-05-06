@@ -86,7 +86,7 @@ interface IIdentityCloneFactory {
      * @dev [EIP 1167](https://eips.ethereum.org/EIPS/eip-1167) Proxy 
      * @param logic The Logic address to use for identity creation
      * 
-     * @returns The address of the newly created Identity
+     * @return The address of the newly created Identity
      */
     function createClone(address logic) public returns (address);
 
@@ -99,7 +99,7 @@ interface IIdentityCloneFactory {
      * @param logic The Logic address to use for identity creation
      * 
      * @dev This MUST emit ProxyCreated with the address of the new proxy contract
-     * @returns The address of the newly created identity proxy contract
+     * @return The address of the newly created identity proxy contract
      */
     function createCloneByEIP712Sig(uint8 v, bytes32 r, bytes32 s, address logic) external returns (address);
 }
@@ -130,7 +130,7 @@ interface IIdentityUpgradableFactory {
     /**
      * @dev This may be upgradable by the owner of the factory
      *
-     * @returns The current logic contract suggested by this factory
+     * @return The current logic contract suggested by this factory
      */
     function getLogic() external view returns (address);
 
@@ -139,7 +139,7 @@ interface IIdentityUpgradableFactory {
      *      and will be pointed at the default identity logic address.
      * 
      * @dev This MUST emit ProxyCreated with the address of the new proxy contract
-     * @returns The address of the newly created identity proxy contract
+     * @return The address of the newly created identity proxy contract
      */
     function createUpgradable() external returns (address);
     
@@ -148,7 +148,7 @@ interface IIdentityUpgradableFactory {
      * @param logic The Logic address to use for identity creation
      * 
      * @dev This MUST emit ProxyCreated with the address of the new proxy contract
-     * @returns The address of the newly created identity proxy contract
+     * @return The address of the newly created identity proxy contract
      */
     function createUpgradable(address logic) external returns (address);
 
@@ -160,7 +160,7 @@ interface IIdentityUpgradableFactory {
      * @param logic The logic address to use for identity creation
      * 
      * @dev This MUST emit ProxyCreated with the address of the new proxy contract
-     * @returns The address of the newly created identity proxy contract
+     * @return The address of the newly created identity proxy contract
      */
     function createUpgradableByEIP712Sig(uint8 v, bytes32 r, bytes32 s, address logic) external returns (address);
 }
@@ -185,7 +185,7 @@ interface IIdentityBeaconFactory {
     /**
      * @dev This MUST NOT be upgradable by the owner of the factory
      *
-     * @returns The current beacon contract suggested by this factory
+     * @return The current beacon contract suggested by this factory
      */
     function getBeacon() external view returns (address);
 
@@ -194,7 +194,7 @@ interface IIdentityBeaconFactory {
      *      Uses the beacon defined by getBeacon()
      * 
      * @dev This MUST emit ProxyCreated with the address of the new proxy contract
-     * @returns The address of the newly created identity proxy contract
+     * @return The address of the newly created identity proxy contract
      */
     function createBeacon() external returns (address);
     
@@ -203,7 +203,7 @@ interface IIdentityBeaconFactory {
      * @param beacon The beacon address to use for identity creation
      * 
      * @dev This MUST emit ProxyCreated with the address of the new proxy contract
-     * @returns The address of the newly created identity proxy contract
+     * @return The address of the newly created identity proxy contract
      */
     function createBeacon(address beacon) external returns (address);
     
@@ -215,7 +215,7 @@ interface IIdentityBeaconFactory {
      * @param beacon The beacon address to use for identity creation
      *
      * @dev This MUST emit ProxyCreated with the address of the new proxy contract
-     * @returns The address of the newly created identity proxy contract
+     * @return The address of the newly created identity proxy contract
      */
     function createBeaconByEIP712Sig(uint8 v, bytes32 r, bytes32 s, address beacon) external returns (address);
 }

@@ -224,7 +224,7 @@ interface IRegistry {
      * @param handle The handle to resolve
      * 
      * @throws if not found
-     * @returns Address of the contract
+     * @return Address of the contract
      */
     function resolveHandleToAddress(string handle) view external returns (address);
 
@@ -233,7 +233,7 @@ interface IRegistry {
      * @param handle The handle to resolve
      * 
      * @throws if not found
-     * @returns DSNP Id
+     * @return DSNP Id
      */
     function resolveHandleToId(string handle) view external returns (uint64);
 
@@ -242,7 +242,7 @@ interface IRegistry {
      * @param handle The handle to resolve
      * 
      * @throws if not found
-     * @returns expected nonce for next EIP 712 update
+     * @return expected nonce for next EIP 712 update
      */
     function resolveHandleToNonce(string handle) view external returns (uint32);
 }
