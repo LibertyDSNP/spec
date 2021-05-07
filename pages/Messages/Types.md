@@ -39,7 +39,6 @@ menu: Messages
 | EncryptedInbox | an encrypted direct message | 10
 | PrivateBroadcast | an encrypted broadcast | 11
 / Reply / a response to a Broadcast / 12
-/ Batch / a message announcing a collection of announcements stored at a URL / 13 
 
 ## Private Messages
 If it's not desired to specify a message type, use the `Private` value as the message type.

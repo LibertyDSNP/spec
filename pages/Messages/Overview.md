@@ -97,63 +97,63 @@ These announcements would be added to batch files for announcement on the blockc
 
 A public post.
 
-| dsnpData field | description | type |
-| ------------- |------------- | ---- |
-| fromAddress | ID of the sender | bytes20
-| contentHash | keccak-256 hash of content stored at URI |  bytes32
-| uri       | content URI | string
+| dsnpData field | description | type | bloom |
+| ------------- |------------- | ---- | --- |
+| fromAddress | ID of the sender | bytes20 | YES
+| contentHash | keccak-256 hash of content stored at URI |  bytes32 | no
+| uri       | content URI | string | no
 
 
 #### Reply
 
 A public reply post.
 
-| dsnpData field | description | type |
-| ------------- |------------- | ---- |
-| inReplyTo | ID of the announcement the reply references |  bytes32
-| contentHash | keccak-256 hash of content stored at uri |  bytes32
-| fromAddress | ID of the sender | bytes20
-| uri       | content uri | string
+| dsnpData field | description | type | bloom |
+| ------------- |------------- | ---- | --- |
+| inReplyTo | ID of the announcement the reply references |  bytes32 | YES
+| contentHash | keccak-256 hash of content stored at uri |  bytes32  | no
+| fromAddress | ID of the sender | bytes20 | YES
+| uri       | content uri | string | no
 
 
 #### Drop
 
 A dead drop message.
 
-| dsnpData field | description | type |
-| ------------- |------------- | ---- |
-| deadDropID | The Dead Drop ID (See [DeadDrops](TBD) | bytes32
-| uri  | content uri  |  string
-| contentHash | keccak-256 hash of content |  bytes32
+| dsnpData field | description | type | bloom |
+| ------------- |------------- | ---- | --- |
+| deadDropID | The Dead Drop ID (See [DeadDrops](TBD) | bytes32 | YES
+| uri  | content uri  |  string  | no
+| contentHash | keccak-256 hash of content |  bytes32 | no
 
 #### GraphChange
 
 A public follow/unfollow.
 
-| dsnpData field | description | type |
-| ------------- |------------- | ---- |
-| fromAddress | ID of the sender | bytes20
-| actionType | follow/unfollow| number/enum
+| dsnpData field | description | type | bloom |
+| ------------- |------------- | ---- | --- |
+| fromAddress | ID of the sender | bytes20 | YES
+| actionType | follow/unfollow| number/enum | YES
 
 #### KeyList, PrivateGraphKeyList, EncryptionKeyList
 
 A KeyList rotation.
 
-| dsnpData field | description | type |
-| ------------- |------------- | ---- |
-| fromAddress | ID of the sender | bytes20
-| keyList | new list of valid keys | bytes[]
+| dsnpData field | description | type | bloom |
+| ------------- |------------- | ---- | --- |
+| fromAddress | ID of the sender | bytes20 | YES
+| keyList | new list of valid keys | bytes[] | no
 
 #### Inbox
 
 A direct message.
 
-| dsnpData field | description | type |
-| ------------- |------------- | ---- |
-| toAddress | ID of the recipient | bytes20
-| fromAddress | id of the sender | bytes20
-| contentHash | keccak-256 hash of content | bytes32
-| uri  | content uri  | string
+| dsnpData field | description | type | bloom |
+| ------------- |------------- | ---- | --- |
+| toAddress | ID of the recipient | bytes20 | YES
+| fromAddress | id of the sender | bytes20 | YES
+| contentHash | keccak-256 hash of content | bytes32 | no
+| uri  | content uri  | string | no
 
 #### EncryptedInbox
 
@@ -161,22 +161,22 @@ An encrypted direct message.
 This describes the format once decrypted.
 Possibly combine both of these and expect that all Inbox messages are encrypted.
 
-| dsnpData field | description | type |
-| ------------- |------------- | ---- |
-| toAddress | ID of the recipient | bytes20
-| fromAddress | ID of the sender | bytes20
-| contentHash | keccak-256 hash of content | bytes32
-| uri  | content uri  | string
+| dsnpData field | description | type | bloom |
+| ------------- |------------- | ---- | --- |
+| toAddress | ID of the recipient | bytes20 | YES
+| fromAddress | ID of the sender | bytes20  | YES
+| contentHash | keccak-256 hash of content | bytes32 | no
+| uri  | content uri  | string | no
 
 #### Reaction
 
 A visual reply to a post.
 
-| dsnpData field | description | type |
-| ------------- |------------- | ---- |
-| inReplyTo | ID of the message the reaction references |  bytes32
-| fromAddress | id of the sender | bytes20
-| emoji | the encoded reaction  | number / UTF-8 bytes[]
+| dsnpData field | description | type | bloom |
+| ------------- |------------- | ---- | --- |
+| inReplyTo | ID of the message the reaction references |  bytes32 | YES
+| fromAddress | id of the sender | bytes20 | YES
+| emoji | the encoded reaction  | number / UTF-8 bytes[] | YES
 
 ### Possible Announcement Types
 
@@ -184,34 +184,34 @@ A visual reply to a post.
 
 A profile update such as name or icon change.
 
-| dsnpData field | description | type |
-| ------------- |------------- | ---- |
-| fromAddress | id of the sender | bytes20
-| uri    | uri for the profile data  |string
-| contentHash |  keccak-256 hash of content at uri | bytes32
+| dsnpData field | description | type | bloom |
+| ------------- |------------- | ---- | --- |
+| fromAddress | id of the sender | bytes20  | YES
+| contentHash |  keccak-256 hash of content at uri | bytes32 | no
+| uri    | uri for the profile data  |string | no
 
 #### Private
 
 An encrypted message of unknown type.
 See [DSNP Message Types: Private Messages](/Messages/Types#private-messages) for details.
 
-| dsnpData field | description | type |
-| ------------- |------------- | ---- |
-| fromAddress | id of the sender | bytes20
-| data | encrypted graph change data | string
-| contentHash | keccak-256 hash of unencrypted content | bytes32
+| dsnpData field | description | type | bloom |
+| ------------- |------------- | ---- | --- |
+| fromAddress | id of the sender | bytes20  | YES
+| data | encrypted graph change data | string | no
+| contentHash | keccak-256 hash of unencrypted content | bytes32 | no
 
 #### PrivateBroadcast
 
 An encrypted Broadcast decipherable by specific accounts.
 This describes the format once decrypted.
 
-| dsnpData field | description | type |
-| -------------- |------------ | ---- |
-| fromAddress | id of the sender | bytes20
+| dsnpData field | description | type | bloom |
+| ------------- |------------- | ---- | --- |
+| fromAddress | id of the sender | bytes20 | YES
 | inReplyTo | ID of the message the broadcast references |  bytes32
-| contentHash      | keccak-256 hash of content stored at URI |  bytes32
-| uri       | content uri | string
+| contentHash      | keccak-256 hash of content stored at URI |  bytes32 | no
+| uri       | content uri | string | no
 
 
 ### Unified Announcement Format

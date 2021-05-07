@@ -1,7 +1,7 @@
 ---
+menu: Batches
 name: File Format 
 route: /Batches/FileFormat
-menu: Batch File Format
 ---
 
 # Batch Storage
@@ -58,6 +58,6 @@ DNSP doesn't need a database; the data is not relational. The columns:rows ratio
 1. Parquet **uses schemas**, which additionally reduces file size.
 
 ### Rejected alternatives
-1. Cassandra, RocksDB, CouchDB, MongoDB, HBASE were rejected since DSNP data needs neither a database for storage nor the overhead of one. Each of these was designed for use cases ranging from somewhat to drastically different to DSNP.
-1. JSON, BSON and SQLite, while used for storage sometimes, are intended for serialization. They are schemaless, which results in redundant information and therefore a larger size than formats with schemas. They also don't support Bloom filters; instead they'd have to be indexed somehow, or searched each time, which would be impractically slow or essentially mean using a database anyway.  The exception is SQLite, which does support more advanced queries, however, it was designed for in-memory storage.
+1. Cassandra, RocksDB, CouchDB, MongoDB, HBASE were rejected since DSNP data needs neither a database for storage nor the overhead of one. Each of these was designed for use cases ranging from somewhat to drastically different to the DSNP network. 
+1. JSON, BSON and SQLite, while used for storage sometimes, are intended for serialization. They are schemaless, which results in redundant information and therefore a larger size than formats with schemas. They also don't support Bloom filters; instead indexing would be required, or new batches would need to be downloaded entirely.  The exception is SQLite, which does support more advanced queries, however, it was designed for in-memory storage.
 
