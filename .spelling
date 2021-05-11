@@ -120,3 +120,8 @@ https
 socialaddress
 int16
 s3
+RFC3986
+RFC6890
+RFC7159
+ForgeFed
+localhost
