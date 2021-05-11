@@ -16,7 +16,7 @@ Any contract that matches the [DSNP Identity](/Identity/Overview) interfaces is 
 
 | Version | Status |
 ---------- | ---------
-| 0.2     | Tentative |
+| 0.3     | Tentative |
 
 ## Purpose
 1. Describe how an Identity Factory can create an identity
@@ -84,24 +84,23 @@ interface IIdentityCloneFactory {
     /**
      * @dev Creates a new identity with the message sender as the owner
      * @dev [EIP 1167](https://eips.ethereum.org/EIPS/eip-1167) Proxy 
-     * @param logic The Logic address to use for identity creation
-     * 
-     * @return The address of the newly created Identity
+     * @param logic The address to use for the logic contract
+     *
+     * @dev This MUST emit ProxyCreated with the address of the new proxy contract
+     * @return The address of the newly created proxy contract
      */
-    function createClone(address logic) public returns (address);
+    function createCloneProxy(address logic) public returns (address);
 
     /**
      * @dev Creates a new identity with the ecrecover address as the owner
      * @dev [EIP 1167](https://eips.ethereum.org/EIPS/eip-1167) Proxy
-     * @param v EIP-155 calculated Signature v value
-     * @param r ECDSA Signature r value
-     * @param s ECDSA Signature s value
-     * @param logic The Logic address to use for identity creation
+     * @param logic The address to use for the logic contract
+     * @param owner The initial owner's address of the new contract
      * 
      * @dev This MUST emit ProxyCreated with the address of the new proxy contract
-     * @return The address of the newly created identity proxy contract
+     * @return The address of the newly created proxy contract
      */
-    function createCloneByEIP712Sig(uint8 v, bytes32 r, bytes32 s, address logic) external returns (address);
+    function createCloneProxyFor(address logic, address owner) external returns (address);
 }
 ```
 
@@ -136,33 +135,31 @@ interface IIdentityUpgradableFactory {
 
     /**
      * @dev Creates a new identity with the message sender as the owner
-     *      and will be pointed at the default identity logic address.
+     *      and will be pointed at the default logic address.
      * 
      * @dev This MUST emit ProxyCreated with the address of the new proxy contract
-     * @return The address of the newly created identity proxy contract
+     * @return The address of the newly created proxy contract
      */
-    function createUpgradable() external returns (address);
-    
+    function createUpgradableProxy() external returns (address);
+
     /**
      * @dev Creates a new identity with the message sender as the owner
-     * @param logic The Logic address to use for identity creation
+     * @param logic The address to use for the logic contract
      * 
      * @dev This MUST emit ProxyCreated with the address of the new proxy contract
-     * @return The address of the newly created identity proxy contract
+     * @return The address of the newly created proxy contract
      */
-    function createUpgradable(address logic) external returns (address);
+    function createUpgradableProxy(address logic) external returns (address);
 
     /**
      * @dev Creates a new identity with the ecrecover address as the owner
-     * @param v EIP-155 calculated Signature v value
-     * @param r ECDSA Signature r value
-     * @param s ECDSA Signature s value
      * @param logic The logic address to use for identity creation
+     * @param owner The initial owner's address of the new contract
      * 
      * @dev This MUST emit ProxyCreated with the address of the new proxy contract
-     * @return The address of the newly created identity proxy contract
+     * @return The address of the newly created proxy contract
      */
-    function createUpgradableByEIP712Sig(uint8 v, bytes32 r, bytes32 s, address logic) external returns (address);
+    function createUpgradableProxyFor(address logic, address owner) external returns (address);
 }
 ```
 
@@ -194,30 +191,28 @@ interface IIdentityBeaconFactory {
      *      Uses the beacon defined by getBeacon()
      * 
      * @dev This MUST emit ProxyCreated with the address of the new proxy contract
-     * @return The address of the newly created identity proxy contract
+     * @return The address of the newly created proxy contract
      */
-    function createBeacon() external returns (address);
+    function createBeaconProxy() external returns (address);
     
     /**
      * @dev Creates a new identity with the message sender as the owner
-     * @param beacon The beacon address to use for identity creation
+     * @param beacon The beacon address to use for logic contract resolution
      * 
      * @dev This MUST emit ProxyCreated with the address of the new proxy contract
-     * @return The address of the newly created identity proxy contract
+     * @return The address of the newly created proxy contract
      */
-    function createBeacon(address beacon) external returns (address);
+    function createBeaconProxy(address beacon) external returns (address);
     
     /**
      * @dev Creates a new identity with the ecrecover address as the owner
-     * @param v EIP-155 calculated Signature v value
-     * @param r ECDSA Signature r value
-     * @param s ECDSA Signature s value
-     * @param beacon The beacon address to use for identity creation
+     * @param beacon The beacon address to use logic contract resolution
+     * @param owner The initial owner's address of the new contract
      *
      * @dev This MUST emit ProxyCreated with the address of the new proxy contract
-     * @return The address of the newly created identity proxy contract
+     * @return The address of the newly created proxy contract
      */
-    function createBeaconByEIP712Sig(uint8 v, bytes32 r, bytes32 s, address beacon) external returns (address);
+    function createBeaconProxyFor(address beacon, address owner) external returns (address);
 }
 ```
 
