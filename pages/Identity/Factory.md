@@ -61,6 +61,12 @@ Due to the state management system that Ethereum uses, it can easily cause issue
 [EIP 1967](https://eips.ethereum.org/EIPS/eip-1967) provides for ways to safely use state that will not collide.
 Implementations of upgradable proxies MUST use EIP 1967 style data storage.
 
+### Logic Contract Constraints
+
+Contracts that are used as the logic for the proxy are not able to use constructors for initialization.
+Proxy contracts however can have constructors and additionally the factory can be used to call methods once the proxy is created.
+Remember that setting up the initial authorization state of a contract MUST be done in a single transaction to prevent others sniping the contract.
+
 ## Factory
 
 An identity factory will give easy methods to allow for the creation of proxy contracts that function as DSNP Identities.
