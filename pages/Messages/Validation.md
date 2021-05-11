@@ -57,8 +57,21 @@ Validating correctness for a non-encrypted message will consist of verifying tha
 
 ##### Emoji
 
+1. Emoji fields must not be empty.
 1. Emoji fields must be less than 16 bytes.
 1. Emoji fields must only consist of [Unicode points](https://unicode.org/standard/standard.html) from `U+2000` to `U+2BFF`, from `U+E000` to `U+FFFF`, or from `U+1F000` to `U+10FFFF`.
+
+For example, all of the following should be considered valid emoji:
+
+```
+"😀", "🤌🏼", "👩🏻‍🎤", "🧑🏿‍🏫", "🏳️‍🌈", "🏳️‍⚧️", "⚛︎", "🃑", "♻︎"
+```
+
+Additionally, none of the following should be considered valid:
+
+```
+"F", ":custom-emoji:", "<custom-emoji>", "ᚱ", "ᘐ", "״"
+```
 
 ##### Hashes
 
@@ -93,6 +106,10 @@ Specifically, the following rules detail how activity pub content should be vali
 1. Content must include all necessary fields associated with the given type defined in the [Activity Pub](https://www.w3.org/TR/activitypub/) specification.
 
 Additional fields not required or defined by the Activity Pub specifications may also be included in accordance with various extensions of the specification, such as [Mastodon](https://docs.joinmastodon.org/spec/activitypub/), [ForgeFed](https://github.com/forgefed/forgefed) or one of the many [potential future extensions](https://www.w3.org/wiki/ActivityPub_extensions) proposed by the [W3C](https://www.w3.org).
+
+If the content of a message is no longer accessible, i.e. the URI of the message returns a 404 or 500 HTTP status, the message should no longer be considered valid.
+It is also recommended that implementations provide a warning either in the console or directly to the user with the associated HTTP status.
+For example, a message such as `"Content Inaccessible: Error 404"` would suffice.
 
 ### Content Authenticity
 
@@ -132,6 +149,25 @@ Additionally, some users may choose an allowlist approach instead, blocking mess
 
 Implementations may also choose or be required by law to invalidate content identified as violating intellectual property or other legal restrictions in applicable jurisdictions.
 These implementations may use content fingerprinting, shared lists or other methods to identify this content.
-This document will not define any standards for these methods except that all potentially violating content must verify that the offending content does not include proof of licensing or other legal exception in the activity pub content of the message.
+This document will not define any standards for these methods except that before removing any potentially violating content implementers must verify that the offending content does not include proof of licensing or other legal exception in the activity pub content of the message.
 
-These legal exceptions should be listed under an additional content field name `"licensing"` which may include either a URI pointing to the appropriate proof, an object to be defined by the enforcing legal body or an array consisting of multiple instances of either item.
+These legal exceptions should be listed under an additional content field name `"licensing"` which may include either a URI pointing to the appropriate proof, an object to be defined by the enforcing legal body or an array consisting of multiple instances of either item. For example, here is a sample activity pub object with fictional licensing:
+
+```json
+{
+  "@context": "https://www.w3.org/ns/activitystreams",
+  "type": "Video",
+  "name": "Excerpt of Yankees vs Nationals Game 2021",
+  "url": "http://sportsblog.com/yankeesnationals2021.mkv",
+  "duration": "5M",
+  "licensing": [
+    "https://mlb.com/licensing/sportsblogcom.json",
+    {
+      "authority": "ESPN",
+      "type": "paid",
+      "licensee": "SportsBlog.com",
+      "proof": "c3RyaW5naBc6453=w-9sSAw4naBc8533="
+    }
+  ]
+}
+```
