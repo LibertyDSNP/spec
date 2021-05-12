@@ -131,7 +131,7 @@ For example, given a DSNP message with the following content at it's URI:
 ```
 
 The resulting hash would be `0x70ae98439569700ae8328f204ba496e4ac151dc117d08ac217daa15b412641f7`.
-Notice that this hash is generated including whitespace and newlines exactly as they appear in the content body.
+Notice that this hash is generated including spaces and newlines exactly as they appear in the content body.
 
 ## Type Specific Validation
 
