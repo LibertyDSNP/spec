@@ -79,7 +79,6 @@ UpgradeableBeacon
 EIPs
 NFT
 ENS
-int16
 uint64
 ecrecover
 Punycode
@@ -105,3 +104,19 @@ Mastodon
 0.8.x.
 Nonces
 stringify
+searchable
+parseable
+DNSP
+S3
+Brötli
+schemas
+RocksDB
+CouchDB
+MongoDB
+HBASE
+schemaless
+dequeued
+https
+socialaddress
+int16
+s3

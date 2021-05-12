@@ -23,7 +23,7 @@ The Batch file URL accepts different schemes to assist with knowing how to retri
 and query the file contents.  This allows adapters to be written to support different
 methods of storage and retrieval.
 
-For ordinary HTTP downloads, the SDK uses `http` or `https` as needed:
+For HTTPS downloads, the SDK uses `https` as needed:
 
 ```typescript
     queue.commit({scheme: 'https'})    
@@ -50,7 +50,7 @@ Querying a batch file is done via Bloom filters.  The query call is done through
 consists of a URL and an object of DSNP message column name/value pairs.  Example:
 
 ```typescript
-    sdk.batchQuery(
+    includes:boolean = sdk.batchIncludes(
         "https://mycloudhost.com/cf9c0d7f801f56b634ae4cd3cf0b1aab9e11f2e00125dfb156baccc760417c41",
         { fromAddress: "45cdf29f9d10e57a5c1d993745acd65315cabs2a3aa2b1b",
           dsnpType: 2

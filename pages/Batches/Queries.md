@@ -31,7 +31,7 @@ Following the [Parquet spec](https://github.com/apache/parquet-format), the quer
 
 Here is an example use case of how a batch file containing Broadcasts might be queried for a specific social address.
 
-**NOTE the following sdk functions don't exist at this time**
+**NOTE the following SDK functions don't exist at this time**
 
 ```typescript
 function getLatestPostsFrom(socialAddress: string, lastLogin: Date): Array<DSNPMessage> {
