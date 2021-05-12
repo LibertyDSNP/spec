@@ -6,13 +6,14 @@ menu: Messages
 
 # Message Validation
 
-All messages included in a batch should be validated to guarantee the message's authenticity, authorization and legality.
-Messages should be validated before being written to a batch file, however clients should not rely on this being the case and should perform their own validation on messages in the interest of protection against malicious actors.
+All messages included in a batch should be validated to guarantee the message's authenticity, authorization and permissibility.
+Messages should be validated by announcers before being included in a batch file, however clients and indexers should not rely on announcer validation alone.
+Clients and indexers must perform their own validation on incoming messages as well.
 
-Validation for a message can be defined as a collection of independent steps which may be run in parallel depending on implementation, however all steps are required to pass for a message to be considered valid.
-Certain validation steps are applicable to all messages types and will be referred to as "General Validation" steps in this document.
-Other validation steps, referred to as "Type Specific Validation" steps, may only be applied to certain message types.
-Additionally, some validation steps are entirely optional and may be applied depending on user choice and legal jurisdiction.
+Validation of messages in this document is defined as a collection of independent checks which may be run in parallel depending on implementation, however all checks are required to pass for a message to be considered valid.
+Certain validation checks are applicable to all messages types and will be referred to as **General Validation** checks in this document.
+Other validation checks, referred to as **Type Specific Validation** checks, may only be applied to certain message types.
+Additionally, **Optional Validation** checks may be applied depending on particular users' preferences and legal jurisdictions.
 
 ## Specification Status
 
@@ -29,23 +30,23 @@ Additionally, some validation steps are entirely optional and may be applied dep
 
 ## General Message Validation
 
-In general, all implementations should validate all announcements for correctness against the [DSNP message schema](/Messages/Overview) and authenticity using [their provided signatures](/Messages/Signatures).
-Additionally, all client implementations should validate content for correctness against the [Activity Pub schema](https://www.w3.org/TR/activitypub/) and authenticity using the provided content hash.
-However, announcers may choose to skip content validation steps in the interest of performance.
+In general, implementations should validate all announcements for correctness against the [DSNP message schema](/Messages/Overview) and authenticity using [their provided signatures](/Messages/Signatures).
+Additionally, client implementations must validate the activity pub content of applicable messages for correctness with the [Activity Pub schema](https://www.w3.org/TR/activitypub/) and authenticity using the provided content hash.
+Announcers may choose to skip content validation checks in the interest of performance given the high cost of fetching content.
 
 ### Announcement Correctness
 
 Validation of announcement correctness will vary depending on which fields are present on a particular DSNP message type.
-In general, correctness validation will consist of confirming that all necessary fields are present and that values in each field use a format appropriate for the field type.
+In general, announcement correctness validation will consist of confirming that all necessary fields are present and that values in each field use a format appropriate for the field type.
 
 #### Encrypted Messages
 
-In the case of encrypted messages, if the validating user does not possess the necessary keys to decrypt a message, no validation is possible and the message must be treated as valid, i.e. included in a batch, unless proven otherwise.
-Clients, indexers and end-users who also do not possess the necessary keys should ignore these messages.
+Announcers who do not possess the necessary keys to decrypt an encrypted message cannot validate the message's correctness and must treat the message as valid so users with the appropriate keys may still access them in the produced batch.
+In contrast, clients and indexers who do not possess the necessary keys to decrypt an encrypted message should consider the message invalid and ignore it as it provides no value to the end-user.
 
-Optionally, announcers and indexers may choose to invalidate encrypted messages for which the content is obviously incorrect, i.e. the encrypted byte array isn't long enough to be a valid message, however no standard is defined for this behavior and caution should be used to avoid incorrectly invalidating messages.
+Optionally, announcers and indexers may choose to invalidate encrypted messages for which the content is obviously incorrect, i.e. the encrypted byte array isn't long enough to be a valid message, however no standard will be defined for this behavior and caution should be used to avoid incorrectly invalidating messages.
 
-If the validating user does possess the necessary keys, the message should decrypted and validated as if it were a non-encrypted message.
+If any validator, including announcers, clients and indexers, do possess the necessary keys to decrypt a given message, the message should decrypted and validated as if it were a non-encrypted message.
 
 #### Non-Encrypted Messages
 
@@ -89,20 +90,22 @@ Additionally, none of the following should be considered valid:
 1. URI fields must include meet all standards defined in [RFC3986](http://www.ietf.org/rfc/rfc3986.txt).
 1. URI fields must not refer to localhost or any reserved IP addresses as defined in [RFC6890](https://datatracker.ietf.org/doc/html/rfc6890)
 1. URI fields must use the `https` protocol. Support for other protocols may be added in the future.
-1. URI fields must not exceed 1024 bytes.
 
 ### Announcement Authenticity
 
-Validation of announcement authenticity will consist of verifying the message's signature using the appropriate public key for the user listed in the `fromId` of the message and the [Secp256k1](https://en.bitcoin.it/wiki/Secp256k1) algorithm, as defined in the [Message Signatures](/Messages/Signatures) specification.
-Specific steps for authenticating are as follows:
+Validation of announcement authenticity will consist of verifying the message's signature using the appropriate public key for the user listed in the `fromId` field.
+Specific steps for fetching a public key are as follows:
 
 1. Resolve the identity contract from the `fromId` included in the DSNP messages.
 1. Use `ecrecovery` to fetch the public key associated with the identity contract.
 1. Test the public key against the identity contract using `IDelegation.isAuthorizedTo`.
 
+Once the key is fetched, the signature can be verified against it using the [Secp256k1](https://en.bitcoin.it/wiki/Secp256k1) and the [keccak-256](https://en.wikipedia.org/wiki/SHA-3) hash of the serialized message as described in the [Message Signatures](/Messages/Signatures#verifying-messages) specification.
+
 ### Content Correctness
 
 Like announcement correctness, validating content correctness will vary greatly depending on the content of the message, but generally, it will consist of verifying the overall structure of the activity pub object and format of values associated with each field.
+As previously stated, announcers may skip this check in the interest of performance, but clients and indexers must not.
 Specifically, the following rules detail how activity pub content should be validated:
 
 1. Content must be a valid JSON object as defined in [RFC7159](https://datatracker.ietf.org/doc/html/rfc7159).
@@ -111,7 +114,7 @@ Specifically, the following rules detail how activity pub content should be vali
 
 Additional fields not required or defined by the Activity Pub specifications may also be included in accordance with various extensions of the specification, such as [Mastodon](https://docs.joinmastodon.org/spec/activitypub/), [ForgeFed](https://github.com/forgefed/forgefed) or one of the many [potential future extensions](https://www.w3.org/wiki/ActivityPub_extensions) proposed by the [W3C](https://www.w3.org).
 
-If the content of a message is no longer accessible, i.e. the URI of the message returns a 404 or 500 HTTP status, the message is invalid.
+If the content of a message is no longer accessible, i.e. the URI of the message returns a 404 or 500 HTTP status, the message is invalid and should be ignored.
 It is also recommended that implementations provide a warning either in the console or directly to the user with the associated HTTP status.
 For example, a message such as `"Content Inaccessible: Error 404"` would suffice.
 
@@ -132,43 +135,65 @@ For example, given a DSNP message with the following content at it's URI:
 
 The resulting hash would be `0x70ae98439569700ae8328f204ba496e4ac151dc117d08ac217daa15b412641f7`.
 Notice that this hash is generated including spaces and newlines exactly as they appear in the content body.
+The content body must be hashed byte for byte from the response of the URI with absolutely no processing.
 
 ## Type Specific Validation
 
-Specific types of DSNP messages will also include their own specific validations depending on the semantic intent of the message type.
-These specific validations follow:
+Specific types of DSNP messages may also include their own specific validation checks depending on the semantic purpose of the message type.
+These specific validation checks follow:
 
 ### Broadcasts
 
-1. All broadcast messages with a `"type"` field of `"Follow"` in the activity pub content must include a date in the `"published"` field preceded by a follow [Graph Change](/Messages/Overview#GraphChange) DSNP message with no unfollow events between the time of the follow and the broadcast messages.
+1. All broadcast messages with a `"type"` field of `"Follow"` in the activity pub content must be preceded by a follow [Graph Change](/Messages/Overview#GraphChange) DSNP message with a followee matching the `"object"` field of the content.
 1. All broadcast messages with a `"type"` field of `"Like"` or `"Dislike"` in their activity pub content must be preceded by a [Reaction](/Messages/Overview#Reaction) DSNP message referring to the same object, i.e. that the `URI` message field of DSNP message identified by the `inReplyTo` field of the reaction is identical to the `"object"` field of the like or dislike activity pub content.
-1. All broadcast messages with a `"type"` field of `"Undo"` must include an `"object"` field with either a valid DSNP identifier referring to a previously announced broadcast message or a URI matching the URI of a previously announced broadcast event.
+1. All broadcast messages with a `"type"` field of `"Undo"` must include an `"object"` field with either a valid DSNP identifier referring to a previously announced broadcast message or a URI matching the URI of a previously announced broadcast event by the user.
 
 ### Replies & Reactions
 
 1. All reply and reaction messages must include an `inReplyTo` field identifying an existing DSNP message.
-1. All reply and reaction messages must be from and signed by a user, the replier, for which the user who posted the original content referred to in the `inReplyTo` field has never previously published a broadcast message with a activity pub content `"type"` field of `"Block"` and `"object"` field containing the string `dsnp://` followed by the user id of the replier, thereby indicating that the original poster has previously blocked the replier.
+1. All reply and reaction messages must be from and signed by a user, the replier, for which the user who posted the original content referred to in the `inReplyTo` field has never previously published a broadcast message with an activity pub content `"type"` field of `"Block"` and `"object"` field containing the string `dsnp://` followed by the user id of the replier, thereby indicating that the original poster has previously blocked the replier.
 
 ## Optional Validations
 
-In addition to the aforementioned general validations on all messages and type specific validation on particular messages, there are also a set of optional validations that will be defined below and implementers are encouraged to support, however users, announcers and indexers may choose to ignore depending on their legal jurisdiction and individual preference.
-As such, it is strongly encouraged to make these features configurable by the end user in all implementations as allowable by law.
+In addition to the aforementioned general validation and type specific validation checks, there are also a set of optional validation checks that implementers are encouraged to support, however end-users may choose to ignore them depending on their legal jurisdiction or personal preference.
+As such, it is strongly encouraged to make these features configurable by the end-user in all implementations.
 
 ### Blocklists & Allowlists
 
-Users may maintain private lists of other users who they do not wish to publicly block but choose to ignore all messages from.
-Likewise, announcers and indexers may also choose to ignore messages from users with repeated patterns of malicious or other objectionable behavior.
-To accommodate these users, implementations must include management systems for these lists and consider all incoming messages from blocked users as invalid.
+Users may maintain blocklists of other users who they do not wish to publicly block but choose to ignore all messages from.
+Alternatively, some users may choose an allowlist approach instead, blocking messages from all users by default except for a selected list of approved users.
+To accommodate these users, clients must include management systems for these lists and invalidate messages from blocked users accordingly.
 
-Additionally, some users may choose an allowlist approach instead, blocking messages from all users by default except for a selected list of approved users.
+Furthermore, individuals and organizations including but not limited to end-users may choose to publish their blocklists or allowlists for others to use.
+These shared lists must be hosted at web accessible URIs for users as JSON objects including either a `"blocklist"` or `"allowlist"` key for which the value is an array of hexadecimal user identifier numbers as defined in the [Identity Registry](/Identity/Registry) specification.
+The objects may also include an optional `"name"` key with a string value containing a reader friendly name for the list to be displayed in configuration settings.
+For example, a blocklist might look like the following:
+
+```json
+{
+  "name": "Anti-Defamation League Blocklist",
+  "blocklist": [
+    "0x1234567890ABCDEF0",
+    "0x1234567890ABCDEF1",
+    "0x1234567890ABCDEF2",
+    "0x1234567890ABCDEF3",
+    "0x1234567890ABCDEF4",
+    "0x1234567890ABCDEF5",
+    "0x1234567890ABCDEF6"
+  ]
+}
+```
+
+These lists may be published as broadcast messages with of type `"Link"`, and end-users may choose to subscribe to them effectively adding all blocked or allowed users in the given list to their own blocklists or allowlists.
 
 ### Copyright & Licensing
 
-Implementations may also choose or be required by law to invalidate content identified as violating intellectual property or other legal restrictions in applicable jurisdictions.
+Implementations may also choose or be required by law to invalidate content identified as violating certain laws, such as intellectual property, in the end-user's specific legal jurisdiction.
 These implementations may use content fingerprinting, shared lists or other methods to identify this content.
-This document will not define any standards for these methods except that before removing any potentially violating content implementers must verify that the offending content does not include proof of licensing or other legal exception in the activity pub content of the message.
+This document will not define any standards for these methods except that before removing any potentially violating content implementers must verify that the offending content does not include proof of legal exemption, such as paid licensing, in the activity pub content of the message.
 
-These legal exceptions must be listed under an additional content field name `"licensing"` which may include either a URI pointing to the appropriate proof, an object to be defined by the enforcing legal body or an array consisting of multiple instances of either item. For example, here is a sample activity pub object with fictional licensing:
+These legal exceptions must be listed under an additional content field named `"licensing"` which may include either a URI pointing to the appropriate proof, an object to be defined by the enforcing legal body or an array consisting of multiple instances of either.
+For example, here is a sample activity pub object with fictional licensing:
 
 ```json
 {

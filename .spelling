@@ -125,3 +125,9 @@ RFC6890
 RFC7159
 ForgeFed
 localhost
+allowlist
+blocklist
+allowlists
+blocklists
+validator
+followee
