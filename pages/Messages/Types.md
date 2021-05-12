@@ -10,7 +10,7 @@ menu: Messages
 
 | Version | Status |
 ---------- | ---------
-| 0.1     | Tentative |
+| 0.1.1     | Draft |
 
 ## Purpose
 1. List valid message types and their [DSNP Message](/Messages/Overview) type assigned enumeration
@@ -28,7 +28,7 @@ menu: Messages
 |-------   |-------------| ----|
 | Private | message and message type are private; message data is encrypted | 0 |
 | GraphChange | follow or unfollow an account | 1 |
-| Broadcast | a public post or reply | 2 |
+| Broadcast | a public post | 2 |
 | Profile | a Profile change | 3 |
 | KeyList | KeyList rotation | 4 |
 | PrivateGraphKeylist | PrivateGraph KeyList rotation | 5 |
@@ -38,6 +38,7 @@ menu: Messages
 | Drop | a dead drop message | 9
 | EncryptedInbox | an encrypted direct message | 10
 | PrivateBroadcast | an encrypted broadcast | 11
+/ Reply / a response to a Broadcast / 12
 
 ## Private Messages
 If it's not desired to specify a message type, use the `Private` value as the message type.
