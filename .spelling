@@ -79,6 +79,7 @@ UpgradeableBeacon
 EIPs
 NFT
 ENS
+int16
 uint64
 ecrecover
 Punycode
