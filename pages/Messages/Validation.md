@@ -29,20 +29,7 @@ Announcers may choose to skip content validation checks in the interest of perfo
 ## Announcement Correctness
 
 Validation of announcement correctness will vary depending on which fields are present on a particular DSNP message type.
-In general, announcement correctness validation will consist of confirming that all necessary fields are present and that values in each field use a format appropriate for the field type.
-
-### Encrypted Messages
-
-Announcers who do not possess the necessary keys to decrypt an encrypted message cannot validate the message's correctness and must treat the message as valid so users with the appropriate keys may still access them in the produced batch.
-In contrast, clients and indexers who do not possess the necessary keys to decrypt an encrypted message should consider the message invalid and ignore it as it provides no value to the end-user.
-
-Optionally, announcers and indexers may choose to invalidate encrypted messages for which the content is obviously incorrect, i.e. the encrypted byte array isn't long enough to be a valid message, however no standard will be defined for this behavior and caution should be used to avoid incorrectly invalidating messages.
-
-If any validator, including announcers, clients and indexers, do possess the necessary keys to decrypt a given message, the message should decrypted and validated as if it were a non-encrypted message.
-
-### Non-Encrypted Messages
-
-Validating correctness for a non-encrypted message will consist of verifying that each field in the message is defined and meets the formatting rules listed in the subsections below for the given field type.
+Validating correctness for a message will consist of verifying that each field in the message is defined and meets the formatting rules listed in the subsections below for the given field type.
 
 #### Addresses
 
