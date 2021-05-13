@@ -142,34 +142,6 @@ The content body must be hashed byte for byte from the response of the URI with 
 In addition to the aforementioned general validation and type specific validation checks, there are also a set of optional validation checks that implementers are encouraged to support, however end-users may choose to ignore them depending on their legal jurisdiction or personal preference.
 As such, it is strongly encouraged to make these features configurable by the end-user in all implementations.
 
-### Blocklists & Allowlists
-
-Users may maintain blocklists of other users who they do not wish to publicly block but choose to ignore all messages from.
-Alternatively, some users may choose an allowlist approach instead, blocking messages from all users by default except for a selected list of approved users.
-To accommodate these users, clients must include management systems for these lists and invalidate messages from blocked users accordingly.
-
-Furthermore, individuals and organizations including but not limited to end-users may choose to publish their blocklists or allowlists for others to use.
-These shared lists must be hosted at web accessible URIs for users as JSON objects including either a `"blocklist"` or `"allowlist"` key for which the value is an array of hexadecimal user identifier numbers as defined in the [Identity Registry](/Identity/Registry) specification.
-The objects may also include an optional `"name"` key with a string value containing a reader friendly name for the list to be displayed in configuration settings.
-For example, a blocklist might look like the following:
-
-```json
-{
-  "name": "Anti-Defamation League Blocklist",
-  "blocklist": [
-    "0x1234567890ABCDEF0",
-    "0x1234567890ABCDEF1",
-    "0x1234567890ABCDEF2",
-    "0x1234567890ABCDEF3",
-    "0x1234567890ABCDEF4",
-    "0x1234567890ABCDEF5",
-    "0x1234567890ABCDEF6"
-  ]
-}
-```
-
-These lists may be published as broadcast messages with of type `"Link"`, and end-users may choose to subscribe to them effectively adding all blocked or allowed users in the given list to their own blocklists or allowlists.
-
 ### Copyright & Licensing
 
 Implementations may also choose or be required by law to invalidate content identified as violating certain laws, such as intellectual property, in the end-user's specific legal jurisdiction.
