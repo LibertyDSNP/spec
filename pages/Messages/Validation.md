@@ -6,14 +6,12 @@ menu: Messages
 
 # Message Validation
 
-All messages included in a batch should be validated to guarantee the message's authenticity, authorization and permissibility.
-Messages should be validated by announcers before being included in a batch file, however clients and indexers should not rely on announcer validation alone.
-Clients and indexers must perform their own validation on incoming messages as well.
+All messages must be validated by announcers before being included in a batch file, however clients and indexers should not rely on announcer validation alone and should perform their own validation on incoming messages as well.
+Message validation in this document is defined as a collection of independent checks which may be run in parallel depending on implementation, however all checks are required to pass for a message to be considered valid.
 
-Validation of messages in this document is defined as a collection of independent checks which may be run in parallel depending on implementation, however all checks are required to pass for a message to be considered valid.
-Certain validation checks are applicable to all messages types and will be referred to as **General Validation** checks in this document.
-Other validation checks, referred to as **Type Specific Validation** checks, may only be applied to certain message types.
-Additionally, **Optional Validation** checks may be applied depending on particular users' preferences and legal jurisdictions.
+In general, all implementations must validate announcements for correctness against the [DSNP message schema](/Messages/Overview) and authenticity using [their provided signatures](/Messages/Signatures).
+Client and indexer implementations must also validate the activity pub content of applicable messages for correctness with the [Activity Pub schema](https://www.w3.org/TR/activitypub/) and authenticity using the provided content hash.
+Announcers may choose to skip content validation checks in the interest of performance given the high cost of fetching content.
 
 ## Specification Status
 
@@ -28,18 +26,12 @@ Additionally, **Optional Validation** checks may be applied depending on particu
 * All assumptions from [DSNP Messages](/Messages/Overview)
 * All assumptions from [DSNP Signatures](/Messages/Signatures)
 
-## General Message Validation
-
-In general, implementations should validate all announcements for correctness against the [DSNP message schema](/Messages/Overview) and authenticity using [their provided signatures](/Messages/Signatures).
-Additionally, client implementations must validate the activity pub content of applicable messages for correctness with the [Activity Pub schema](https://www.w3.org/TR/activitypub/) and authenticity using the provided content hash.
-Announcers may choose to skip content validation checks in the interest of performance given the high cost of fetching content.
-
-### Announcement Correctness
+## Announcement Correctness
 
 Validation of announcement correctness will vary depending on which fields are present on a particular DSNP message type.
 In general, announcement correctness validation will consist of confirming that all necessary fields are present and that values in each field use a format appropriate for the field type.
 
-#### Encrypted Messages
+### Encrypted Messages
 
 Announcers who do not possess the necessary keys to decrypt an encrypted message cannot validate the message's correctness and must treat the message as valid so users with the appropriate keys may still access them in the produced batch.
 In contrast, clients and indexers who do not possess the necessary keys to decrypt an encrypted message should consider the message invalid and ignore it as it provides no value to the end-user.
@@ -48,15 +40,15 @@ Optionally, announcers and indexers may choose to invalidate encrypted messages 
 
 If any validator, including announcers, clients and indexers, do possess the necessary keys to decrypt a given message, the message should decrypted and validated as if it were a non-encrypted message.
 
-#### Non-Encrypted Messages
+### Non-Encrypted Messages
 
 Validating correctness for a non-encrypted message will consist of verifying that each field in the message is defined and meets the formatting rules listed in the subsections below for the given field type.
 
-##### Addresses
+#### Addresses
 
 1. Address fields must be exactly 20 bytes.
 
-##### Emoji
+#### Emoji
 
 1. Emoji fields must not be empty.
 1. Emoji fields must only consist of [Unicode points](https://unicode.org/standard/standard.html) from `U+2000` to `U+2BFF`, from `U+E000` to `U+FFFF`, or from `U+1F000` to `U+10FFFF`.
@@ -73,25 +65,25 @@ Additionally, none of the following should be considered valid:
 "F", ":custom-emoji:", "<custom-emoji>", "ᚱ", "ᘐ", "״"
 ```
 
-##### Hashes
+#### Hashes
 
 1. Hash fields must be exactly 32 bytes.
 
-##### Message Ids
+#### Message Ids
 
 1. Message Identifier fields must meet all standards defined in the [Message Identifiers](/Messages/Identifiers) specification.
 
-##### Type Enumerators
+#### Type Enumerators
 
 1. Type Enumerator fields must be a valid enumerator value as defined in the [Message Overview](/Messages/Overview).
 
-##### URI Fields
+#### URI Fields
 
 1. URI fields must include meet all standards defined in [RFC3986](http://www.ietf.org/rfc/rfc3986.txt).
 1. URI fields must not refer to localhost or any reserved IP addresses as defined in [RFC6890](https://datatracker.ietf.org/doc/html/rfc6890)
 1. URI fields must use the `https` protocol. Support for other protocols may be added in the future.
 
-### Announcement Authenticity
+## Announcement Authenticity
 
 Validation of announcement authenticity will consist of verifying the message's signature using the appropriate public key for the user listed in the `fromId` field.
 Specific steps for fetching a public key are as follows:
@@ -102,7 +94,7 @@ Specific steps for fetching a public key are as follows:
 
 Once the key is fetched, the signature can be verified against it using the [Secp256k1](https://en.bitcoin.it/wiki/Secp256k1) and the [keccak-256](https://en.wikipedia.org/wiki/SHA-3) hash of the serialized message as described in the [Message Signatures](/Messages/Signatures#verifying-messages) specification.
 
-### Content Correctness
+## Content Correctness
 
 Like announcement correctness, validating content correctness will vary greatly depending on the content of the message, but generally, it will consist of verifying the overall structure of the activity pub object and format of values associated with each field.
 As previously stated, announcers may skip this check in the interest of performance, but clients and indexers must not.
@@ -118,7 +110,7 @@ If the content of a message is no longer accessible, i.e. the URI of the message
 It is also recommended that implementations provide a warning either in the console or directly to the user with the associated HTTP status.
 For example, a message such as `"Content Inaccessible: Error 404"` would suffice.
 
-### Content Authenticity
+## Content Authenticity
 
 Authentication of a message's contents must be verified by hashing the exact contents of the body returned by the message URI and comparing it with the `contentHash` field of the given message.
 Given that the signature of the message is valid, this hash serves as proof that the signing user posted the activity pub content.
