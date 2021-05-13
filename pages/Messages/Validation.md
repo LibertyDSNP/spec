@@ -136,36 +136,3 @@ For example, given a DSNP message with the following content at it's URI:
 The resulting hash would be `0x70ae98439569700ae8328f204ba496e4ac151dc117d08ac217daa15b412641f7`.
 Notice that this hash is generated including spaces and newlines exactly as they appear in the content body.
 The content body must be hashed byte for byte from the response of the URI with absolutely no processing.
-
-## Optional Validations
-
-In addition to the aforementioned general validation and type specific validation checks, there are also a set of optional validation checks that implementers are encouraged to support, however end-users may choose to ignore them depending on their legal jurisdiction or personal preference.
-As such, it is strongly encouraged to make these features configurable by the end-user in all implementations.
-
-### Copyright & Licensing
-
-Implementations may also choose or be required by law to invalidate content identified as violating certain laws, such as intellectual property, in the end-user's specific legal jurisdiction.
-These implementations may use content fingerprinting, shared lists or other methods to identify this content.
-This document will not define any standards for these methods except that before removing any potentially violating content implementers must verify that the offending content does not include proof of legal exemption, such as paid licensing, in the activity pub content of the message.
-
-These legal exceptions must be listed under an additional content field named `"licensing"` which may include either a URI pointing to the appropriate proof, an object to be defined by the enforcing legal body or an array consisting of multiple instances of either.
-For example, here is a sample activity pub object with fictional licensing:
-
-```json
-{
-  "@context": "https://www.w3.org/ns/activitystreams",
-  "type": "Video",
-  "name": "Excerpt of Yankees vs Nationals Game 2021",
-  "url": "http://sportsblog.com/yankeesnationals2021.mkv",
-  "duration": "5M",
-  "licensing": [
-    "https://mlb.com/licensing/sportsblogcom.json",
-    {
-      "authority": "ESPN",
-      "type": "paid",
-      "licensee": "SportsBlog.com",
-      "proof": "c3RyaW5naBc6453=w-9sSAw4naBc8533="
-    }
-  ]
-}
-```
