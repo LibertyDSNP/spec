@@ -137,22 +137,6 @@ The resulting hash would be `0x70ae98439569700ae8328f204ba496e4ac151dc117d08ac21
 Notice that this hash is generated including spaces and newlines exactly as they appear in the content body.
 The content body must be hashed byte for byte from the response of the URI with absolutely no processing.
 
-## Type Specific Validation
-
-Specific types of DSNP messages may also include their own specific validation checks depending on the semantic purpose of the message type.
-These specific validation checks follow:
-
-### Broadcasts
-
-1. All broadcast messages with a `"type"` field of `"Follow"` in the activity pub content must be preceded by a follow [Graph Change](/Messages/Overview#GraphChange) DSNP message with a followee matching the `"object"` field of the content.
-1. All broadcast messages with a `"type"` field of `"Like"` or `"Dislike"` in their activity pub content must be preceded by a [Reaction](/Messages/Overview#Reaction) DSNP message referring to the same object, i.e. that the `URI` message field of DSNP message identified by the `inReplyTo` field of the reaction is identical to the `"object"` field of the like or dislike activity pub content.
-1. All broadcast messages with a `"type"` field of `"Undo"` must include an `"object"` field with either a valid DSNP identifier referring to a previously announced broadcast message or a URI matching the URI of a previously announced broadcast event by the user.
-
-### Replies & Reactions
-
-1. All reply and reaction messages must include an `inReplyTo` field identifying an existing DSNP message.
-1. All reply and reaction messages must be from and signed by a user, the replier, for which the user who posted the original content referred to in the `inReplyTo` field has never previously published a broadcast message with an activity pub content `"type"` field of `"Block"` and `"object"` field containing the string `dsnp://` followed by the user id of the replier, thereby indicating that the original poster has previously blocked the replier.
-
 ## Optional Validations
 
 In addition to the aforementioned general validation and type specific validation checks, there are also a set of optional validation checks that implementers are encouraged to support, however end-users may choose to ignore them depending on their legal jurisdiction or personal preference.
