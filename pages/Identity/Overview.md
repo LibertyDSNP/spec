@@ -103,7 +103,6 @@ interface IDelegation {
     /**
      * @dev Enumerated Roles
      *      Roles have different permissions 
-     *      For example: 
      */
     enum Role {
         /**
@@ -141,7 +140,7 @@ interface IDelegation {
     /**
      * @dev Add or change permissions for delegate 
      * @param newDelegate Address to delegate new permissions to
-     * @param permission Permission level
+     * @param role Role for the delegate
      * 
      * MUST be called by owner or other delegate with permissions
      * MUST consider newDelegate to be valid from the beginning to time
@@ -155,7 +154,7 @@ interface IDelegation {
      * @param r ECDSA Signature r value
      * @param s ECDSA Signature s value
      * @param newDelegate Address to delegate new permissions to
-     * @param permission Permission level
+     * @param role Role for the delegate
      * 
      * MUST be signed by owner or other delegate with permissions (implementation specific)
      * MUST consider newDelegate to be valid from the beginning to time
