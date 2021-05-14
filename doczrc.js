@@ -70,6 +70,7 @@ export default {
         "Serialization",
         "Signatures",
         "Types"
+        "Validation",
       ]
     },
     {
