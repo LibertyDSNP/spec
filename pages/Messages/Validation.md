@@ -60,6 +60,10 @@ Additionally, none of the following should be considered valid:
 
 1. Message Identifier fields must meet all standards defined in the [Message Identifiers](/Messages/Identifiers) specification.
 
+### Signatures
+
+1. Signature fields must be exactly 64 bytes.
+
 ### Type Enumerators
 
 1. Type Enumerator fields must be a valid enumerator value as defined in the [Message Overview](/Messages/Overview).
