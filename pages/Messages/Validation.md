@@ -31,10 +31,6 @@ Announcers may choose to skip content validation checks in the interest of perfo
 Validation of announcement correctness will vary depending on which fields are present on a particular DSNP message type.
 Validating correctness for a message will consist of verifying that each field in the message is defined and meets the formatting rules listed in the subsections below for the given field type.
 
-### Addresses
-
-1. Address fields must be exactly 20 bytes.
-
 ### Emoji
 
 1. Emoji fields must not be empty.
@@ -73,6 +69,10 @@ Additionally, none of the following should be considered valid:
 1. URI fields must include meet all standards defined in [RFC3986](http://www.ietf.org/rfc/rfc3986.txt).
 1. URI fields must not refer to localhost or any reserved IP addresses as defined in [RFC6890](https://datatracker.ietf.org/doc/html/rfc6890)
 1. URI fields must use the `https` protocol. Support for other protocols may be added in the future.
+
+### User Ids
+
+1. User Id fields must be exactly 8 bytes.
 
 ## Announcement Authenticity
 
