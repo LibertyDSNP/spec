@@ -54,13 +54,13 @@ export default {
       menu: [
         "Overview",
         "Factory",
-        "Registry"
+        "Registry",
       ]
     },
     {
       name: "Graph",
       menu: [
-        "Overview"
+        "Overview",
       ]
     },
     {
@@ -68,23 +68,21 @@ export default {
       menu: [
         "Overview",
         "Serialization",
-        "Signatures",
-        "Types"
-        "Validation",
+        "Types",
       ]
     },
     {
       name: "Archivists",
       menu: [
         "Overview",
-        "Format"
+        "Format",
       ]
     },
     {
       name: "Future Proposals",
       menu: [
         "Keys",
-        "Verified Attributes"
+        "Verified Attributes",
       ]
     },
     {
@@ -95,5 +93,5 @@ export default {
     {
       name: '↩ Developer Portal', route: 'https://www.projectliberty.io/#/developer-portal'
     }
-    ]
+  ]
 }
