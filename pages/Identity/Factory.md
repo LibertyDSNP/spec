@@ -218,7 +218,7 @@ interface IIdentityBeaconFactory {
      * @dev This MUST emit ProxyCreated with the address of the new proxy contract
      * @return The address of the newly created proxy contract
      */
-    function createBeaconProxyFor(address beacon, address owner) external returns (address);
+    function createCloneProxyWithOwner(address beacon, address owner) external returns (address);
 }
 ```
 
