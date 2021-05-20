@@ -106,7 +106,7 @@ interface IIdentityCloneFactory {
      * @dev This MUST emit ProxyCreated with the address of the new proxy contract
      * @return The address of the newly created proxy contract
      */
-    function createCloneProxyFor(address logic, address owner) external returns (address);
+    function createCloneProxyWithOwner(address logic, address owner) external returns (address);
 }
 ```
 
@@ -165,7 +165,7 @@ interface IIdentityUpgradableFactory {
      * @dev This MUST emit ProxyCreated with the address of the new proxy contract
      * @return The address of the newly created proxy contract
      */
-    function createUpgradableProxyFor(address logic, address owner) external returns (address);
+    function createUpgradableProxyWithOwner(address logic, address owner) external returns (address);
 }
 ```
 
@@ -218,7 +218,7 @@ interface IIdentityBeaconFactory {
      * @dev This MUST emit ProxyCreated with the address of the new proxy contract
      * @return The address of the newly created proxy contract
      */
-    function createCloneProxyWithOwner(address beacon, address owner) external returns (address);
+    function createBeaconProxyWithOwner(address beacon, address owner) external returns (address);
 }
 ```
 
