@@ -2,7 +2,7 @@
     name: DSNP Issue
     about: Report an issue found in the DSNP
     title: ""
-    labels: ""
+    labels: "bug"
     assignees: ""
 ---
 Thanks for reporting an issue!
