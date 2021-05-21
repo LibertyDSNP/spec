@@ -31,8 +31,10 @@ The process for generating signatures for DSNP announcements consists of three d
 1. Hash the serialized string
 1. Sign the hash
 
-For encrypted messages, the encrypted bytes of the `dsnpData` field can be hashed directly without any serialization.
-For non-encrypted messages, each key-value pair in the `dsnpData` object should be concatenated in alphabetical order with no separator characters.
+To serialize messages, objects must first be converted to a string then prepended with the standard [Ethereum RPC prefix](https://eth.wiki/json-rpc/API#eth_sign).
+To convert encrypted messages to a string, the bytes of the message should be encoded in [base 64](https://developer.mozilla.org/en-US/docs/Glossary/Base64).
+To convert non-encrypted messages to a string, each key of the DSNP object should be concatenated with its value in alphabetical order.
+Once converted, the string must be prefixed with "\x19Ethereum Signed Message:\n" and the length of the string.
 
 Once the data is serialized, the serialized string should be hashed using [keccak-256](https://en.wikipedia.org/wiki/SHA-3).
 This fixed length hash generated can then be signed using [secp256k1](https://google.com/search?hl=en&q=secp256k1) and the publishing user's private key.
@@ -51,19 +53,19 @@ For example, given the following DSNP broadcast message:
 This would be the expected serialization:
 
 ```
-contentHash0x67890fromAddress0x12345urihttps://www.projectliberty.io/
+\x19Ethereum Signed Message:\n69contentHash0x67890fromAddress0x12345urihttps://www.projectliberty.io/
 ```
 
 This would be the expected hash:
 
 ```
-0x45c42591e0154088325055f26664002bf05f211db9e5d7c7bfc588dc309698e0
+0x1850c765b8dd0c4a0d57585f2eb543c66f2857354051d5f867155d25da8d9c66
 ```
 
 And the generated signature would be a string unique to the signing user's keys but looking something like this:
 
 ```
-LJbwyo6oxKd2GRxsUFwxUN1YwBzE9UC4WPvScsh0+vALkocQn60QjgkNd9CB0JUKfVTQdOlTm5gzaengzgmhDw==
+XPBsWQeGibKRqiN18o+4nhCMqlq9URj8Dj/o23x6GUTFMDuefNnadq3LNF94YeSnNAO6PlRIEFILXnkTtgouDw==
 ```
 
 ## Verifying Messages
@@ -71,8 +73,8 @@ LJbwyo6oxKd2GRxsUFwxUN1YwBzE9UC4WPvScsh0+vALkocQn60QjgkNd9CB0JUKfVTQdOlTm5gzaeng
 Verifying announcements can be done by repeating the serialization and hashing steps from the signing process then validating the generated hash against the publishing user's public key.
 The user's public key can be fetched from the Identity contract as described in the [Identity spec](/Identity/Overview).
 
-Given the message and signature provided in the previous example, the following public key should return true when verifying:
+Given the message and signature provided in the previous example, the following public key should return a matching hash when verifying:
 
 ```
-+IUGiZsGHq+3s/Zgxl8TQMRgydvsOX1hUwMzHykoqGw=
+FJLtOPk1bYjDUwAYezuo+1DVSj1glLUjYtt9ZTm2NJY=
 ```
