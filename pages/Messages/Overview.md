@@ -14,11 +14,7 @@ menu: Messages
 
 ## Purpose
 
-1. Describe the form and content of DSNP Messages posted to the blockchain used for all Liberty Platform activities. Only some of these activities will have the full message posted to chain. Examples:
-    * Public messages (profile changes, public posts, reactions)
-    * Direct messages between accounts (dead drop, inbox)
-    * Key changes (private graph KeyList, encryption KeyList, public key rotation)
-    * Graph changes (follow/unfollow)
+1. Describe the form and content of DSNP Messages posted to the blockchain used for all Liberty Platform activities. 
 1. Specify an on-chain announcement format
 1. Provide data size estimations
 1. Facilitate use of SDK and interpretation of on-chain data
@@ -59,35 +55,6 @@ To avoid confusion with other terms, we will not officially refer to announcemen
 ## DSNP Announcement Formats
 
 We have seriously considered two possibilities, a [variable announcement format](#Variable-Announcement-Format), and a [unified announcement format](#unified-announcement-format).
-Others are listed at the end of this page.
-
-### Variable Announcement Format
-
-This format is the current preference.
-
-* All actions are posted to chain with some or all pertinent information about the action
-* Different information is posted depending on the action.
-* **Advantages**
-    * can index all actions without requesting off-chain data
-    * can validate most actions without requesting off-chain data
-    * can archive some actions without requesting off-chain data
-* **Disadvantages**
-    * more data (likely more costly up front) than a simple URI
-
-#### Log Event Format
-
-This is what would be posted as a Log event in Ethereum:
-
-| field | description | type |
-|-------|-------------|------|
-| topic | Ethereum log topic | bytes32 |
-| dsnpType | DSNP message type |number/enum |
-| dsnpData | message data| bytes |
-
-#### Some other options:
-
-* Emit no topic, have a single contract that subscribers watch for events from.  Subscribers can perform filtering based on the `dsnpTopic` field.
-* The topic is the dsnpType (possibly not an enum).  Subscribers could listen for desired topics.
 
 ### DSNP Announcement
 
@@ -99,10 +66,9 @@ A public post.
 
 | dsnpData field | description | type | bloom |
 | ------------- |------------- | ---- | --- |
-| fromAddress | ID of the sender | bytes20 | YES
+| fromId | DSNP ID | bytes8 | YES
 | contentHash | keccak-256 hash of content stored at URI |  bytes32 | no
 | uri       | content URI | string | no
-
 
 #### Reply
 
@@ -112,19 +78,8 @@ A public reply post.
 | ------------- |------------- | ---- | --- |
 | inReplyTo | ID of the announcement the reply references |  bytes32 | YES
 | contentHash | keccak-256 hash of content stored at uri |  bytes32  | no
-| fromAddress | ID of the sender | bytes20 | YES
-| uri       | content uri | string | no
-
-
-#### Drop
-
-A dead drop message.
-
-| dsnpData field | description | type | bloom |
-| ------------- |------------- | ---- | --- |
-| deadDropID | The Dead Drop ID (See [DeadDrops](TBD) | bytes32 | YES
-| uri  | content uri  |  string  | no
-| contentHash | keccak-256 hash of content |  bytes32 | no
+| fromId | DSNP ID | bytes8 | YES
+| uri | content uri | string | no
 
 #### GraphChange
 
@@ -132,41 +87,10 @@ A public follow/unfollow.
 
 | dsnpData field | description | type | bloom |
 | ------------- |------------- | ---- | --- |
-| fromAddress | ID of the sender | bytes20 | YES
+| fromId | DSNP ID | bytes8 | YES
 | actionType | follow/unfollow| number/enum | YES
+| objectId | Id of followee | bytes8 | YES
 
-#### KeyList, PrivateGraphKeyList, EncryptionKeyList
-
-A KeyList rotation.
-
-| dsnpData field | description | type | bloom |
-| ------------- |------------- | ---- | --- |
-| fromAddress | ID of the sender | bytes20 | YES
-| keyList | new list of valid keys | bytes[] | no
-
-#### Inbox
-
-A direct message.
-
-| dsnpData field | description | type | bloom |
-| ------------- |------------- | ---- | --- |
-| toAddress | ID of the recipient | bytes20 | YES
-| fromAddress | id of the sender | bytes20 | YES
-| contentHash | keccak-256 hash of content | bytes32 | no
-| uri  | content uri  | string | no
-
-#### EncryptedInbox
-
-An encrypted direct message.
-This describes the format once decrypted.
-Possibly combine both of these and expect that all Inbox messages are encrypted.
-
-| dsnpData field | description | type | bloom |
-| ------------- |------------- | ---- | --- |
-| toAddress | ID of the recipient | bytes20 | YES
-| fromAddress | ID of the sender | bytes20  | YES
-| contentHash | keccak-256 hash of content | bytes32 | no
-| uri  | content uri  | string | no
 
 #### Reaction
 
@@ -175,10 +99,8 @@ A visual reply to a post.
 | dsnpData field | description | type | bloom |
 | ------------- |------------- | ---- | --- |
 | inReplyTo | ID of the message the reaction references |  bytes32 | YES
-| fromAddress | id of the sender | bytes20 | YES
+| fromId | DSNP ID | bytes8 | YES
 | emoji | the encoded reaction  | number / UTF-8 bytes[] | YES
-
-### Possible Announcement Types
 
 #### Profile
 
@@ -186,72 +108,13 @@ A profile update such as name or icon change.
 
 | dsnpData field | description | type | bloom |
 | ------------- |------------- | ---- | --- |
-| fromAddress | id of the sender | bytes20  | YES
+| fromId | DSNP ID | bytes8  | YES
 | contentHash |  keccak-256 hash of content at uri | bytes32 | no
 | uri    | uri for the profile data  |string | no
 
-#### Private
-
-An encrypted message of unknown type.
-See [DSNP Message Types: Private Messages](/Messages/Types#private-messages) for details.
-
-| dsnpData field | description | type | bloom |
-| ------------- |------------- | ---- | --- |
-| fromAddress | id of the sender | bytes20  | YES
-| data | encrypted graph change data | string | no
-| contentHash | keccak-256 hash of unencrypted content | bytes32 | no
-
-#### PrivateBroadcast
-
-An encrypted Broadcast decipherable by specific accounts.
-This describes the format once decrypted.
-
-| dsnpData field | description | type | bloom |
-| ------------- |------------- | ---- | --- |
-| fromAddress | id of the sender | bytes20 | YES
-| inReplyTo | ID of the message the broadcast references |  bytes32
-| contentHash      | keccak-256 hash of content stored at URI |  bytes32 | no
-| uri       | content uri | string | no
-
-
-### Unified Announcement Format
-
-This is currently not the recommended solution, but is presented as a comparison.
-
-* All actions are posted to the chain with some pertinent information about the action
-* The same information is posted regardless of action
-* The rest of the information for the action is stored off chain.
-* **Advantages**
-    * less data on chain --> lower up-front costs and lower node storage requirements
-    * privacy management is easier -- for example, "right to be forgotten" is easier to comply with since
-        data is external, off-chain.
-* **Disadvantages**
-    * indexing requires retrieving content @ uri
-    * archiving requires retrieving more content @ uri
-    * validation requires retrieving more content @ uri
-    * cost savings may be minimal
-
-| field | description | type
-|-------|-------------| ---|
-| topic | Ethereum log topic |  bytes
-| action type | the type of action | bytes
-| fromAddress | social identity | bytes
-| uri | uri of stored action information | string
-
-### All data on chain
-
-One possibility is not to have any data stored off-chain; instead, even the ActivityPub content would be posted to chain.
-The disadvantages far outweigh the advantages:
-
-* **Advantages**
-    * Validation, indexing, discovery are much easier
-* **Disadvantages**
-    * This amount of data would rapidly slow down the network
-    * The posting of illegal content could potentially shut down the network
-    * Garbage collection, validation, privacy concerns, and dealing with illegal content become interdependent, and would pose conflicting interests.
-    * Would still need archive to store at least some content
-    * Unknown, likely chilling effect on incentive models
-
-### No data except hashes on chain
-
-Only hashes of the events are stored on chain; everything else is interpreted via API(s)
+#### Other notes
+1. Only some Liberty Platform activities will have the full message posted to chain. Examples:
+    * Public messages (profile changes, public posts, reactions)
+    * Direct messages between accounts (dead drop, inbox)
+    * Key changes (private graph KeyList, encryption KeyList, public key rotation)
+    * Graph changes (follow/unfollow)
