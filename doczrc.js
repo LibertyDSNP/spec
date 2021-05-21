@@ -79,16 +79,12 @@ export default {
       ]
     },
     {
-      name: "Future Proposals",
-      menu: [
-        "Keys",
-        "Verified Attributes",
-      ]
-    },
-    {
       name: "Reference", menu: [
         "Glossary"
       ]
+    },
+    {
+      name: "Future Proposals", route: 'https://github.com/LibertyDSNP/spec/issues?q=label%3Aenhancement'
     },
     {
       name: '↩ Developer Portal', route: 'https://www.projectliberty.io/#/developer-portal'
