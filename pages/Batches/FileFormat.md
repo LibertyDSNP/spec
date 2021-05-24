@@ -4,7 +4,7 @@ name: File Format
 route: /Batches/FileFormat
 ---
 
-# Batch Storage
+# Batch File Storage
 Batch files are stored and transferred in Apache Parquet format.
 
 ## Specification Status
