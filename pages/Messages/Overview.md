@@ -76,7 +76,7 @@ A public reply post.
 
 | dsnpData field | description | type | bloom |
 | ------------- |------------- | ---- | --- |
-| inReplyTo | ID of the announcement the reply references |  bytes32 | YES
+| inReplyTo | Identifier of the announcement the reply references |  string | YES
 | contentHash | keccak-256 hash of content stored at uri |  bytes32  | no
 | fromId | DSNP ID | bytes8 | YES
 | uri | content uri | string | no
@@ -98,7 +98,7 @@ A visual reply to a post.
 
 | dsnpData field | description | type | bloom |
 | ------------- |------------- | ---- | --- |
-| inReplyTo | ID of the message the reaction references |  bytes32 | YES
+| inReplyTo | identifier of the message the reaction references |  string | YES
 | fromId | DSNP ID | bytes8 | YES
 | emoji | the encoded reaction  | number / UTF-8 bytes[] | YES
 
@@ -111,10 +111,3 @@ A profile update such as name or icon change.
 | fromId | DSNP ID | bytes8  | YES
 | contentHash |  keccak-256 hash of content at uri | bytes32 | no
 | uri    | uri for the profile data  |string | no
-
-#### Other notes
-1. Only some Liberty Platform activities will have the full message posted to chain. Examples:
-    * Public messages (profile changes, public posts, reactions)
-    * Direct messages between accounts (dead drop, inbox)
-    * Key changes (private graph KeyList, encryption KeyList, public key rotation)
-    * Graph changes (follow/unfollow)
