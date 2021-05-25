@@ -6,7 +6,7 @@ route: /Batches/Overview
 
 # Batches
 
-The Batches specifications describe how Batches are announced, stored and queried.
+The Batches specifications describe how Batches are announced, stored and queried. A batch file is made of one type of DSNP message.
 
 ## File Format
 
@@ -59,3 +59,10 @@ consists of a URL and an object of DSNP message column name/value pairs.  Exampl
 ```
 
 Not all fields of a DSNP data type are added to the Bloom filters.  Generally speaking, content hashes and URIs are omitted, whereas any field containing a socialAddress or other meaningful text is included in the Bloom filter.  For more detail, see [See the Messages Overview](/Messages/Overview).
+
+## Validation
+### Batch File Validation
+Batch files are hashed using [keccak-256](https://en.wikipedia.org/wiki/SHA-3) so that it can later be used to verify the integrity of the file. The [keccak-256](https://en.wikipedia.org/wiki/SHA-3) hash of the file is submitted as part of a batch [announcement](/Messages/Announce) that result in a [DSNPBatch](/Messages/Announce#announcing-dsnp-events) Ethereum log event.
+
+### Batch File DSNP Type Validation
+Each batch file consists of one type of [DSNP announcement](/Messages/Overview#dsnp-announcement-formats). Therefore, the file columns should correspond to the format listed in the DSNP announcement dsnpData field. For example, if the file claims to be of DSNP type Broadcast, then the file is expected to include the following columns: `fromId`, `contentHash`, `uri`.  As long as the batch file hash can be verified, order of dsnpData fields are irrelevant. Also note , if the announcement format does not match the format listed in [DSNP announcement](/Messages/Overview#dsnp-announcement-formats), reading a file is not possible. Hence, being able to successfully read the file means that the file is valid.
