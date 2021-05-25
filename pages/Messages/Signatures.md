@@ -64,7 +64,17 @@ This would be the expected hash:
 And the generated signature would be a string unique to the signing user's keys but looking something like this:
 
 ```
-0x4f730177f9cca0a69b0e7fa96e9fcb7d41bfd56da36c05a7a107a8e201ae63d0741a74bde1b161b072caa8c0bdd6a5f6425061a234e23e840ee782c3afb426bc00
+{
+  v: "0x1c",
+  r: "0x60548fc39c248a6cbcf085854238c6cf66d44ab16a64faace38bf3f03f42400f",
+  s: "0x4b0cf86049606203f0334cdc0118d4b09244881dd22d3722e618648469defcc7"
+}
+```
+
+The compressed form of the above being this:
+
+```
+0x60548fc39c248a6cbcf085854238c6cf66d44ab16a64faace38bf3f03f42400f4b0cf86049606203f0334cdc0118d4b09244881dd22d3722e618648469defcc71c
 ```
 
 ## Verifying Messages
@@ -75,5 +85,5 @@ The user's public key can be fetched from the Identity contract as described in 
 Given the message and signature provided in the previous example, the elliptic curve recovery should match the following ETH address:
 
 ```
-0xEcFA326197Df5eA2fb5DbE872579e4b5e41ace2f
+0x60b5Af7F23489339acBA7B1c85171Ef9D8f4A1d1
 ```
