@@ -64,7 +64,7 @@ This would be the expected hash:
 And the generated signature would be a string unique to the signing user's keys but looking something like this:
 
 ```
-0xdef248a5cd62607930076bbc627f6ca9ff95c3e4ca9fab340bd4a110c9f644ca2dcfebb32d779f9ad9f3b2acf197f8f983a971f176b41952f556201b7e88fd42
+0x4f730177f9cca0a69b0e7fa96e9fcb7d41bfd56da36c05a7a107a8e201ae63d0741a74bde1b161b072caa8c0bdd6a5f6425061a234e23e840ee782c3afb426bc00
 ```
 
 ## Verifying Messages
@@ -72,8 +72,8 @@ And the generated signature would be a string unique to the signing user's keys 
 Verifying announcements can be done by repeating the serialization and hashing steps from the signing process then validating the generated hash against the publishing user's public key.
 The user's public key can be fetched from the Identity contract as described in the [Identity spec](/Identity/Overview).
 
-Given the message and signature provided in the previous example, the elliptic curve recovery should match the following public key:
+Given the message and signature provided in the previous example, the elliptic curve recovery should match the following ETH address:
 
 ```
-0x0360834d247af013d6aa2dbec114aea49b163c4fda488cf708fe3b84148aead5b8
+0xEcFA326197Df5eA2fb5DbE872579e4b5e41ace2f
 ```
