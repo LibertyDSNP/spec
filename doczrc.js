@@ -53,8 +53,6 @@ export default {
       name: "Identity",
       menu: [
         "Overview",
-        "Factory",
-        "Registry",
       ]
     },
     {
@@ -67,15 +65,18 @@ export default {
       name: "Messages",
       menu: [
         "Overview",
-        "Serialization",
-        "Types",
       ]
+    },
+    {
+      name: "Batches",
+      menu: [
+        "Overview",
+      ],
     },
     {
       name: "Archivists",
       menu: [
         "Overview",
-        "Format",
       ]
     },
     {
