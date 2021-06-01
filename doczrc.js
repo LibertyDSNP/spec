@@ -53,8 +53,6 @@ export default {
       name: "Identity",
       menu: [
         "Overview",
-        "Factory",
-        "Registry",
       ]
     },
     {
@@ -67,8 +65,6 @@ export default {
       name: "Messages",
       menu: [
         "Overview",
-        "Serialization",
-        "Types",
       ]
     },
     {
@@ -81,7 +77,6 @@ export default {
       name: "Archivists",
       menu: [
         "Overview",
-        "Format",
       ]
     },
     {
