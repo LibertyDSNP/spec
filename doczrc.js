@@ -72,6 +72,12 @@ export default {
       ]
     },
     {
+      name: "Batches",
+      menu: [
+        "Overview",
+      ],
+    },
+    {
       name: "Archivists",
       menu: [
         "Overview",
