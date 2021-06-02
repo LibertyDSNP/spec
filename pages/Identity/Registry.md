@@ -14,7 +14,7 @@ while maintaining all graph connections, public and private.
 
 | Version | Status |
 ---------- | ---------
-| 0.4     | Tentative |
+| 0.5     | Tentative |
 
 ## Purpose
 1. Describes how the Identity Registry resolves a DSNP Id to an identity contract address
@@ -82,12 +82,11 @@ the other resolutions require using contract log events.
 ### Current Handle -> Current Contract Address
 
 The `IRegistry.resolveHandleToAddress` method is the most efficient for discovery of current values.
-To retrieve historical values, perform a log search using the `DSNPRegistryUpdate` event.
 
 ### Current Handle -> Current DSNP Id
 
 The `IRegistry.resolveHandleToId` method is the most efficient for discovery of current values.
-To retrieve historical values, perform a log search using the `DSNPRegistryUpdate` event.
+`IRegistry.resolveRegistration` provides easy access to the current registration for the given handle
 
 ### Current Handle -> Nonce
 
@@ -96,16 +95,16 @@ The `IRegistry.resolveHandleToNonce` method is the only method for discovery of 
 ### Other Lookups & Historical Values
 
 The `DSNPRegistryUpdate` event is provided to resolve DSNP Ids, handles, and contract addresses.
-The DSNP Id, handle, and contract address are indexed in the event so use a log search using the event and the search data as topics.
-
-A search by handle may produce more than one DSNP Id or contract address, meaning that a handle was previously attached to a different DSNP Id or contract address.
-There is no guarantee that the searched handle will be currently attached to any of the DSNP Ids or contract addresses in the result.
+The DSNP Id and contract address are indexed in the event so use a log search using the event and the search data as topics.
 
 A search by contract address may produce more than one result meaning that the contract address is currently or previously attached to other DSNP Ids.
 To test for the current value, the query would need to be run again with each of the resulting DSNP Ids retrieving the most recent `DSNPRegistryUpdate` event.
 
 A search by DSNP Id will retrieve the history of all handles and contract addresses that have been connected to that DSNP Id.
 The most recent event (the one with the highest block number), will give the current handle and contract address for the given DSNP Id.
+
+Handles may be reused if a DSNP Id changes to a new handle.
+While time consuming, discovering previous owners of a given handle requires locally filtering all `DSNPRegistryUpdate` events for events with the given handle.
 
 ## EIP 721
 
@@ -154,7 +153,7 @@ interface IRegistry {
      * @param addr The address the DSNP Id is pointing at
      * @param handle The actual UTF-8 string used for the handle 
      */
-    event DSNPRegistryUpdate(uint64 indexed id, address indexed addr, string indexed handle);
+    event DSNPRegistryUpdate(uint64 indexed id, address indexed addr, string handle);
 
     /**
      * @dev Register a new DSNP Id
