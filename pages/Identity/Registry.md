@@ -79,13 +79,8 @@ Resolutions are possible between any of the three pieces of data: Handle, DSNP I
 While a utility method is provided for ease of moving from handle to the contract address,
 the other resolutions require using contract log events.
 
-### Current Handle -> Current Contract Address
+### Current Handle -> Current DSNP Id and Contract Address
 
-The `IRegistry.resolveHandleToAddress` method is the most efficient for discovery of current values.
-
-### Current Handle -> Current DSNP Id
-
-The `IRegistry.resolveHandleToId` method is the most efficient for discovery of current values.
 `IRegistry.resolveRegistration` provides easy access to the current registration for the given handle
 
 ### Current Handle -> Nonce
@@ -219,22 +214,13 @@ interface IRegistry {
     function changeHandleByEIP712Sig(uint8 v, bytes32 r, bytes32 s, HandleChange calldata change) external;
 
     /**
-     * @dev Resolve a handle to a contract address
+     * @dev Resolve a handle to a DSNP Id and contract address
      * @param handle The handle to resolve
      * 
      * @throws if not found
-     * @return Address of the contract
+     * @return A tuple of the DSNP Id and the Address of the contract
      */
-    function resolveHandleToAddress(string handle) view external returns (address);
-
-    /**
-     * @dev Resolve a handle to a DSNP Id
-     * @param handle The handle to resolve
-     * 
-     * @throws if not found
-     * @return DSNP Id
-     */
-    function resolveHandleToId(string handle) view external returns (uint64);
+    function resolveRegistration(string handle) view external returns (uint64, address);
 
     /**
      * @dev Resolve a handle to a EIP 712 nonce
