@@ -219,6 +219,22 @@ interface IIdentityBeaconFactory {
      * @return The address of the newly created proxy contract
      */
     function createBeaconProxyWithOwner(address beacon, address owner) external returns (address);
+
+    /**
+     * @dev Creates a new identity with the adddress as the owner and registers it with a handle
+     * @param beacon The beacon address to use logic contract resolution
+     * @param owner The initial owner's address of the new contract
+     * @param handle The handle the new identity proxy under which should be registered
+     *
+     * @dev This MUST emit ProxyCreated with the address of the new proxy contract
+     * @dev This MUST revert if registration reverts
+     * @dev This MUST emit a DSNPRegistryUpdate
+     */
+    function createAndRegisterBeaconProxy(
+        address beacon,
+        address owner,
+        string calldata handle
+    ) external;
 }
 ```
 
