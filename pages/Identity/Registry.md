@@ -14,7 +14,7 @@ while maintaining all graph connections, public and private.
 
 | Version | Status |
 ---------- | ---------
-| 0.4     | Tentative |
+| 0.5     | Tentative |
 
 ## Purpose
 1. Describes how the Identity Registry resolves a DSNP Id to an identity contract address
@@ -79,15 +79,9 @@ Resolutions are possible between any of the three pieces of data: Handle, DSNP I
 While a utility method is provided for ease of moving from handle to the contract address,
 the other resolutions require using contract log events.
 
-### Current Handle -> Current Contract Address
+### Current Handle -> Current DSNP Id and Contract Address
 
-The `IRegistry.resolveHandleToAddress` method is the most efficient for discovery of current values.
-To retrieve historical values, perform a log search using the `DSNPRegistryUpdate` event.
-
-### Current Handle -> Current DSNP Id
-
-The `IRegistry.resolveHandleToId` method is the most efficient for discovery of current values.
-To retrieve historical values, perform a log search using the `DSNPRegistryUpdate` event.
+`IRegistry.resolveRegistration` provides easy access to the current registration for the given handle
 
 ### Current Handle -> Nonce
 
@@ -96,16 +90,16 @@ The `IRegistry.resolveHandleToNonce` method is the only method for discovery of 
 ### Other Lookups & Historical Values
 
 The `DSNPRegistryUpdate` event is provided to resolve DSNP Ids, handles, and contract addresses.
-The DSNP Id, handle, and contract address are indexed in the event so use a log search using the event and the search data as topics.
-
-A search by handle may produce more than one DSNP Id or contract address, meaning that a handle was previously attached to a different DSNP Id or contract address.
-There is no guarantee that the searched handle will be currently attached to any of the DSNP Ids or contract addresses in the result.
+The DSNP Id and contract address are indexed in the event so use a log search using the event and the search data as topics.
 
 A search by contract address may produce more than one result meaning that the contract address is currently or previously attached to other DSNP Ids.
 To test for the current value, the query would need to be run again with each of the resulting DSNP Ids retrieving the most recent `DSNPRegistryUpdate` event.
 
 A search by DSNP Id will retrieve the history of all handles and contract addresses that have been connected to that DSNP Id.
 The most recent event (the one with the highest block number), will give the current handle and contract address for the given DSNP Id.
+
+Handles may be reused if a DSNP Id changes to a new handle.
+While time consuming, discovering previous owners of a given handle requires locally filtering all `DSNPRegistryUpdate` events for events with the given handle.
 
 ## EIP 721
 
@@ -154,7 +148,7 @@ interface IRegistry {
      * @param addr The address the DSNP Id is pointing at
      * @param handle The actual UTF-8 string used for the handle 
      */
-    event DSNPRegistryUpdate(uint64 indexed id, address indexed addr, string indexed handle);
+    event DSNPRegistryUpdate(uint64 indexed id, address indexed addr, string handle);
 
     /**
      * @dev Register a new DSNP Id
@@ -164,8 +158,9 @@ interface IRegistry {
      * MUST reject if the handle is already in use
      * MUST emit DSNPRegistryUpdate
      * MUST check that addr implements IDelegation interface
+     * @return id for new registration
      */
-    function register(address addr, string handle) external returns (uint64);
+    function register(address addr, string calldata handle) external returns (uint64);
 
     /**
      * @dev Alter a DSNP Id resolution address
@@ -177,7 +172,7 @@ interface IRegistry {
      * MUST emit DSNPRegistryUpdate
      * MUST check that newAddr implements IDelegation interface
      */
-    function changeAddress(address newAddr, string handle) external;
+    function changeAddress(address newAddr, string calldata handle) external;
 
     /**
      * @dev Alter a DSNP Id resolution address by EIP-712 Signature
@@ -203,7 +198,7 @@ interface IRegistry {
      *      via `IDelegation(oldHandle -> addr).isAuthorizedTo(ecrecovedAddr, Permission.OWNERSHIP_TRANSFER, block.number)`
      * MUST emit DSNPRegistryUpdate
      */
-    function changeHandle(string oldHandle, string newHandle) external;
+    function changeHandle(string calldata oldHandle, string calldata newHandle) external;
 
     /**
      * @dev Alter a DSNP Id handle by EIP-712 Signature
@@ -220,30 +215,21 @@ interface IRegistry {
     function changeHandleByEIP712Sig(uint8 v, bytes32 r, bytes32 s, HandleChange calldata change) external;
 
     /**
-     * @dev Resolve a handle to a contract address
+     * @dev Resolve a handle to a DSNP Id and contract address
      * @param handle The handle to resolve
      * 
-     * @throws if not found
-     * @return Address of the contract
+     * rejects if not found
+     * @return A tuple of the DSNP Id and the Address of the contract
      */
-    function resolveHandleToAddress(string handle) view external returns (address);
-
-    /**
-     * @dev Resolve a handle to a DSNP Id
-     * @param handle The handle to resolve
-     * 
-     * @throws if not found
-     * @return DSNP Id
-     */
-    function resolveHandleToId(string handle) view external returns (uint64);
+    function resolveRegistration(string calldata handle) view external returns (uint64, address);
 
     /**
      * @dev Resolve a handle to a EIP 712 nonce
      * @param handle The handle to resolve
      * 
-     * @throws if not found
+     * rejects if not found
      * @return expected nonce for next EIP 712 update
      */
-    function resolveHandleToNonce(string handle) view external returns (uint32);
+    function resolveHandleToNonce(string calldata handle) view external returns (uint32);
 }
 ```
