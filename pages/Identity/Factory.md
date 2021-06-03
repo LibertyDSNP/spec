@@ -221,7 +221,7 @@ interface IIdentityBeaconFactory {
     function createBeaconProxyWithOwner(address beacon, address owner) external returns (address);
 
     /**
-     * @dev Creates a new identity with the adddress as the owner and registers it with a handle
+     * @dev Creates a new identity with the address as the owner and registers it with a handle
      * @param beacon The beacon address to use logic contract resolution
      * @param owner The initial owner's address of the new contract
      * @param handle The handle the new identity proxy under which should be registered
