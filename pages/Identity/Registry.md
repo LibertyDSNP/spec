@@ -159,7 +159,7 @@ interface IRegistry {
      * MUST emit DSNPRegistryUpdate
      * MUST check that addr implements IDelegation interface
      */
-    function register(address addr, string handle) external returns (uint64);
+    function register(address addr, string calldata handle) external returns (uint64);
 
     /**
      * @dev Alter a DSNP Id resolution address
@@ -171,7 +171,7 @@ interface IRegistry {
      * MUST emit DSNPRegistryUpdate
      * MUST check that newAddr implements IDelegation interface
      */
-    function changeAddress(address newAddr, string handle) external;
+    function changeAddress(address newAddr, string calldata handle) external;
 
     /**
      * @dev Alter a DSNP Id resolution address by EIP-712 Signature
@@ -197,7 +197,7 @@ interface IRegistry {
      *      via `IDelegation(oldHandle -> addr).isAuthorizedTo(ecrecovedAddr, Permission.OWNERSHIP_TRANSFER, block.number)`
      * MUST emit DSNPRegistryUpdate
      */
-    function changeHandle(string oldHandle, string newHandle) external;
+    function changeHandle(string calldata oldHandle, string calldata newHandle) external;
 
     /**
      * @dev Alter a DSNP Id handle by EIP-712 Signature
@@ -217,18 +217,18 @@ interface IRegistry {
      * @dev Resolve a handle to a DSNP Id and contract address
      * @param handle The handle to resolve
      * 
-     * @throws if not found
+     * rejects if not found
      * @return A tuple of the DSNP Id and the Address of the contract
      */
-    function resolveRegistration(string handle) view external returns (uint64, address);
+    function resolveRegistration(string calldata handle) view external returns (uint64, address);
 
     /**
      * @dev Resolve a handle to a EIP 712 nonce
      * @param handle The handle to resolve
      * 
-     * @throws if not found
+     * rejects if not found
      * @return expected nonce for next EIP 712 update
      */
-    function resolveHandleToNonce(string handle) view external returns (uint32);
+    function resolveHandleToNonce(string calldata handle) view external returns (uint32);
 }
 ```
