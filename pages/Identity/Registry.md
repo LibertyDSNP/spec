@@ -158,6 +158,7 @@ interface IRegistry {
      * MUST reject if the handle is already in use
      * MUST emit DSNPRegistryUpdate
      * MUST check that addr implements IDelegation interface
+     * @return id for new registration
      */
     function register(address addr, string calldata handle) external returns (uint64);
 
