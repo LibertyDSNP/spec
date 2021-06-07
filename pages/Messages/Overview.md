@@ -88,7 +88,7 @@ A public follow/unfollow.
 | dsnpData field | description | type | bloom |
 | ------------- |------------- | ---- | --- |
 | fromId | DSNP ID | bytes8 | YES
-| actionType | follow/unfollow| number/enum | YES
+| changeType | follow/unfollow| number/enum | YES
 | objectId | Id of followee | bytes8 | YES
 
 
