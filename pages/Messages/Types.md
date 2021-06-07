@@ -26,19 +26,12 @@ menu: Messages
 
 | name     | description | value |
 |-------   |-------------| ----|
-| Private | message and message type are private; message data is encrypted | 0 |
+| Reserved | reserved for future use | 0 |
 | GraphChange | follow or unfollow an account | 1 |
 | Broadcast | a public post | 2 |
-| Profile | a Profile change | 3 |
-| KeyList | KeyList rotation | 4 |
-| PrivateGraphKeylist | PrivateGraph KeyList rotation | 5 |
-| EncryptionKeyList | Encryption KeyList rotation | 6 |
-| Reaction | a public visual reply to a Broadcast | 7 |
-| PrivateGraphChange | an encrypted follow or unfollow | 8
-| Drop | a dead drop message | 9
-| EncryptedInbox | an encrypted direct message | 10
-| PrivateBroadcast | an encrypted broadcast | 11
-/ Reply / a response to a Broadcast / 12
+| Reply | a response to a Broadcast | 3 |
+| Reaction | a public visual reply to a Broadcast | 4 |
+| Profile | a Profile change | 5 |
 
 ## Private Messages
 If it's not desired to specify a message type, use the `Private` value as the message type.

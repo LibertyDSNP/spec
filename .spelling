@@ -23,6 +23,7 @@ bytes8
 bytes20
 bytes32
 CBOR
+changeType
 contentHash
 CouchDB
 DSNP
