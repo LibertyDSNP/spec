@@ -12,12 +12,13 @@ The Liberty Protocol is still in a work in progress and as such it is currently 
 We do not recommend implementing any software based on this document in its current state.
 Once the Protocol Specification reaches an appropriate degree of completeness, we will remove this disclaimer.
 
-Component | Description                                                | Status
-----------|------------------------------------------------------------|--------
-Identity  | Specification regarding the representation of users        | Draft
-Graph     | Specification regarding relationships between users        | Draft
-Messages  | Specification regarding content posted on the protocol     | Draft
-Archives  | Specification regarding long term storage of data          | Draft
+Component  | Description                                                | Status
+-----------|------------------------------------------------------------|--------
+Archivists | Specification regarding long term storage of data          | Draft
+Batches    | Specification regarding storage formats for messages       | Draft
+Graph      | Specification regarding relationships between users        | Draft
+Identity   | Specification regarding the representation of users        | Draft
+Messages   | Specification regarding content posted on the protocol     | Draft
 
 ## Roadmap
 
