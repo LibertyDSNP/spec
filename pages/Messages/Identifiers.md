@@ -14,8 +14,8 @@ menu: Messages
 
 ## Purpose
 
-1. Describe a means of uniquely identifying DSNP content messages
-1. Describe potential extensions of identifiers for the future
+1. Describe a means of uniquely identifying DSNP content messages.
+1. Describe potential extensions of identifiers for the future.
 
 ## Assumptions
 

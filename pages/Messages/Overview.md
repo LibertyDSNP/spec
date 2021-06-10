@@ -15,9 +15,9 @@ menu: Messages
 ## Purpose
 
 1. Describe the form and content of DSNP Messages posted to the blockchain used for all Liberty Platform activities.
-1. Specify an on-chain announcement format
-1. Provide data size estimations
-1. Facilitate use of SDK and interpretation of on-chain data
+1. Specify an on-chain announcement format.
+1. Provide data size estimations.
+1. Facilitate use of SDK and interpretation of on-chain data.
 
 ## Assumptions
 

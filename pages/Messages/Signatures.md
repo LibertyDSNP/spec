@@ -17,8 +17,8 @@ Optionally, anonymous messages may be provided with a zero hash in place of the 
 | 0.1     | Tentative |
 
 ## Purpose
-1. Describe the process of signing DSNP announcements for inclusion in batches
-1. Describe the process of verifying DSNP announcements from batches
+1. Describe the process of signing DSNP announcements for inclusion in batches.
+1. Describe the process of verifying DSNP announcements from batches.
 
 ## Assumptions
 * All assumptions from [DSNP Messages](/Messages/Overview)
@@ -27,9 +27,9 @@ Optionally, anonymous messages may be provided with a zero hash in place of the 
 
 The process for generating signatures for DSNP announcements consists of three distinct steps:
 
-1. Serialize the DSNP announcement, if not encrypted
-1. Hash the serialized string
-1. Sign the hash
+1. Serialize the DSNP announcement, if not encrypted.
+1. Hash the serialized string.
+1. Sign the hash.
 
 To serialize messages, objects must first be converted to a string then prepended with the standard [Ethereum RPC prefix](https://eth.wiki/json-rpc/API#eth_sign).
 To convert messages to a string, each key of the DSNP object should be concatenated with its value in alphabetical order.

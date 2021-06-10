@@ -16,15 +16,15 @@ This specification is intended to cover the concept of identity within the proto
 
 ## Purpose
 
-1. Provide the interface for a DSNP identity
-1. Specify the delegation model and related interface
-1. Specify the ownership model and related interface
-1. Provide the list of EIPs that must be supported by a DSNP compatible identity 
+1. Provide the interface for a DSNP identity.
+1. Specify the delegation model and related interface.
+1. Specify the ownership model and related interface.
+1. Provide the list of EIPs that must be supported by a DSNP compatible identity.
 
 ## Assumptions
 
-* Identity is on Ethereum for Betanet
-* Identity will need to be moved from Betanet to Mainnet
+* Identity is on Ethereum for Betanet.
+* Identity will need to be moved from Betanet to Mainnet.
 
 ## Details
 
@@ -37,7 +37,7 @@ Identity is comprised of several parts:
 
 Additional constraints were placed upon any solution:
 
-* Pseudo Anonymity: A consistent identifier that defaults to disconnected from real world identity 
+* Pseudo Anonymity: A consistent identifier that defaults to disconnected from real world identity
 * Flexibility: An interface that can produce multiple solutions
 * Extensibility: A default implementation that can be updated over time as DSNP changes
 
@@ -58,8 +58,7 @@ While at least one owner is required, additional public keys may be considered t
 
 ## Delegation
 
-Delegation allows adding public keys that are allowed to sign announcements
-or perform other actions in addition to the "owner" public key.
+Delegation allows adding public keys that are allowed to sign announcements or perform other actions in addition to the "owner" public key.
 
 ### Interface
 
@@ -230,7 +229,7 @@ interface IDelegation {
 
 ## Upgrade Interface
 
-It is an open question if we want to require a standard set of upgrade interfaces. 
+It is an open question if we want to require a standard set of upgrade interfaces.
 
 ## Additional Required Interfaces
 
@@ -244,8 +243,7 @@ It is required to support optional interfaces and upgrade expansion.
 ### EIP 173
 
 [EIP 173](https://eips.ethereum.org/EIPS/eip-173) provides methods that confirm ownership and provide methods to transfer ownership.
-Implementations that choose to use this interface will need to consider that transferring ownership should revoke all existing delegations,
-or at a minimum all delegates at `Role.OWNER`.
+Implementations that choose to use this interface will need to consider that transferring ownership should revoke all existing delegations, or at a minimum all delegates at `Role.OWNER`.
 
 ### EIP 897
 
@@ -257,8 +255,7 @@ that are proxies such as those produced by the default [Identity Factory](/Ident
 [EIP 1271](https://eips.ethereum.org/EIPS/eip-1271) allows the identity contract to validate a signature.
 To support delegation, this interface allows a contract to validate against the signature of the owner.
 
-Unlike `IDelegation.isAuthorizedToAnnounce` which supports permission levels and end block number,
-`isValidSignature` will only respond to currently permissioned addresses at the owner level.
+Unlike `IDelegation.isAuthorizedToAnnounce` which supports permission levels and end block number, `isValidSignature` will only respond to currently permissioned addresses at the owner level.
 
 **REMEMBER**: Implementation *MUST ONLY* return true for active owner level.
 

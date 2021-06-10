@@ -16,15 +16,15 @@ The DSNP User Id Registry is a simple contract that allows switching handles, id
 | 0.5     | Tentative |
 
 ## Purpose
-1. Describes how the Identity Registry resolves a DSNP User Id to an identity contract address
-1. Describes how the Identity Registry allows for handle resolution
-1. Presents the interface for the Identity Registry
-1. Describes rejected alternatives
+1. Describes how the Identity Registry resolves a DSNP User Id to an identity contract address.
+1. Describes how the Identity Registry allows for handle resolution.
+1. Presents the interface for the Identity Registry.
+1. Describes rejected alternatives.
 
 ## Assumptions
 
-* Ids will need to be moved from Betanet to Mainnet
-* Handles are for display and discovery purposes only
+* Ids will need to be moved from Betanet to Mainnet.
+* Handles are for display and discovery purposes only.
 
 ## Discovery via DSNP Handles
 
@@ -69,8 +69,8 @@ Identification can be reduced to just 64 bit identifiers with the registry and e
 
 **Remember:** Only DSNP User Ids are safe for long term data connections.
 
-* DSNP Identity contract addresses are not guaranteed long term for upgrade and migration reasons
-* Handles can change
+* DSNP Identity contract addresses are not guaranteed long term for upgrade and migration reasons.
+* Handles can change.
 
 ## Resolutions
 
@@ -80,7 +80,7 @@ the other resolutions require using contract log events.
 
 ### Current Handle -> Current DSNP User Id and Contract Address
 
-`IRegistry.resolveRegistration` provides easy access to the current registration for the given handle
+`IRegistry.resolveRegistration` provides easy access to the current registration for the given handle.
 
 ### Current Handle -> Nonce
 
@@ -107,9 +107,9 @@ It will be reconsidered for Mainnet.
 
 ### NFT Concerns
 
-* The EIP 721 standard has its own ownership and permission system that is too limited for use across the DSNP
-* Supporting two ownership systems adds unneeded complexity
-* Identity contract ownership would require additional complexity to receive and transfer 721 tokens
+* The EIP 721 standard has its own ownership and permission system that is too limited for use across the DSNP.
+* Supporting two ownership systems adds unneeded complexity.
+* Identity contract ownership would require additional complexity to receive and transfer 721 tokens.
 
 ## Rejected Alternatives
 

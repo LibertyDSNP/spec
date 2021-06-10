@@ -13,15 +13,13 @@ menu: Archivists
 | 0.2     | Tentative |
 
 ## Purpose
-1. Specify the off-chain Archivist _storage_ format
-1. Enable development of an application that can permanently store, or cause to be permanently store necessary
-Liberty Protocol data in a uniform and systematic way.
+1. Specify the off-chain Archivist _storage_ format.
+1. Enable development of an application that can permanently store, or cause to be permanently store necessary Liberty Protocol data in a uniform and systematic way.
 
 ## Assumptions
-* Chain messages are on Ethereum
-* Message data is posted via [Ethereum log events](https://medium.com/mycrypto/understanding-event-logs-on-the-ethereum-blockchain-f4ae7ba50378)
-* Signature algorithm is [secp256k1](https://en.bitcoin.it/wiki/Secp256k1). This allows the use `ecreover`
-  to get public keys. A public key also need not be included in a log event for ease of validation.
+* Chain messages are on Ethereum.
+* Message data is posted via [Ethereum log events](https://medium.com/mycrypto/understanding-event-logs-on-the-ethereum-blockchain-f4ae7ba50378).
+* Signature algorithm is [secp256k1](https://en.bitcoin.it/wiki/Secp256k1). This allows the use `ecreover` to get public keys. A public key also need not be included in a log event for ease of validation.
 * Content hashes are created via the same [keccak-256 hashing algorithm](https://en.wikipedia.org/wiki/SHA-3) used by Ethereum.
 
 ## Archive Entry
@@ -47,7 +45,8 @@ It is a key-value map consisting of the following fields:
 * all the signatures applied to this message at the time of archival.
 
 ## Batch
-A _Batch_ is data that is referenced by a Batch Announcement. It consists of one or more ArchiveEntries.
+A _Batch_ is data that is referenced by a Batch Announcement.
+It consists of one or more ArchiveEntries.
 
 |field|description|type|
 |---|---|---|
@@ -99,7 +98,7 @@ the social identity of the batch announcer, i.e. the message sender.
 ## Signature
 A Signature consists of two fields:
 * `signature` - A [secp256k1](https://en.bitcoin.it/wiki/Secp256k1) signature
-* `result` - optional, bytes. A result of an operation performed. For example, if a signing entity wished to prove that they had performed some sort of validation or analysis on the message, they would put the result of the analysis in this field. It could be a meaningful number or string, some sort of proof hash, etc.
+* `result` - Optional, bytes. A result of an operation performed. For example, if a signing entity wished to prove that they had performed some sort of validation or analysis on the message, they would put the result of the analysis in this field. It could be a meaningful number or string, some sort of proof hash, etc.
 
 ## Diagram
 ![Archive Messages Diagram](https://github.com/LibertyDSNP/spec/blob/c9f55041950e7f54ce07d0f32de6b35d4fa4e7c0/images/ArchiveMessages.png?raw=true)

@@ -20,7 +20,7 @@ Announcers may choose to skip content validation checks in the interest of perfo
 | 0.1     | Tentative |
 
 ## Purpose
-1. Describe the process of validating messages for inclusion in a batch
+1. Describe the process of validating messages for inclusion in a batch.
 
 ## Assumptions
 * All assumptions from [DSNP Messages](/Messages/Overview)
@@ -80,7 +80,7 @@ Validation of announcement authenticity will consist of verifying the message's 
 Specific steps for fetching a public key are as follows:
 
 1. Resolve the identity contract from the `fromId` included in the DSNP messages.
-1. Use the https://spec.projectliberty.io/Messages/Signatures spec with `ecrecovery` to recover the signer's public key
+1. Use the https://spec.projectliberty.io/Messages/Signatures spec with `ecrecovery` to recover the signer's public key.
 1. Test the public key against the identity contract using `IDelegation.isAuthorizedTo`.
 
 Once the key is fetched, the signature can be verified against it using the [Secp256k1](https://en.bitcoin.it/wiki/Secp256k1) and the [keccak-256](https://en.wikipedia.org/wiki/SHA-3) hash of the serialized message as described in the [Message Signatures](/Messages/Signatures#verifying-messages) specification.
