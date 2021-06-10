@@ -19,11 +19,13 @@ Any contract that matches the [DSNP Identity](/Identity/Overview) interfaces is 
 | 0.3     | Tentative |
 
 ## Purpose
-1. Describe how an Identity Factory can create an identity
-1. Describe how an Identity Factory can allow someone else to pay for the creation an identity
-1. Restrict the creation of identities without owner permission
+
+1. Describe how an Identity Factory can create an identity.
+1. Describe how an Identity Factory can allow someone else to pay for the creation an identity.
+1. Restrict the creation of identities without owner permission.
 
 ## Assumptions
+
 * All assumptions from [DSNP Identity](/Identity/Overview)
 
 ## Proxy Contracts
@@ -34,9 +36,8 @@ Here are the interfaces to be a DSNP compatible identity factory.
 
 ### What is a Proxy Contract?
 
-Proxy contracts are used to limit the gas for deploying many contracts that all have the same logic,
-but need different state. The state is maintained at the "proxy" contract
-while the logic to alter the state is able to be in one "logic" contract.
+Proxy contracts are used to limit the gas for deploying many contracts that all have the same logic, but need different state.
+The state is maintained at the "proxy" contract while the logic to alter the state is able to be in one "logic" contract.
 
 __Remember: A Logic Contract has 100% control over the state of a smart contract.__
 While a logic contract cannot have state that effects the execution of a proxy contract,
@@ -47,8 +48,7 @@ Never use logic contracts that you do not trust!
 
 [OpenZeppelin](https://docs.openzeppelin.com/contracts/4.x/api/proxy) has a great set of standard and audited proxy contracts.
 
-While there may not be an identity factory interface for each type,
-the documentation from OpenZeppelin gives good detail on the differences between the types.
+While there may not be an identity factory interface for each type, the documentation from OpenZeppelin gives good detail on the differences between the types.
 
 ### Can I switch from one type to another?
 
@@ -89,7 +89,7 @@ interface IIdentityCloneFactory {
 
     /**
      * @dev Creates a new identity with the message sender as the owner
-     * @dev [EIP 1167](https://eips.ethereum.org/EIPS/eip-1167) Proxy 
+     * @dev [EIP 1167](https://eips.ethereum.org/EIPS/eip-1167) Proxy
      * @param logic The address to use for the logic contract
      *
      * @dev This MUST emit ProxyCreated with the address of the new proxy contract
@@ -102,7 +102,7 @@ interface IIdentityCloneFactory {
      * @dev [EIP 1167](https://eips.ethereum.org/EIPS/eip-1167) Proxy
      * @param logic The address to use for the logic contract
      * @param owner The initial owner's address of the new contract
-     * 
+     *
      * @dev This MUST emit ProxyCreated with the address of the new proxy contract
      * @return The address of the newly created proxy contract
      */
@@ -131,7 +131,7 @@ interface IIdentityUpgradableFactory {
      * @param newLogic The new address
      */
     event LogicUpdated(address newLogic);
-    
+
     /**
      * @dev This may be upgradable by the owner of the factory
      *
@@ -142,7 +142,7 @@ interface IIdentityUpgradableFactory {
     /**
      * @dev Creates a new identity with the message sender as the owner
      *      and will be pointed at the default logic address.
-     * 
+     *
      * @dev This MUST emit ProxyCreated with the address of the new proxy contract
      * @return The address of the newly created proxy contract
      */
@@ -151,7 +151,7 @@ interface IIdentityUpgradableFactory {
     /**
      * @dev Creates a new identity with the message sender as the owner
      * @param logic The address to use for the logic contract
-     * 
+     *
      * @dev This MUST emit ProxyCreated with the address of the new proxy contract
      * @return The address of the newly created proxy contract
      */
@@ -161,7 +161,7 @@ interface IIdentityUpgradableFactory {
      * @dev Creates a new identity with the ecrecover address as the owner
      * @param logic The logic address to use for identity creation
      * @param owner The initial owner's address of the new contract
-     * 
+     *
      * @dev This MUST emit ProxyCreated with the address of the new proxy contract
      * @return The address of the newly created proxy contract
      */
@@ -184,7 +184,7 @@ interface IIdentityBeaconFactory {
      * @dev event to log the created proxy contract address
      */
     event ProxyCreated(address addr);
-    
+
     /**
      * @dev This MUST NOT be upgradable by the owner of the factory
      *
@@ -195,21 +195,21 @@ interface IIdentityBeaconFactory {
     /**
      * @dev Creates a new identity with the message sender as the owner
      *      Uses the beacon defined by getBeacon()
-     * 
+     *
      * @dev This MUST emit ProxyCreated with the address of the new proxy contract
      * @return The address of the newly created proxy contract
      */
     function createBeaconProxy() external returns (address);
-    
+
     /**
      * @dev Creates a new identity with the message sender as the owner
      * @param beacon The beacon address to use for logic contract resolution
-     * 
+     *
      * @dev This MUST emit ProxyCreated with the address of the new proxy contract
      * @return The address of the newly created proxy contract
      */
     function createBeaconProxy(address beacon) external returns (address);
-    
+
     /**
      * @dev Creates a new identity with the ecrecover address as the owner
      * @param beacon The beacon address to use logic contract resolution

@@ -14,10 +14,10 @@ menu: Messages
 
 ## Purpose
 
-1. Describe the form and content of DSNP Messages posted to the blockchain used for all Liberty Platform activities. 
-1. Specify an on-chain announcement format
-1. Provide data size estimations
-1. Facilitate use of SDK and interpretation of on-chain data
+1. Describe the form and content of DSNP Messages posted to the blockchain used for all Liberty Platform activities.
+1. Specify an on-chain announcement format.
+1. Provide data size estimations.
+1. Facilitate use of SDK and interpretation of on-chain data.
 
 ## Assumptions
 
@@ -66,7 +66,7 @@ A public post.
 
 | dsnpData field | description | type | bloom |
 | ------------- |------------- | ---- | --- |
-| fromId | DSNP ID | bytes8 | YES
+| fromId | DSNP User Id | bytes8 | YES
 | contentHash | keccak-256 hash of content stored at URI |  bytes32 | no
 | uri       | content URI | string | no
 
@@ -76,9 +76,9 @@ A public reply post.
 
 | dsnpData field | description | type | bloom |
 | ------------- |------------- | ---- | --- |
-| inReplyTo | Identifier of the announcement the reply references |  string | YES
+| inReplyTo | DSNP Message Id |  string | YES
 | contentHash | keccak-256 hash of content stored at uri |  bytes32  | no
-| fromId | DSNP ID | bytes8 | YES
+| fromId | DSNP User Id | bytes8 | YES
 | uri | content uri | string | no
 
 #### GraphChange
@@ -87,10 +87,9 @@ A public follow/unfollow.
 
 | dsnpData field | description | type | bloom |
 | ------------- |------------- | ---- | --- |
-| fromId | DSNP ID | bytes8 | YES
+| fromId | DSNP User Id | bytes8 | YES
 | changeType | follow/unfollow| number/enum | YES
 | objectId | Id of followee | bytes8 | YES
-
 
 #### Reaction
 
@@ -98,8 +97,8 @@ A visual reply to a post.
 
 | dsnpData field | description | type | bloom |
 | ------------- |------------- | ---- | --- |
-| inReplyTo | identifier of the message the reaction references |  string | YES
-| fromId | DSNP ID | bytes8 | YES
+| inReplyTo | DSNP Message Id |  string | YES
+| fromId | DSNP User Id | bytes8 | YES
 | emoji | the encoded reaction  | number / UTF-8 bytes[] | YES
 
 #### Profile
@@ -108,6 +107,6 @@ A profile update such as name or icon change.
 
 | dsnpData field | description | type | bloom |
 | ------------- |------------- | ---- | --- |
-| fromId | DSNP ID | bytes8  | YES
+| fromId | DSNP User Id | bytes8  | YES
 | contentHash |  keccak-256 hash of content at uri | bytes32 | no
 | uri    | uri for the profile data  |string | no

@@ -7,8 +7,7 @@ menu: Identity
 # Identity Registry
 
 A registry allows for distinct user identifiers and human readable discovery of network members.
-The DSNP Id Registry is a simple contract that allows switching handles, identity contracts, and chain migration
-while maintaining all graph connections, public and private.
+The DSNP User Id Registry is a simple contract that allows switching handles, identity contracts, and chain migration while maintaining all graph connections, public and private.
 
 ## Specification Status
 
@@ -17,15 +16,16 @@ while maintaining all graph connections, public and private.
 | 0.5     | Tentative |
 
 ## Purpose
-1. Describes how the Identity Registry resolves a DSNP Id to an identity contract address
-1. Describes how the Identity Registry allows for handle resolution
-1. Presents the interface for the Identity Registry
-1. Describes rejected alternatives
+
+1. Describes how the Identity Registry resolves a DSNP User Id to an identity contract address.
+1. Describes how the Identity Registry allows for handle resolution.
+1. Presents the interface for the Identity Registry.
+1. Describes rejected alternatives.
 
 ## Assumptions
 
-* Ids will need to be moved from Betanet to Mainnet
-* Handles are for display and discovery purposes only
+* Ids will need to be moved from Betanet to Mainnet.
+* Handles are for display and discovery purposes only.
 
 ## Discovery via DSNP Handles
 
@@ -37,7 +37,7 @@ while maintaining all graph connections, public and private.
 
 * Handles are simple UTF-8 strings.
 * No limitations are placed on length or contents, although different clients may not have support for the full unicode set.
-* A user MAY NOT register multiple handles that point to the same DSNP Id.
+* A user MAY NOT register multiple handles that point to the same DSNP User Id.
 * Handles must be unique.
 
 ### Homograph Attack Mitigation
@@ -45,13 +45,13 @@ while maintaining all graph connections, public and private.
 UTF-8 support for handles opens handle users up to [homograph attacks](https://en.wikipedia.org/wiki/IDN_homograph_attack), not to mention case-sensitivity issues.
 This issue is of ongoing discussion both for the DSNP as well as in for ICANN domain names and other projects working with internationalization support.
 
-Because the DSNP Id is stable, attacks would only be successful in cases where the DSNP Id were unknown.
+Because the DSNP User Id is stable, attacks would only be successful in cases where the DSNP User Id were unknown.
 [Punycode](https://en.wikipedia.org/wiki/Punycode) is used by some software to prevent homographs by encoding all non-Latin characters into Latin characters.
 So punycode does not properly present non-Latin characters which isn't reaching the level of internationalization support desired by the DSNP.
 
 #### Current Mitigation Strategies
 
-Clients resolving handles MUST implement a method to detect potential homographs and check both user settings and potentially check the registry for additional potential matching DSNP Ids.
+Clients resolving handles MUST implement a method to detect potential homographs and check both user settings and potentially check the registry for additional potential matching DSNP User Ids.
 
 ### EIP 712 Methods, Replay Attacks and Nonces
 
@@ -63,25 +63,25 @@ When it receives an EIP 712 transaction, it MUST check that the nonce parameter 
 
 If a handle is changed, the registry MUST preserve the stored nonce for the old handle.
 
-## DSNP Ids
+## DSNP User Ids
 
 Ethereum contract addresses are currently 160 bit values which is much larger than needed for unique identification.
 Identification can be reduced to just 64 bit identifiers with the registry and enable contract changing.
 
-**Remember:** Only DSNP Ids are safe for long term data connections.
+**Remember:** Only DSNP User Ids are safe for long term data connections.
 
-* DSNP Identity contract addresses are not guaranteed long term for upgrade and migration reasons
-* Handles can change
+* DSNP Identity contract addresses are not guaranteed long term for upgrade and migration reasons.
+* Handles can change.
 
 ## Resolutions
 
-Resolutions are possible between any of the three pieces of data: Handle, DSNP Id, and Contract Address.
+Resolutions are possible between any of the three pieces of data: Handle, DSNP User Id, and Contract Address.
 While a utility method is provided for ease of moving from handle to the contract address,
 the other resolutions require using contract log events.
 
-### Current Handle -> Current DSNP Id and Contract Address
+### Current Handle -> Current DSNP User Id and Contract Address
 
-`IRegistry.resolveRegistration` provides easy access to the current registration for the given handle
+`IRegistry.resolveRegistration` provides easy access to the current registration for the given handle.
 
 ### Current Handle -> Nonce
 
@@ -89,16 +89,16 @@ The `IRegistry.resolveHandleToNonce` method is the only method for discovery of 
 
 ### Other Lookups & Historical Values
 
-The `DSNPRegistryUpdate` event is provided to resolve DSNP Ids, handles, and contract addresses.
-The DSNP Id and contract address are indexed in the event so use a log search using the event and the search data as topics.
+The `DSNPRegistryUpdate` event is provided to resolve DSNP User Ids, handles, and contract addresses.
+The DSNP User Id and contract address are indexed in the event so use a log search using the event and the search data as topics.
 
-A search by contract address may produce more than one result meaning that the contract address is currently or previously attached to other DSNP Ids.
-To test for the current value, the query would need to be run again with each of the resulting DSNP Ids retrieving the most recent `DSNPRegistryUpdate` event.
+A search by contract address may produce more than one result meaning that the contract address is currently or previously attached to other DSNP User Ids.
+To test for the current value, the query would need to be run again with each of the resulting DSNP User Ids retrieving the most recent `DSNPRegistryUpdate` event.
 
-A search by DSNP Id will retrieve the history of all handles and contract addresses that have been connected to that DSNP Id.
-The most recent event (the one with the highest block number), will give the current handle and contract address for the given DSNP Id.
+A search by DSNP User Id will retrieve the history of all handles and contract addresses that have been connected to that DSNP User Id.
+The most recent event (the one with the highest block number), will give the current handle and contract address for the given DSNP User Id.
 
-Handles may be reused if a DSNP Id changes to a new handle.
+Handles may be reused if a DSNP User Id changes to a new handle.
 While time consuming, discovering previous owners of a given handle requires locally filtering all `DSNPRegistryUpdate` events for events with the given handle.
 
 ## EIP 721
@@ -108,9 +108,9 @@ It will be reconsidered for Mainnet.
 
 ### NFT Concerns
 
-* The EIP 721 standard has its own ownership and permission system that is too limited for use across the DSNP
-* Supporting two ownership systems adds unneeded complexity
-* Identity contract ownership would require additional complexity to receive and transfer 721 tokens
+* The EIP 721 standard has its own ownership and permission system that is too limited for use across the DSNP.
+* Supporting two ownership systems adds unneeded complexity.
+* Identity contract ownership would require additional complexity to receive and transfer 721 tokens.
 
 ## Rejected Alternatives
 
@@ -144,17 +144,17 @@ interface IRegistry {
 
     /**
      * @dev Log when a resolution address is changed
-     * @param id The DSNP Id 
-     * @param addr The address the DSNP Id is pointing at
-     * @param handle The actual UTF-8 string used for the handle 
+     * @param id The DSNP User Id
+     * @param addr The address the DSNP User Id is pointing at
+     * @param handle The actual UTF-8 string used for the handle
      */
     event DSNPRegistryUpdate(uint64 indexed id, address indexed addr, string handle);
 
     /**
-     * @dev Register a new DSNP Id
-     * @param addr Address for the new DSNP Id to point at
+     * @dev Register a new DSNP User Id
+     * @param addr Address for the new DSNP User Id to point at
      * @param handle The handle for discovery
-     * 
+     *
      * MUST reject if the handle is already in use
      * MUST emit DSNPRegistryUpdate
      * MUST check that addr implements IDelegation interface
@@ -163,10 +163,10 @@ interface IRegistry {
     function register(address addr, string calldata handle) external returns (uint64);
 
     /**
-     * @dev Alter a DSNP Id resolution address
+     * @dev Alter a DSNP User Id resolution address
      * @param newAddr Original or new address to resolve to
      * @param handle The handle to modify
-     * 
+     *
      * MUST be called by someone who is authorized on the contract
      *      via `IDelegation(oldAddr).isAuthorizedTo(oldAddr, Permission.OWNERSHIP_TRANSFER, block.number)`
      * MUST emit DSNPRegistryUpdate
@@ -175,12 +175,12 @@ interface IRegistry {
     function changeAddress(address newAddr, string calldata handle) external;
 
     /**
-     * @dev Alter a DSNP Id resolution address by EIP-712 Signature
+     * @dev Alter a DSNP User Id resolution address by EIP-712 Signature
      * @param v EIP-155 calculated Signature v value
      * @param r ECDSA Signature r value
      * @param s ECDSA Signature s value
      * @param change Change data containing nonce, new address and handle
-     * 
+     *
      * MUST be signed by someone who is authorized on the contract
      *      via `IDelegation(oldAddr).isAuthorizedTo(ecrecovedAddr, Permission.OWNERSHIP_TRANSFER, block.number)`
      * MUST check that newAddr implements IDelegation interface
@@ -189,10 +189,10 @@ interface IRegistry {
     function changeAddressByEIP712Sig(uint8 v, bytes32 r, bytes32 s, AddressChange calldata change) external;
 
     /**
-     * @dev Alter a DSNP Id handle
+     * @dev Alter a DSNP User Id handle
      * @param oldHandle The previous handle for modification
      * @param newHandle The new handle to use for discovery
-     * 
+     *
      * MUST NOT allow a registration of a handle that is already in use
      * MUST be called by someone who is authorized on the contract
      *      via `IDelegation(oldHandle -> addr).isAuthorizedTo(ecrecovedAddr, Permission.OWNERSHIP_TRANSFER, block.number)`
@@ -201,12 +201,12 @@ interface IRegistry {
     function changeHandle(string calldata oldHandle, string calldata newHandle) external;
 
     /**
-     * @dev Alter a DSNP Id handle by EIP-712 Signature
+     * @dev Alter a DSNP User Id handle by EIP-712 Signature
      * @param v EIP-155 calculated Signature v value
      * @param r ECDSA Signature r value
      * @param s ECDSA Signature s value
      * @param change Change data containing nonce, old handle and new handle
-     * 
+     *
      * MUST NOT allow a registration of a handle that is already in use
      * MUST be signed by someone who is authorized on the contract
      *      via `IDelegation(handle -> addr).isAuthorizedTo(ecrecovedAddr, Permission.OWNERSHIP_TRANSFER, block.number)`
@@ -215,18 +215,18 @@ interface IRegistry {
     function changeHandleByEIP712Sig(uint8 v, bytes32 r, bytes32 s, HandleChange calldata change) external;
 
     /**
-     * @dev Resolve a handle to a DSNP Id and contract address
+     * @dev Resolve a handle to a DSNP User Id and contract address
      * @param handle The handle to resolve
-     * 
+     *
      * rejects if not found
-     * @return A tuple of the DSNP Id and the Address of the contract
+     * @return A tuple of the DSNP User Id and the Address of the contract
      */
     function resolveRegistration(string calldata handle) view external returns (uint64, address);
 
     /**
      * @dev Resolve a handle to a EIP 712 nonce
      * @param handle The handle to resolve
-     * 
+     *
      * rejects if not found
      * @return expected nonce for next EIP 712 update
      */
