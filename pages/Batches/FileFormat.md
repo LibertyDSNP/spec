@@ -55,11 +55,9 @@ TBD
 ### Requirements
 
 Batch files need to be quickly and easily searchable.
-Minimal storage size and fast, simple querying, identification and transfer are preferred to guarantees of no false positives or advanced data manipulation and column relationships.
-The files ideally are parseable by client applications, web views or browsers running pure JavaScript without a need to convert the format.
+Minimal storage size and fast, simple querying are preferred to guarantees of no false positives or advanced data manipulation and column relationships.
+The files are parseable by client applications, web views or browsers running pure JavaScript without a need to convert the format.
 
-DSNP doesn't need a database; the data is not relational.
-The columns:rows ratio are  at most 1:1000, likely more at 1:10,000, within one batch file.
 Applications need to know if a given Batch file has any information they are interested in without downloading the file first.
 
 ### Why Parquet?

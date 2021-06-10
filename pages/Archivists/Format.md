@@ -15,7 +15,6 @@ menu: Archivists
 ## Purpose
 
 1. Specify the off-chain Archivist _storage_ format.
-1. Enable development of an application that can permanently store, or cause to be permanently store necessary Liberty Protocol data in a uniform and systematic way.
 
 ## Assumptions
 
