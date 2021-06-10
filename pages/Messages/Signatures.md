@@ -17,10 +17,12 @@ Optionally, anonymous messages may be provided with a zero hash in place of the 
 | 0.1     | Tentative |
 
 ## Purpose
+
 1. Describe the process of signing DSNP announcements for inclusion in batches.
 1. Describe the process of verifying DSNP announcements from batches.
 
 ## Assumptions
+
 * All assumptions from [DSNP Messages](/Messages/Overview)
 
 ## Signing Messages

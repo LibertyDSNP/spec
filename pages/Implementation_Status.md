@@ -5,7 +5,6 @@ route: /Implementation_Status
 
 # Implementation Status
 
-
 **DISCLAIMER**
 
 The Liberty Protocol is still in a work in progress and as such it is currently subject to frequent changes.

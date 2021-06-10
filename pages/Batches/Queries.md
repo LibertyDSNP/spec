@@ -21,14 +21,17 @@ This specification describes how Batch files should be queried.
 1. Outline the API to be implemented in the SDK
 
 ## Assumptions
+
 * All assumptions from [DSNP Messages](/Messages/Overview)
 
 ## Goals of Batch Design
+
 We wish to minimize the number of queries needed and the amount of data clients must retrieve in order to get data the client wants.
 This is to be balanced with avoiding operational overhead of a database, which would do indexing and support more advanced queries.
 It is anticipated that indexing services would fill this need if it arises.
 
 ## Details
+
 Following the [Parquet spec](https://github.com/apache/parquet-format), the query values are hashed and the Bloom filter in the batch file is pulled from the file and checked for that hash.
 Only valid DSNP message fields, that is, columns in Parquet, can be checked.
 

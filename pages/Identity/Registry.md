@@ -16,6 +16,7 @@ The DSNP User Id Registry is a simple contract that allows switching handles, id
 | 0.5     | Tentative |
 
 ## Purpose
+
 1. Describes how the Identity Registry resolves a DSNP User Id to an identity contract address.
 1. Describes how the Identity Registry allows for handle resolution.
 1. Presents the interface for the Identity Registry.

@@ -12,11 +12,13 @@ menu: Messages
 | 0.1     | Tentative |
 
 ## Purpose
+
 1. Describe the method to announce [DSNP Messages](/Messages/Overview) to the blockchain.
 1. Provide Solidity code examples (pending final contract).
 1. Facilitate use of SDK and locating of on-chain data.
 
 ## Assumptions
+
 * Chain messages are on Ethereum.
 * Message data is posted via [Ethereum log events](https://medium.com/mycrypto/understanding-event-logs-on-the-ethereum-blockchain-f4ae7ba50378).
 * Signature algorithm is [secp256k1](https://en.bitcoin.it/wiki/Secp256k1). This allows the use `ecreover` to get public keys. A public key also need not be included in a log event for ease of validation.
@@ -39,7 +41,6 @@ interface IAnnounce {
 | dsnpType | the DSNP Message Type enumeration for this Batch. See [DSNP Message Types](/Messages/Types)| int16 |
 | dsnpHash | Keccak-256 hash of each hash included in the batch | bytes32 |
 | dsnpUri | Uri containing the batch file matching [DSNP Messages](/Messages/Overview) | string |
-
 
 ### Event Topic
 

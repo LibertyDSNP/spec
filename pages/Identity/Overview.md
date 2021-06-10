@@ -50,7 +50,6 @@ To this end, ownership of an identity is also determined by the address of the c
 Creation of any new identity MUST be authorized by the owner's address.
 The official [Identity Factory](/Identity/Factory) must be used for initial creation of a new identity.
 
-
 ### Permissioned Owners
 
 Ownership is managed through using permissions.

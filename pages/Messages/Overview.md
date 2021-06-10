@@ -91,7 +91,6 @@ A public follow/unfollow.
 | changeType | follow/unfollow| number/enum | YES
 | objectId | Id of followee | bytes8 | YES
 
-
 #### Reaction
 
 A visual reply to a post.

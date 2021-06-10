@@ -67,11 +67,14 @@ Generally speaking, content hashes and URIs are omitted, whereas any field conta
 For more detail, see [See the Messages Overview](/Messages/Overview).
 
 ## Validation
+
 ### Batch File Validation
+
 Batch files are hashed using [keccak-256](https://en.wikipedia.org/wiki/SHA-3) so that it can later be used to verify the integrity of the file.
 The [keccak-256](https://en.wikipedia.org/wiki/SHA-3) hash of the file is submitted as part of a batch [announcement](/Messages/Announce) that result in a [DSNPBatch](/Messages/Announce#announcing-dsnp-events) Ethereum log event.
 
 ### Batch File DSNP Type Validation
+
 Each batch file consists of one type of [DSNP announcement](/Messages/Overview#dsnp-announcement-formats).
 Therefore, the file columns should correspond to the format listed in the DSNP announcement dsnpData field.
 For example, if the file claims to be of DSNP type Broadcast, then the file is expected to include the following columns: `fromId`, `contentHash`, `uri`.

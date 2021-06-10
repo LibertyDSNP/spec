@@ -19,11 +19,13 @@ Any contract that matches the [DSNP Identity](/Identity/Overview) interfaces is 
 | 0.3     | Tentative |
 
 ## Purpose
+
 1. Describe how an Identity Factory can create an identity.
 1. Describe how an Identity Factory can allow someone else to pay for the creation an identity.
 1. Restrict the creation of identities without owner permission.
 
 ## Assumptions
+
 * All assumptions from [DSNP Identity](/Identity/Overview)
 
 ## Proxy Contracts

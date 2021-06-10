@@ -20,9 +20,11 @@ Announcers may choose to skip content validation checks in the interest of perfo
 | 0.1     | Tentative |
 
 ## Purpose
+
 1. Describe the process of validating messages for inclusion in a batch.
 
 ## Assumptions
+
 * All assumptions from [DSNP Messages](/Messages/Overview)
 * All assumptions from [DSNP Signatures](/Messages/Signatures)
 
