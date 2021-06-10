@@ -23,7 +23,7 @@ menu: Messages
 
 ## Identifiers
 
-DSNP message identifiers at minimum consist of a string with three parts, a protocol, a user identifier and a content hash, like so:
+DSNP Message Ids at minimum consist of a string with three parts, a protocol, a user identifier and a content hash, like so:
 
 ```
 dsnp://0123456789abcdef/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
