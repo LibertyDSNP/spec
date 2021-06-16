@@ -80,6 +80,12 @@ export default {
       ]
     },
     {
+      name: "ActivityPub",
+      menu: [
+        "Overview",
+      ]
+    },
+    {
       name: "Reference", menu: [
         "Glossary"
       ]
