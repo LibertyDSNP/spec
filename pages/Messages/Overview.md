@@ -58,13 +58,13 @@ We have seriously considered two possibilities, a [variable announcement format]
 
 ### DSNP Announcement
 
-These announcements would be added to batch files for announcement on the blockchain.
+These announcements would be added to batch files for announcement on the blockchain. Some fields on the announcement are used as bloom filters for querying data in a batch. See [Batches Overview](/Batches/Overview#Queries)
 
 #### Broadcast
 
 A public post.
 
-| dsnpData field | description | type | bloom |
+| dsnpData field | description | type | bloom filter |
 | ------------- |------------- | ---- | --- |
 | fromId | DSNP User Id | bytes8 | YES
 | contentHash | keccak-256 hash of content stored at URI |  bytes32 | no
@@ -74,7 +74,7 @@ A public post.
 
 A public reply post.
 
-| dsnpData field | description | type | bloom |
+| dsnpData field | description | type | bloom filter |
 | ------------- |------------- | ---- | --- |
 | inReplyTo | DSNP Message Id |  string | YES
 | contentHash | keccak-256 hash of content stored at uri |  bytes32  | no
@@ -85,7 +85,7 @@ A public reply post.
 
 A public follow/unfollow.
 
-| dsnpData field | description | type | bloom |
+| dsnpData field | description | type | bloom filter |
 | ------------- |------------- | ---- | --- |
 | fromId | DSNP User Id | bytes8 | YES
 | changeType | follow/unfollow| number/enum | YES
@@ -95,7 +95,7 @@ A public follow/unfollow.
 
 A visual reply to a post.
 
-| dsnpData field | description | type | bloom |
+| dsnpData field | description | type | bloom filter |
 | ------------- |------------- | ---- | --- |
 | inReplyTo | DSNP Message Id |  string | YES
 | fromId | DSNP User Id | bytes8 | YES
@@ -105,7 +105,7 @@ A visual reply to a post.
 
 A profile update such as name or icon change.
 
-| dsnpData field | description | type | bloom |
+| dsnpData field | description | type | bloom filter |
 | ------------- |------------- | ---- | --- |
 | fromId | DSNP User Id | bytes8  | YES
 | contentHash |  keccak-256 hash of content at uri | bytes32 | no
