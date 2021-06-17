@@ -8,7 +8,7 @@ menu: ActivityPub
 
 Content shared via the DSNP will generally consist of URIs pointing to documents containing Activity Pub JSON objects.
 For the purposes of the DSNP, only a subset of the [Activity Pub Streams](https://www.w3.org/TR/activitypub/) and [Activity Pub Vocabulary](https://www.w3.org/TR/activitystreams-vocabulary/) specifications must be supported by default.
-Optionally, some implementers may choose to support more of the Activity Pub standards as they see fit, but as a warning, these standards may include ambiguities which could lead to different and incompatible implementations of certain features.
+Implementers may choose to support more of the Activity Pub standards as they see fit, but as a warning, these standards may include ambiguities which could lead to different and incompatible implementations of certain features.
 Implementers who extend their support for Activity Pub objects beyond the minimal subset defined here do so at their own risk.
 
 Additionally, some aspects of the ActivityPub standard may be modified or extended in the context of the DSNP to support specific validations or features necessary in a distributed context.
