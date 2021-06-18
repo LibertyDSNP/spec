@@ -80,7 +80,7 @@ export default {
       ]
     },
     {
-      name: "ActivityPub",
+      name: "Activity Streams",
       menu: [
         "Overview",
       ]

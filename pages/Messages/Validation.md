@@ -10,7 +10,7 @@ All messages must be validated by announcers before being included in a batch fi
 Message validation in this document is defined as a collection of independent checks which may be run in parallel depending on implementation, however all checks are required to pass for a message to be considered valid.
 
 In general, all implementations must validate announcements for correctness against the [DSNP message schema](/Messages/Overview) and authenticity using [their provided signatures](/Messages/Signatures).
-Client and indexer implementations must also validate the activity pub content of applicable messages for correctness with the [Activity Pub schema](https://www.w3.org/TR/activitypub/) and authenticity using the provided content hash.
+Client and indexer implementations must also validate the activity streams JSON content of applicable messages for correctness with the [Activity Streams 2.0](https://www.w3.org/TR/activitystreams-core/) and authenticity using the provided content hash.
 Announcers may choose to skip content validation checks in the interest of performance given the high cost of fetching content.
 
 ## Specification Status
@@ -89,15 +89,15 @@ Once the key is fetched, the signature can be verified against it using the [Sec
 
 ## Content Correctness
 
-Like announcement correctness, validating content correctness will vary greatly depending on the content of the message, but generally, it will consist of verifying the overall structure of the activity pub object and format of values associated with each field.
+Like announcement correctness, validating content correctness will vary greatly depending on the content of the message, but generally, it will consist of verifying the overall structure of the activity streams object and format of values associated with each field.
 As previously stated, announcers may skip this check in the interest of performance, but clients and indexers must not.
-Specifically, the following rules detail how activity pub content should be validated:
+Specifically, the following rules detail how activity streams content should be validated:
 
 1. Content must be a valid JSON object as defined in [RFC7159](https://datatracker.ietf.org/doc/html/rfc7159).
 1. Content must include a type field matching one or more of the [core types](https://www.w3.org/TR/activitystreams-vocabulary/#h-types) or [extended types](https://www.w3.org/TR/activitystreams-vocabulary/#h-extendedtypes) defined in the [Activity Vocabulary](https://www.w3.org/TR/activitystreams-vocabulary/) specification.
-1. Content must include all necessary fields associated with the given type defined in the [Activity Pub](https://www.w3.org/TR/activitypub/) specification.
+1. Content must include all necessary fields associated with the given type defined in the [Activity Streams 2.0](https://www.w3.org/TR/activitystreams-core/) specification.
 
-Additional fields not required or defined by the Activity Pub specifications may also be included in accordance with various extensions of the specification, such as [Mastodon](https://docs.joinmastodon.org/spec/activitypub/), [ForgeFed](https://github.com/forgefed/forgefed) or one of the many [potential future extensions](https://www.w3.org/wiki/ActivityPub_extensions) proposed by the [W3C](https://www.w3.org).
+Additional fields not required or defined by the Activity Streams specifications may also be included in accordance with various extensions of the specification, such as [Mastodon](https://docs.joinmastodon.org/spec/activitypub/), [ForgeFed](https://github.com/forgefed/forgefed) or one of the related [potential future extensions](https://www.w3.org/wiki/ActivityPub_extensions) proposed by the [W3C](https://www.w3.org).
 
 If the content of a message is no longer accessible, i.e. the URI of the message returns a 404 or 500 HTTP status, the message is invalid and should be ignored.
 It is also recommended that implementations provide a warning either in the console or directly to the user with the associated HTTP status.
@@ -106,7 +106,7 @@ For example, a message such as `"Content Inaccessible: Error 404"` would suffice
 ## Content Authenticity
 
 Authentication of a message's contents must be verified by hashing the exact contents of the body returned by the message URI and comparing it with the `contentHash` field of the given message.
-Given that the signature of the message is valid, this hash serves as proof that the signing user posted the activity pub content.
+Given that the signature of the message is valid, this hash serves as proof that the signing user posted the activity streams content.
 
 For example, given a DSNP message with the following content at it's URI:
 
