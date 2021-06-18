@@ -22,7 +22,12 @@ menu: Messages
 
 ## Ordering
 
-DSNP messages must be ordered at the highest level by the block number of the block in which a message's batch is announced with higher block numbers indicating more recent messages and lower block numbers representing older ones.
-After block number, announcements published in the same block must be ordered by the transaction index with higher transaction indices indicating more recent messages and lower transaction indices indicating older ones.
-After transaction index, announcements within the same transaction must be ordered by log index with higher log indices representing more recent messages and lower log indices indicating older ones.
-After announcement order, messages must be sorted as they appear in a batch file with higher row numbers indicating more recent messages and lower row numbers indicating older ones.
+DSNP messages must be ordered at the highest level by the block number of the block in which a message's batch is announced with higher block numbers indicating announcements that are sorted after announcements announced in lower block numbers.
+After block number, announcements published in the same block must be ordered by the transaction index with higher transaction indices indicating announcements that are sorted after announcements in lower transaction indices.
+After transaction index, announcements within the same transaction must be ordered by log index with higher log indices representing announcements that are sorted after announcements with lower log indices.
+After announcement order, messages must be sorted as they appear in a batch file with higher row numbers indicating announcements that are sorted after announcements with lower row numbers.
+
+1. Block Number Ascending
+2. Transaction Index Ascending
+3. Log Index Ascending
+4. Batch File Row Index Ascending
