@@ -25,7 +25,7 @@ These deviations from the standard will be thoroughly documented here.
 1. Identify what aspects of the existing Activity Streams specification is supported, encouraged or enforced in the DSNP.
 1. Specify any extensions or modifications of the Activity Streams specification that must be supported or required by the DSNP.
 
-## Assumptions
+## Linking Requirements
 
 * All broadcast messages link to activity stream JSON, not any other form of content.
 * All reply messages link to an activity stream JSON, not any other form of content.
