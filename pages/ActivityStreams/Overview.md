@@ -52,4 +52,4 @@ Clients may choose to treat content marked as published significantly in the fut
 Likewise, clients may choose to treat content marked as published significantly in the past as archival content which is only displayed to the user when sought out or ignore it entirely.
 
 In any case, timestamps cannot be trusted to represent the true time that a message is posted on the DSNP due to the decentralized nature of the system and the relativistic limits of communication across the world.
-Clients may sort content by it's provided published timestamp, but it should be made clear to the user where ever possible that these timestamps are no necessarily accurate.
+Clients may sort content by it's provided published timestamp, but it should be made clear to the user where ever possible that these timestamps are not necessarily accurate.
