@@ -25,15 +25,16 @@ These deviations from the standard will be thoroughly documented here.
 1. Identify what aspects of the existing Activity Streams specification is supported, encouraged or enforced in the DSNP.
 1. Specify any extensions or modifications of the Activity Streams specification that must be supported or required by the DSNP.
 
-## Linking Requirements
+## Assumptions
 
-* All broadcast messages link to activity stream JSON, not any other form of content.
-* All reply messages link to an activity stream JSON, not any other form of content.
+* All broadcast messages must link to activity stream JSON, not any other form of content.
+* All reply messages must link to an activity stream JSON, not any other form of content.
 
 ## Minimum Subset
 
 At minimum, all clients implementing the DSNP must support presentation for the following message types from the Activity Streams vocabulary: `"Link"`, `"Note"` and `"Person"`.
 It is also strongly encouraged to support `"Audio"`, `"Image"`, `"Mention"`, `"Profile"`, `"Tombstone"` and `"Video"` where ever possible.
+Clients may ignore messages that they do not support.
 
 ## Extensions
 
