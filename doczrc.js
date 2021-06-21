@@ -80,6 +80,12 @@ export default {
       ]
     },
     {
+      name: "Activity Streams",
+      menu: [
+        "Overview",
+      ]
+    },
+    {
       name: "Reference", menu: [
         "Glossary"
       ]

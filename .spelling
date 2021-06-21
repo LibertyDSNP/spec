@@ -5,7 +5,7 @@
 # where filename is relative to this configuration file
 
 0.8.x.
-ActivityPub
+ActivityStreams
 actionType
 allowlist
 allowlists
@@ -138,3 +138,6 @@ followee
 prepended
 RPC
 x19Ethereum
+timestamp
+timestamps
+ISO8601

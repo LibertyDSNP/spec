@@ -38,8 +38,8 @@ Some announcements, such as broadcasts and replies, will contain references to c
 
 #### Content
 
-Content items, or simply content, refers to an activity pub compliant object hosted at some URI and intended to be posted via an announcement in a batch.
-Generally, content within the DSNP specification will be defined by the [W3C Activity Pub specification](https://www.w3.org/TR/activitypub/#object-without-create), however extensions, such as the [Mastodon Activity Pub specification](https://docs.joinmastodon.org/spec/activitypub/) may also be implemented.
+Content items, or simply content, refers to activity streams compliant JSON hosted at some URI and intended to be posted via an announcement in a batch.
+Generally, content within the DSNP specification will be defined by the [W3C Activity Streams 2.0 specification](https://www.w3.org/TR/activitystreams-core/), however extensions, such as the [Mastodon Activity Pub specification](https://docs.joinmastodon.org/spec/activitypub/) may also be implemented.
 
 #### Message
 
