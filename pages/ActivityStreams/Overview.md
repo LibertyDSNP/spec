@@ -347,7 +347,7 @@ In addition to the standards defined by the Activity Streams specifications, som
 
 Clients may sometimes want to represent content as existing within a specific presentation or social context, such as Reddit's subreddit concept, Slack's channels or old-style forum rooms.
 It is recommended that implementers represent this context in activity objects with the `"context"` field.
-If present, this field must have a string value starting with the name of the implementing service followed by forward slash and a string unique to the specfici context.
+If present, this field must have a string value starting with the name of the implementing service followed by forward slash and a string unique to the specific context.
 Implementers are encouraged to add additional forward slash separators to their unique string to represent contexts within contexts.
 For example, a `#development` channel context within a `LibertyDSNP` organization on Slack could be represented by the string, `"Slack/LibertyDSNP/#development"`.
 
@@ -355,7 +355,7 @@ Clients may choose to ignore activity objects with contexts outside the user's c
 
 ### Deletion Support
 
-Users may occaisionally want to delete an activity object by changing it's contents, thereby changing it's hash value and invalidating any signature associated with it via broadcast or reply messages on chain.
+Users may occasionally want to delete an activity object by changing it's contents, thereby changing it's hash value and invalidating any signature associated with it via broadcast or reply messages on chain.
 Likewise, hosts of activity objects may want to do the same for the purpose of removing illegal or otherwise objectionable content.
 Implementers are strongly recommended to represent this by adding a `"deleted"` field to the hosted activity object with an [ISO8601](https://www.iso.org/iso-8601-date-and-time-format.html) timestamp representing the time at which the content was removed.
 Implementers may choose to leave all other fields intact or remove them as they see fit.
