@@ -84,9 +84,9 @@ Clients may also support display of [Markdown](https://daringfireball.net/projec
 If a note contains Markdown, BBCode or some other formatting, it is recommended that an `"mediaType"` field be added to the object with a [MIME type](https://www.iana.org/assignments/media-types/media-types.xhtml) string value representing the type of encoding present, i.e. `"text/markdown"`.
 Clients that do not support a particular encoding may either display a message of the encoded type as raw text or ignore it entirely.
 
-Note objects may include an `"attachment"` field with an array value containing activity sub-objects representing external content referenced by the note object.
+Note objects may include an `"attachment"` field with either a single activity sub-object, a single URL string or an array of sub-objects and/or strings representing external content referenced by the note object.
 It is recommended that any linked content in the encoded text of the note object also be included in the attachments.
-Clients must support display of attachments objects with type `"Link"`.
+Clients must support display of attachments URL strings or objects with type `"Link"`.
 Clients that support display of audio, image and video type objects should support display of each attachments object types respectively.
 
 Note objects may include a `"tag"` field with an array value containing activity sub-objects representing tags and mentions in the content of the note object, however clients and indexers may ignore these fields as they see fit.
@@ -167,17 +167,25 @@ For example, the following would be a valid person object:
 #### Audio
 
 Clients are recommended to support presentation for activity objects of type audio to represent audio content posted by users.
-Audio type objects, if supported, must at minimum contain a `"type"` field with the value `"Audio"` and a `"URL"` with an activity sub-object of type link  containing a URL pointing to an audio file.
+Audio type objects, if supported, must at minimum contain a `"type"` field with the value `"Audio"` and a `"URL"` with either a URL string or an activity sub-object of type link containing a URL pointing to an audio file.
 
 Audio objects are also recommended to include a `"mediaType"` field on their link sub-object with a standard [MIME type](https://www.iana.org/assignments/media-types/media-types.xhtml) string value.
 If no media type is provided, clients may attempt to infer the media type from the headers of the linked file or simply ignore the object.
 
-Clients that support audio objects must at least support media types of `"audio/mpeg"` complying with [RFC3003](https://tools.ietf.org/html/rfc3003), `"audio/ogg"` complying with [RFC5334](https://tools.ietf.org/html/rfc5334) and `"audio/webm"` complying with the [WebM standard](https://www.webmproject.org/docs/container/).
+Clients that support audio objects must at least support media types of `"audio/mp3"` complying with [RFC3003](https://tools.ietf.org/html/rfc3003), `"audio/ogg"` complying with [RFC5334](https://tools.ietf.org/html/rfc5334) and `"audio/webm"` complying with the [WebM standard](https://www.webmproject.org/docs/container/).
 
 Audio objects may also include a `"duration"` field with a string value complying with the [XML Schema 11-2](https://www.w3.org/TR/xmlschema11-2/) standard for duration strings as recommended in the [Activity Vocabulary](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-duration) specification.
-Audio objects may include a `"preview"` field with an activity sub-object of type link referring to a shorter audio file provided as a preview of longer audio files.
+Audio objects may include a `"preview"` field with an activity sub-object of type link, a URL string or an array of sub-objects and/or strings referring to a shorter audio file or files provided as a preview of the primary content.
 
-For example, the following would be a valid audio object:
+For example, the following would be a valid audio objects:
+
+```json
+{
+  "@context": "https://www.w3.org/ns/activitystreams",
+  "type": "Audio",
+  "url": "https://example.org/short_clip.webm"
+}
+```
 
 ```json
 {
@@ -200,7 +208,7 @@ For example, the following would be a valid audio object:
 #### Image
 
 Clients are recommended to support presentation for activity objects of type image to represent image content posted by users.
-Image type objects, if supported, must at minimum contain a `"type"` field with the value `"Image"` and a `"URL"` with an activity sub-object of type link containing a URL pointing to an image file.
+Image type objects, if supported, must at minimum contain a `"type"` field with the value `"Image"` and a `"URL"` with either a URL string or an activity sub-object of type link containing a URL pointing to an image file.
 
 Image objects are also recommended to include a `"mediaType"` field on their link sub-object with a standard [MIME type](https://www.iana.org/assignments/media-types/media-types.xhtml) string value.
 If no media type is provided, clients may attempt to infer the media type from the headers of the linked file or simply ignore the object.
@@ -208,7 +216,7 @@ If no media type is provided, clients may attempt to infer the media type from t
 Clients that support image objects must at least support media types of `"image/jpeg"` complying with [RFC2045](https://www.iana.org/go/rfc2045), `"image/png"` complying with the [W3C PNG Standard](https://www.w3.org/TR/2003/REC-PNG-20031110/), `"image/svg+xml"` complying with the [W3C SVG standard](https://www.w3.org/Graphics/SVG/) and `"image/webp"` complying with the [WebP standard](https://developers.google.com/speed/webp/).
 Clients are also recommended to support `"image/gif"` complying with [RFC2045](https://www.iana.org/go/rfc2045) and `"image/heic"` complying with the [ISO/IEC JTC-1](http://www.iso.org/iso/jtc1_home.html) standard where possible.
 
-Image objects may include a `"preview"` field with an activity sub-object or array of activity sub-objects of type link referring to a smaller resolution image or images provided as previews of larger image files.
+Image objects may include a `"preview"` field with an activity sub-object of type link, a URL string or array of sub-objects and/or strings referring to a smaller resolution image or images provided as previews of larger image files.
 Preview fields should generally include at least one file of the following resolutions: `320x240`, `640x480` or `1024x768`.
 
 Clients that support image objects should also include fields of `"height"` and `"width"` each with positive integer value.
@@ -286,7 +294,7 @@ For example, the following would be a valid profile object:
 #### Video
 
 Clients are recommended to support presentation for activity objects of type video to represent video content posted by users.
-Video type objects, if supported, must at minimum contain a `"type"` field with the value `"Video"` and a `"URL"` with an activity sub-object of type link containing a URL pointing to a video file.
+Video type objects, if supported, must at minimum contain a `"type"` field with the value `"Video"` and a `"URL"` with either a URL string or an activity sub-object of type link containing a URL pointing to a video file.
 
 Video objects are also recommended to include a `"mediaType"` field on their link sub-object with a standard [MIME type](https://www.iana.org/assignments/media-types/media-types.xhtml) string value.
 If no media type is provided, clients may attempt to infer the media type from the headers of the linked file or simply ignore the object.
@@ -295,11 +303,11 @@ Clients that support video objects must at least support media types of `"video/
 Clients are also recommended to support `"video/H256"` complying with [RFC7798](https://www.iana.org/go/rfc7798), `"video/mp4"` complying with [RFC4337](https://www.iana.org/go/rfc4337) and `"video/raw"` complying with [RFC4175](https://www.iana.org/go/rfc4175).
 
 Video objects may also include a `"duration"` field with a string value complying with the [XML Schema 11-2](https://www.w3.org/TR/xmlschema11-2/) standard for duration strings as recommended in the [Activity Vocabulary](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-duration) specification.
-Video objects may include a `"preview"` field with an activity sub-object of type link referring to a shorter video file or image file provided as a preview of longer video files.
+Video objects may include a `"preview"` field with an activity sub-object of type link, a URL string or an array of sub-objects and/or strings referring to shorter video files or image files provided as a preview of longer video files.
 It is recommended that implementers at minimum include one image previews wherever possible.
 Preview images should generally include at least one file of the following resolutions: `320x240`, `640x480` or `1024x768`.
 
-Clients that support Video objects should also include fields of `"height"` and `"width"` each with positive integer value.
+Clients that support video objects should also include fields of `"height"` and `"width"` each with positive integer value.
 If these fields are not provided, clients may attempt to infer the media type from the headers of the linked file or simply ignore the object.
 Clients may also ignore video files of exceptionally large or small sizes, however videos with a preview of one of the prior mentioned resolutions must always be supported.
 
@@ -337,7 +345,7 @@ In addition to the standards defined by the Activity Streams specifications, som
 
 ### Content Contexts
 
-Clients may sometimes want to represent content as existing within a specific presentation or social context, such as Reddit's subreddit concept, Slack's channels or old style forum rooms.
+Clients may sometimes want to represent content as existing within a specific presentation or social context, such as Reddit's subreddit concept, Slack's channels or old-style forum rooms.
 It is recommended that implementers represent this context in activity objects with the `"context"` field.
 If present, this field must have a string value starting with the name of the implementing service followed by forward slash and a string unique to the specfici context.
 Implementers are encouraged to add additional forward slash separators to their unique string to represent contexts within contexts.
@@ -353,14 +361,9 @@ Implementers are strongly recommended to represent this by adding a `"deleted"` 
 Implementers may choose to leave all other fields intact or remove them as they see fit.
 
 Clients may choose to represent deleted content with a small tombstone message, such as "content removed," or ignore deleted content entirely.
+Implementers wishing to specify a tombstone message for deleted content may change the `"type"` of the object to `"Tombstone"` and add or update the `"content"` field to include a message explaining the deletion, i.e. "removed due to DMCA violation" or "removed by author."
 
-### Required Keys and Values
-
-Certain suggested properties of objects in the Activity Streams standard are required for validation by the DSNP.
-As such all clients, indexers and announcers must require these fields in any messages received.
-Messages not meeting these requirements must be ignored.
-
-#### Timestamps
+### Timestamps
 
 All activity objects must include a `"published"` key with a timestamp value string matching the [ISO8601](https://www.iso.org/iso-8601-date-and-time-format.html) format with timezone.
 Clients may choose to treat content marked as published significantly in the future as scheduled content which will be presented to the user later or ignored entirely.
