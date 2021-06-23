@@ -175,6 +175,8 @@ If no media type is provided, clients may attempt to infer the media type from t
 Clients that support audio objects must at least support media types of `"audio/mp3"` complying with [RFC3003](https://tools.ietf.org/html/rfc3003), `"audio/ogg"` complying with [RFC5334](https://tools.ietf.org/html/rfc5334) and `"audio/webm"` complying with the [WebM standard](https://www.webmproject.org/docs/container/).
 
 Audio objects may also include a `"duration"` field with a string value complying with the [XML Schema 11-2](https://www.w3.org/TR/xmlschema11-2/) standard for duration strings as recommended in the [Activity Vocabulary](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-duration) specification.
+Audio objects linking to live streaming content may use the string `"Live"` for the duration field or omit it entirely.
+
 Audio objects may include a `"preview"` field with an activity sub-object of type link, a URL string or an array of sub-objects and/or strings referring to a shorter audio file or files provided as a preview of the primary content.
 
 For example, the following would be a valid audio objects:
@@ -303,6 +305,8 @@ Clients that support video objects must at least support media types of `"video/
 Clients are also recommended to support `"video/H256"` complying with [RFC7798](https://www.iana.org/go/rfc7798), `"video/mp4"` complying with [RFC4337](https://www.iana.org/go/rfc4337) and `"video/raw"` complying with [RFC4175](https://www.iana.org/go/rfc4175).
 
 Video objects may also include a `"duration"` field with a string value complying with the [XML Schema 11-2](https://www.w3.org/TR/xmlschema11-2/) standard for duration strings as recommended in the [Activity Vocabulary](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-duration) specification.
+Video objects linking to live streaming content may use the string `"Live"` for the duration field or omit it entirely.
+
 Video objects may include a `"preview"` field with an activity sub-object of type link, a URL string or an array of sub-objects and/or strings referring to shorter video files or image files provided as a preview of longer video files.
 It is recommended that implementers at minimum include one image previews wherever possible.
 Preview images should generally include at least one file of the following resolutions: `320x240`, `640x480` or `1024x768`.
