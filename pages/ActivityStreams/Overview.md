@@ -221,7 +221,7 @@ Clients are also recommended to support `"image/gif"` complying with [RFC2045](h
 Image objects may include a `"preview"` field with an activity sub-object of type link, a URL string or array of sub-objects and/or strings referring to a smaller resolution image or images provided as previews of larger image files.
 Preview fields should generally include at least one file of the following resolutions: `320x240`, `640x480` or `1024x768`.
 
-Clients that support image objects should also include fields of `"height"` and `"width"` each with positive integer value.
+Clients that support image objects should also include fields of `"height"` and `"width"` each with positive integer value either on the root activity object or the individual link sub-objects if multiple are present.
 If these fields are not provided, clients may attempt to infer the media type from the headers of the linked file or simply ignore the object.
 Clients may also ignore image files of exceptionally large or small sizes, however images with a preview of one of the prior mentioned resolutions must always be supported.
 
@@ -235,22 +235,26 @@ For example, the following would be a valid image object:
   "url": {
     "type": "Link",
     "href": "https://placekitten.com/g/1280/960",
-    "mediaType": "image/jpeg"
+    "mediaType": "image/jpeg",
+    "width": 1280,
+    "height": 960
   },
   "preview": [
     {
       "type": "Link",
       "href": "https://placekitten.com/g/320/240",
-      "mediaType": "image/jpeg"
+      "mediaType": "image/jpeg",
+      "width": 320,
+      "height": 240
     },
     {
       "type": "Link",
       "href": "https://placekitten.com/g/640/480",
-      "mediaType": "image/jpeg"
+      "mediaType": "image/jpeg",
+      "width": 640,
+      "height": 480
     }
-  ],
-  "width": 1280,
-  "height": 960
+  ]
 }
 ```
 
@@ -311,7 +315,7 @@ Video objects may include a `"preview"` field with an activity sub-object of typ
 It is recommended that implementers at minimum include one image previews wherever possible.
 Preview images should generally include at least one file of the following resolutions: `320x240`, `640x480` or `1024x768`.
 
-Clients that support video objects should also include fields of `"height"` and `"width"` each with positive integer value.
+Clients that support video objects should also include fields of `"height"` and `"width"` each with positive integer value on either the root activity object or the individual link sub-objects if multiple are present.
 If these fields are not provided, clients may attempt to infer the media type from the headers of the linked file or simply ignore the object.
 Clients may also ignore video files of exceptionally large or small sizes, however videos with a preview of one of the prior mentioned resolutions must always be supported.
 
