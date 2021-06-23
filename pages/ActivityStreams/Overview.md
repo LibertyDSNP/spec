@@ -41,9 +41,39 @@ Clients may ignore messages that they do not support.
 #### Link
 
 Link type objects must be supported to represent linked content posted by users.
-Link objects must have a `"type"` field with a value of `"Link"` and a `"URL"` field with a valid URL string value.
+Link objects must have a `"type"` field with a value of `"Link"` and a `"href"` field with a valid URL string value.
 Clients must at least support valid URLs with a `"https://"` protocol, but clients may choose to ignore any other protocols as they see appropriate for the security of users.
 Clients may also choose to ignore link objects with IP address hostnames or invalid domain names.
+
+Link objects may also include a `"mediaType"` field with a standard [MIME type](https://www.iana.org/assignments/media-types/media-types.xhtml) string value representing the type of content at the linked URI.
+
+For example, the following would be a valid link object:
+
+```json
+{
+  "@context": "https://www.w3.org/ns/activitystreams",
+  "type": "Link",
+  "href": "https://dsnp.org"
+}
+```
+
+And implementers may choose to ignore the following link objects:
+
+```json
+{
+  "@context": "https://www.w3.org/ns/activitystreams",
+  "type": "Link",
+  "href": "ipfs://bafybeiemxf5abjwjbikoz4mc3a3dla6ual3jsgpdr4cjr3oz3evfyavhwq/wiki/Vincent_van_Gogh.html"
+}
+```
+
+```json
+{
+  "@context": "https://www.w3.org/ns/activitystreams",
+  "type": "Link",
+  "href": "http://192.168.1.1/router-setup"
+}
+```
 
 #### Note
 
@@ -51,18 +81,86 @@ Note type objects must be supported to represent text content posted by users.
 Note objects must have a `"type"` field with a value of `"Note"` and a `"content"` field with a string value.
 Clients should support display of content with unicode text as possible in their given browser or operating system.
 Clients may also support display of [Markdown](https://daringfireball.net/projects/markdown/) or [BBCode](https://www.bbcode.org) as appropriate.
+If a note contains Markdown, BBCode or some other formatting, it is recommended that an `"mediaType"` field be added to the object with a [MIME type](https://www.iana.org/assignments/media-types/media-types.xhtml) string value representing the type of encoding present, i.e. `"text/markdown"`.
+Clients that do not support a particular encoding may either display a message of the encoded type as raw text or ignore it entirely.
 
-Note objects may include an `"attachments"` field with an array value containing activity sub-objects representing external content referenced by the note object.
+Note objects may include an `"attachment"` field with an array value containing activity sub-objects representing external content referenced by the note object.
+It is recommended that any linked content in the encoded text of the note object also be included in the attachments.
 Clients must support display of attachments objects with type `"Link"`.
 Clients that support display of audio, image and video type objects should support display of each attachments object types respectively.
 
-Note objects may include a `"tags"` field with an array value containing activity sub-objects representing tags and mentions in the content of the note object, however clients and indexers may ignore these fields as they see fit.
+Note objects may include a `"tag"` field with an array value containing activity sub-objects representing tags and mentions in the content of the note object, however clients and indexers may ignore these fields as they see fit.
 Note objects may also include a `"summary"` field with a string value containing a brief summation of the `"content"` field.
+
+For example, the following would be valid note objects:
+
+```json
+{
+  "@context": "https://www.w3.org/ns/activitystreams",
+  "type": "Note",
+  "content": "Hello world!"
+}
+```
+
+```json
+{
+  "@context": "https://www.w3.org/ns/activitystreams",
+  "type": "Note",
+  "content": "# Markdown document\n\n * List item\n\n * List item\n\n * List item",
+  "mediaType": "text/markdown"
+}
+```
+
+```json
+{
+  "@context": "https://www.w3.org/ns/activitystreams",
+  "type": "Note",
+  "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  "attachment": [
+    {
+      "type": "Link",
+      "href": "https://en.wikipedia.org/wiki/Citation_needed"
+    },
+    {
+      "type": "Image",
+      "name": "Figure 1",
+      "href": "https://en.wikipedia.org/wiki/Diagram#/media/File:Zusammensetzung_Shampoo.svg"
+    }
+  ],
+  "tag": [
+    {
+      "type": "Mention",
+      "name": "John Doe",
+      "href": "dsnp://0123456789ABCDEF/"
+    },
+    {
+      "name": "#example-tag"
+    },
+    {
+      "name": "#hashtags"
+    },
+    {
+      "name": "#yolo"
+    }
+  ]
+}
+```
 
 #### Person
 
 Person type objects must be supported to represent display names for users.
 Person objects must have a `"type"` field with a value of `"Person"` and a `"name"` field with a string value representing a nickname for the user to be displayed alongside the user's DSNP User Id or handle.
+
+For example, the following would be a valid person object:
+
+```json
+{
+  "@context": "https://www.w3.org/ns/activitystreams",
+  "type": "Person",
+  "name": "John Doe"
+}
+```
 
 ### Recommended Activity Types
 
@@ -71,7 +169,7 @@ Person objects must have a `"type"` field with a value of `"Person"` and a `"nam
 Clients are recommended to support presentation for activity objects of type audio to represent audio content posted by users.
 Audio type objects, if supported, must at minimum contain a `"type"` field with the value `"Audio"` and a `"URL"` with an activity sub-object of type link  containing a URL pointing to an audio file.
 
-Audio objects are also recommended to include a `"mediaType"` field with a standard [MIME type](https://www.iana.org/assignments/media-types/media-types.xhtml) string value.
+Audio objects are also recommended to include a `"mediaType"` field on their link sub-object with a standard [MIME type](https://www.iana.org/assignments/media-types/media-types.xhtml) string value.
 If no media type is provided, clients may attempt to infer the media type from the headers of the linked file or simply ignore the object.
 
 Clients that support audio objects must at least support media types of `"audio/mpeg"` complying with [RFC3003](https://tools.ietf.org/html/rfc3003), `"audio/ogg"` complying with [RFC5334](https://tools.ietf.org/html/rfc5334) and `"audio/webm"` complying with the [WebM standard](https://www.webmproject.org/docs/container/).
@@ -79,15 +177,35 @@ Clients that support audio objects must at least support media types of `"audio/
 Audio objects may also include a `"duration"` field with a string value complying with the [XML Schema 11-2](https://www.w3.org/TR/xmlschema11-2/) standard for duration strings as recommended in the [Activity Vocabulary](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-duration) specification.
 Audio objects may include a `"preview"` field with an activity sub-object of type link referring to a shorter audio file provided as a preview of longer audio files.
 
+For example, the following would be a valid audio object:
+
+```json
+{
+  "@context": "https://www.w3.org/ns/activitystreams",
+  "type": "Audio",
+  "name": "Super Great Podcast",
+  "url": {
+    "type": "Link",
+    "href": "https://example.org/podcast.mp3",
+    "mediaType": "audio/mp3"
+  },
+  "preview": {
+    "type": "Link",
+    "href": "https://example.org/podcast_preview.mp3"
+  },
+  "duration": "PT3H12M"
+}
+```
+
 #### Image
 
 Clients are recommended to support presentation for activity objects of type image to represent image content posted by users.
 Image type objects, if supported, must at minimum contain a `"type"` field with the value `"Image"` and a `"URL"` with an activity sub-object of type link containing a URL pointing to an image file.
 
-Image objects are also recommended to include a `"mediaType"` field with a standard [MIME type](https://www.iana.org/assignments/media-types/media-types.xhtml) string value.
+Image objects are also recommended to include a `"mediaType"` field on their link sub-object with a standard [MIME type](https://www.iana.org/assignments/media-types/media-types.xhtml) string value.
 If no media type is provided, clients may attempt to infer the media type from the headers of the linked file or simply ignore the object.
 
-Clients that support image objects must at least support media types of `"image/jpeg"` complying with [RFC2045](https://www.iana.org/go/rfc2045), `"image/png"` complying with the [W3C PNG Standard](https://www.w3.org/TR/2003/REC-PNG-20031110/), `"image/svg+xml"` complying with the [W3C SVG standard](https://www.w3.org/Graphics/SVG/) and `"image/webp"` complying with the [WebM standard](https://www.webmproject.org/docs/container/).
+Clients that support image objects must at least support media types of `"image/jpeg"` complying with [RFC2045](https://www.iana.org/go/rfc2045), `"image/png"` complying with the [W3C PNG Standard](https://www.w3.org/TR/2003/REC-PNG-20031110/), `"image/svg+xml"` complying with the [W3C SVG standard](https://www.w3.org/Graphics/SVG/) and `"image/webp"` complying with the [WebP standard](https://developers.google.com/speed/webp/).
 Clients are also recommended to support `"image/gif"` complying with [RFC2045](https://www.iana.org/go/rfc2045) and `"image/heic"` complying with the [ISO/IEC JTC-1](http://www.iso.org/iso/jtc1_home.html) standard where possible.
 
 Image objects may include a `"preview"` field with an activity sub-object or array of activity sub-objects of type link referring to a smaller resolution image or images provided as previews of larger image files.
@@ -96,6 +214,35 @@ Preview fields should generally include at least one file of the following resol
 Clients that support image objects should also include fields of `"height"` and `"width"` each with positive integer value.
 If these fields are not provided, clients may attempt to infer the media type from the headers of the linked file or simply ignore the object.
 Clients may also ignore image files of exceptionally large or small sizes, however images with a preview of one of the prior mentioned resolutions must always be supported.
+
+For example, the following would be a valid image object:
+
+```json
+{
+  "@context": "https://www.w3.org/ns/activitystreams",
+  "type": "Image",
+  "name": "Placekitten",
+  "url": {
+    "type": "Link",
+    "href": "https://placekitten.com/g/1280/960",
+    "mediaType": "image/jpeg"
+  },
+  "preview": [
+    {
+      "type": "Link",
+      "href": "https://placekitten.com/g/320/240",
+      "mediaType": "image/jpeg"
+    },
+    {
+      "type": "Link",
+      "href": "https://placekitten.com/g/640/480",
+      "mediaType": "image/jpeg"
+    }
+  ],
+  "width": 1280,
+  "height": 960
+}
+```
 
 #### Profile
 
@@ -106,12 +253,42 @@ Profile objects may include a `"summary"` field with a string value representing
 Profile objects may include an `"avatar"` field with an activity sub-object of type image referring to an image to be used as the user's avatar.
 Profile objects may include a `"links"` field with an array of activity sub-objects of type link referring to other websites or profiles associated with the user.
 
+For example, the following would be a valid profile object:
+
+```json
+{
+  "@context": "https://www.w3.org/ns/activitystreams",
+  "type": "Profile",
+  "summary": "John Doe is actually a small kitten. See pfp.",
+  "describes": {
+    "type": "Person",
+    "name": "John Doe"
+  },
+  "avatar": {
+    "type": "Link",
+    "href": "https://placekitten.com/256/256"
+  },
+  "links": [
+    {
+      "type": "Link",
+      "name": "John Doe's personal site",
+      "href": "https://example.org"
+    },
+    {
+      "type": "Link",
+      "name": "John Doe's GitHub account",
+      "href": "https://github.com/example"
+    }
+  ]
+}
+```
+
 #### Video
 
 Clients are recommended to support presentation for activity objects of type video to represent video content posted by users.
 Video type objects, if supported, must at minimum contain a `"type"` field with the value `"Video"` and a `"URL"` with an activity sub-object of type link containing a URL pointing to a video file.
 
-Video objects are also recommended to include a `"mediaType"` field with a standard [MIME type](https://www.iana.org/assignments/media-types/media-types.xhtml) string value.
+Video objects are also recommended to include a `"mediaType"` field on their link sub-object with a standard [MIME type](https://www.iana.org/assignments/media-types/media-types.xhtml) string value.
 If no media type is provided, clients may attempt to infer the media type from the headers of the linked file or simply ignore the object.
 
 Clients that support video objects must at least support media types of `"video/mpeg"` complying with [RFC2045](https://www.iana.org/go/rfc2045), `"video/ogg"` complying with [RFC5334](https://www.iana.org/go/rfc5334) and `"video/webm"` complying with the [WebM standard](https://www.webmproject.org/docs/container/).
@@ -125,6 +302,34 @@ Preview images should generally include at least one file of the following resol
 Clients that support Video objects should also include fields of `"height"` and `"width"` each with positive integer value.
 If these fields are not provided, clients may attempt to infer the media type from the headers of the linked file or simply ignore the object.
 Clients may also ignore video files of exceptionally large or small sizes, however videos with a preview of one of the prior mentioned resolutions must always be supported.
+
+For example, the following would be valid video objects:
+
+```json
+{
+  "@context": "https://www.w3.org/ns/activitystreams",
+  "type": "Video",
+  "name": "Puppy Plays With Ball",
+  "url": "http://example.org/video.mkv",
+  "duration": "PT2H"
+}
+```
+
+```json
+{
+  "@context": "https://www.w3.org/ns/activitystreams",
+  "type": "Video",
+  "name": "Big Buck Bunny",
+  "url": {
+    "type": "Link",
+    "href": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Big_Buck_Bunny_4K.webm"
+  },
+  "duration": "PT10M32S",
+  "mediaType": "video/webm",
+  "width": 4000,
+  "height": 2250
+}
+```
 
 ## Extensions
 
