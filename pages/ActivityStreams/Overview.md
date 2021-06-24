@@ -173,7 +173,13 @@ Audio type objects, if supported, must at minimum contain a `"type"` field with 
 Audio objects are also recommended to include a `"mediaType"` field on their link sub-object with a standard [MIME type](https://www.iana.org/assignments/media-types/media-types.xhtml) string value.
 If no media type is provided, clients may attempt to infer the media type from the headers of the linked file or simply ignore the object.
 
-Clients that support audio objects must at least support media types of `"audio/mp3"` complying with [RFC3003](https://tools.ietf.org/html/rfc3003), `"audio/ogg"` complying with [RFC5334](https://tools.ietf.org/html/rfc5334) and `"audio/webm"` complying with the [WebM standard](https://www.webmproject.org/docs/container/).
+Clients that support audio objects must at least support the following media types:
+
+| Format | MIME Type    | Specification(s)                                             |
+|--------|--------------|--------------------------------------------------------------|
+| MP3    | `audio/mp3`  | [RFC3003](https://tools.ietf.org/html/rfc3003)               |
+| OGG    | `audio/ogg`  | [RFC5334](https://tools.ietf.org/html/rfc5334)               |
+| WebM   | `audio/webm` | [WebM standard](https://www.webmproject.org/docs/container/) |
 
 Audio objects may also include a `"duration"` field with a string value complying with the [XML Schema 11-2](https://www.w3.org/TR/xmlschema11-2/) standard for duration strings as recommended in the [Activity Vocabulary](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-duration) specification.
 Audio objects linking to live streaming content may use the string `"Live"` for the duration field or omit it entirely.
@@ -216,8 +222,21 @@ Image type objects, if supported, must at minimum contain a `"type"` field with 
 Image objects are also recommended to include a `"mediaType"` field on their link sub-object with a standard [MIME type](https://www.iana.org/assignments/media-types/media-types.xhtml) string value.
 If no media type is provided, clients may attempt to infer the media type from the headers of the linked file or simply ignore the object.
 
-Clients that support image objects must at least support media types of `"image/jpeg"` complying with [RFC2045](https://www.iana.org/go/rfc2045), `"image/png"` complying with the [W3C PNG Standard](https://www.w3.org/TR/2003/REC-PNG-20031110/), `"image/svg+xml"` complying with the [W3C SVG standard](https://www.w3.org/Graphics/SVG/) and `"image/webp"` complying with the [WebP standard](https://developers.google.com/speed/webp/).
-Clients are also recommended to support `"image/gif"` complying with [RFC2045](https://www.iana.org/go/rfc2045) and `"image/heic"` complying with the [ISO/IEC JTC-1](http://www.iso.org/iso/jtc1_home.html) standard where possible.
+Clients that support image objects must at least support the following media types:
+
+| Format | MIME Type       | Specification(s)                                                 |
+|--------|-----------------|------------------------------------------------------------------|
+| JPEG   | `image/jpeg`    | [RFC2045](https://www.iana.org/go/rfc2045)                       |
+| PNG    | `image/png`     | [W3C PNG Standard](https://www.w3.org/TR/2003/REC-PNG-20031110/) |
+| SVG    | `image/svg+xml` | [W3C SVG standard](https://www.w3.org/Graphics/SVG/)             |
+| WebP   | `image/webp`    | [WebP standard](https://developers.google.com/speed/webp/)       |
+
+Clients are also recommended to support the following media types:
+
+| Format | MIME Type    | Specification(s)                                       |
+|--------|--------------|--------------------------------------------------------|
+| GIF    | `image/gif`  | [RFC2045](https://www.iana.org/go/rfc2045)             |
+| HEIC   | `image/heic` | [ISO/IEC JTC-1](http://www.iso.org/iso/jtc1_home.html) |
 
 Image objects may include a `"preview"` field with an activity sub-object of type link, a URL string or array of sub-objects and/or strings referring to a smaller resolution image or images provided as previews of larger image files.
 Preview fields should generally include at least one file of the following resolutions: `320x240`, `640x480` or `1024x768`.
@@ -306,8 +325,21 @@ Video type objects, if supported, must at minimum contain a `"type"` field with 
 Video objects are also recommended to include a `"mediaType"` field on their link sub-object with a standard [MIME type](https://www.iana.org/assignments/media-types/media-types.xhtml) string value.
 If no media type is provided, clients may attempt to infer the media type from the headers of the linked file or simply ignore the object.
 
-Clients that support video objects must at least support media types of `"video/mpeg"` complying with [RFC2045](https://www.iana.org/go/rfc2045), `"video/ogg"` complying with [RFC5334](https://www.iana.org/go/rfc5334) and `"video/webm"` complying with the [WebM standard](https://www.webmproject.org/docs/container/).
-Clients are also recommended to support `"video/H256"` complying with [RFC7798](https://www.iana.org/go/rfc7798), `"video/mp4"` complying with [RFC4337](https://www.iana.org/go/rfc4337) and `"video/raw"` complying with [RFC4175](https://www.iana.org/go/rfc4175).
+Clients that support video objects must at least support the following media types:
+
+| Format | MIME Type    | Specification(s)                                             |
+|--------|--------------|--------------------------------------------------------------|
+| MPEG   | `video/mpeg` | [RFC2045](https://www.iana.org/go/rfc2045)                   |
+| OGG    | `video/ogg`  | [RFC5334](https://www.iana.org/go/rfc5334)                   |
+| WebM   | `video/webm` | [WebM standard](https://www.webmproject.org/docs/container/) |
+
+Clients are also recommended to support the following media types:
+
+| Format | MIME Type    | Specification(s)                           |
+|--------|--------------|--------------------------------------------|
+| H256   | `video/H256` | [RFC7798](https://www.iana.org/go/rfc7798) |
+| MP4    | `video/mp4`  | [RFC4337](https://www.iana.org/go/rfc4337) |
+| Raw    | `video/raw`  | [RFC4175](https://www.iana.org/go/rfc4175) |
 
 Video objects may also include a `"duration"` field with a string value complying with the [XML Schema 11-2](https://www.w3.org/TR/xmlschema11-2/) standard for duration strings as recommended in the [Activity Vocabulary](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-duration) specification.
 Video objects linking to live streaming content may use the string `"Live"` for the duration field or omit it entirely.
