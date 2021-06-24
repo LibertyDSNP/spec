@@ -6,7 +6,7 @@ menu: Activity Streams
 
 # Activity Streams Overview
 
-Content shared via the DSNP will generally consist of URIs pointing to documents containing Activity Streams JSON objects.
+Content shared via the DSNP will generally consist of URLs pointing to documents containing Activity Streams JSON objects.
 For the purposes of the DSNP, only a subset of the [Activity Streams 2.0](https://www.w3.org/TR/activitystreams-core/) specification must be supported by default.
 Implementers may choose to support more of the Activity Streams standards as they see fit, but as a warning, these standards may include ambiguities which could lead to different and incompatible implementations of certain features.
 Implementers who extend their support for Activity Streams objects beyond the minimal subset defined here do so at their own risk.
@@ -43,10 +43,10 @@ Clients may ignore messages that they do not support.
 Link type objects must be supported to represent linked content posted by users.
 Link objects must have a `"type"` field with a value of `"Link"` and a `"href"` field with a valid URL string value.
 Clients must support valid URLs with a `"https://"` protocol.
-Clients may choose to support or ignore other protocols as they see appropriate for the security of users.
+Clients may choose to support or ignore other protocols as they see appropriate for the secURLty of users.
 Clients may also choose to ignore link objects with IP address hostnames or invalid domain names.
 
-Link objects may also include a `"mediaType"` field with a standard [MIME type](https://www.iana.org/assignments/media-types/media-types.xhtml) string value representing the type of content at the linked URI.
+Link objects may also include a `"mediaType"` field with a standard [MIME type](https://www.iana.org/assignments/media-types/media-types.xhtml) string value representing the type of content at the linked URL.
 
 For example, the following would be a valid link object:
 
