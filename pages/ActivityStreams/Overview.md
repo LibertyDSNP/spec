@@ -173,7 +173,7 @@ Audio type objects, if supported, must at minimum contain a `"type"` field with 
 Audio objects are also recommended to include a `"mediaType"` field on their link sub-object with a standard [MIME type](https://www.iana.org/assignments/media-types/media-types.xhtml) string value.
 If no media type is provided, clients may attempt to infer the media type from the headers of the linked file or simply ignore the object.
 
-Clients that support audio objects must at least support the following media types:
+Clients that support audio objects must support the following media types:
 
 | Format | MIME Type    | Specification(s)                                             |
 |--------|--------------|--------------------------------------------------------------|
@@ -222,7 +222,7 @@ Image type objects, if supported, must at minimum contain a `"type"` field with 
 Image objects are also recommended to include a `"mediaType"` field on their link sub-object with a standard [MIME type](https://www.iana.org/assignments/media-types/media-types.xhtml) string value.
 If no media type is provided, clients may attempt to infer the media type from the headers of the linked file or simply ignore the object.
 
-Clients that support image objects must at least support the following media types:
+Clients that support image objects must support the following media types:
 
 | Format | MIME Type       | Specification(s)                                                 |
 |--------|-----------------|------------------------------------------------------------------|
@@ -231,7 +231,7 @@ Clients that support image objects must at least support the following media typ
 | SVG    | `image/svg+xml` | [W3C SVG standard](https://www.w3.org/Graphics/SVG/)             |
 | WebP   | `image/webp`    | [WebP standard](https://developers.google.com/speed/webp/)       |
 
-Clients are also recommended to support the following media types:
+Clients should support the following media types:
 
 | Format | MIME Type    | Specification(s)                                       |
 |--------|--------------|--------------------------------------------------------|
@@ -325,7 +325,7 @@ Video type objects, if supported, must at minimum contain a `"type"` field with 
 Video objects are also recommended to include a `"mediaType"` field on their link sub-object with a standard [MIME type](https://www.iana.org/assignments/media-types/media-types.xhtml) string value.
 If no media type is provided, clients may attempt to infer the media type from the headers of the linked file or simply ignore the object.
 
-Clients that support video objects must at least support the following media types:
+Clients that support video objects must support the following media types:
 
 | Format | MIME Type    | Specification(s)                                             |
 |--------|--------------|--------------------------------------------------------------|
@@ -333,7 +333,7 @@ Clients that support video objects must at least support the following media typ
 | OGG    | `video/ogg`  | [RFC5334](https://www.iana.org/go/rfc5334)                   |
 | WebM   | `video/webm` | [WebM standard](https://www.webmproject.org/docs/container/) |
 
-Clients are also recommended to support the following media types:
+Clients should support the following media types:
 
 | Format | MIME Type    | Specification(s)                           |
 |--------|--------------|--------------------------------------------|
