@@ -42,7 +42,8 @@ Clients may ignore messages that they do not support.
 
 Link type objects must be supported to represent linked content posted by users.
 Link objects must have a `"type"` field with a value of `"Link"` and a `"href"` field with a valid URL string value.
-Clients must at least support valid URLs with a `"https://"` protocol, but clients may choose to ignore any other protocols as they see appropriate for the security of users.
+Clients must support valid URLs with a `"https://"` protocol.
+Clients may choose to support or ignore other protocols as they see appropriate for the security of users.
 Clients may also choose to ignore link objects with IP address hostnames or invalid domain names.
 
 Link objects may also include a `"mediaType"` field with a standard [MIME type](https://www.iana.org/assignments/media-types/media-types.xhtml) string value representing the type of content at the linked URI.
