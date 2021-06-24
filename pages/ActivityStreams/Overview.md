@@ -184,8 +184,6 @@ Clients that support audio objects must support the following media types:
 Audio objects may also include a `"duration"` field with a string value complying with the [XML Schema 11-2](https://www.w3.org/TR/xmlschema11-2/) standard for duration strings as recommended in the [Activity Vocabulary](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-duration) specification.
 Audio objects linking to live streaming content may use the string `"Live"` for the duration field or omit it entirely.
 
-Audio objects may include a `"preview"` field with an activity sub-object of type link, a URL string or an array of sub-objects and/or strings referring to a shorter audio file or files provided as a preview of the primary content.
-
 For example, the following would be a valid audio objects:
 
 ```json
@@ -205,10 +203,6 @@ For example, the following would be a valid audio objects:
     "type": "Link",
     "href": "https://example.org/podcast.mp3",
     "mediaType": "audio/mp3"
-  },
-  "preview": {
-    "type": "Link",
-    "href": "https://example.org/podcast_preview.mp3"
   },
   "duration": "PT3H12M"
 }
@@ -238,43 +232,33 @@ Clients should support the following media types:
 | GIF    | `image/gif`  | [RFC2045](https://www.iana.org/go/rfc2045)             |
 | HEIC   | `image/heic` | [ISO/IEC JTC-1](http://www.iso.org/iso/jtc1_home.html) |
 
-Image objects may include a `"preview"` field with an activity sub-object of type link, a URL string or array of sub-objects and/or strings referring to a smaller resolution image or images provided as previews of larger image files.
-Preview fields should generally include at least one file of the following resolutions: `320x240`, `640x480` or `1024x768`.
+Clients that support image objects must include fields of `"height"` and `"width"` each with positive integer value either on the root activity object or the individual link sub-objects if multiple are present.
 
-Clients that support image objects should also include fields of `"height"` and `"width"` each with positive integer value either on the root activity object or the individual link sub-objects if multiple are present.
-If these fields are not provided, clients may attempt to infer the media type from the headers of the linked file or simply ignore the object.
-Clients may also ignore image files of exceptionally large or small sizes, however images with a preview of one of the prior mentioned resolutions must always be supported.
-
-For example, the following would be a valid image object:
+For example, the following would be a valid image objects:
 
 ```json
 {
   "@context": "https://www.w3.org/ns/activitystreams",
   "type": "Image",
-  "name": "Placekitten",
+  "name": "Placekitten 1",
+  "url": "https://placekitten.com/g/3000/2400",
+  "width": 3000,
+  "height": 2400
+}
+```
+
+```json
+{
+  "@context": "https://www.w3.org/ns/activitystreams",
+  "type": "Image",
+  "name": "Placekitten 2",
   "url": {
     "type": "Link",
     "href": "https://placekitten.com/g/1280/960",
     "mediaType": "image/jpeg",
     "width": 1280,
     "height": 960
-  },
-  "preview": [
-    {
-      "type": "Link",
-      "href": "https://placekitten.com/g/320/240",
-      "mediaType": "image/jpeg",
-      "width": 320,
-      "height": 240
-    },
-    {
-      "type": "Link",
-      "href": "https://placekitten.com/g/640/480",
-      "mediaType": "image/jpeg",
-      "width": 640,
-      "height": 480
-    }
-  ]
+  }
 }
 ```
 
@@ -344,13 +328,7 @@ Clients should support the following media types:
 Video objects may also include a `"duration"` field with a string value complying with the [XML Schema 11-2](https://www.w3.org/TR/xmlschema11-2/) standard for duration strings as recommended in the [Activity Vocabulary](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-duration) specification.
 Video objects linking to live streaming content may use the string `"Live"` for the duration field or omit it entirely.
 
-Video objects may include a `"preview"` field with an activity sub-object of type link, a URL string or an array of sub-objects and/or strings referring to shorter video files or image files provided as a preview of longer video files.
-It is recommended that implementers at minimum include one image previews wherever possible.
-Preview images should generally include at least one file of the following resolutions: `320x240`, `640x480` or `1024x768`.
-
-Clients that support video objects should also include fields of `"height"` and `"width"` each with positive integer value on either the root activity object or the individual link sub-objects if multiple are present.
-If these fields are not provided, clients may attempt to infer the media type from the headers of the linked file or simply ignore the object.
-Clients may also ignore video files of exceptionally large or small sizes, however videos with a preview of one of the prior mentioned resolutions must always be supported.
+Clients that support video objects must also include fields of `"height"` and `"width"` each with positive integer value on either the root activity object or the individual link sub-objects if multiple are present.
 
 For example, the following would be valid video objects:
 
@@ -360,7 +338,9 @@ For example, the following would be valid video objects:
   "type": "Video",
   "name": "Puppy Plays With Ball",
   "url": "http://example.org/video.mkv",
-  "duration": "PT2H"
+  "duration": "PT2H",
+  "width": 1024,
+  "height": 768
 }
 ```
 
@@ -371,12 +351,12 @@ For example, the following would be valid video objects:
   "name": "Big Buck Bunny",
   "url": {
     "type": "Link",
-    "href": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Big_Buck_Bunny_4K.webm"
+    "href": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Big_Buck_Bunny_4K.webm",
+    "width": 4000,
+    "height": 2250
   },
   "duration": "PT10M32S",
-  "mediaType": "video/webm",
-  "width": 4000,
-  "height": 2250
+  "mediaType": "video/webm"
 }
 ```
 
