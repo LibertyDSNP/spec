@@ -268,7 +268,7 @@ Clients should support presentation for activity objects of type profile to repr
 Profile type objects, if supported, must at minimum contain a `"type"` field with the value `"Profile"` and a `"describes` field with an activity sub-object of type person to represent the user being described by the profile object.
 
 Profile objects may include a `"summary"` field with a string value representing a short biography of the user.
-Profile objects may include an `"avatar"` field with an activity sub-object of type image referring to an image to be used as the user's avatar.
+Profile objects may include an `"icon"` field with an activity sub-object of type image referring to an image to be used as the user's avatar.
 Profile objects may include a `"links"` field with an array of activity sub-objects of type link referring to other websites or profiles associated with the user.
 
 For example, the following would be a valid profile object:
@@ -282,7 +282,7 @@ For example, the following would be a valid profile object:
     "type": "Person",
     "name": "John Doe"
   },
-  "avatar": {
+  "icon": {
     "type": "Link",
     "href": "https://placekitten.com/256/256"
   },
