@@ -168,7 +168,7 @@ For example, the following would be a valid person object:
 #### Audio
 
 Clients should support presentation for activity objects of type audio to represent audio content posted by users.
-Audio type objects, if supported, must at minimum contain a `"type"` field with the value `"Audio"` and a `"URL"` with either a URL string or an activity sub-object of type link containing a URL pointing to an audio file.
+Audio type objects, if supported, must contain a `"type"` field with the value `"Audio"` and a `"URL"` with either a URL string or an activity sub-object of type link containing a URL pointing to an audio file.
 
 Audio objects must include a `"mediaType"` field on their link sub-object with a standard [MIME type](https://www.iana.org/assignments/media-types/media-types.xhtml) string value.
 
@@ -210,7 +210,7 @@ For example, the following would be a valid audio objects:
 #### Image
 
 Clients should support presentation for activity objects of type image to represent image content posted by users.
-Image type objects, if supported, must at minimum contain a `"type"` field with the value `"Image"` and a `"URL"` with either a URL string or an activity sub-object of type link containing a URL pointing to an image file.
+Image type objects, if supported, must contain a `"type"` field with the value `"Image"` and a `"URL"` with either a URL string or an activity sub-object of type link containing a URL pointing to an image file.
 
 Image objects must include a `"mediaType"` field on their link sub-object with a standard [MIME type](https://www.iana.org/assignments/media-types/media-types.xhtml) string value.
 
@@ -302,7 +302,7 @@ For example, the following would be a valid profile object:
 #### Video
 
 Clients should support presentation for activity objects of type video to represent video content posted by users.
-Video type objects, if supported, must at minimum contain a `"type"` field with the value `"Video"` and a `"URL"` with either a URL string or an activity sub-object of type link containing a URL pointing to a video file.
+Video type objects, if supported, must contain a `"type"` field with the value `"Video"` and a `"URL"` with either a URL string or an activity sub-object of type link containing a URL pointing to a video file.
 
 Video objects must include a `"mediaType"` field on their link sub-object with a standard [MIME type](https://www.iana.org/assignments/media-types/media-types.xhtml) string value.
 
