@@ -364,7 +364,7 @@ In addition to the standards defined by the Activity Streams specifications, som
 ### Content Contexts
 
 Clients may sometimes want to represent content as existing within a specific presentation or social context, such as Reddit's subreddit concept, Slack's channels or old-style forum rooms.
-It is recommended that implementers represent this context in activity objects with the `"context"` field.
+Implementers should represent this context in activity objects with the `"context"` field.
 If present, this field must have a string value starting with the name of the implementing service followed by forward slash and a string unique to the specific context.
 Implementers are encouraged to add additional forward slash separators to their unique string to represent contexts within contexts.
 For example, a `#development` channel context within a `LibertyDSNP` organization on Slack could be represented by the string, `"Slack/LibertyDSNP/#development"`.
