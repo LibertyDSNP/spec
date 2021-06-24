@@ -363,6 +363,12 @@ Implementers may choose to leave all other fields intact or remove them as they 
 Clients may choose to represent deleted content in presentation with a small tombstone message, such as "content removed," or ignore deleted content entirely.
 Implementers wishing to specify a tombstone message for deleted content may change the `"type"` of the object to `"Tombstone"` and add or update the `"content"` field to include a message explaining the deletion, i.e. "removed due to DMCA violation" or "removed by author."
 
+### Tags
+
+Users may choose to include tags in activity objects to bring them to the attention of other users.
+Implementers must support a `"tag"` field on any activity object which may contain a string, an activity sub-object of type tag or mention or an array of strings and/or sub-objects.
+Mention sub-objects must include a `"type"` field with the value `"Mention"` and a `"href"` field containing the DSNP User Id of the mentioned user.
+
 ### Timestamps
 
 All activity objects must include a `"published"` key with a timestamp value string matching the [ISO8601](https://www.iso.org/iso-8601-date-and-time-format.html) format with timezone.
