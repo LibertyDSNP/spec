@@ -167,7 +167,7 @@ For example, the following would be a valid person object:
 
 #### Audio
 
-Clients are recommended to support presentation for activity objects of type audio to represent audio content posted by users.
+Clients should support presentation for activity objects of type audio to represent audio content posted by users.
 Audio type objects, if supported, must at minimum contain a `"type"` field with the value `"Audio"` and a `"URL"` with either a URL string or an activity sub-object of type link containing a URL pointing to an audio file.
 
 Audio objects are also recommended to include a `"mediaType"` field on their link sub-object with a standard [MIME type](https://www.iana.org/assignments/media-types/media-types.xhtml) string value.
@@ -216,7 +216,7 @@ For example, the following would be a valid audio objects:
 
 #### Image
 
-Clients are recommended to support presentation for activity objects of type image to represent image content posted by users.
+Clients should support presentation for activity objects of type image to represent image content posted by users.
 Image type objects, if supported, must at minimum contain a `"type"` field with the value `"Image"` and a `"URL"` with either a URL string or an activity sub-object of type link containing a URL pointing to an image file.
 
 Image objects are also recommended to include a `"mediaType"` field on their link sub-object with a standard [MIME type](https://www.iana.org/assignments/media-types/media-types.xhtml) string value.
@@ -280,7 +280,7 @@ For example, the following would be a valid image object:
 
 #### Profile
 
-Clients are recommended to support presentation for activity objects of type profile to represent profile data associated with users.
+Clients should support presentation for activity objects of type profile to represent profile data associated with users.
 Profile type objects, if supported, must at minimum contain a `"type"` field with the value `"Profile"` and a `"describes` field with an activity sub-object of type person to represent the user being described by the profile object.
 
 Profile objects may include a `"summary"` field with a string value representing a short biography of the user.
@@ -319,7 +319,7 @@ For example, the following would be a valid profile object:
 
 #### Video
 
-Clients are recommended to support presentation for activity objects of type video to represent video content posted by users.
+Clients should support presentation for activity objects of type video to represent video content posted by users.
 Video type objects, if supported, must at minimum contain a `"type"` field with the value `"Video"` and a `"URL"` with either a URL string or an activity sub-object of type link containing a URL pointing to a video file.
 
 Video objects are also recommended to include a `"mediaType"` field on their link sub-object with a standard [MIME type](https://www.iana.org/assignments/media-types/media-types.xhtml) string value.
