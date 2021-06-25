@@ -154,9 +154,9 @@ For example, the following would be a valid person object:
 
 #### Audio
 
-Clients should support activity objects of type audio to represent audio content posted by users.
+Clients should support audio activity objects to represent audio content posted by users.
 Audio objects must include a `"type"` field with the value `"Audio"`.
-Audio objects must include a `"URL"` with either a URL string or an activity sub-object of type link containing a URL pointing to an audio file.
+Audio objects must include a `"URL"` with either a URL string or an activity sub-object of type `"Link"` containing a URL pointing to an audio file.
 Audio objects must include a `"hash"` field with a [keccak-256](https://en.wikipedia.org/wiki/SHA-3) hash of the body of the linked audio file.
 Audio objects must include a `"mediaType"` field on their link sub-object with a standard [MIME type](https://www.iana.org/assignments/media-types/media-types.xhtml) string.
 
@@ -171,7 +171,7 @@ Clients must support the following media types:
 Audio objects may include a `"duration"` field with a string complying with the [XML Schema 11-2](https://www.w3.org/TR/xmlschema11-2/) standard for duration strings as recommended in the [Activity Vocabulary](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-duration) specification.
 Audio objects linking to live streaming content may use the string `"Live"` for the duration field or omit it entirely.
 
-For example, the following would be a valid audio objects:
+For example, the following would be valid audio objects:
 
 ```json
 {
@@ -197,9 +197,9 @@ For example, the following would be a valid audio objects:
 
 #### Image
 
-Clients should support activity objects of type image to represent image content posted by users.
+Clients should support image activity objects to represent image content posted by users.
 Image objects must include a `"type"` field with the value `"Image"`.
-Image objects must include a `"URL"` with either a URL string or an activity sub-object of type link containing a URL pointing to an image file.
+Image objects must include a `"URL"` with either a URL string or an activity sub-object of type `"Link"` containing a URL pointing to an image file.
 Image objects must include a `"hash"` field with a [keccak-256](https://en.wikipedia.org/wiki/SHA-3) hash of the body of the linked image file.
 Image objects must include fields of `"height"` and `"width"` each with positive integer value either on the root activity object or the individual link sub-objects if multiple are present representing the height and width of the linked image file.
 Image objects must include a `"mediaType"` field on their link sub-object with a standard [MIME type](https://www.iana.org/assignments/media-types/media-types.xhtml) string.
@@ -251,13 +251,13 @@ For example, the following would be a valid image objects:
 
 #### Profile
 
-Clients should support activity objects of type profile to represent profile data associated with users.
+Clients should support profile activity objects to represent profile data associated with users.
 Profile objects must include a `"type"` field with the value `"Profile"`.
-Profile objects must include a `"describes` field with an activity sub-object of type person to represent the user being described by the profile object.
+Profile objects must include a `"describes` field with an activity sub-object of type `"Person"` to represent the user being described by the profile object.
 
 Profile objects should include a `"summary"` field with a string representing a short biography of the user.
-Profile objects should include an `"icon"` field with an activity sub-object of type image referring to an image to be used as the user's avatar.
-Profile objects should include a `"links"` field with an array of activity sub-objects of type link referring to other websites or profiles associated with the user.
+Profile objects should include an `"icon"` field with an activity sub-object of type `"Image"` referring to an image to be used as the user's avatar.
+Profile objects should include a `"links"` field with an array of activity sub-objects of type `"Link"` referring to other websites or profiles associated with the user.
 
 For example, the following would be a valid profile object:
 
@@ -291,9 +291,9 @@ For example, the following would be a valid profile object:
 
 #### Video
 
-Clients should support activity objects of type video to represent video content posted by users.
+Clients should support video activity objects to represent video content posted by users.
 Video objects must include a `"type"` field with the value `"Video"`.
-Video objects must include a `"URL"` with either a URL string or an activity sub-object of type link containing a URL pointing to a video file.
+Video objects must include a `"URL"` with either a URL string or an activity sub-object of type `"Link"` containing a URL pointing to a video file.
 Video objects must include a `"hash"` field with a [keccak-256](https://en.wikipedia.org/wiki/SHA-3) hash of the body of the linked video file.
 Video objects must include fields of `"height"` and `"width"` each with positive integer value on either the root activity object or the individual link sub-objects if multiple are present representing the height and width of the linked video file.
 Video objects must include a `"mediaType"` field on their link sub-object with a standard [MIME type](https://www.iana.org/assignments/media-types/media-types.xhtml) string.
@@ -363,7 +363,7 @@ Clients may choose to ignore activity objects with contexts outside the user's c
 
 ### Deletion Support
 
-Users may choose to delete an activity object by changing it's contents, thereby changing it's hashed value and invalidating any signature associated with it via broadcast or reply messages on chain.
+Users may choose to delete an activity object by changing its contents, thereby changing its hashed value and invalidating any signature associated with it via broadcast or reply messages on chain.
 Hosts of activity objects may choose to do the same for the purpose of removing illegal or otherwise objectionable content.
 Implementers may represent this by adding a `"deleted"` field to the hosted activity object with an [ISO8601](https://www.iso.org/iso-8601-date-and-time-format.html) timestamp representing the time at which the content was removed.
 Implementers may choose to leave all other fields intact or remove them as they see fit.
@@ -374,7 +374,7 @@ Implementers wishing to specify a tombstone message for deleted content may chan
 ### Tags
 
 Users may choose to include tags in activity objects to bring them to the attention of other users.
-Implementers must support a `"tag"` field on any activity object which may contain a string, an activity sub-object of type tag or mention or an array of strings and/or sub-objects.
+Implementers must support a `"tag"` field on any activity object which may contain a string, an activity sub-object of type `"Tag"` or `"Mention"` or an array of strings and/or sub-objects.
 Mention sub-objects must include a `"type"` field with the value `"Mention"` and a `"href"` field containing the DSNP User Id of the mentioned user.
 
 ### Timestamps
