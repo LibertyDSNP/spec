@@ -32,12 +32,12 @@ When the term "user" is referenced below we are referring to a DSNP Id.
 
 #### Friendship
 
-There is no concept of "friendship" within the DSNP social network graph. Friendship requires a mutual acknowledgement between 2 different DSNP Ids. 
+There is no concept of "friendship" within the DSNP social network graph. Friendship requires a mutual acknowledgement between 2 different DSNP Identities. 
 Friendship can be thought as "mutual following" - where 2 DSNP identities are following each other. 
 
 #### Follow
 
-A "follow" is the act of publicly following a user (referenced as a (DSNP Id )[/Identity/Overview]) which results in adding this DSNP Id to a user's social graph.
+A "follow" is the act of publicly following a user (referenced as a (DSNP Identity)[/Identity/Overview]) which results in adding this DSNP Id to a user's social graph.
 
 #### Unfollow
 
@@ -48,7 +48,7 @@ An "unfollow" is the act of publicly unfollowing a user (referenced as a (DSNP I
 The collection of DSNP identities that a given user is following via the DSNP protocol. 
 
 #### Public
-Publicly following or unfollowing a DSNP ID implies that anyone looking for these follow or unfollow events on the blockchain will
+Publicly following or unfollowing a DSNP Id implies that anyone looking for these follow or unfollow events on the blockchain will
 be able to determine who the follower(DSNP id doing the following) and followee(DSNP Id being followed) are for a given event.
 
 ## Graph Change Announcement Format
@@ -58,16 +58,16 @@ A graph change will contain the following information: `fromId`, `changeType`, `
 ## Graph Storage
 All graph change events are signed and added to a [batch file](/Batches/Overview).
 Once that batch file is complete, it is [announced](/Messages/Announce) on the blockchain per the DSNP specification. 
-Each announce event specifies the type of ([DSNPtype](/Messages/Announce)) messages that are in the batch file. 
+Each announce event specifies the type of ([dsnpType](/Messages/Announce)) messages that are in the batch file. 
 
 ## Graph Retrieval, Ordering & Reading
-To have an accurate representation of the social graph for a given DSNP Id - it is necessary to retrieve the entire graph from the chain.
+To have an accurate representation of the social graph for a given DSNP Identity - it is necessary to retrieve the entire graph from the chain.
 
 To retrieve the graph - do the following:
-1. Retrieve all the log events[DSNP type](/Messages/Types)`GraphChange` from the chain
-1. Retrieve the batch file from each log event. Each log event of type [GraphChage](/Messages/Announce) has a field called `dsnpURI` which contains a uri pointing to a [batch file](/Batches/Overview). 
-1. Query the batch files for the data for a particular DSNPId to retrieve information about the respective graph. For more on how batch file storage and how to query the batch file see [Batches overview](/Batches/Overview)
-1. Order the retrieved data based on the following
+1. Retrieve all the log events[dsnpType](/Messages/Types)`GraphChange` from the chain
+1. Retrieve the batch file from each log event. Each log event of type [GraphChange](/Messages/Announce) has a field called `dsnpURI` which contains a uri pointing to a [batch file](/Batches/Overview). 
+1. Query the batch files for the data for a particular DSNP Id to retrieve information about the respective graph. For more on how batch file storage and how to query the batch file see - [batches overview](/Batches/Overview)
+1. Order the retrieved data based on the following  
     1. Block Number Ascending
     1. Transaction Index Ascending
     1. Log Index Ascending
@@ -76,7 +76,7 @@ To retrieve the graph - do the following:
 For more on ordering see [Message Ordering Specification](/Messages/Ordering).
 
 #### Reading the graph
-Once the retrieval of the entire graph is complete and data is ordered, read the ordered data to see the most recent state of the graph between two respective DSNP IDs (i.e the last graph change event shows Bob has unfollowed Charlie)
+Once the retrieval of the entire graph is complete and data is ordered, read the ordered data to see the most recent state of the graph between two respective DSNP Ids (i.e the last graph change event shows Bob has unfollowed Charlie)
 
 If the entire graph has been retrieved and stored, it is possible to then retrieve new events from the point where the last graph ended. This can be done by retrieving `GraphChange` log events from the chain starting with a specific block number. 
 For example: The graph for a given user has been retrieved and stored up until block number 18. A filter can be added to the logs being retrieved from the chain to only retrieve log events starting from block 19.

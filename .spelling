@@ -35,8 +35,10 @@ dequeued
 Docz
 DSNPArchives
 DSNPBatch
+dsnp
 dsnpData
 dsnpHash
+dsnpId
 dsnpType
 dsnpUri
 DSNPMessages
@@ -61,6 +63,7 @@ i.e.
 IAnnounce
 IBeacon
 ICANN
+Id
 IDelegation
 IIdentification
 inReplyTo
@@ -123,6 +126,9 @@ testnet
 toAddress
 TODO
 unfollow
+unfollowed
+unfollows
+unfollowing
 uint64
 unencrypted
 unicode
