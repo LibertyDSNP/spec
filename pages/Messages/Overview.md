@@ -91,7 +91,7 @@ A public follow/unfollow.
 | fromId | DSNP User Id | bytes8 | YES
 | changeType | follow/unfollow| number/enum | YES
 | objectId | Id of followee | bytes8 | YES
-| none | timestamp | number | YES
+| none | timestamp | number (microseconds since Unix epoch) | YES
 
 #### Reaction
 
