@@ -347,9 +347,9 @@ For example, the following would be valid video objects:
 }
 ```
 
-## Extensions
+## Modifications and Extensions
 
-In addition to the standards defined by the Activity Streams specifications, some extensions of Activity Streams are required by the DSNP due to its decentralized context.
+In addition to the minimum subset defined in the prior section, some features of the [Activity Vocabulary](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-accept) and extensions thereof applying to all messages are recommended or required due to the decentralized nature of the DSNP.
 
 ### Content Contexts
 
