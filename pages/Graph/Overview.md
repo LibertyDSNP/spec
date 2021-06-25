@@ -30,7 +30,7 @@ When the term "user" is referenced below we are referring to a DSNP Id.
 
 ##Terminology
 
-## Friendship
+#### Friendship
 
 There currently is no concept of "friendship" within the social network graph - as that requires a mutual acknowledgement between 2 different DSNP Ids. 
 Friendship can be thought of in this case as "mutual following" - where 2 DSNP identities are following each other. 
@@ -40,11 +40,11 @@ a DSNP identity must "unfollow"(described below) the DSNP Id they wish to remove
 
 #### Follow
 
-A Follow actions refers to the act of publicly following a user (referenced as a (DSNP Id )[/Identity/Overview]) which results in adding this DSNP Id to a given social graph.
+A Follow actions refers to the act of publicly following a user (referenced as a (DSNP Id )[/Identity/Overview]) which results in adding this DSNP Id to a user's social graph.
 
 #### Unfollow
 
-Unfollow action refers to the act of publicly unfollowing a user (referenced as a (DSNP Identity)[/Identity/Overview]) which results in the removal of this DSNP Id from a given social graph
+Unfollow action refers to the act of publicly unfollowing a user (referenced as a (DSNP Identity)[/Identity/Overview]) which results in the removal of this DSNP Id from a user's social graph
 
 ### Graph
 
@@ -63,15 +63,14 @@ All graph change events are signed and added to a [batch file](/Batches/Overview
 Once that batch file is complete, it will be [announced](/Messages/Announce) on the blockchain per the DSNP specification. 
 Each announce event specifies the type of message ([DSNPtype](/Messages/Announce)) that is in the batch file. 
 
-## Graph Retrieval & ordering 
+## Graph Retrieval, Ordering & Reading
 To have an accurate representation of the social graph for a given DSNP Id - it is necessary to retrieve the entire graph from the chain.
 
-As mentioned 
-
+To do so it is necessary to do the following:
 1. Retrieve all the log events[DSNP type](/Messages/Types)`GraphChange` from the chain
 1. Retrieve the batch file from each log event. Each log event of type [GraphChage](/Messages/Announce) has a field called `dsnpURI` which contains a uri pointing to a [batch file](/Batches/Overview). 
-1. Query the Batch Files for the data for a particular DSNPId to retrieve information about respective graph. For more how batch file storage and how to query the batch file see [Batches overview](/Batches/Overview)
-1. Order the data based on the following
+1. Query the batch files for the data for a particular DSNPId to retrieve information about the respective graph. For more how batch file storage and how to query the batch file see [Batches overview](/Batches/Overview)
+1. Order the retrieved data based on the following
     1. Block Number Ascending
     1. Transaction Index Ascending
     1. Log Index Ascending
@@ -79,6 +78,11 @@ As mentioned
                                                 
 For more on ordering see [Message Ordering Specification](/Messages/Ordering).
 
+#### Reading the graph
+Once the retrieval of the entire graph is complete and the data is ordered, one can read the graph to see the most recent state of following between to respective DSNP IDs (i.e the last graph change event shows Bob has unfollowed Charlie)
+
+If the entire graph has been retrieved and stored, it is possible to then only retrieve new events from the point where the last graph ended. This can be done by retrieving `GraphChange` log events from the chain starting with a specific block number. 
+For example: Imagine the graph for a given user has been retrieved and stored up until block number 18. Now when retrieving graph log events from the chain, a filter can be added to only retrieve events starting from block 19.
 
 ## Replay Attacks
 
@@ -87,7 +91,7 @@ We want to prevent [replay attacks](https://en.wikipedia.org/wiki/Replay_attack)
 Imagine the following scenario
 1. Imagine Bob "follows" Charlie and then "unfollows" him.
  
-1. Alice re-announces Bob's follow event. 
+1. Alice is then about to take Bob's follow event and re-announce it as though Bob had decided to follow Charlie again. 
     - The graph now reflects a state where Bob is following Charlie - even though this is not the state of the graph that Bob intended.
 
 There is no way to prevent this situation from happening unless each graph change event is identifiably unique. 
