@@ -86,7 +86,7 @@ Note objects must include a `"content"` field with a string.
 
 Clients may support content with unicode text as possible in their given browser or operating system.
 Clients may support [Markdown](https://daringfireball.net/projects/markdown/), [BBCode](https://www.bbcode.org) or other formatting standards.
-If a note contains Markdown, BBCode or some other formatting, the note object should include a `"mediaType"` field with a [MIME type](https://www.iana.org/assignments/media-types/media-types.xhtml) string representing the type of encoding present, i.e. `"text/markdown"`.
+If a note contains Markdown, BBCode or some other formatting, the note object must include a `"mediaType"` field with a [MIME type](https://www.iana.org/assignments/media-types/media-types.xhtml) string representing the type of encoding present, i.e. `"text/markdown"`.
 
 Note objects may include an `"attachment"` field with either a single activity sub-object, a single URL string or an array of sub-objects and/or strings representing external content referenced by the note object.
 Any linked content in the encoded text of the note object should be included in the attachments.
