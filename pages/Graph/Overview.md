@@ -41,7 +41,7 @@ A "follow" is the act of publicly following a user (referenced as a (DSNP Identi
 
 #### Unfollow
 
-An "unfollow" is the act of publicly unfollowing a user (referenced as a (DSNP Identity)[/Identity/Overview]) which results in the removal of this DSNP Id from a user's social graph
+An "unfollow" is the act of publicly unfollowing a user (referenced as a (DSNP Identity)[/Identity/Overview]) which results in the removal of this DSNP Id from a user's social graph.
 
 ### Graph
 
@@ -49,7 +49,7 @@ The collection of DSNP identities that a given user is following via the DSNP pr
 
 #### Public
 Publicly following or unfollowing a DSNP Id implies that anyone looking for these follow or unfollow events on the blockchain will
-be able to determine who the follower(DSNP id doing the following) and followee(DSNP Id being followed) are for a given event.
+be able to determine who the follower(DSNP Id doing the following) and followee(DSNP Id being followed) are for a given event.
 
 ## Graph Change Announcement Format
 Anytime a user "follows" or "unfollows" someone - a graph change event is created.
@@ -65,7 +65,7 @@ To have an accurate representation of the social graph for a given DSNP Identity
 
 To retrieve the graph - do the following:
 1. Retrieve all the log events[dsnpType](/Messages/Types)`GraphChange` from the chain
-1. Retrieve the batch file from each log event. Each log event of type [GraphChange](/Messages/Announce) has a field called `dsnpURI` which contains a uri pointing to a [batch file](/Batches/Overview). 
+1. Retrieve the batch file from each log event. Each log event of type [GraphChange](/Messages/Announce) has a field called `dsnpUri` which contains a uri pointing to a [batch file](/Batches/Overview). 
 1. Query the batch files for the data for a particular DSNP Id to retrieve information about the respective graph. For more on how batch file storage and how to query the batch file see - [batches overview](/Batches/Overview)
 1. Order the retrieved data based on the following  
     1. Block Number Ascending
