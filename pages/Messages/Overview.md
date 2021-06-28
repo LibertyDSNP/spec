@@ -58,7 +58,8 @@ We have seriously considered two possibilities, a [variable announcement format]
 
 ### DSNP Announcement
 
-These announcements would be added to batch files for announcement on the blockchain. Some fields on the announcement are used as bloom filters for querying data in a batch. See [Batches Overview](/Batches/Overview#Queries)
+These announcements would be added to batch files for announcement on the blockchain. 
+Some fields on the announcement are used as bloom filters for querying data in a batch. See [Batches Overview](/Batches/Overview#Queries)
 
 #### Broadcast
 
