@@ -57,7 +57,8 @@ For example, the following would be a valid link object:
 {
   "@context": "https://www.w3.org/ns/activitystreams",
   "type": "Link",
-  "href": "https://dsnp.org"
+  "href": "https://dsnp.org",
+  "published": "1970-01-01T00:00:00+00:00"
 }
 ```
 
@@ -67,7 +68,8 @@ And implementers may choose to ignore the following link objects:
 {
   "@context": "https://www.w3.org/ns/activitystreams",
   "type": "Link",
-  "href": "ipfs://bafybeiemxf5abjwjbikoz4mc3a3dla6ual3jsgpdr4cjr3oz3evfyavhwq/wiki/Vincent_van_Gogh.html"
+  "href": "ipfs://bafybeiemxf5abjwjbikoz4mc3a3dla6ual3jsgpdr4cjr3oz3evfyavhwq/wiki/Vincent_van_Gogh.html",
+  "published": "1970-01-01T00:00:00+00:00"
 }
 ```
 
@@ -75,7 +77,8 @@ And implementers may choose to ignore the following link objects:
 {
   "@context": "https://www.w3.org/ns/activitystreams",
   "type": "Link",
-  "href": "http://192.168.1.1/router-setup"
+  "href": "http://192.168.1.1/router-setup",
+  "published": "1970-01-01T00:00:00+00:00"
 }
 ```
 
@@ -103,7 +106,8 @@ For example, the following would be valid note objects:
 {
   "@context": "https://www.w3.org/ns/activitystreams",
   "type": "Note",
-  "content": "Hello world!"
+  "content": "Hello world!",
+  "published": "1970-01-01T00:00:00+00:00"
 }
 ```
 
@@ -112,7 +116,8 @@ For example, the following would be valid note objects:
   "@context": "https://www.w3.org/ns/activitystreams",
   "type": "Note",
   "content": "# Markdown document\n\n * List item\n\n * List item\n\n * List item",
-  "mediaType": "text/markdown"
+  "mediaType": "text/markdown",
+  "published": "1970-01-01T00:00:00+00:00"
 }
 ```
 
@@ -132,7 +137,8 @@ For example, the following would be valid note objects:
       "name": "Figure 1",
       "href": "https://en.wikipedia.org/wiki/Diagram#/media/File:Zusammensetzung_Shampoo.svg"
     }
-  ]
+  ],
+  "published": "1970-01-01T00:00:00+00:00"
 }
 ```
 
@@ -149,7 +155,8 @@ For example, the following would be a valid person object:
 {
   "@context": "https://www.w3.org/ns/activitystreams",
   "type": "Person",
-  "name": "John Doe"
+  "name": "John Doe",
+  "published": "1970-01-01T00:00:00+00:00"
 }
 ```
 
@@ -181,7 +188,8 @@ For example, the following would be valid audio objects:
 {
   "@context": "https://www.w3.org/ns/activitystreams",
   "type": "Audio",
-  "url": "https://example.org/short_clip.webm"
+  "url": "https://example.org/short_clip.webm",
+  "published": "1970-01-01T00:00:00+00:00"
 }
 ```
 
@@ -195,7 +203,8 @@ For example, the following would be valid audio objects:
     "href": "https://example.org/podcast.mp3",
     "mediaType": "audio/mp3"
   },
-  "duration": "PT3H12M"
+  "duration": "PT3H12M",
+  "published": "1970-01-01T00:00:00+00:00"
 }
 ```
 
@@ -235,7 +244,8 @@ For example, the following would be a valid image objects:
   "name": "Placekitten 1",
   "url": "https://placekitten.com/g/3000/2400",
   "width": 3000,
-  "height": 2400
+  "height": 2400,
+  "published": "1970-01-01T00:00:00+00:00"
 }
 ```
 
@@ -250,7 +260,8 @@ For example, the following would be a valid image objects:
     "mediaType": "image/jpeg",
     "width": 1280,
     "height": 960
-  }
+  },
+  "published": "1970-01-01T00:00:00+00:00"
 }
 ```
 
@@ -291,7 +302,8 @@ For example, the following would be a valid profile object:
       "name": "John Doe's GitHub account",
       "href": "https://github.com/example"
     }
-  ]
+  ],
+  "published": "1970-01-01T00:00:00+00:00"
 }
 ```
 
@@ -334,7 +346,8 @@ For example, the following would be valid video objects:
   "url": "http://example.org/video.mkv",
   "duration": "PT2H",
   "width": 1024,
-  "height": 768
+  "height": 768,
+  "published": "1970-01-01T00:00:00+00:00"
 }
 ```
 
@@ -350,7 +363,8 @@ For example, the following would be valid video objects:
     "height": 2250
   },
   "duration": "PT10M32S",
-  "mediaType": "video/webm"
+  "mediaType": "video/webm",
+  "published": "1970-01-01T00:00:00+00:00"
 }
 ```
 
