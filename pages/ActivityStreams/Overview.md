@@ -161,7 +161,7 @@ Clients should support audio activity objects to represent audio content posted 
 Audio objects must include a `"type"` field with the value `"Audio"`.
 Audio objects must include a `"published"` field as described in the [timestamps section](#timestamps) below.
 Audio objects must include a `"URL"` with either a URL string or an activity sub-object of type `"Link"` containing a URL pointing to an audio file.
-Audio objects must include a `"hash"` field with a [keccak-256](https://en.wikipedia.org/wiki/SHA-3) hash of the body of the linked audio file.
+Audio objects must include a `"hash"` field as described in the [content proofs section](#content-proofs) below.
 Audio objects must include a `"mediaType"` field on their link sub-object with a standard [MIME type](https://www.iana.org/assignments/media-types/media-types.xhtml) string.
 
 Clients must support the following media types:
@@ -205,7 +205,7 @@ Clients should support image activity objects to represent image content posted 
 Image objects must include a `"type"` field with the value `"Image"`.
 Image objects must include a `"published"` field as described in the [timestamps section](#timestamps) below.
 Image objects must include a `"URL"` with either a URL string or an activity sub-object of type `"Link"` containing a URL pointing to an image file.
-Image objects must include a `"hash"` field with a [keccak-256](https://en.wikipedia.org/wiki/SHA-3) hash of the body of the linked image file.
+Image objects must include a `"hash"` field as described in the [content proofs section](#content-proofs) below.
 Image objects must include fields of `"height"` and `"width"` each with positive integer value either on the root activity object or the individual link sub-objects if multiple are present representing the height and width of the linked image file.
 Image objects must include a `"mediaType"` field on their link sub-object with a standard [MIME type](https://www.iana.org/assignments/media-types/media-types.xhtml) string.
 
@@ -301,7 +301,7 @@ Clients should support video activity objects to represent video content posted 
 Video objects must include a `"type"` field with the value `"Video"`.
 Video objects must include a `"published"` field as described in the [timestamps section](#timestamps) below.
 Video objects must include a `"URL"` with either a URL string or an activity sub-object of type `"Link"` containing a URL pointing to a video file.
-Video objects must include a `"hash"` field with a [keccak-256](https://en.wikipedia.org/wiki/SHA-3) hash of the body of the linked video file.
+Video objects must include a `"hash"` field as described in the [content proofs section](#content-proofs) below.
 Video objects must include fields of `"height"` and `"width"` each with positive integer value on either the root activity object or the individual link sub-objects if multiple are present representing the height and width of the linked video file.
 Video objects must include a `"mediaType"` field on their link sub-object with a standard [MIME type](https://www.iana.org/assignments/media-types/media-types.xhtml) string.
 
@@ -371,6 +371,16 @@ Implementers are encouraged to add additional forward slash separators to their 
 For example, a `#development` channel context within a `LibertyDSNP` organization on Slack could be represented by the string, `"Slack/LibertyDSNP/#development"`.
 
 Clients may choose to ignore activity objects with contexts outside the user's current context by default, but all contexts must be made accessible to the user through some form of navigation.
+
+### Content Proofs
+
+Activity objects linking to external content such as audio, image or video files must include a `"hash"` field including a hash of the linked file to prove its authenticity.
+The value of this `"hash"` field must be a nested object or an array of objects representing multiple hashes.
+Each hash object must include an `"algorithm"` field with a string value representing the algorithm used to hash the linked file.
+Each hash object may include any other necessary fields for the given algorithm to prove the linked files authenticity.
+
+Alternatively, users may want to link to content which frequently changes, such as HTML documents or live streams, and therefore cannot be hashed to prove its authenticity.
+Clients must support publishing these sorts of documents as link objects instead to indicate to viewing users that the content may have changed since the original publish time.
 
 ### Tags
 
