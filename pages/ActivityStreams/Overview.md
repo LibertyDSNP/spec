@@ -351,6 +351,10 @@ For example, the following would be valid video objects:
 
 In addition to the minimum subset defined in the prior section, some features of the [Activity Vocabulary](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-accept) and extensions thereof applying to all messages are recommended or required due to the decentralized nature of the DSNP.
 
+### Ids Not Required
+
+Unlike the [Activity Streams](https://www.w3.org/TR/activitystreams-core/) specification, id fields are not required on any DSNP activity content objects due to the difficulty in generating self-referential content on certain hosting platforms.
+
 ### Content Contexts
 
 Clients may want to represent content as existing within a specific presentation or social context, such as Reddit's subreddit concept, Slack's channels or old-style forum rooms.
