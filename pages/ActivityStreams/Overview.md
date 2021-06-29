@@ -42,6 +42,7 @@ Clients may ignore messages that they do not support.
 
 Link objects must be supported to represent linked content posted by users.
 Link objects must include a `"type"` field with a value of `"Link"`.
+Link objects must include a `"published"` field as described in the [timestamps section](#timestamps) below.
 Link objects must include a `"href"` field with a valid URL string.
 
 Clients must support valid URLs with a `"https://"` protocol with valid domain names.
@@ -82,6 +83,7 @@ And implementers may choose to ignore the following link objects:
 
 Note objects must be supported to represent text content posted by users.
 Note objects must include a `"type"` field with a value of `"Note"`.
+Note objects must include a `"published"` field as described in the [timestamps section](#timestamps) below.
 Note objects must include a `"content"` field with a string.
 
 Clients may support content with unicode text as possible in their given browser or operating system.
@@ -138,6 +140,7 @@ For example, the following would be valid note objects:
 
 Person objects must be supported to represent display names for users.
 Person objects must include a `"type"` field with a value of `"Person"`.
+Person objects must include a `"published"` field as described in the [timestamps section](#timestamps) below.
 Person objects must include a `"name"` field with a string representing a nickname for the user to be presented alongside the user's DSNP User Id or handle.
 
 For example, the following would be a valid person object:
@@ -156,6 +159,7 @@ For example, the following would be a valid person object:
 
 Clients should support audio activity objects to represent audio content posted by users.
 Audio objects must include a `"type"` field with the value `"Audio"`.
+Audio objects must include a `"published"` field as described in the [timestamps section](#timestamps) below.
 Audio objects must include a `"URL"` with either a URL string or an activity sub-object of type `"Link"` containing a URL pointing to an audio file.
 Audio objects must include a `"hash"` field with a [keccak-256](https://en.wikipedia.org/wiki/SHA-3) hash of the body of the linked audio file.
 Audio objects must include a `"mediaType"` field on their link sub-object with a standard [MIME type](https://www.iana.org/assignments/media-types/media-types.xhtml) string.
@@ -199,6 +203,7 @@ For example, the following would be valid audio objects:
 
 Clients should support image activity objects to represent image content posted by users.
 Image objects must include a `"type"` field with the value `"Image"`.
+Image objects must include a `"published"` field as described in the [timestamps section](#timestamps) below.
 Image objects must include a `"URL"` with either a URL string or an activity sub-object of type `"Link"` containing a URL pointing to an image file.
 Image objects must include a `"hash"` field with a [keccak-256](https://en.wikipedia.org/wiki/SHA-3) hash of the body of the linked image file.
 Image objects must include fields of `"height"` and `"width"` each with positive integer value either on the root activity object or the individual link sub-objects if multiple are present representing the height and width of the linked image file.
@@ -253,6 +258,7 @@ For example, the following would be a valid image objects:
 
 Clients should support profile activity objects to represent profile data associated with users.
 Profile objects must include a `"type"` field with the value `"Profile"`.
+Profile objects must include a `"published"` field as described in the [timestamps section](#timestamps) below.
 Profile objects must include a `"describes` field with an activity sub-object of type `"Person"` to represent the user being described by the profile object.
 
 Profile objects should include a `"summary"` field with a string representing a short biography of the user.
@@ -293,6 +299,7 @@ For example, the following would be a valid profile object:
 
 Clients should support video activity objects to represent video content posted by users.
 Video objects must include a `"type"` field with the value `"Video"`.
+Video objects must include a `"published"` field as described in the [timestamps section](#timestamps) below.
 Video objects must include a `"URL"` with either a URL string or an activity sub-object of type `"Link"` containing a URL pointing to a video file.
 Video objects must include a `"hash"` field with a [keccak-256](https://en.wikipedia.org/wiki/SHA-3) hash of the body of the linked video file.
 Video objects must include fields of `"height"` and `"width"` each with positive integer value on either the root activity object or the individual link sub-objects if multiple are present representing the height and width of the linked video file.
