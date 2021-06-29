@@ -50,6 +50,8 @@ Clients may support other protocols as they see appropriate.
 Clients may support link objects with IP address hostnames or invalid domain names.
 
 Link objects may include a `"mediaType"` field with a standard [MIME type](https://www.iana.org/assignments/media-types/media-types.xhtml) string representing the type of content at the linked URL.
+Link objects may include a `"context"` field as described in the [content contexts section](#content-contexts) below.
+Link objects may include a `"tag"` field as described in the [tags section](#tags) below.
 
 For example, the following would be a valid link object:
 
@@ -99,6 +101,8 @@ Clients must support attachments URL strings or objects with type `"Link"`.
 Clients that support display of audio, image and video type objects should support display of each attachments object types respectively.
 
 Note objects may include a `"summary"` field with a string containing a brief summation of the `"content"` field.
+Note objects may include a `"context"` field as described in the [content contexts section](#content-contexts) below.
+Note objects may include a `"tag"` field as described in the [tags section](#tags) below.
 
 For example, the following would be valid note objects:
 
@@ -182,6 +186,9 @@ Clients must support the following media types:
 Audio objects may include a `"duration"` field with a string complying with the [XML Schema 11-2](https://www.w3.org/TR/xmlschema11-2/) standard for duration strings as recommended in the [Activity Vocabulary](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-duration) specification.
 Audio objects linking to live streaming content may use the string `"Live"` for the duration field or omit it entirely.
 
+Audio objects may include a `"context"` field as described in the [content contexts section](#content-contexts) below.
+Audio objects may include a `"tag"` field as described in the [tags section](#tags) below.
+
 For example, the following would be valid audio objects:
 
 ```json
@@ -242,6 +249,8 @@ Clients should support the following media types:
 | GIF    | `image/gif`  | [RFC2045](https://www.iana.org/go/rfc2045)             |
 | HEIC   | `image/heic` | [ISO/IEC JTC-1](http://www.iso.org/iso/jtc1_home.html) |
 
+Image objects may include a `"context"` field as described in the [content contexts section](#content-contexts) below.
+Image objects may include a `"tag"` field as described in the [tags section](#tags) below.
 
 For example, the following would be a valid image objects:
 
@@ -291,6 +300,9 @@ Profile objects must include a `"describes` field with an activity sub-object of
 Profile objects should include a `"summary"` field with a string representing a short biography of the user.
 Profile objects should include an `"icon"` field with an activity sub-object of type `"Image"` referring to an image to be used as the user's avatar.
 Profile objects should include a `"links"` field with an array of activity sub-objects of type `"Link"` referring to other websites or profiles associated with the user.
+
+Profile objects may include a `"context"` field as described in the [content contexts section](#content-contexts) below.
+Profile objects may include a `"tag"` field as described in the [tags section](#tags) below.
 
 For example, the following would be a valid profile object:
 
@@ -351,6 +363,9 @@ Clients should support the following media types:
 
 Video objects may include a `"duration"` field with a string complying with the [XML Schema 11-2](https://www.w3.org/TR/xmlschema11-2/) standard for duration strings as recommended in the [Activity Vocabulary](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-duration) specification.
 Video objects linking to live streaming content may use the string `"Live"` for the duration field or omit it entirely.
+
+Video objects may include a `"context"` field as described in the [content contexts section](#content-contexts) below.
+Video objects may include a `"tag"` field as described in the [tags section](#tags) below.
 
 For example, the following would be valid video objects:
 
