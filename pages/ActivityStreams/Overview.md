@@ -365,16 +365,6 @@ For example, a `#development` channel context within a `LibertyDSNP` organizatio
 
 Clients may choose to ignore activity objects with contexts outside the user's current context by default, but all contexts must be made accessible to the user through some form of navigation.
 
-### Deletion Support
-
-Users may choose to delete an activity object by changing its contents, thereby changing its hashed value and invalidating any signature associated with it via broadcast or reply messages on chain.
-Hosts of activity objects may choose to do the same for the purpose of removing illegal or otherwise objectionable content.
-Implementers may represent this by adding a `"deleted"` field to the hosted activity object with an [ISO8601](https://www.iso.org/iso-8601-date-and-time-format.html) timestamp representing the time at which the content was removed.
-Implementers may choose to leave all other fields intact or remove them as they see fit.
-
-Clients may choose to represent deleted content in presentation with a small tombstone message, such as "content removed," or ignore deleted content entirely.
-Implementers wishing to specify a tombstone message for deleted content may change the `"type"` of the object to `"Tombstone"` and add or update the `"content"` field to include a message explaining the deletion, i.e. "removed due to DMCA violation" or "removed by author."
-
 ### Tags
 
 Users may choose to include tags in activity objects to bring them to the attention of other users.
