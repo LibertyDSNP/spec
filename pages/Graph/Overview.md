@@ -39,11 +39,11 @@ Friendship can be thought as "mutual following" - where 2 DSNP User identities a
 
 #### Follow
 
-A "follow" is the act of publicly following a user (referenced as a (DSNP User Identity)[/Identity/Overview]) which results in adding this DSNP User Id to a user's social graph.
+A "follow" is the act of publicly following a user (referenced as a (DSNP User Identity)[/Identity/Registry]) which results in adding this DSNP User Id to a user's social graph.
 
 #### Unfollow
 
-An "unfollow" is the act of publicly unfollowing a user (referenced as a (DSNP User Identity)[/Identity/Overview]) which results in the removal of this DSNP User Id from a user's social graph.
+An "unfollow" is the act of publicly unfollowing a user (referenced as a (DSNP User Identity)[/Identity/Registry]) which results in the removal of this DSNP User Id from a user's social graph.
 
 ### Graph
 
@@ -51,15 +51,15 @@ The collection of DSNP User identities that a given user is following via the DS
 
 #### Public
 Publicly following or unfollowing a DSNP User Id implies that anyone looking for these follow
-or unfollow events on the blockchain will be able to determine who the follower(DSNP User Id 
-doing the following) and followee(DSNP User Id being followed) are for a given event.
+or unfollow events on the blockchain will be able to determine who the follower (DSNP User Id 
+doing the following) and followee (DSNP User Id being followed) are for a given event.
 
 ## Graph Change Announcement Format
-Anytime a user "follows" or "unfollows" someone - a graph change event is created.
+Anytime a user "follows" or "unfollows" someone - a graph change [announcement](/Messages/Overview) is created.
 A graph change will contain the following information: `fromId`, `changeType`, `objectId`, `nonce`. See [Messages Overview](/Messages/Overview) for more information on these fields.
 
 ## Graph Storage
-All graph change events are signed and added to a [batch file](/Batches/Overview).
+All graph change announcements are signed and added to a [batch file](/Batches/Overview).
 Once that batch file is complete, it is [announced](/Messages/Announce) on the blockchain per the DSNP specification. 
 Each announce event specifies the type of ([dsnpType](/Messages/Announce)) messages that are in the batch file. 
 
