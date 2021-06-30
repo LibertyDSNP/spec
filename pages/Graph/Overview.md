@@ -64,9 +64,6 @@ Once that batch file is complete, it is [announced](/Messages/Announce) on the b
 Each announce event specifies the type of ([dsnpType](/Messages/Announce)) messages that are in the batch file. 
 
 ## Graph Retrieval, Ordering & Reading
-Each graph change event reflects a change in state for a given user's graph (i.e. when a Bob follows Charlie, that "follow" is then reflected as a state change in Bob's graph).
-As mentioned above, graph change events get added to a batch file which gets signed and then announced on chain. 
-
 A user's graph can be derived for any given point in time by retrieving the graph change events for that time period (i.e. from block 0 to block 10). 
 Once those graph change events are retrieved, they can be ordered (as mentioned below) to reflect the current graph state
 (i.e. Charlie has followed Bob then unfollowed him and then followed him again. The graph state reflects that Charlie is Following Bob).
@@ -93,14 +90,12 @@ A filter can be added to the logs being retrieved to only retrieve log events st
 
 ## Replay Attacks
 
-[Replay attacks](https://en.wikipedia.org/wiki/Replay_attack) are prevented by ensuring that each graph change event is identifiably unique. 
-To allow for uniqueness, each graph change event has a timestamp. 
+Clients must ignore any GraphChange event that comes after another event with the same signature. This avoids [Replay attacks](https://en.wikipedia.org/wiki/Replay_attack)
+Each graph change event has a timestamp that allows for differing signatures.
 This timestamp is represented as microseconds since Unix epoch.
-It allows a user to detect whether they have seen an event before and can therefore ignore duplicate events thus thwarting the threat of replay attacks.
-The timestamp also allows a user to redo actions in a way that is valid.
 
 For example:
 1. Bob "follows" Charlie and then "unfollows" him then "follows" him again.
     - If the `GraphChange` event has no timestamp, the second follow event would have to be ignored when reading the graph. 
-      It would appear as a duplicate of the first and therefore a potential replay attack.
-    - With a timestamp, the second follow event would have a unique hash and could therefore be interpreted as a valid event.
+      It would appear to have the same signature as the first event and therefore be a duplicate, and a potential replay attack.
+    - With a timestamp, the second follow event would have a unique signature and could therefore be interpreted as a valid event.
