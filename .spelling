@@ -26,17 +26,18 @@ CBOR
 changeType
 contentHash
 CouchDB
-DSNP
 DAO
 deadDropID
 DeadDrops
 deserialized
 dequeued
 Docz
+DSNP
 DSNPArchives
 DSNPBatch
 dsnpData
 dsnpHash
+dsnpUserId
 dsnpType
 dsnpUri
 DSNPMessages
@@ -61,6 +62,7 @@ i.e.
 IAnnounce
 IBeacon
 ICANN
+Id
 IDelegation
 IIdentification
 inReplyTo
@@ -123,6 +125,9 @@ testnet
 toAddress
 TODO
 unfollow
+unfollowed
+unfollows
+unfollowing
 uint64
 unencrypted
 unicode

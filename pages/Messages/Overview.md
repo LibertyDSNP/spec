@@ -45,7 +45,7 @@ Generally, content within the DSNP specification will be defined by the [W3C Act
 
 Messages refer more generally to a piece of information posted via the DSNP specification.
 In the case of broadcasts and replies, message may refer to the both the DSNP announcement of the content and the content itself.
-In the case of other types of announcements, message may be used an alias for announcements.
+In the case of other types of announcements, message may be used as an alias for announcements.
 
 #### Event
 
@@ -91,6 +91,7 @@ A public follow/unfollow.
 | fromId | DSNP User Id | bytes8 | YES
 | changeType | follow/unfollow| number/enum | YES
 | objectId | Id of followee | bytes8 | YES
+| none | microseconds since Unix epoch | number | no 
 
 #### Reaction
 
