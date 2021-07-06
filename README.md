@@ -1,7 +1,7 @@
 # Liberty Protocol Spec
 
 This repository holds the technical specification for the Liberty Protocol.
-The current official specification can be viewed in its compiled form [here](TBD).
+The current official specification can be viewed in its compiled form [here](https://spec.dsnp.org).
 Alternatively, the latest iteration of the spec can be viewed non-formatted [here](tree/main/pages).
 
 ## Running Locally

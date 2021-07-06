@@ -15,18 +15,6 @@ The free communication of users on the internet faces a variety of problems in t
 These challenges include censorship from state and corporate actors, the amplification of misinformation through viral content, and an ever-shrinking collection of near monopolies with absolute power over social interaction in the 21st century.
 Through the Liberty Protocol, we hope mitigate and ideally solve these challenges in the way social interaction operates online.
 
-## Censorship
-
-TBD - Quick summary on the threat of censorship online; maybe Harry has some suggestions
-
-## Misinformation
-
-TBD - Quick summary on the threat of misinformation; ask Shannon for input
-
-## Monopolization
-
-TBD - Quick summary of the monopolization of social media and communication media in general; Braxton maybe?
-
 # How to Read This Specification
 
 The specification is divided into several modules found in the DSNP section of this website.
@@ -55,4 +43,4 @@ Other versions may be available in the [official contracts code repository](http
 
 # Learning More
 
-In addition to this document, more resources regarding our project can be found at the Liberty Protocol developer portal [here](tbd), including our blog, forum, code repository and SDK.
+In addition to this document, more resources regarding our project can be found at the Liberty Protocol developer portal [here](https://www.dsnp.org), including our blog, forum, code repository and SDK.
