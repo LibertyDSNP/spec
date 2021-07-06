@@ -44,11 +44,7 @@ Absent benchmarks, the False Positive Rate currently defaults to 0.001.
 
 Batch announcements are done via the SDK API for Announcements.
 Bloom filter settings are set as described above in the SDK.
-This may be configurable without changing the source code at a later date.  
-
-## Benchmarks
-
-TBD
+This may be configurable without changing the source code at a later date.
 
 ## Justifications
 
