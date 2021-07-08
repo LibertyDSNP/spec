@@ -31,7 +31,7 @@ dsnp://0123456789abcdef/0123456789abcdef0123456789abcdef0123456789abcdef01234567
 
 In this example, `dsnp://` is the protocol indicating that the latest version of this specification should be used.
 `0123456789abcdef` is the identifier representing a user as described in the [Identity Registry](/Identity/Registry) specification.
-`0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef` is the hash of the content as described in the [Messages Serialization](/Messages/Serialization) specification.
+`0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef` is the hash of the content as described below.
 
 ### Protocol
 
