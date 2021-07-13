@@ -46,5 +46,5 @@ For example, `0123456789abcdef` would indicate user number 81,985,529,216,486,89
 
 ### Content Hash
 
-The content hash section of the identifier string should be a [keccak-256](https://en.wikipedia.org/wiki/SHA-3) hash of the content of the message as stored at the URI provided in the DSNP announcement.
+The content hash section of the identifier string should be a [keccak-256](https://en.wikipedia.org/wiki/SHA-3) hash of the content of the message as stored at the URL provided in the DSNP announcement.
 This string should be identical to the `contentHash` field as described in the [Message Overview](/Messages/Overview).

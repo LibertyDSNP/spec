@@ -38,7 +38,7 @@ Some announcements, such as broadcasts and replies, will contain references to c
 
 #### Content
 
-Content items, or simply content, refers to activity streams compliant JSON hosted at some URI and intended to be posted via an announcement in a batch.
+Content items, or simply content, refers to activity streams compliant JSON hosted at some URL and intended to be posted via an announcement in a batch.
 Generally, content within the DSNP specification will be defined by the [W3C Activity Streams 2.0 specification](https://www.w3.org/TR/activitystreams-core/), however extensions, such as the [Mastodon Activity Pub specification](https://docs.joinmastodon.org/spec/activitypub/) may also be implemented.
 
 #### Message
@@ -68,8 +68,8 @@ A public post.
 | dsnpData field | description | type | bloom filter |
 | ------------- |------------- | ---- | --- |
 | fromId | DSNP User Id | bytes8 | YES
-| contentHash | keccak-256 hash of content stored at URI |  bytes32 | no
-| uri       | content URI | string | no
+| contentHash | keccak-256 hash of content stored at URL |  bytes32 | no
+| url       | content URL | string | no
 
 #### Reply
 
@@ -78,9 +78,9 @@ A public reply post.
 | dsnpData field | description | type | bloom filter |
 | ------------- |------------- | ---- | --- |
 | inReplyTo | DSNP Message Id |  string | YES
-| contentHash | keccak-256 hash of content stored at uri |  bytes32  | no
+| contentHash | keccak-256 hash of content stored at url |  bytes32  | no
 | fromId | DSNP User Id | bytes8 | YES
-| uri | content uri | string | no
+| url | content url | string | no
 
 #### GraphChange
 
@@ -110,5 +110,5 @@ A profile update such as name or icon change.
 | dsnpData field | description | type | bloom filter |
 | ------------- |------------- | ---- | --- |
 | fromId | DSNP User Id | bytes8  | YES
-| contentHash |  keccak-256 hash of content at uri | bytes32 | no
-| uri    | uri for the profile data  |string | no
+| contentHash |  keccak-256 hash of content at url | bytes32 | no
+| url    | url for the profile data  |string | no

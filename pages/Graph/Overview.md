@@ -70,7 +70,7 @@ Once those graph change events are retrieved, they can be ordered (as mentioned 
 
 To retrieve the graph, do the following:
 1. Retrieve the log events[dsnpType](/Messages/Types)`GraphChange` from the chain for a point in time (i.e. from a specific block number to a specific block number)
-1. Retrieve the batch file from each log event. Each log event of type [GraphChange](/Messages/Announce) has a field called `dsnpUri` which contains a uri pointing to a [batch file](/Batches/Overview). 
+1. Retrieve the batch file from each log event. Each log event of type [GraphChange](/Messages/Announce) has a field called `dsnpUrl` which contains a url pointing to a [batch file](/Batches/Overview).
 1. Query the batch files for the data for a particular DSNP User Id to retrieve information about the respective graph. For more on how batch file storage and how to query the batch file see - [batches overview](/Batches/Overview)
 1. Order the retrieved data based on the following  
     1. Block Number Ascending

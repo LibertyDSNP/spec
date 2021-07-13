@@ -33,9 +33,9 @@ For HTTPS downloads, the SDK uses `https` as needed:
     queue.commit({scheme: 'https'})    
 ```
 
-so that the URI emitted in the announcement would look something like:
+so that the URL emitted in the announcement would look something like:
  ```typescript
-    dsnpUri: "https://some.cloudhosting.com/cf9c0d7f801f56b634ae4cd3cf0b1aab9e11f2e00125dfb156baccc760417c41.parquet"
+    dsnpUrl: "https://some.cloudhosting.com/cf9c0d7f801f56b634ae4cd3cf0b1aab9e11f2e00125dfb156baccc760417c41.parquet"
 ```
 
 If it were for retrieval directly from Amazon S3, the SDK could use `s3`:
@@ -46,7 +46,7 @@ If it were for retrieval directly from Amazon S3, the SDK could use `s3`:
 Resulting in s3 instead of https in the announcement:
 
 ```typescript
-    dsnpUri: "s3://s3.us-west-2.amazonaws.com/mybucket/cf9c0d7f801f56b634ae4cd3cf0b1aab9e11f2e00125dfb156baccc760417c41.parquet"
+    dsnpUrl: "s3://s3.us-west-2.amazonaws.com/mybucket/cf9c0d7f801f56b634ae4cd3cf0b1aab9e11f2e00125dfb156baccc760417c41.parquet"
 ```
 ## Queries
 
@@ -63,7 +63,7 @@ consists of a URL and an object of DSNP message column name/value pairs.  Exampl
 ```
 
 Not all fields of a DSNP data type are added to the Bloom filters.
-Generally speaking, content hashes and URIs are omitted, whereas any field containing a socialAddress or other meaningful text is included in the Bloom filter.
+Generally speaking, content hashes and URLs are omitted, whereas any field containing a socialAddress or other meaningful text is included in the Bloom filter.
 For more detail, see [See the Messages Overview](/Messages/Overview).
 
 ## Validation
@@ -77,7 +77,7 @@ The [keccak-256](https://en.wikipedia.org/wiki/SHA-3) hash of the file is submit
 
 Each batch file consists of one type of [DSNP announcement](/Messages/Overview#dsnp-announcement-formats).
 Therefore, the file columns should correspond to the format listed in the DSNP announcement dsnpData field.
-For example, if the file claims to be of DSNP type Broadcast, then the file is expected to include the following columns: `fromId`, `contentHash`, `uri`.
+For example, if the file claims to be of DSNP type Broadcast, then the file is expected to include the following columns: `fromId`, `contentHash`, `url`.
 As long as the batch file hash can be verified, order of dsnpData fields are irrelevant.
 Also note , if the announcement format does not match the format listed in [DSNP announcement](/Messages/Overview#dsnp-announcement-formats), reading a file is not possible.
 Hence, being able to successfully read the file means that the file is valid.

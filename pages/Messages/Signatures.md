@@ -47,14 +47,14 @@ For example, given the following DSNP broadcast message:
 {
   "fromAddress": "0x12345",
   "contentHash": "0x67890",
-  "uri": "https://www.projectliberty.io/"
+  "url": "https://www.projectliberty.io/"
 }
 ```
 
 This would be the expected serialization:
 
 ```
-\x19Ethereum Signed Message:\n69contentHash0x67890fromAddress0x12345urihttps://www.projectliberty.io/
+\x19Ethereum Signed Message:\n69contentHash0x67890fromAddress0x12345urlhttps://www.projectliberty.io/
 ```
 
 This would be the expected hash:
