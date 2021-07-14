@@ -39,7 +39,7 @@ dsnpData
 dsnpHash
 dsnpUserId
 dsnpType
-dsnpUri
+dsnpUrl
 DSNPMessages
 ecrecover
 EIP
@@ -131,9 +131,9 @@ unfollowing
 uint64
 unencrypted
 unicode
-uri
+url
 UpgradeableBeacon
-URIs
+URLs
 UTF-8
 validator
 versioning

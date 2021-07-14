@@ -57,13 +57,13 @@ It consists of one or more ArchiveEntries.
 |field|description|type|
 |---|---|---|
 | `archives`| a set of ArchiveEntries | map`[ArchiveEntry]`|
-| `batchID` | keccak-256 hash of content stored at URI |  bytes32
+| `batchID` | keccak-256 hash of content stored at URL |  bytes32
 | `blockHeight` | the block number this message was included in | number |
 | `fromAddress`| social identity of batch announcer,i.e. message sender | bytes |
 | `logIndex` | the index within the logs of this message | number |
 | `signature` | announcer's signature | Signature |
 | `transactionIndex` | the index of the transaction this message is associated with | number |
-| `uri` | the location of this archive | string |
+| `url` | the location of this archive | string |
 
 ### `archives`
 
@@ -76,7 +76,7 @@ being the `archiveEntryID`, which is a:
 ### `batchID`
 
 * bytes32
-* the keccak-256 hash of content stored at the URI referenced in this batch.
+* the keccak-256 hash of content stored at the URL referenced in this batch.
 
 ### `blockHeight`
 
@@ -102,10 +102,10 @@ the social identity of the batch announcer, i.e. the message sender.
 * number
 * The transaction index in which this DSNP Message is included
 
-### `uri`
+### `url`
 
 * string
-* The permanent URI address where this archive is stored.
+* The permanent URL address where this archive is stored.
 
 ## Signature
 

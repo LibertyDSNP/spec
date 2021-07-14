@@ -66,11 +66,11 @@ Additionally, none of the following should be considered valid:
 
 1. Type Enumerator fields must be a valid enumerator value as defined in the [Message Overview](/Messages/Overview).
 
-### URI Fields
+### URL Fields
 
-1. URI fields must include meet all standards defined in [RFC3986](http://www.ietf.org/rfc/rfc3986.txt).
-1. URI fields must not refer to localhost or any reserved IP addresses as defined in [RFC6890](https://datatracker.ietf.org/doc/html/rfc6890)
-1. URI fields must use the `https` protocol. Support for other protocols may be added in the future.
+1. URL fields must include meet all standards defined in [RFC3986](http://www.ietf.org/rfc/rfc3986.txt).
+1. URL fields must not refer to localhost or any reserved IP addresses as defined in [RFC6890](https://datatracker.ietf.org/doc/html/rfc6890)
+1. URL fields must use the `https` protocol. Support for other protocols may be added in the future.
 
 ### User Ids
 
@@ -99,16 +99,16 @@ Specifically, the following rules detail how activity streams content should be 
 
 Additional fields not required or defined by the Activity Streams specifications may also be included in accordance with various extensions of the specification, such as [Mastodon](https://docs.joinmastodon.org/spec/activitypub/), [ForgeFed](https://github.com/forgefed/forgefed) or one of the related [potential future extensions](https://www.w3.org/wiki/ActivityPub_extensions) proposed by the [W3C](https://www.w3.org).
 
-If the content of a message is no longer accessible, i.e. the URI of the message returns a 404 or 500 HTTP status, the message is invalid and should be ignored.
+If the content of a message is no longer accessible, i.e. the URL of the message returns a 404 or 500 HTTP status, the message is invalid and should be ignored.
 It is also recommended that implementations provide a warning either in the console or directly to the user with the associated HTTP status.
 For example, a message such as `"Content Inaccessible: Error 404"` would suffice.
 
 ## Content Authenticity
 
-Authentication of a message's contents must be verified by hashing the exact contents of the body returned by the message URI and comparing it with the `contentHash` field of the given message.
+Authentication of a message's contents must be verified by hashing the exact contents of the body returned by the message URL and comparing it with the `contentHash` field of the given message.
 Given that the signature of the message is valid, this hash serves as proof that the signing user posted the activity streams content.
 
-For example, given a DSNP message with the following content at it's URI:
+For example, given a DSNP message with the following content at it's URL:
 
 ```json
 {
@@ -120,4 +120,4 @@ For example, given a DSNP message with the following content at it's URI:
 
 The resulting hash would be `0x70ae98439569700ae8328f204ba496e4ac151dc117d08ac217daa15b412641f7`.
 Notice that this hash is generated including spaces and newlines exactly as they appear in the content body.
-The content body must be hashed byte for byte from the response of the URI with absolutely no processing.
+The content body must be hashed byte for byte from the response of the URL with absolutely no processing.
