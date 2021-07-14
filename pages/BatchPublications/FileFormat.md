@@ -1,7 +1,7 @@
 ---
-menu: Batches
+menu: Batch Publications
 name: File Format
-route: /Batches/FileFormat
+route: /BatchPublications/FileFormat
 ---
 
 # Batch File Storage
@@ -10,45 +10,40 @@ Batch files are stored and transferred in Apache Parquet format.
 
 ## Specification Status
 
-| Version | Status |
----------- | ---------
-| 0.1     | Draft |
+| Version | Status   |
+| ------  | -------- |
+| 1.0     | Proposed |
 
-## Purpose
+## Requirements
 
-1. Specify the format for storing and transferring Batch files.
-1. Specify recommended parameters of the Batch files
-1. Describe reasons for the choice of format.
+- Batch File MUST match the spec for a single [Announcement Type](/Messages/Overview).
+- Batch File MUST have Bloom filters set in accordance to the Announcement Type Spec.
+- Batch File MUST have NO MORE THAN 128*1024 rows
 
-## Assumptions
+## Bloom Filter
 
-* All assumptions from [DSNP Messages](/Messages/Overview)
+- Bloom filter MUST be a [Split Block Bloom filter](https://github.com/apache/parquet-format/blob/apache-parquet-format-2.9.0/BloomFilter.md).
+- False positive rate MUST be 0.001.
 
-## Details
-
-Parameters for Batch file storage with Bloom filters are to be chosen with client applications in mind; consumer devices must be able to query, download and sift through downloaded batch files without adversely affecting user experience by way of long download times, heavy processing requirements which may quickly sap battery power, or by using lots of memory.
-
-Note this carries implications for row group size as well as configuration of Bloom filters for the batch file.
-
-## Bloom filter, row group size
-
-Optimal settings are still under investigation, however, the maximum row group size allowed in a Parquet file (128*1024*1024 rows) is far too large for a browser or small client application to handle in JavaScript.
-We are currently defaulting to 128*1024 rows.  
-
-In Parquet, the Bloom filter type is Split Block; the calculation for filter bits is different and nearly a factor of 10 lower than for the normal Bloom filter.
+Calculation for filter bits is different and nearly a factor of 10 lower than for a standard bloom filter.
 128*1024 rows with a 0.001 false positive rate results in around 29,000 bits for a Split Block Bloom filter.
 
-Absent benchmarks, the False Positive Rate currently defaults to 0.001.
+Bloom filters are ONLY added to some fields.
+See also [Announcement Types](/Messages/Overview).
 
-## API
+### Columns with Bloom Filters
 
-Batch announcements are done via the SDK API for Announcements.
-Bloom filter settings are set as described above in the SDK.
-This may be configurable without changing the source code at a later date.
+| Column | Parquet Type |
+| ------ | ---- |
+| contentHash | `BYTE_ARRAY` |
+| emoji | `BYTE_ARRAY` |
+| fromId | `BYTE_ARRAY` |
+| inReplyTo | `BYTE_ARRAY` |
+| objectId | `BYTE_ARRAY` |
 
-## Justifications
+## Non-Normative
 
-### Requirements
+### Design Requirements
 
 Batch files need to be quickly and easily searchable.
 Minimal storage size and fast, simple querying are preferred to guarantees of no false positives or advanced data manipulation and column relationships.

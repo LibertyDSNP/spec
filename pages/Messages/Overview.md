@@ -33,7 +33,7 @@ In the interest of clarity, we will define the terms "message," "content," "anno
 #### Announcement
 
 An announcement refers specifically to a DSNP item as described in this specification document.
-An announcement is intended for inclusion in a batch file and to eventually be posted to the blockchain via a batch log event.
+An announcement is intended for inclusion in a batch file and to eventually be published to the blockchain via a batch log event.
 Some announcements, such as broadcasts and replies, will contain references to content items.
 
 #### Content
@@ -58,8 +58,7 @@ We have seriously considered two possibilities, a [variable announcement format]
 
 ### DSNP Announcement
 
-These announcements would be added to batch files for announcement on the blockchain. 
-Some fields on the announcement are used as bloom filters for querying data in a batch. See [Batches Overview](/Batches/Overview#Queries)
+These announcements would be added to batch files for publication on the blockchain.
 
 #### Broadcast
 
@@ -68,7 +67,7 @@ A public post.
 | dsnpData field | description | type | bloom filter |
 | ------------- |------------- | ---- | --- |
 | fromId | DSNP User Id | bytes8 | YES
-| contentHash | keccak-256 hash of content stored at URL |  bytes32 | no
+| contentHash | keccak-256 hash of content stored at URL |  bytes32 | YES
 | url       | content URL | string | no
 
 #### Reply
@@ -78,7 +77,7 @@ A public reply post.
 | dsnpData field | description | type | bloom filter |
 | ------------- |------------- | ---- | --- |
 | inReplyTo | DSNP Message Id |  string | YES
-| contentHash | keccak-256 hash of content stored at url |  bytes32  | no
+| contentHash | keccak-256 hash of content stored at url |  bytes32  | YES
 | fromId | DSNP User Id | bytes8 | YES
 | url | content url | string | no
 
@@ -89,7 +88,7 @@ A public follow/unfollow.
 | dsnpData field | description | type | bloom filter |
 | ------------- |------------- | ---- | --- |
 | fromId | DSNP User Id | bytes8 | YES
-| changeType | follow/unfollow| number/enum | YES
+| changeType | follow/unfollow| number/enum | no
 | objectId | Id of followee | bytes8 | YES
 | nonce | microseconds since Unix epoch | number | no
 

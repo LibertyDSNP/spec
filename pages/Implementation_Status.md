@@ -14,7 +14,7 @@ Once the Protocol Specification reaches an appropriate degree of completeness, w
 Component  | Description                                                | Status
 -----------|------------------------------------------------------------|--------
 Archivists | Specification regarding long term storage of data          | Draft
-Batches    | Specification regarding storage formats for messages       | Draft
+Batch Publication | Specification regarding storage formats for messages       | Draft
 Graph      | Specification regarding relationships between users        | Draft
 Identity   | Specification regarding the representation of users        | Draft
 Messages   | Specification regarding content posted on the protocol     | Draft

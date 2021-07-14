@@ -56,6 +56,12 @@ export default {
       ]
     },
     {
+      name: "Batch Publications",
+      menu: [
+        "Overview",
+      ],
+    },
+    {
       name: "Graph",
       menu: [
         "Overview",
@@ -66,12 +72,6 @@ export default {
       menu: [
         "Overview",
       ]
-    },
-    {
-      name: "Batches",
-      menu: [
-        "Overview",
-      ],
     },
     {
       name: "Archivists",

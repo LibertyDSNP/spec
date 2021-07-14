@@ -8,8 +8,7 @@ menu: Reference
 
 * **Account** - See "Social Identity"
 * **Announcement** - An item of data, typically an image or note, posted to the blockchain
-* **Announcer** - The contract that posts new content from a publisher to the blockchain through batches or batch announcements by an archivist
-* **Publisher** - A user or bot who posts new content to an announcer
+* **Publisher** - The contract that posts new content from a publisher to the blockchain through batch publications
 * **Bad actor** - A user intentionally using the application for bad-faith or illegal purposes
 * **Bot** - An automated account, sometimes malicious but often providing some service ("Hey Alexa, what's the weather?")
 * **Consumer** - Someone who reads content from social media
