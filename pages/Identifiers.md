@@ -1,7 +1,6 @@
 ---
 name: Identifiers
 route: /Identifiers
-menu: Identifiers
 ---
 
 # DSNP Identifiers

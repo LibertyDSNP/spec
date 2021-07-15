@@ -1,7 +1,7 @@
 ---
-name: Graph Change
-route: /Announcements/Types/GraphChange
-menu: Announcements/Types
+name: "Type: Graph Change"
+route: /Announcements/TypeGraphChange
+menu: Announcements
 ---
 
 # Graph Change Announcement
@@ -14,33 +14,71 @@ menu: Announcements/Types
 
 ## Details
 
-A Graph Change Announcement is for publishing changes to a DSNP user's public social graph.
+A Graph Change Announcement is for publishing relationship state changes for a user.
 
 ## Fields
 
-| dsnpData field | description | parquet type | bloom filter |
-| ------------- | ------------ | ------------ | ------------ |
-| announcementType | Fixed Value: `1` | `INT32` | no |
-| changeType | [Change Type Enum](/Announcements/Types/GraphChange#change-type-enum) | `INT32` | no
-| fromId | DSNP User Id initiating the relationship | `BYTE_ARRAY` | YES
-| objectId | DSNP User Id target of the relationship  | `BYTE_ARRAY` | YES
+| Field | Description | Serialization | Parquet Type | Bloom Filter |
+| ----- | ----------- | ------------- | ------------ | ------------ |
+| announcementType | Announcement Type Enum (`1`) | hexadecimal | `INT32` | no |
+| changeType | Type of relationship change | hexadecimal | `INT32` | no
+| fromId | id of the user creating the relationship | hexadecimal | `BYTE_ARRAY` | YES
 | nonce | microseconds since Unix epoch | `INT64` | no
-| signature | content URL | `BYTE_ARRAY` | no
+| objectId | id of the target of the relationship | hexadecimal | `BYTE_ARRAY` | YES
+| signature | creator signature | hexadecimal | `BYTE_ARRAY` | no
+
+## Field Requirements
+
+### announcementType
+
+- MUST be fixed to `1`
+
+### changeType
+
+- MUST be one of the Change Type Enum
 
 ### Change Type Enum
 
 Different change types have different meanings
 
-| name | description | value |
+| Name | Description | Value |
 |----- | ----------- | ----- |
 | Unfollow | Remove a Follow relationship | 0 |
 | Follow | Create a Follow relationship | 1 |
 
+### fromId
+
+- MUST be a [DSNP User Id](/Identifiers#dsnp-user-id)
+- MUST be the [signer](/Announcements/Signatures) of the announcement
+
 ### Nonce
 
+- MUST be unique for the given `fromId` and `objectId` pair
+- SHOULD be set to the microseconds since Unix epoch to achieve uncoordinated uniqueness across devices
 
+### objectId
+
+- MUST be a [DSNP User Id](/Identifiers#dsnp-user-id)
+
+### signature
+
+- MUST be an [Announcement Signature](/Announcements/Signatures) over the all fields except the signature field.
 
 ## Non-Normative
+
+### Replay Attacks
+
+Clients must ignore any Graph Change event that comes after another event with the same signature.
+This avoids [Replay attacks](https://en.wikipedia.org/wiki/Replay_attack)
+Each graph change event has a `nonce` that allows for differing signatures.
+The `nonce` is set to the timestamp is represented as microseconds since Unix epoch.
+
+For example:
+1. Bob "follows" Charlie and then "unfollows" him then "follows" him again.
+  - If the `GraphChange` event has no timestamp, the second follow event would have to be ignored when reading the graph.
+    It would appear to have the same signature as the first event and therefore be a duplicate, and a potential replay attack.
+  - With a timestamp, the second follow event would have a unique signature and could therefore be interpreted as a valid event.
+
 
 ### Graph Retrieval, Ordering & Reading
 Each graph change event represents a state transition for the graph.

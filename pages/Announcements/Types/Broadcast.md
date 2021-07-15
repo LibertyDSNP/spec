@@ -1,7 +1,7 @@
 ---
-name: Broadcast
-route: /Announcements/Types/Broadcast
-menu: Announcements/Types
+name: "Type: Broadcast"
+route: /Announcements/TypeBroadcast
+menu: Announcements
 ---
 
 # Broadcast Announcement
@@ -18,13 +18,13 @@ A Broadcast Announcement is a way to send a public message to everyone.
 
 ## Fields
 
-| dsnpData field | description | parquet type | bloom filter |
-| ------------- | ------------ | ------------ | ------------ |
-| announcementType | Announcement Type Enum (`2`) | `INT32` | no |
-| contentHash | keccak-256 hash of content stored at URL | `BYTE_ARRAY` | YES
-| fromId | DSNP User Id | `BYTE_ARRAY` | YES
-| url | content URL | `BYTE_ARRAY` | no
-| signature | content URL | `BYTE_ARRAY` | no
+| Field | Description | Serialization | Parquet Type | Bloom Filter |
+| ----- | ----------- | ------------- | ------------ | ------------ |
+| announcementType | Announcement Type Enum (`2`) | hexadecimal | `INT32` | no |
+| contentHash | keccak-256 hash of content stored at URL | hexadecimal | `BYTE_ARRAY` | YES
+| fromId | id of the user creating the announcement | hexadecimal | `BYTE_ARRAY` | YES
+| url | content URL | utf-8 string | `BYTE_ARRAY` | no
+| signature | creator signature | hexadecimal | `BYTE_ARRAY` | no
 
 ## Field Requirements
 
@@ -35,17 +35,24 @@ A Broadcast Announcement is a way to send a public message to everyone.
 ### contentHash
 
 - MUST be 32 bytes in length
-- MUST be the [keccak-256 hash](https://keccak.team/files/Keccak-submission-3.pdf) of the bytes of the file stored at url.
+- MUST be the [keccak-256 hash](https://keccak.team/files/Keccak-submission-3.pdf) of the bytes of the reference at the url.
 
 ### fromId
 
-- MUST be a [DSNP User Id]()
+- MUST be a [DSNP User Id](/Identifiers#dsnp-user-id)
+- MUST be the [signer](/Announcements/Signatures) of the announcement
 
 ### url
 
-- MUST be publicly accessible
-- MUST use one of the supported URL Schemes
+- MUST NOT refer to localhost or any reserved IP addresses as defined in [RFC6890](https://datatracker.ietf.org/doc/html/rfc6890).
 - Resource MUST one of the supported [Activity Content](/ActivityContent/Overview) Types
+- MUST use one of the supported URL Schemes
+
+#### Supported URL Schemes
+
+| Scheme | Description | Reference | DSNP Version Added |
+| ------ |------------ | --------- | ------------------ |
+| HTTPS | Hypertext Transfer Protocol Secure | [RFC2818](https://datatracker.ietf.org/doc/html/rfc2818) | 1.0 |
 
 ### signature
 
