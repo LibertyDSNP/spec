@@ -73,7 +73,7 @@ Additionally, none of the following should be considered valid:
 
 | Scheme | Description | Reference | DSNP Version Added |
 | ------ |------------ | --------- | ------------------ |
-| HTTPS | Hypertext Transfer Protocol Secure | [RFC 2818](https://datatracker.ietf.org/doc/html/rfc2818) | 1.0 |
+| HTTPS | Hypertext Transfer Protocol Secure | [RFC2818](https://datatracker.ietf.org/doc/html/rfc2818) | 1.0 |
 
 
 ### User Ids
@@ -89,7 +89,7 @@ Specific steps for fetching a public key are as follows:
 1. Use the https://spec.projectliberty.io/Announcements/Signatures spec with `ecrecovery` to recover the signer's public key.
 1. Test the public key against the identity contract using `IDelegation.isAuthorizedTo`.
 
-Once the key is fetched, the signature can be verified against it using the [Secp256k1](https://en.bitcoin.it/wiki/Secp256k1) and the [keccak-256](https://en.wikipedia.org/wiki/SHA-3) hash of the serialized message as described in the [Message Signatures](/Announcements/Signatures#verifying-messages) specification.
+Once the key is fetched, the signature can be verified against it using the [Secp256k1](https://en.bitcoin.it/wiki/Secp256k1) and the [keccak-256](https://keccak.team/files/Keccak-submission-3.pdf) hash of the serialized message as described in the [Message Signatures](/Announcements/Signatures#verifying-messages) specification.
 
 ## Content Correctness
 
