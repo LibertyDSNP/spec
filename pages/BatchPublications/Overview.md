@@ -25,7 +25,7 @@ See [Batch File Format](/BatchPublications/FileFormat) for additional details an
 
 ## Batch File Retrieval
 
-- Batch File URLs MUST be publicly accessible
+- Batch File URLs MUST NOT refer to localhost or any reserved IP addresses as defined in [RFC6890](https://datatracker.ietf.org/doc/html/rfc6890).
 - Batch File URLs MUST use one of the supported URL Schemes
 
 ### Supported URL Schemes
