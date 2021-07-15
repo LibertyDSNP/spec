@@ -1,7 +1,7 @@
 ---
 name: Ordering
-route: /Messages/Ordering
-menu: Messages
+route: /Announcements/Ordering
+menu: Announcements
 ---
 
 # Messages Ordering
@@ -18,7 +18,7 @@ menu: Messages
 
 ## Assumptions
 
-* All assumptions from [DSNP Messages](/Messages/Overview)
+* All assumptions from [DSNP Messages](/Announcements/Overview)
 
 ## Ordering
 

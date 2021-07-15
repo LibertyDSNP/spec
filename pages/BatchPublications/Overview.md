@@ -16,7 +16,7 @@ The Batch Publication specifies how groups of Announcements are stored, communic
 
 ## Collection of Announcements
 
-Each Batch Publication is reference to a Batch File with a collections of a single type of [Announcement](/Messages/Overview).
+Each Batch Publication is reference to a Batch File with a collections of a single type of [Announcement](/Announcements/Overview).
 
 ## Batch File Format
 

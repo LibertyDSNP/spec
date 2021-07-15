@@ -1,7 +1,7 @@
 ---
 name: Validation
-route: /Messages/Validation
-menu: Messages
+route: /Announcements/Validation
+menu: Announcements
 ---
 
 # Message Validation
@@ -9,7 +9,7 @@ menu: Messages
 All messages must be validated by announcers before being included in a batch file, however clients and indexers should not rely on announcer validation alone and should perform their own validation on incoming messages as well.
 Message validation in this document is defined as a collection of independent checks which may be run in parallel depending on implementation, however all checks are required to pass for a message to be considered valid.
 
-In general, all implementations must validate announcements for correctness against the [DSNP message schema](/Messages/Overview) and authenticity using [their provided signatures](/Messages/Signatures).
+In general, all implementations must validate announcements for correctness against the [DSNP message schema](/Announcements/Overview) and authenticity using [their provided signatures](/Announcements/Signatures).
 Client and indexer implementations must also validate the activity streams JSON content of applicable messages for correctness with the [Activity Streams 2.0](https://www.w3.org/TR/activitystreams-core/) and authenticity using the provided content hash.
 Announcers may choose to skip content validation checks in the interest of performance given the high cost of fetching content.
 
@@ -25,8 +25,8 @@ Announcers may choose to skip content validation checks in the interest of perfo
 
 ## Assumptions
 
-* All assumptions from [DSNP Messages](/Messages/Overview)
-* All assumptions from [DSNP Signatures](/Messages/Signatures)
+* All assumptions from [DSNP Messages](/Announcements/Overview)
+* All assumptions from [DSNP Signatures](/Announcements/Signatures)
 
 ## Announcement Correctness
 
@@ -56,7 +56,7 @@ Additionally, none of the following should be considered valid:
 
 ### Message Ids
 
-1. Message Identifier fields must meet all standards defined in the [Message Identifiers](/Messages/Identifiers) specification.
+1. Message Identifier fields must meet all standards defined in the [Message Identifiers](/Announcements/Identifiers) specification.
 
 ### Signatures
 
@@ -64,7 +64,7 @@ Additionally, none of the following should be considered valid:
 
 ### Type Enumerators
 
-1. Type Enumerator fields must be a valid enumerator value as defined in the [Message Overview](/Messages/Overview).
+1. Type Enumerator fields must be a valid enumerator value as defined in the [Message Overview](/Announcements/Overview).
 
 ### URL Fields
 
@@ -82,10 +82,10 @@ Validation of announcement authenticity will consist of verifying the message's 
 Specific steps for fetching a public key are as follows:
 
 1. Resolve the identity contract from the `fromId` included in the DSNP messages.
-1. Use the https://spec.projectliberty.io/Messages/Signatures spec with `ecrecovery` to recover the signer's public key.
+1. Use the https://spec.projectliberty.io/Announcements/Signatures spec with `ecrecovery` to recover the signer's public key.
 1. Test the public key against the identity contract using `IDelegation.isAuthorizedTo`.
 
-Once the key is fetched, the signature can be verified against it using the [Secp256k1](https://en.bitcoin.it/wiki/Secp256k1) and the [keccak-256](https://en.wikipedia.org/wiki/SHA-3) hash of the serialized message as described in the [Message Signatures](/Messages/Signatures#verifying-messages) specification.
+Once the key is fetched, the signature can be verified against it using the [Secp256k1](https://en.bitcoin.it/wiki/Secp256k1) and the [keccak-256](https://en.wikipedia.org/wiki/SHA-3) hash of the serialized message as described in the [Message Signatures](/Announcements/Signatures#verifying-messages) specification.
 
 ## Content Correctness
 
