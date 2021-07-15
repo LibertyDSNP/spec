@@ -55,6 +55,7 @@ export default {
         "Overview",
       ]
     },
+    "Identifiers",
     {
       name: "Batch Publications",
       menu: [
