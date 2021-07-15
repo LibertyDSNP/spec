@@ -7,7 +7,7 @@ menu: Announcements
 # Message Signatures
 
 All DSNP announcements provided for batching should include a [secp256k1](https://google.com/search?hl=en&q=secp256k1) signature for the purposes of verifying the authenticity of the message.
-This signature should be generated from the [keccak-256](https://en.wikipedia.org/wiki/SHA-3) hash of the announcement and the publishing user's private key.
+This signature should be generated from the [keccak-256](https://keccak.team/files/Keccak-submission-3.pdf) hash of the announcement and the publishing user's private key.
 Optionally, anonymous messages may be provided with a zero hash in place of the signature, however behavior for these messages is undefined, and they may be treated as invalid data by archivists or disregarded as spam by indexers or end clients.
 
 ## Specification Status
@@ -37,7 +37,7 @@ To serialize messages, objects must first be converted to a string then prepende
 To convert messages to a string, each key of the DSNP object should be concatenated with its value in alphabetical order.
 Once converted, the string must be prefixed with "\x19Ethereum Signed Message:\n" and the byte length of the string.
 
-Once the data is serialized, the serialized string should be hashed using [keccak-256](https://en.wikipedia.org/wiki/SHA-3).
+Once the data is serialized, the serialized string should be hashed using [keccak-256](https://keccak.team/files/Keccak-submission-3.pdf).
 This fixed length hash generated can then be signed using [secp256k1](https://google.com/search?hl=en&q=secp256k1) and the publishing user's private key.
 The resulting signature should be provided along with the message contents to the announcer for inclusion in the next available batch.
 

@@ -35,7 +35,7 @@ A Broadcast Announcement is a way to send a public message to everyone.
 ### contentHash
 
 - MUST be 32 bytes in length
-- MUST be the keccak 256 hash of the bytes of the file stored at url
+- MUST be the [keccak-256 hash](https://keccak.team/files/Keccak-submission-3.pdf) of the bytes of the file stored at url.
 
 ### fromId
 

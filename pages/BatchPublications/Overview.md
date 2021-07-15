@@ -32,7 +32,7 @@ See [Batch File Format](/BatchPublications/FileFormat) for additional details an
 
 | Scheme | Description | Reference | DSNP Version Added |
 | ------ |------------ | --------- | ------------------ |
-| HTTPS | Hypertext Transfer Protocol Secure | [RFC 2818](https://datatracker.ietf.org/doc/html/rfc2818) | 1.0 |
+| HTTPS | Hypertext Transfer Protocol Secure | [RFC2818](https://datatracker.ietf.org/doc/html/rfc2818) | 1.0 |
 
 ## Publishing
 

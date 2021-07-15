@@ -21,7 +21,7 @@ menu: Archivists
 * Chain messages are on Ethereum.
 * Message data is posted via [Ethereum log events](https://medium.com/mycrypto/understanding-event-logs-on-the-ethereum-blockchain-f4ae7ba50378).
 * Signature algorithm is [secp256k1](https://en.bitcoin.it/wiki/Secp256k1). This allows the use `ecreover` to get public keys. A public key also need not be included in a log event for ease of validation.
-* Content hashes are created via the same [keccak-256 hashing algorithm](https://en.wikipedia.org/wiki/SHA-3) used by Ethereum.
+* Content hashes are created via the same [keccak-256 hashing algorithm](https://keccak.team/files/Keccak-submission-3.pdf) used by Ethereum.
 
 ## Archive Entry
 
