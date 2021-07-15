@@ -1,7 +1,7 @@
 ---
 name: Overview
-route: /Messages/Overview
-menu: Messages
+route: /Announcements/Overview
+menu: Announcements
 ---
 
 # Messages Overview

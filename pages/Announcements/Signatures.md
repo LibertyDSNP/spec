@@ -1,7 +1,7 @@
 ---
 name: Signatures
-route: /Messages/Signatures
-menu: Messages
+route: /Announcements/Signatures
+menu: Announcements
 ---
 
 # Message Signatures
@@ -23,7 +23,7 @@ Optionally, anonymous messages may be provided with a zero hash in place of the 
 
 ## Assumptions
 
-* All assumptions from [DSNP Messages](/Messages/Overview)
+* All assumptions from [DSNP Messages](/Announcements/Overview)
 
 ## Signing Messages
 

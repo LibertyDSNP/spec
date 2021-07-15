@@ -55,8 +55,8 @@ or unfollow events on the blockchain will be able to determine who the follower 
 doing the following) and followee (DSNP User Id being followed) are for a given event.
 
 ## Graph Change Announcement Format
-Anytime a user "follows" or "unfollows" someone - a graph change [announcement](/Messages/Overview) is created.
-A graph change will contain the following information: `fromId`, `changeType`, `objectId`, `nonce`. See [Messages Overview](/Messages/Overview) for more information on these fields.
+Anytime a user "follows" or "unfollows" someone - a graph change [announcement](/Announcements/Overview) is created.
+A graph change will contain the following information: `fromId`, `changeType`, `objectId`, `nonce`. See [Messages Overview](/Announcements/Overview) for more information on these fields.
 
 ## Graph Storage
 All graph change announcements are signed and added to a [Batch File](/BatchPublication/Overview).
@@ -68,7 +68,7 @@ Once those graph change events are retrieved, they can be ordered (as mentioned 
 (i.e. Charlie has followed Bob then unfollowed him and then followed him again. The graph state reflects that Charlie is Following Bob).
 
 To retrieve the graph, do the following:
-1. Retrieve the [`DSNPBatchPublications`](/BatchPublication/Publish) events with [announcementType](/Messages/Types) matching the enum of `GraphChange` from the chain.
+1. Retrieve the [`DSNPBatchPublications`](/BatchPublication/Publish) events with [announcementType](/Announcements/Types) matching the enum of `GraphChange` from the chain.
 1. Retrieve the batch files from each log event.
 1. Query the batch files for the data for a particular DSNP User Id to retrieve information about the respective graph.
 1. Order the retrieved data based on the following
@@ -77,7 +77,7 @@ To retrieve the graph, do the following:
     1. Log Index Ascending
     1. Batch File Row Index Ascending
                                                 
-For more on ordering see [Message Ordering Specification](/Messages/Ordering).
+For more on ordering see [Message Ordering Specification](/Announcements/Ordering).
 
 #### Creating the graph
 Each graph change event represents a state transition for the graph. 

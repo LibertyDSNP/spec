@@ -68,7 +68,7 @@ export default {
       ]
     },
     {
-      name: "Messages",
+      name: "Announcements",
       menu: [
         "Overview",
       ]
