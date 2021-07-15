@@ -4,7 +4,7 @@ route: /Announcements/Validation
 menu: Announcements
 ---
 
-# Message Validation
+# Announcement Validation
 
 All messages must be validated by announcers before being included in a batch file, however clients and indexers should not rely on announcer validation alone and should perform their own validation on incoming messages as well.
 Message validation in this document is defined as a collection of independent checks which may be run in parallel depending on implementation, however all checks are required to pass for a message to be considered valid.
@@ -28,12 +28,9 @@ Announcers may choose to skip content validation checks in the interest of perfo
 * All assumptions from [DSNP Messages](/Announcements/Overview)
 * All assumptions from [DSNP Signatures](/Announcements/Signatures)
 
-## Announcement Correctness
+## Field Validation
 
-Validation of announcement correctness will vary depending on which fields are present on a particular DSNP message type.
-Validating correctness for a message will consist of verifying that each field in the message is defined and meets the formatting rules listed in the subsections below for the given field type.
-
-### Emoji
+### `emoji`
 
 1. Emoji fields must not be empty.
 1. Emoji fields must only consist of [Unicode points](https://unicode.org/standard/standard.html) from `U+2000` to `U+2BFF`, from `U+E000` to `U+FFFF`, or from `U+1F000` to `U+10FFFF`.
@@ -50,27 +47,34 @@ Additionally, none of the following should be considered valid:
 "F", ":custom-emoji:", "<custom-emoji>", "ᚱ", "ᘐ", "״"
 ```
 
-### Hashes
+### `contentHash`
 
 1. Hash fields must be exactly 32 bytes.
 
-### Message Ids
+### `inReplyTo`
 
-1. Message Identifier fields must meet all standards defined in the [Message Identifiers](/Announcements/Identifiers) specification.
+1. MUST meet all standards defined in the [Announcement Identifier](/Announcements/Identifiers) specification.
 
-### Signatures
+### `signature`
 
-1. Signature fields must be exactly 64 bytes.
+1. MUST be exactly 64 bytes.
 
-### Type Enumerators
+### `announcementType`
 
-1. Type Enumerator fields must be a valid enumerator value as defined in the [Message Overview](/Announcements/Overview).
+1. MUST be a valid enumerator value as defined in the [Announcement Types](/Announcements/Overview#announcement-types).
 
-### URL Fields
+### `url`
 
-1. URL fields must include meet all standards defined in [RFC3986](http://www.ietf.org/rfc/rfc3986.txt).
-1. URL fields must not refer to localhost or any reserved IP addresses as defined in [RFC6890](https://datatracker.ietf.org/doc/html/rfc6890)
-1. URL fields must use the `https` protocol. Support for other protocols may be added in the future.
+1. MUST include meet all standards defined in [RFC3986](http://www.ietf.org/rfc/rfc3986.txt).
+1. MUST not refer to localhost or any reserved IP addresses as defined in [RFC6890](https://datatracker.ietf.org/doc/html/rfc6890).
+1. MUST use a supported URL scheme.
+
+#### Supported URL Schemes
+
+| Scheme | Description | Reference | DSNP Version Added |
+| ------ |------------ | --------- | ------------------ |
+| HTTPS | Hypertext Transfer Protocol Secure | [RFC 2818](https://datatracker.ietf.org/doc/html/rfc2818) | 1.0 |
+
 
 ### User Ids
 

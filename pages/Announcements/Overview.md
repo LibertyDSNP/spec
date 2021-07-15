@@ -4,13 +4,13 @@ route: /Announcements/Overview
 menu: Announcements
 ---
 
-# Messages Overview
+# Announcements Overview
 
 ## Specification Status
 
-| Version | Status |
----------- | ---------
-| 0.3     | Tentative |
+| Version | Status   |
+| ------  | -------- |
+| 1.0     | Proposed |
 
 ## Purpose
 
@@ -59,6 +59,19 @@ We have seriously considered two possibilities, a [variable announcement format]
 ### DSNP Announcement
 
 These announcements would be added to batch files for publication on the blockchain.
+
+## Announcement Types
+
+Each Announcement has a enumerated type for use when separating out a stream of Announcements.
+
+| name | description | value |
+|----- | ----------- | ----- |
+| Reserved | reserved for future use | 0 |
+| [GraphChange](/Announcements/Types/GraphChange) | social graph changes | 1 |
+| [Broadcast](/Announcement/Types/Broadcast) | a public post | 2 |
+| [Reply](/Announcement/Types/Reply) | a public response to a Broadcast | 3 |
+| [Reaction](/Announcement/Types/Reaction) | a public visual reply to a Broadcast | 4 |
+| [Profile](/Announcement/Types/Profile) | a profile | 5 |
 
 #### Broadcast
 
