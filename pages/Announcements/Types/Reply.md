@@ -1,12 +1,13 @@
 ---
-name: "Type: Broadcast"
-route: /Announcements/TypeBroadcast
+name: "Type: Reply"
+route: /Announcements/TypeReply
 menu: Announcements
 ---
 
-# Broadcast Announcement
+# Reply Announcement
 
-A Broadcast Announcement is a way to send a public message to everyone.
+A Reply Announcement is the same as a [Broadcast Announcement](/Announcements/TypeBroadcast),
+but includes an `inReplyTo` field for noting it as a reply to a given [DSNP Announcement Id](/Identifiers#dsnp-announcement-id).
 
 ## Specification Status
 
@@ -18,9 +19,10 @@ A Broadcast Announcement is a way to send a public message to everyone.
 
 | Field | Description | Serialization | Parquet Type | Bloom Filter |
 | ----- | ----------- | ------------- | ------------ | ------------ |
-| announcementType | Announcement Type Enum (`2`) | hexadecimal | `INT32` | no |
+| announcementType | Announcement Type Enum (`3`) | hexadecimal | `INT32` | no |
 | contentHash | keccak-256 hash of content stored at URL | hexadecimal | `BYTE_ARRAY` | YES
 | fromId | id of the user creating the announcement | hexadecimal | `BYTE_ARRAY` | YES
+| inReplyTo | Target [DSNP Announcement Id](/Identifiers#dsnp-announcement-id) | UTF-8 String | `BYTE_ARRAY` | YES
 | url | content URL | UTF-8 string | `BYTE_ARRAY` | no
 | signature | creator signature | hexadecimal | `BYTE_ARRAY` | no
 
@@ -28,7 +30,7 @@ A Broadcast Announcement is a way to send a public message to everyone.
 
 ### announcementType
 
-- MUST be fixed to `2`
+- MUST be fixed to `3`
 
 ### contentHash
 
@@ -40,10 +42,14 @@ A Broadcast Announcement is a way to send a public message to everyone.
 - MUST be a [DSNP User Id](/Identifiers#dsnp-user-id)
 - MUST be the [signer](/Announcements/Signatures) of the announcement
 
+### inReplyTo
+
+- MUST be a [DSNP Announcement Id](/Identifiers#dsnp-announcement-id)
+
 ### url
 
 - MUST NOT refer to localhost or any reserved IP addresses as defined in [RFC6890](https://datatracker.ietf.org/doc/html/rfc6890).
-- Resource MUST one of the supported [Activity Content](/ActivityContent/Overview) Types
+- Resource MUST be one of the supported [Activity Content](/ActivityContent/Overview) Types
 - MUST use one of the supported URL Schemes
 
 #### Supported URL Schemes

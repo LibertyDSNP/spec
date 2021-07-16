@@ -6,15 +6,14 @@ menu: Announcements
 
 # Graph Change Announcement
 
+A Graph Change Announcement is for publishing relationship state changes for a user.
+
 ## Specification Status
 
 | Version | Status   |
 | ------  | -------- |
 | 1.0     | Proposed |
 
-## Details
-
-A Graph Change Announcement is for publishing relationship state changes for a user.
 
 ## Fields
 
@@ -41,10 +40,10 @@ A Graph Change Announcement is for publishing relationship state changes for a u
 
 Different change types have different meanings
 
-| Name | Description | Value |
-|----- | ----------- | ----- |
-| Unfollow | Remove a Follow relationship | 0 |
-| Follow | Create a Follow relationship | 1 |
+| Value | Name | Description |
+| ----- |----- | ----------- |
+| 0 | Unfollow | Remove a Follow relationship |
+| 1 | Follow | Create a Follow relationship |
 
 ### fromId
 

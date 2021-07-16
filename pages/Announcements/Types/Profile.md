@@ -1,12 +1,13 @@
 ---
-name: "Type: Broadcast"
-route: /Announcements/TypeBroadcast
+name: "Type: Profile"
+route: /Announcements/TypeProfile
 menu: Announcements
 ---
 
-# Broadcast Announcement
+# Profile Announcement
 
-A Broadcast Announcement is a way to send a public message to everyone.
+A Profile Announcement is a constrained version of a [Broadcast Announcement](/Announcements/TypeBroadcast).
+The reference content *MUST be of profile type*.
 
 ## Specification Status
 
@@ -18,17 +19,17 @@ A Broadcast Announcement is a way to send a public message to everyone.
 
 | Field | Description | Serialization | Parquet Type | Bloom Filter |
 | ----- | ----------- | ------------- | ------------ | ------------ |
-| announcementType | Announcement Type Enum (`2`) | hexadecimal | `INT32` | no |
+| announcementType | Announcement Type Enum (`5`) | hexadecimal | `INT32` | no |
 | contentHash | keccak-256 hash of content stored at URL | hexadecimal | `BYTE_ARRAY` | YES
 | fromId | id of the user creating the announcement | hexadecimal | `BYTE_ARRAY` | YES
-| url | content URL | UTF-8 string | `BYTE_ARRAY` | no
+| url | Profile content URL | UTF-8 string | `BYTE_ARRAY` | no
 | signature | creator signature | hexadecimal | `BYTE_ARRAY` | no
 
 ## Field Requirements
 
 ### announcementType
 
-- MUST be fixed to `2`
+- MUST be fixed to `5`
 
 ### contentHash
 
@@ -43,7 +44,7 @@ A Broadcast Announcement is a way to send a public message to everyone.
 ### url
 
 - MUST NOT refer to localhost or any reserved IP addresses as defined in [RFC6890](https://datatracker.ietf.org/doc/html/rfc6890).
-- Resource MUST one of the supported [Activity Content](/ActivityContent/Overview) Types
+- Resource MUST be a valid [Profile Activity Content](/ActivityContent/Overview) Type
 - MUST use one of the supported URL Schemes
 
 #### Supported URL Schemes
@@ -55,3 +56,10 @@ A Broadcast Announcement is a way to send a public message to everyone.
 ### signature
 
 - MUST be an [Announcement Signature](/Announcements/Signatures) over the all fields except the signature field.
+
+## Non-Normative
+
+### Most Recent Profile
+
+When displaying a DSNP user's profile, the most recent profile should be considered the complete and correct version.
+Previous Profile Announcements from the same `fromId` may be disregarded.
