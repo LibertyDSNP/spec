@@ -29,7 +29,14 @@ Each Announcement has a enumerated type for use when separating out a stream of 
 | 4 | [Reaction](/Announcement/Types/Reaction) | a public visual reply to a Broadcast | no |
 | 5 | [Profile](/Announcement/Types/Profile) | a profile | YES |
 
-## Ordering
+## Duplicate Handling
+
+Duplicate Announcements may occur.
+Duplicates may be identified as any Announcements that match a previous Announcement's `signature` field
+(per the [Announcement Order](/Announcements/Overview#ordering)).
+Duplicate Announcements MUST be rejected or ignored.
+
+## Ordering Announcements
 
 Announcements are ordered on the network to provide for time dependent resolutions.
 
