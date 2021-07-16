@@ -33,6 +33,8 @@ route: /Identifiers
 
 DSNP Announcement Id consists of three parts, the scheme, the user id, and the content hash.
 
+Any [Announcement Types](/Announcements/Overview#announcement-types) with a `fromId` and `contentHash` have a DSNP Announcement Id.
+
 ### Example
 ```
 dsnp://0123456789abcdef/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
