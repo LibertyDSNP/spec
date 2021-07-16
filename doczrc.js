@@ -56,17 +56,12 @@ export default {
       ]
     },
     "Identifiers",
+    "Graph",
     {
       name: "Batch Publications",
       menu: [
         "Overview",
       ],
-    },
-    {
-      name: "Graph",
-      menu: [
-        "Overview",
-      ]
     },
     {
       name: "Announcements",

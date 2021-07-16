@@ -23,7 +23,7 @@ Each Announcement has a enumerated type for use when separating out a stream of 
 | Value | Name | Description | DSNP Announcement Id |
 |------ | ---- | ----------- | -------------------- |
 | 0 | Reserved | reserved for future use | - |
-| 1 | [GraphChange](/Announcements/Types/GraphChange) | social graph changes | no |
+| 1 | [Graph Change](/Announcements/Types/GraphChange) | social graph changes | no |
 | 2 | [Broadcast](/Announcement/Types/Broadcast) | a public post | YES |
 | 3 | [Reply](/Announcement/Types/Reply) | a public response to a Broadcast | YES |
 | 4 | [Reaction](/Announcement/Types/Reaction) | a public visual reply to a Broadcast | no |
@@ -56,10 +56,11 @@ Announcements in a Batch Publication File are then ordered by row index.
 ### Announcement Ordering and Activity Content Published Timestamp
 
 Activity Content has a published field that contains a user generated timestamp.
-That timestamp cannot be validated, but may be used to indicate ordering other than the network order for Announcements
-which are *not* time dependent.
+User generated timestamps cannot be validated,
+but may be used to indicate ordering other than the network order for Announcements which are *not* time dependent.
 
 ### Announcement Reference Ordering
 
 Some Announcements contain references to other announcements via the `inReplyTo` field.
-Due to the distributed nature, the canonical order may refer to an announcement that is ordered after the referencer.
+Due to the distributed nature, the canonical order can have an announcement that refers to another later in the order.
+For display purposes, these messages should be considered to have occurred after the reference.

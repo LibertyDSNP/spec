@@ -13,11 +13,11 @@ route: /Identifiers
 
 ## DSNP User Id
 
+- MUST be registered in the [Identity Registry](/Identity/Registry)
 - MUST be hexadecimal
 - MUST truncate any leading zeros
 - MUST NOT have a `0x` prefix
 - MUST NOT be longer than 8 bytes
-- MUST be registered in the [Identity Registry](/Identity/Registry)
 
 ## DSNP Content Hash
 
