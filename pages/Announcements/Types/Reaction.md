@@ -1,6 +1,6 @@
 ---
 name: "Type: Reaction"
-route: /Announcements/TypeReaction
+route: /Announcements/Types/Reaction
 menu: Announcements
 ---
 

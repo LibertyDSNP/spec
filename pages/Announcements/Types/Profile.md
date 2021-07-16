@@ -1,12 +1,12 @@
 ---
 name: "Type: Profile"
-route: /Announcements/TypeProfile
+route: /Announcements/Types/Profile
 menu: Announcements
 ---
 
 # Profile Announcement
 
-A Profile Announcement is a constrained version of a [Broadcast Announcement](/Announcements/TypeBroadcast).
+A Profile Announcement is a constrained version of a [Broadcast Announcement](/Announcements/Types/Broadcast).
 The reference content *MUST be of profile type*.
 
 ## Specification Status

@@ -1,6 +1,6 @@
 ---
 name: "Type: Broadcast"
-route: /Announcements/TypeBroadcast
+route: /Announcements/Types/Broadcast
 menu: Announcements
 ---
 

@@ -70,13 +70,13 @@ export default {
       ]
     },
     {
-      name: "Archivists",
+      name: "Activity Streams",
       menu: [
         "Overview",
       ]
     },
     {
-      name: "Activity Streams",
+      name: "Archivists",
       menu: [
         "Overview",
       ]

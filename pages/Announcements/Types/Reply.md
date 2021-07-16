@@ -1,12 +1,12 @@
 ---
 name: "Type: Reply"
-route: /Announcements/TypeReply
+route: /Announcements/Types/Reply
 menu: Announcements
 ---
 
 # Reply Announcement
 
-A Reply Announcement is the same as a [Broadcast Announcement](/Announcements/TypeBroadcast),
+A Reply Announcement is the same as a [Broadcast Announcement](/Announcements/Types/Broadcast),
 but includes an `inReplyTo` field for noting it as a reply to a given [DSNP Announcement Id](/Identifiers#dsnp-announcement-id).
 
 ## Specification Status

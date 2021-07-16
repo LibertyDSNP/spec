@@ -1,6 +1,6 @@
 ---
 name: "Type: Graph Change"
-route: /Announcements/TypeGraphChange
+route: /Announcements/Types/GraphChange
 menu: Announcements
 ---
 
@@ -86,7 +86,7 @@ Once those graph change events are retrieved, they can be ordered to reflect the
 (i.e. Charlie has followed Bob then unfollowed him and then followed him again. The graph state reflects that Charlie is Following Bob).
 
 To retrieve the graph, do the following:
-1. Retrieve the [`DSNPBatchPublications`](/BatchPublication/Publish) events with [announcementType](/Announcements/Types) matching the enum of `GraphChange` from the chain.
+1. Retrieve the [`DSNPBatchPublications`](/BatchPublication/Publish) events with [announcementType](/Announcements/Overview#announcement-types) matching the enum for "Graph Change" from the chain.
 1. Retrieve the batch files from each log event.
 1. Query the batch files for the data for a particular DSNP User Id to retrieve information about the respective graph.
 1. Order the retrieved data by [Announcement Ordering](/Announcements/Overview#ordering-announcements)
