@@ -37,11 +37,11 @@ Any [Announcement Types](/Announcements/Overview#announcement-types) with a `fro
 
 ### Example
 ```
-dsnp://0123456789abcdef/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
+dsnp://1234567890abcdef/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
 ```
 
 | part | value |
 | ---- |------ |
 | Scheme | `dsnp://` |
-| User Id | `0123456789abcdef` |
+| User Id | `1234567890` |
 | Content Hash | `0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef` |
