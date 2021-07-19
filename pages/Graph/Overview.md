@@ -27,7 +27,7 @@ When the term "user" is referenced below it is referring to a DSNP User Id.
 
 ## Assumptions
 - All graph messages will be of type `GraphChange`.
-- All `GraphChange` messages will be added to batch files for an announcement on block chain
+- All `GraphChange` messages will be added to a batch file for an publication on blockchain
 
 ##Terminology
 
@@ -39,11 +39,11 @@ Friendship can be thought as "mutual following" - where 2 DSNP User identities a
 
 #### Follow
 
-A "follow" is the act of publicly following a user (referenced as a (DSNP User Identity)[/Identity/Registry]) which results in adding this DSNP User Id to a user's social graph.
+A "follow" is the act of publicly following a user (referenced as a [DSNP User Identity](/Identity/Registry)) which results in adding this DSNP User Id to a user's social graph.
 
 #### Unfollow
 
-An "unfollow" is the act of publicly unfollowing a user (referenced as a (DSNP User Identity)[/Identity/Registry]) which results in the removal of this DSNP User Id from a user's social graph.
+An "unfollow" is the act of publicly unfollowing a user (referenced as a [DSNP User Identity](/Identity/Registry)) which results in the removal of this DSNP User Id from a user's social graph.
 
 ### Graph
 
@@ -59,9 +59,8 @@ Anytime a user "follows" or "unfollows" someone - a graph change [announcement](
 A graph change will contain the following information: `fromId`, `changeType`, `objectId`, `nonce`. See [Messages Overview](/Messages/Overview) for more information on these fields.
 
 ## Graph Storage
-All graph change announcements are signed and added to a [batch file](/Batches/Overview).
-Once that batch file is complete, it is [announced](/Messages/Announce) on the blockchain per the DSNP specification. 
-Each announce event specifies the type of ([dsnpType](/Messages/Announce)) messages that are in the batch file. 
+All graph change announcements are signed and added to a [Batch File](/BatchPublication/Overview).
+The Batch File is [published](/BatchPublication/Publish) on the blockchain.
 
 ## Graph Retrieval, Ordering & Reading
 A user's graph can be derived for any given point in time by retrieving the graph change events for that time period (i.e. from block 0 to block 10). 
@@ -69,10 +68,10 @@ Once those graph change events are retrieved, they can be ordered (as mentioned 
 (i.e. Charlie has followed Bob then unfollowed him and then followed him again. The graph state reflects that Charlie is Following Bob).
 
 To retrieve the graph, do the following:
-1. Retrieve the log events[dsnpType](/Messages/Types)`GraphChange` from the chain for a point in time (i.e. from a specific block number to a specific block number)
-1. Retrieve the batch file from each log event. Each log event of type [GraphChange](/Messages/Announce) has a field called `dsnpUrl` which contains a url pointing to a [batch file](/Batches/Overview).
-1. Query the batch files for the data for a particular DSNP User Id to retrieve information about the respective graph. For more on how batch file storage and how to query the batch file see - [batches overview](/Batches/Overview)
-1. Order the retrieved data based on the following  
+1. Retrieve the [`DSNPBatchPublications`](/BatchPublication/Publish) events with [announcementType](/Messages/Types) matching the enum of `GraphChange` from the chain.
+1. Retrieve the batch files from each log event.
+1. Query the batch files for the data for a particular DSNP User Id to retrieve information about the respective graph.
+1. Order the retrieved data based on the following
     1. Block Number Ascending
     1. Transaction Index Ascending
     1. Log Index Ascending

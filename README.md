@@ -29,9 +29,9 @@ Once the local server is running, a live-reloading preview of the spec can be vi
 1. Use dashes (`-`) between words in file names so that they appear in the Table of Contents correctly.  Use MDX format (`.mdx` extension) if you want to import React components in the page.
 1. When documenting an API, et, use the following table style:
 
-   | name | description | type | required?|
-   | ---|---|---|---|
-   | dsnpHash | a description of dsnpHash | bytes | YES |
+   | Name | Description | Type | Required? |
+   | --- | --- | --- | --- |
+   | `fileHash` | a description of `fileHash` | bytes | YES |
 1. Sort definitions and descriptions alphabetically
 1. Put images into the `images` folder and link to them using their URL in the GitHub repo.
 

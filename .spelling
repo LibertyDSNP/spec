@@ -34,12 +34,10 @@ dequeued
 Docz
 DSNP
 DSNPArchives
-DSNPBatch
+DSNPBatchPublication
 dsnpData
-dsnpHash
 dsnpUserId
-dsnpType
-dsnpUrl
+announcementType
 DSNPMessages
 ecrecover
 EIP
@@ -59,7 +57,7 @@ GraphChange
 HBASE
 https
 i.e.
-IAnnounce
+IPublish
 IBeacon
 ICANN
 Id
