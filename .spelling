@@ -112,6 +112,7 @@ bytes32
 bytes8
 changeType
 contentHash
+createdAt
 deadDropID
 dequeued
 deserialized
@@ -151,6 +152,7 @@ secp256k1
 semver
 socialaddress
 specsspec
+stringified
 stringify
 subreddit
 testnet

@@ -18,11 +18,12 @@ A Broadcast Announcement is a way to send a public message to everyone.
 
 | Field | Description | Serialization | Parquet Type | Bloom Filter |
 | ----- | ----------- | ------------- | ------------ | ------------ |
-| announcementType | Announcement Type Enum (`2`) | hexadecimal | `INT32` | no |
-| contentHash | keccak-256 hash of content stored at URL | hexadecimal | `BYTE_ARRAY` | YES
-| fromId | id of the user creating the announcement | hexadecimal | `BYTE_ARRAY` | YES
-| url | content URL | UTF-8 string | `BYTE_ARRAY` | no
-| signature | creator signature | hexadecimal | `BYTE_ARRAY` | no
+| announcementType | Announcement Type Enum (`2`) | [hexadecimal](/Announcements/Overview#hexadecimal) | `INT32` | no |
+| contentHash | keccak-256 hash of content stored at URL | [hexadecimal](/Announcements/Overview#hexadecimal) | `BYTE_ARRAY` | YES
+| createdAt | microseconds since Unix epoch | [ISO8601](https://www.iso.org/iso-8601-date-and-time-format.html) | `INT64` | no
+| fromId | id of the user creating the announcement | [hexadecimal](/Announcements/Overview#hexadecimal) | `BYTE_ARRAY` | YES
+| url | content URL | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `BYTE_ARRAY` | no
+| signature | creator signature | [hexadecimal](/Announcements/Overview#hexadecimal) | `BYTE_ARRAY` | no
 
 ## Field Requirements
 
@@ -34,6 +35,10 @@ A Broadcast Announcement is a way to send a public message to everyone.
 
 - MUST be 32 bytes in length
 - MUST be the [keccak-256 hash](https://keccak.team/files/Keccak-submission-3.pdf) of the bytes of the reference at the url.
+
+### createdAt
+
+- MUST be set to the microseconds since Unix epoch at time of signing
 
 ### fromId
 

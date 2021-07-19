@@ -19,12 +19,12 @@ A Graph Change Announcement is for publishing relationship state changes for a u
 
 | Field | Description | Serialization | Parquet Type | Bloom Filter |
 | ----- | ----------- | ------------- | ------------ | ------------ |
-| announcementType | Announcement Type Enum (`1`) | hexadecimal | `INT32` | no |
-| changeType | Type of relationship change | hexadecimal | `INT32` | no
-| fromId | id of the user creating the relationship | hexadecimal | `BYTE_ARRAY` | YES
-| nonce | microseconds since Unix epoch | `INT64` | no
-| objectId | id of the target of the relationship | hexadecimal | `BYTE_ARRAY` | YES
-| signature | creator signature | hexadecimal | `BYTE_ARRAY` | no
+| announcementType | Announcement Type Enum (`1`) | [hexadecimal](/Announcements/Overview#hexadecimal) | `INT32` | no |
+| changeType | Type of relationship change | [hexadecimal](/Announcements/Overview#hexadecimal) | `INT32` | no
+| createdAt | microseconds since Unix epoch | [ISO8601](https://www.iso.org/iso-8601-date-and-time-format.html) | `INT64` | no
+| fromId | id of the user creating the relationship | [hexadecimal](/Announcements/Overview#hexadecimal) | `BYTE_ARRAY` | YES
+| objectId | id of the target of the relationship | [hexadecimal](/Announcements/Overview#hexadecimal) | `BYTE_ARRAY` | YES
+| signature | creator signature | [hexadecimal](/Announcements/Overview#hexadecimal) | `BYTE_ARRAY` | no
 
 ## Field Requirements
 
@@ -45,15 +45,15 @@ Different change types have different meanings
 | 0 | Unfollow | Remove a Follow relationship |
 | 1 | Follow | Create a Follow relationship |
 
+### createdAt
+
+- MUST be set to the microseconds since Unix epoch at time of signing
+- MUST be unique for the given `fromId` and `objectId` pair
+
 ### fromId
 
 - MUST be a [DSNP User Id](/Identifiers#dsnp-user-id)
 - MUST be the [signer](/Announcements/Signatures) of the announcement
-
-### Nonce
-
-- MUST be unique for the given `fromId` and `objectId` pair
-- SHOULD be set to the microseconds since Unix epoch to achieve uncoordinated uniqueness across devices
 
 ### objectId
 
@@ -69,8 +69,8 @@ Different change types have different meanings
 
 Clients must ignore any Graph Change event that comes after another event with the same signature.
 This avoids [Replay attacks](https://en.wikipedia.org/wiki/Replay_attack)
-Each graph change event has a `nonce` that allows for differing signatures.
-The `nonce` is set to the timestamp is represented as microseconds since Unix epoch.
+Each graph change event has a `createAt` that allows for differing signatures.
+The `createAt` is set to the timestamp is represented as microseconds since Unix epoch.
 
 For example:
 1. Bob "follows" Charlie and then "unfollows" him then "follows" him again.

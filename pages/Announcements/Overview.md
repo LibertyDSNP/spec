@@ -29,6 +29,18 @@ Each Announcement has a enumerated type for use when separating out a stream of 
 | 4 | [Reaction](/Announcement/Types/Reaction) | a public visual reply to a Broadcast | no |
 | 5 | [Profile](/Announcement/Types/Profile) | a profile | YES |
 
+## Value Serialization
+
+Serialization is how the value should be stringified for signing and for transfer between systems.
+Most serializations use outside standards, but some require additional clarifications, provided here.
+
+### hexadecimal
+
+- MUST use 0-9,a-f representation
+- MUST be lowercase
+- MUST NOT be prefixed
+- MUST NOT have spaces
+
 ## Duplicate Handling
 
 Duplicate Announcements may occur.
