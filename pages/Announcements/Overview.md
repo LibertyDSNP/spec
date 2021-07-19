@@ -24,10 +24,10 @@ Each Announcement has a enumerated type for use when separating out a stream of 
 |------ | ---- | ----------- | -------------------- |
 | 0 | Reserved | reserved for future use | - |
 | 1 | [Graph Change](/Announcements/Types/GraphChange) | social graph changes | no |
-| 2 | [Broadcast](/Announcement/Types/Broadcast) | a public post | YES |
-| 3 | [Reply](/Announcement/Types/Reply) | a public response to a Broadcast | YES |
-| 4 | [Reaction](/Announcement/Types/Reaction) | a public visual reply to a Broadcast | no |
-| 5 | [Profile](/Announcement/Types/Profile) | a profile | YES |
+| 2 | [Broadcast](/Announcements/Types/Broadcast) | a public post | YES |
+| 3 | [Reply](/Announcements/Types/Reply) | a public response to a Broadcast | YES |
+| 4 | [Reaction](/Announcements/Types/Reaction) | a public visual reply to a Broadcast | no |
+| 5 | [Profile](/Announcements/Types/Profile) | a profile | YES |
 
 ## Value Serialization
 
@@ -45,7 +45,7 @@ Most serializations use outside standards, but some require additional clarifica
 
 Duplicate Announcements may occur.
 Duplicates may be identified as any Announcements that match a previous Announcement's `signature` field
-(per the [Announcement Order](/Announcements/Overview#ordering)).
+(per the [Announcement Order](#ordering-announcements)).
 Duplicate Announcements MUST be rejected or ignored.
 
 ## Ordering Announcements
