@@ -1,7 +1,7 @@
 ---
 name: Overview
-route: /ActivityStreams/Overview
-menu: Activity Streams
+route: /ActivityContent/Overview
+menu: Activity Content
 ---
 
 # Activity Streams Overview
