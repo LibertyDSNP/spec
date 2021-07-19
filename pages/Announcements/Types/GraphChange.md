@@ -21,7 +21,7 @@ A Graph Change Announcement is for publishing relationship state changes for a u
 | ----- | ----------- | ------------- | ------------ | ------------ |
 | announcementType | Announcement Type Enum (`1`) | [hexadecimal](/Announcements/Overview#hexadecimal) | `INT32` | no |
 | changeType | Type of relationship change | [hexadecimal](/Announcements/Overview#hexadecimal) | `INT32` | no
-| createdAt | microseconds since Unix epoch | [ISO8601](https://www.iso.org/iso-8601-date-and-time-format.html) | `INT64` | no
+| createdAt | microseconds since Unix epoch | [hexadecimal](/Announcements/Overview#hexadecimal) | `INT64` | no
 | fromId | id of the user creating the relationship | [hexadecimal](/Announcements/Overview#hexadecimal) | `BYTE_ARRAY` | YES
 | objectId | id of the target of the relationship | [hexadecimal](/Announcements/Overview#hexadecimal) | `BYTE_ARRAY` | YES
 | signature | creator signature | [hexadecimal](/Announcements/Overview#hexadecimal) | `BYTE_ARRAY` | no

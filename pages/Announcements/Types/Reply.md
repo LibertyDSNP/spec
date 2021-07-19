@@ -21,7 +21,7 @@ but includes an `inReplyTo` field for noting it as a reply to a given [DSNP Anno
 | ----- | ----------- | ------------- | ------------ | ------------ |
 | announcementType | Announcement Type Enum (`3`) | [hexadecimal](/Announcements/Overview#hexadecimal) | `INT32` | no |
 | contentHash | keccak-256 hash of content stored at URL | [hexadecimal](/Announcements/Overview#hexadecimal) | `BYTE_ARRAY` | YES
-| createdAt | microseconds since Unix epoch | [ISO8601](https://www.iso.org/iso-8601-date-and-time-format.html) | `INT64` | no
+| createdAt | microseconds since Unix epoch | [hexadecimal](/Announcements/Overview#hexadecimal) | `INT64` | no
 | fromId | id of the user creating the announcement | [hexadecimal](/Announcements/Overview#hexadecimal) | `BYTE_ARRAY` | YES
 | inReplyTo | Target [DSNP Announcement Id](/Identifiers#dsnp-announcement-id) | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `BYTE_ARRAY` | YES
 | url | content URL | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `BYTE_ARRAY` | no

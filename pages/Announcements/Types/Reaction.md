@@ -21,7 +21,7 @@ A Reaction Announcement is for publishing emoji reactions to anything with a [DS
 | Field | Description | Serialization | Parquet Type | Bloom Filter |
 | ----- | ----------- | ------------- | ------------ | ------------ |
 | announcementType | Announcement Type Enum (`4`) | [hexadecimal](/Announcements/Overview#hexadecimal) | `INT32` | no |
-| createdAt | microseconds since Unix epoch | [ISO8601](https://www.iso.org/iso-8601-date-and-time-format.html) | `INT64` | no
+| createdAt | microseconds since Unix epoch | [hexadecimal](/Announcements/Overview#hexadecimal) | `INT64` | no
 | emoji | the encoded reaction | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `BYTE_ARRAY` | YES
 | fromId | id of the user creating the relationship | [hexadecimal](/Announcements/Overview#hexadecimal) | `BYTE_ARRAY` | YES
 | inReplyTo | Target [DSNP Announcement Id](/Identifiers#dsnp-announcement-id) | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `BYTE_ARRAY` | YES
