@@ -38,7 +38,7 @@ Most serializations use outside standards, but some require additional clarifica
 
 - MUST use 0-9,a-f representation
 - MUST be lowercase
-- MUST NOT be prefixed
+- MUST be prefixed with a `0x`
 - MUST NOT have spaces
 
 ## Duplicate Handling
