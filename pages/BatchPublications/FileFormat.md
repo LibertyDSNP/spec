@@ -16,7 +16,7 @@ Batch files are stored and transferred in Apache Parquet format.
 
 ## Requirements
 
-- Batch File MUST match the spec for a single [Announcement Type](/Messages/Overview).
+- Batch File MUST match the spec for a single [Announcement Type](/Announcements/Overview).
 - Batch File MUST have Bloom filters set in accordance to the Announcement Type Spec.
 - Batch File MUST have NO MORE THAN 128*1024 rows
 
@@ -29,7 +29,7 @@ Calculation for filter bits is different and nearly a factor of 10 lower than fo
 128*1024 rows with a 0.001 false positive rate results in around 29,000 bits for a Split Block Bloom filter.
 
 Bloom filters are ONLY added to some fields.
-See also [Announcement Types](/Messages/Overview).
+See also [Announcement Types](/Announcements/Overview).
 
 ### Columns with Bloom Filters
 

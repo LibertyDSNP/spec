@@ -55,6 +55,8 @@ export default {
         "Overview",
       ]
     },
+    "Identifiers",
+    "Graph",
     {
       name: "Batch Publications",
       menu: [
@@ -62,25 +64,19 @@ export default {
       ],
     },
     {
-      name: "Graph",
-      menu: [
-        "Overview",
-      ]
-    },
-    {
-      name: "Messages",
-      menu: [
-        "Overview",
-      ]
-    },
-    {
-      name: "Archivists",
+      name: "Announcements",
       menu: [
         "Overview",
       ]
     },
     {
       name: "Activity Streams",
+      menu: [
+        "Overview",
+      ]
+    },
+    {
+      name: "Archivists",
       menu: [
         "Overview",
       ]
