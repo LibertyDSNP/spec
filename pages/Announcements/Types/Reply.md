@@ -9,12 +9,6 @@ menu: Announcements
 A Reply Announcement is the same as a [Broadcast Announcement](/Announcements/Types/Broadcast),
 but includes an `inReplyTo` field for noting it as a reply to a given [DSNP Announcement URI](/Identifiers#dsnp-announcement-uri).
 
-## Specification Status
-
-| Version | Status   |
-| ------  | -------- |
-| 1.0     | Proposed |
-
 ## Fields
 
 | Field | Description | Serialization | Parquet Type | Bloom Filter |

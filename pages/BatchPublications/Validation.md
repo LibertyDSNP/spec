@@ -6,12 +6,6 @@ route: /BatchPublications/Validation
 
 # Batch Publication Validation
 
-## Specification Status
-
-| Version | Status   |
-| ------  | -------- |
-| 1.0     | Proposed |
-
 ## Publication Hash Validation
 
 1. Hash the batch publication file using using [keccak-256](https://keccak.team/files/Keccak-submission-3.pdf).

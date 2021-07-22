@@ -8,12 +8,6 @@ menu: Announcements
 
 A Broadcast Announcement is a way to send a public message to everyone.
 
-## Specification Status
-
-| Version | Status   |
-| ------  | -------- |
-| 1.0     | Proposed |
-
 ## Fields
 
 | Field | Description | Serialization | Parquet Type | Bloom Filter |

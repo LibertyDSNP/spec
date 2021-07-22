@@ -9,12 +9,6 @@ menu: Announcements
 A Profile Announcement is a constrained version of a [Broadcast Announcement](/Announcements/Types/Broadcast).
 The reference content *MUST be of profile type*.
 
-## Specification Status
-
-| Version | Status   |
-| ------  | -------- |
-| 1.0     | Proposed |
-
 ## Fields
 
 | Field | Description | Serialization | Parquet Type | Bloom Filter |

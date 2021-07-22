@@ -6,14 +6,6 @@ menu: Announcements
 
 # Reaction Announcement
 
-## Specification Status
-
-| Version | Status   |
-| ------  | -------- |
-| 1.0     | Proposed |
-
-## Details
-
 A Reaction Announcement is for publishing emoji reactions to anything with a [DSNP Announcement URI](/Identifiers#dsnp-announcement-uri).
 
 ## Fields

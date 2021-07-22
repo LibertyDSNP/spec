@@ -5,12 +5,6 @@ route: /Identifiers
 
 # DSNP Identifiers
 
-## Specification Status
-
-| Version | Status   |
-| ------  | -------- |
-| 1.0     | Proposed |
-
 ## DSNP User Id
 
 - MUST be registered in the [Identity Registry](/Identity/Registry)

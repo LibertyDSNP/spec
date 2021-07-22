@@ -11,12 +11,6 @@ In this context a [social graph](https://en.wikipedia.org/wiki/Social_graph) mea
 
 The DSNP graph represents nodes as [DSNP User Ids](/Identifiers#dsnp-user-id).
 
-## Specification Status
-
-| Version | Status   |
-| ------  | -------- |
-| 0.2     | Draft    |
-
 ## Public Graph
 
 The public graph is anchored in state transitions recorded in [Graph Change Announcements](/Announcements/Types/GraphChange).

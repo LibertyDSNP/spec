@@ -7,14 +7,7 @@ route: /BatchPublications/Publishing
 # Publishing Batch Publications
 
 Publishing a Batch Publication is how to communicate new Announcements to the network.
-Publishing is accomplished via an Ethereum Log Event
-
-## Specification Status
-
-| Version | Status   |
-| ------  | -------- |
-| 1.0     | Proposed |
-
+Publishing is accomplished via an Ethereum Log Event.
 
 ## Ethereum Log Event
 

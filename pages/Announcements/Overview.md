@@ -10,12 +10,6 @@ Announcements are content or reference to content that are included in [Batch Pu
 to communicate new user activity to the rest of the network.
 All Announcements have a [signature](/Announcements/Signatures) to validate the creators authority to publish content.
 
-## Specification Status
-
-| Version | Status   |
-| ------  | -------- |
-| 1.0     | Proposed |
-
 ## Announcement Types
 
 Each Announcement has a enumerated type for use when separating out a stream of Announcements.
