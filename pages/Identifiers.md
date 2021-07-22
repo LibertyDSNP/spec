@@ -30,6 +30,21 @@ route: /Identifiers
 
 - MUST always be the string `dsnp://`
 
+## DSNP User URI
+
+DSNP User URI consists of two parts, the scheme and the user id.
+It is used to identify a user via a URI.
+
+### Example
+```
+dsnp://0x1234567890abcdef
+```
+
+| part | value |
+| ---- | ----- |
+| Scheme | `dsnp://` |
+| User Id | `0x1234567890abcdef` |
+
 ## DSNP Announcement URI
 
 DSNP Announcement URI consists of three parts, the scheme, the user id, and the content hash.
