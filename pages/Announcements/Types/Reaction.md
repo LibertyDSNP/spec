@@ -14,7 +14,7 @@ menu: Announcements
 
 ## Details
 
-A Reaction Announcement is for publishing emoji reactions to anything with a [DSNP Announcement Id](/Identifiers#dsnp-announcement-id).
+A Reaction Announcement is for publishing emoji reactions to anything with a [DSNP Announcement URI](/Identifiers#dsnp-announcement-uri).
 
 ## Fields
 
@@ -24,7 +24,7 @@ A Reaction Announcement is for publishing emoji reactions to anything with a [DS
 | createdAt | microseconds since Unix epoch | [hexadecimal](/Announcements/Overview#hexadecimal) | `INT64` | no
 | emoji | the encoded reaction | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `BYTE_ARRAY` | YES
 | fromId | id of the user creating the relationship | [hexadecimal](/Announcements/Overview#hexadecimal) | `BYTE_ARRAY` | YES
-| inReplyTo | Target [DSNP Announcement Id](/Identifiers#dsnp-announcement-id) | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `BYTE_ARRAY` | YES
+| inReplyTo | Target [DSNP Announcement URI](/Identifiers#dsnp-announcement-uri) | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `BYTE_ARRAY` | YES
 | signature | creator signature | [hexadecimal](/Announcements/Overview#hexadecimal) | `BYTE_ARRAY` | no
 
 ## Field Requirements
@@ -63,7 +63,7 @@ None of the following should be considered valid:
 
 ### inReplyTo
 
-- MUST be a [DSNP Announcement Id](/Identifiers#dsnp-announcement-id)
+- MUST be a [DSNP Announcement URI](/Identifiers#dsnp-announcement-uri)
 
 ### signature
 

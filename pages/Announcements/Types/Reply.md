@@ -7,7 +7,7 @@ menu: Announcements
 # Reply Announcement
 
 A Reply Announcement is the same as a [Broadcast Announcement](/Announcements/Types/Broadcast),
-but includes an `inReplyTo` field for noting it as a reply to a given [DSNP Announcement Id](/Identifiers#dsnp-announcement-id).
+but includes an `inReplyTo` field for noting it as a reply to a given [DSNP Announcement URI](/Identifiers#dsnp-announcement-uri).
 
 ## Specification Status
 
@@ -23,7 +23,7 @@ but includes an `inReplyTo` field for noting it as a reply to a given [DSNP Anno
 | contentHash | keccak-256 hash of content stored at URL | [hexadecimal](/Announcements/Overview#hexadecimal) | `BYTE_ARRAY` | YES
 | createdAt | microseconds since Unix epoch | [hexadecimal](/Announcements/Overview#hexadecimal) | `INT64` | no
 | fromId | id of the user creating the announcement | [hexadecimal](/Announcements/Overview#hexadecimal) | `BYTE_ARRAY` | YES
-| inReplyTo | Target [DSNP Announcement Id](/Identifiers#dsnp-announcement-id) | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `BYTE_ARRAY` | YES
+| inReplyTo | Target [DSNP Announcement URI](/Identifiers#dsnp-announcement-uri) | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `BYTE_ARRAY` | YES
 | url | content URL | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `BYTE_ARRAY` | no
 | signature | creator signature | [hexadecimal](/Announcements/Overview#hexadecimal) | `BYTE_ARRAY` | no
 
@@ -49,7 +49,7 @@ but includes an `inReplyTo` field for noting it as a reply to a given [DSNP Anno
 
 ### inReplyTo
 
-- MUST be a [DSNP Announcement Id](/Identifiers#dsnp-announcement-id)
+- MUST be a [DSNP Announcement URI](/Identifiers#dsnp-announcement-uri)
 
 ### url
 

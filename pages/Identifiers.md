@@ -30,11 +30,27 @@ route: /Identifiers
 
 - MUST always be the string `dsnp://`
 
-## DSNP Announcement Id
+## DSNP User URI
 
-DSNP Announcement Id consists of three parts, the scheme, the user id, and the content hash.
+DSNP User URI consists of two parts, the scheme and the user id.
+It is used to identify a user via a URI.
 
-Any [Announcement Types](/Announcements/Overview#announcement-types) with a `fromId` and `contentHash` have a DSNP Announcement Id.
+### Example
+```
+dsnp://0x1234567890abcdef
+```
+
+| part | value |
+| ---- | ----- |
+| Scheme | `dsnp://` |
+| User Id | `0x1234567890abcdef` |
+
+## DSNP Announcement URI
+
+DSNP Announcement URI consists of three parts, the scheme, the user id, and the content hash.
+It is used to uniquely identify an announcements from a given user with content.
+
+Any [Announcement Types](/Announcements/Overview#announcement-types) with a `fromId` and `contentHash` have a DSNP Announcement URI.
 
 ### Example
 ```
@@ -42,7 +58,7 @@ dsnp://0x1234567890abcdef/0x0123456789abcdef0123456789abcdef0123456789abcdef0123
 ```
 
 | part | value |
-| ---- |------ |
+| ---- | ----- |
 | Scheme | `dsnp://` |
 | User Id | `0x1234567890` |
 | Content Hash | `0x0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef` |

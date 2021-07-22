@@ -20,7 +20,7 @@ All Announcements have a [signature](/Announcements/Signatures) to validate the 
 
 Each Announcement has a enumerated type for use when separating out a stream of Announcements.
 
-| Value | Name | Description | DSNP Announcement Id |
+| Value | Name | Description | DSNP Announcement URI |
 |------ | ---- | ----------- | -------------------- |
 | 0 | Reserved | reserved for future use | - |
 | 1 | [Graph Change](/Announcements/Types/GraphChange) | social graph changes | no |
