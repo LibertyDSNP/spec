@@ -1,12 +1,12 @@
 ---
-name: Property: Tag
+name: "Associated: Tag"
 route: /ActivityContent/Associated/Tag
 menu: Activity Content
 ---
 
 # Associated Type: Tag
 
-[Acitivty Vocabulary: tag](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-tag)
+[Activity Vocabulary: tag](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-tag)
 
 ## Hashtag
 

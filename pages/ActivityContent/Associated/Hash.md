@@ -1,5 +1,5 @@
 ---
-name: Associated Type: Hash
+name: "Associated Type: Hash"
 route: /ActivityContent/Associated/Hash
 menu: Activity Content
 ---
@@ -10,7 +10,7 @@ menu: Activity Content
 
 Activity objects linking to external content such as audio, image or video files must include a `"hash"` field for users to validate linked content.
 The value of this `"hash"` field must be a array of objects representing multiple hashes.
-AT LEAST ONE hash in the array MUST be one of the [supported hashes](/Announcement/Properties#supported-hashes) although others may also be used.
+AT LEAST ONE hash in the array MUST be one of the [supported algorithms](#supported-algorithms) although others may also be used.
 
 | Property | Required | Description | Restrictions |
 | --- | --- | --- | --- |

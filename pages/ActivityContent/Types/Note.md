@@ -1,5 +1,5 @@
 ---
-name: Type: Note
+name: "Type: Note"
 route: /ActivityContent/Types/Note
 menu: Activity Content
 ---
@@ -13,7 +13,7 @@ menu: Activity Content
 | `@context` | [Activity Streams 2.0](https://www.w3.org/TR/activitystreams-core/#jsonld) | YES | JSON-LD @context | MUST be set to `https://www.w3.org/ns/activitystreams` |
 | `type` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-type) | YES | Identifies the type of the object | MUST be set to `Note` |
 | `content` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-content) | YES | Text content of the note |  |
-| `mediaType` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-mediatype) | YES | MIME type for the `content` field | MUST be set to a [supported MIME type](/ActivityContent/Types/Note#supported-content-mime-types) |
+| `mediaType` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-mediatype) | YES | MIME type for the `content` field | MUST be set to a [supported MIME type](#supported-content-mime-types) |
 | `name` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-name) | no | The display name for the note |  |
 | `published` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-published) | no | The time of publishing | MUST be [ISO8601](https://www.iso.org/iso-8601-date-and-time-format.html) |
 | `attachement` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-attachement) | no | Array of attached links or media | MUST be one of the [Supported Attachments](/ActivityContent/Attachments) |

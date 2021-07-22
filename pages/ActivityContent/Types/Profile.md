@@ -1,5 +1,5 @@
 ---
-name: Type: Profile
+name: "Type: Profile"
 route: /ActivityContent/Types/Profile
 menu: Activity Content
 ---

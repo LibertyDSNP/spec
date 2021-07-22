@@ -12,7 +12,7 @@ For the purposes of the DSNP, restrictions are placed on the [Activity Streams 2
 ## JSON-LD and Activity Streams
 
 All DSNP Activity Content is compatible with the [Activity Streams 2.0](https://www.w3.org/TR/activitystreams-core/) specification.
-While there are [Extended Properties](/ActivityContent/ExtendedProperties), those are guaranteed to be non-colliding terms.
+While there are some DSNP extensions, they are guaranteed to use non-colliding terms.
 Therefore, we set the JSON-LD `@context` field to `https://www.w3.org/ns/activitystreams` according to [Activity Streams 2.0 §2.1](https://www.w3.org/TR/activitystreams-core/#jsonld).
 
 ## Core Activity Content Types
@@ -21,8 +21,8 @@ DSNP uses only the following content types at the root level.
 
 | Name | Description | DSNP Announcements |
 | ---- | ----------- | -------------------- |
-[Note](/ActivityContent/Types/Note) | standard user content | [Broadcast](/Announcement/Types/Broadcast), [Reply](/Announcement/Types/Reply) |
-[Profile](/ActivityContent/Types/Profile) | user profile content | [Profile](/Announcement/Types/Profile) |
+[Note](/ActivityContent/Types/Note) | standard user content | [Broadcast](/Announcements/Types/Broadcast), [Reply](/Announcements/Types/Reply) |
+[Profile](/ActivityContent/Types/Profile) | user profile content | [Profile](/Announcements/Types/Profile) |
 
 ## Associated Types
 

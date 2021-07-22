@@ -1,11 +1,10 @@
-
 # Format - lines beginning # are comments
 # global dictionary is at the start, file overrides afterwards
 # markdown-spellcheck spelling configuration file
 # one word per line, to define a file override use ' - filename'
 # where filename is relative to this configuration file
 0.8.x.
-ActivityStreams
+ActivityContent
 Alexa
 ArchiveEntries
 BBCode
@@ -43,8 +42,10 @@ IIdentification
 IPublish
 ISO8601
 Id
+JPG
 JSON
 JTC-1
+Keccak
 KeyList
 Lookups
 MDX
@@ -71,6 +72,7 @@ Q2
 Q3
 Q4
 RFC2045
+RFC2616
 RFC2818
 RFC3003
 RFC3986
@@ -119,6 +121,7 @@ dequeued
 deserialized
 dsnpData
 dsnpUserId
+e.g.
 ecrecover
 enum
 eth2
@@ -168,6 +171,7 @@ unfollowing
 unfollows
 unicode
 url
+v3
 validator
 versioning
 x19Ethereum

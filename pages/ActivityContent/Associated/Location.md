@@ -1,12 +1,12 @@
 ---
-name: Associated: Location
+name: "Associated: Location"
 route: /ActivityContent/Associated/Location
 menu: Activity Content
 ---
 
 # Associated Type: Location
 
-[Acitivty Vocabulary: location](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-location)
+[Activity Vocabulary: location](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-location)
 
 | Property | Base Spec | Required | Description | Restrictions |
 | --- | --- | --- | --- | --- |
