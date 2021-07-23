@@ -35,14 +35,15 @@
         "remark-cli": "^9.0.0",
         "remark-lint": "^8.0.0",
         "remark-preset-lint-recommended": "^5.0.0",
-        "remark-validate-links": "^10.0.4"
+        "remark-validate-links": "github:wilwade/remark-validate-links#1bff9010315712ac9c7a03b86a8d33f9930f595e"
     },
     "remarkConfig": {
         "plugins": [
             "remark-preset-lint-recommended",
             [
-                "validate-links",
+                "remark-validate-links",
                 {
+                    "basePath": "pages",
                     "repository": "/"
                 }
             ],
