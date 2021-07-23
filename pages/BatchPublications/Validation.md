@@ -20,6 +20,6 @@ route: /BatchPublications/Validation
 
 ## Announcement Schema & Type Validation
 
-- Every batch file MUST contain only one type of [Announcement](/Announcements/Overview#dsnp-announcement-formats).
+- Every batch file MUST contain only one type of [Announcement](/Announcements/Overview#announcement-types).
 - Batch file columns MUST match the Announcement Type Columns.
 - Column order is NOT guaranteed
