@@ -37,4 +37,4 @@ See [Batch File Format](/BatchPublications/FileFormat) for additional details an
 ## Publishing
 
 Batch Publications are communicated to the network via an Ethereum Log Event: `DSNPBatchPublication`.
-See [Publishing](/BatchPublications/Publish) for details and requirements.
+See [Publishing](/BatchPublications/Publishing) for details and requirements.
