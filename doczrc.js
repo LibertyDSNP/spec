@@ -47,7 +47,6 @@ export default {
   },
   menu: [
     "Introduction",
-    "Implementation Status",
     "Networks",
     {
       name: "Identity",
