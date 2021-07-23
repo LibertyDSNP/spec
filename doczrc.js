@@ -70,7 +70,7 @@ export default {
       ]
     },
     {
-      name: "Activity Streams",
+      name: "Activity Content",
       menu: [
         "Overview",
       ]
