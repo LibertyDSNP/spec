@@ -86,9 +86,7 @@ export default {
         "Glossary"
       ]
     },
-    {
-      name: "Future Proposals", route: 'https://github.com/LibertyDSNP/spec/issues?q=label%3Aenhancement'
-    },
+    "Draft Specifications",
     {
       name: '↩ Developer Portal', route: 'https://www.dsnp.org/developer-portal/'
     }
