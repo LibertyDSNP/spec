@@ -24,7 +24,7 @@ menu: Activity Content
 | `type` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-type) | YES | Identifies the type of the object | MUST be set to `Link` |
 | `href` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-href) | YES | The URL for the given audio content | MUST be a [Supported URL Schema](/ActivityContent/Overview#supported-url-schema) |
 | `mediaType` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-mediatype) | YES | MIME type of `href` content | MUST follow  |
-| `hash` | [DSNP 1.0](Hash) | no | Array of hashes for linked content validation | MUST include at least one [supported hash](/ActivityContentHash#supported-algorithms) |
+| `hash` | [DSNP 1.0](Hash) | YES | Array of hashes for linked content validation | MUST include at least one [supported hash](/ActivityContentHash#supported-algorithms) |
 
 ### Supported Audio MIME Types
 
@@ -69,8 +69,8 @@ menu: Activity Content
 | Property | Base Spec | Required | Description | Restrictions |
 | --- | --- | --- | --- | --- |
 | `type` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-type) | YES | Identifies the type of the object | MUST be set to `Image` |
+| `url` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-url) | YES | An array of links for given image content in different formats | MUST be an [Image Link](#image-link) AND MUST have at least one [supported image MIME type](#supported-image-mime-types) |
 | `name` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-name) | no | The display name or alt text for the image  |  |
-| `url` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-url) | no | An array of links for given image content in different formats | MUST be an [Image Link](#image-link) AND MUST have at least one [supported image MIME type](#supported-image-mime-types) |
 
 
 ### Image Link
@@ -80,9 +80,9 @@ menu: Activity Content
 | `type` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-type) | YES | Identifies the type of the object | MUST be set to `Link` |
 | `href` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-href) | YES | The URL for the given image | MUST be a [Supported URL Schema](/ActivityContent/Overview#supported-url-schema) |
 | `mediaType` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-mediatype) | YES | MIME type of `href` content | |
+| `hash` | [DSNP 1.0](Hash) | YES | Array of hashes for linked content validation | MUST include at least one [supported hash](Hash#supported-algorithms) |
 | `height` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-height) | no | A hint as to the rendering height in device-independent pixels |  |
 | `width` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-height) | no | A hint as to the rendering width in device-independent pixels |  |
-| `hash` | [DSNP 1.0](Hash) | no | Array of hashes for linked content validation | MUST include at least one [supported hash](Hash#supported-algorithms) |
 
 Audio objects must include a `"hash"` field as described in the [content proofs section](#content-proofs) below.
 
@@ -133,8 +133,8 @@ Audio objects must include a `"hash"` field as described in the [content proofs 
 | Property | Base Spec | Required | Description | Restrictions |
 | --- | --- | --- | --- | --- |
 | `type` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-type) | YES | Identifies the type of the object | MUST be set to `Video` |
+| `url` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-url) | YES | An array of links for given video content in different formats | MUST be a [Video Link](#video-link) AND MUST have at least one [supported video MIME type](#supported-video-mime-types) |
 | `name` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-name) | no | The display name for the video  |  |
-| `url` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-url) | no | An array of links for given video content in different formats | MUST be a [Video Link](#video-link) AND MUST have at least one [supported video MIME type](#supported-video-mime-types) |
 | `duration` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-duration) | no | Approximate [duration](https://www.w3.org/TR/xmlschema11-2/#duration) of the video |  |
 
 
@@ -145,9 +145,9 @@ Audio objects must include a `"hash"` field as described in the [content proofs 
 | `type` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-type) | YES | Identifies the type of the object | MUST be set to `Link` |
 | `href` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-href) | YES | The URL for the given content | MUST be a [Supported URL Schema](/ActivityContent/Overview#supported-url-schema) |
 | `mediaType` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-mediatype) | YES | MIME type of `href` content | |
+| `hash` | [DSNP 1.0](Hash) | YES | Array of hashes for linked content validation | MUST include at least one [supported hash](Hash#supported-algorithms)  |
 | `height` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-height) | no | A hint as to the rendering height in device-independent pixels |  |
 | `width` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-height) | no | A hint as to the rendering width in device-independent pixels |  |
-| `hash` | [DSNP 1.0](Hash) | no | Array of hashes for linked content validation | MUST include at least one [supported hash](Hash#supported-algorithms)  |
 
 Audio objects must include a `"hash"` field as described in the [content proofs section](#content-proofs) below.
 
