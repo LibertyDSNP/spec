@@ -11,7 +11,7 @@ menu: Activity Content
 | Property | Base Spec | Required | Description | Restrictions |
 | --- | --- | --- | --- | --- |
 | `type` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-type) | YES | Identifies the type of the object | MUST be set to `Place` |
-| `name` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-name) | no | The display name for the location  |  |
+| `name` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-name) | YES | The display name for the location  |  |
 | `accuracy` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-accuracy) | no | The accuracy of the coordinates as a percentage. (e.g. "94.0" means "94.0% accurate") |  |
 | `altitude` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-altitude) | no | The altitude of the location |  |
 | `latitude` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-latitude) | no | The latitude of the location |  |
