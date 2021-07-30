@@ -171,13 +171,13 @@ Audio objects must include a `"hash"` field as described in the [content proofs 
     {
       "type": "Video",
       "name": "One of the founders of DSNP",
+      "duration": "PT10M32S",
       "url": [
         {
           "type": "Link",
           "href": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Big_Buck_Bunny_4K.webm",
           "width": 4000,
           "height": 2250,
-          "duration": "PT10M32S",
           "mediaType": "video/webm",
           "hash": {
             "algorithm": "keccak256",
