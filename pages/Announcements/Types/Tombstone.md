@@ -6,8 +6,7 @@ menu: Announcements
 
 # Tombstone Announcement
 
-A Tombstone Announcement is a way to note that a previous announcement signature is invalid
-and the related Announcement should be considered reverted.
+A Tombstone Announcement is a way to note that a previous announcement signature is invalid and the related Announcement should be considered reverted.
 It is NOT possible to revert a tombstone.
 
 ## Specification Status
@@ -51,10 +50,9 @@ It is NOT possible to revert a tombstone.
 
 | Value | Name |
 |------ | ---- |
-| 2 | [Broadcast](/Announcement/Types/Broadcast |
-| 3 | [Reply](/Announcement/Types/Reply |
-| 4 | [Reaction](/Announcement/Types/Reaction |
-| 5 | [Profile](/Announcement/Types/Profile |
+| 2 | [Broadcast](/Announcement/Types/Broadcast) |
+| 3 | [Reply](/Announcement/Types/Reply) |
+| 4 | [Reaction](/Announcement/Types/Reaction) |
 
 ### targetSignature
 
@@ -63,3 +61,4 @@ It is NOT possible to revert a tombstone.
 ### signature
 
 - MUST be an [Announcement Signature](/Announcements/Signatures) over the all fields except this signature field.
+- MUST be the signature of the `fromId` user

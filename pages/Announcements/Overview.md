@@ -21,7 +21,7 @@ Each Announcement has a enumerated type for use when separating out a stream of 
 | 2 | [Broadcast](/Announcements/Types/Broadcast) | a public post | YES | YES |
 | 3 | [Reply](/Announcements/Types/Reply) | a public response to a Broadcast | YES | YES |
 | 4 | [Reaction](/Announcements/Types/Reaction) | a public visual reply to a Broadcast | no | YES |
-| 5 | [Profile](/Announcements/Types/Profile) | a profile | YES | YES |
+| 5 | [Profile](/Announcements/Types/Profile) | a profile | YES | no |
 
 ## Value Serialization
 
