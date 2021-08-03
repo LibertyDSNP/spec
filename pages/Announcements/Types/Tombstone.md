@@ -56,9 +56,9 @@ It is NOT possible to revert a tombstone.
 
 ### targetSignature
 
-- MUST be an [Announcement Signature](/Announcements/Signatures) that the `fromId` has announced.
+- MUST be an [Announcement Signature](/Announcements/Signatures) that the `fromId` has announced
 
 ### signature
 
-- MUST be an [Announcement Signature](/Announcements/Signatures) over the all fields except this signature field.
+- MUST be an [Announcement Signature](/Announcements/Signatures) over the all fields except this signature field
 - MUST be the signature of the `fromId` user

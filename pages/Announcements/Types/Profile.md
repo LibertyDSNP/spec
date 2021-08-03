@@ -29,7 +29,7 @@ The reference content *MUST be of profile type*.
 ### contentHash
 
 - MUST be 32 bytes in length
-- MUST be the [keccak-256 hash](https://keccak.team/files/Keccak-submission-3.pdf) of the bytes of the reference at the url.
+- MUST be the [keccak-256 hash](https://keccak.team/files/Keccak-submission-3.pdf) of the bytes of the reference at the url
 
 ### createdAt
 
@@ -42,7 +42,7 @@ The reference content *MUST be of profile type*.
 
 ### url
 
-- MUST NOT refer to localhost or any reserved IP addresses as defined in [RFC6890](https://datatracker.ietf.org/doc/html/rfc6890).
+- MUST NOT refer to localhost or any reserved IP addresses as defined in [RFC6890](https://datatracker.ietf.org/doc/html/rfc6890)
 - Resource MUST be a valid [Profile Activity Content](/ActivityContent/Overview) Type
 - MUST use one of the supported URL Schemes
 
@@ -54,7 +54,7 @@ The reference content *MUST be of profile type*.
 
 ### signature
 
-- MUST be an [Announcement Signature](/Announcements/Signatures) over the all fields except the signature field.
+- MUST be an [Announcement Signature](/Announcements/Signatures) over the all fields except the signature field
 
 ## Non-Normative
 

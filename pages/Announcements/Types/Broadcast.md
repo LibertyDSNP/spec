@@ -28,7 +28,7 @@ A Broadcast Announcement is a way to send a public message to everyone.
 ### contentHash
 
 - MUST be 32 bytes in length
-- MUST be the [keccak-256 hash](https://keccak.team/files/Keccak-submission-3.pdf) of the bytes of the reference at the url.
+- MUST be the [keccak-256 hash](https://keccak.team/files/Keccak-submission-3.pdf) of the bytes of the reference at the url
 
 ### createdAt
 
@@ -41,7 +41,7 @@ A Broadcast Announcement is a way to send a public message to everyone.
 
 ### url
 
-- MUST NOT refer to localhost or any reserved IP addresses as defined in [RFC6890](https://datatracker.ietf.org/doc/html/rfc6890).
+- MUST NOT refer to localhost or any reserved IP addresses as defined in [RFC6890](https://datatracker.ietf.org/doc/html/rfc6890)
 - Resource MUST one of the supported [Activity Content](/ActivityContent/Overview) Types
 - MUST use one of the supported URL Schemes
 
@@ -53,4 +53,4 @@ A Broadcast Announcement is a way to send a public message to everyone.
 
 ### signature
 
-- MUST be an [Announcement Signature](/Announcements/Signatures) over the all fields except the signature field.
+- MUST be an [Announcement Signature](/Announcements/Signatures) over the all fields except the signature field

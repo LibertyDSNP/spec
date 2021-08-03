@@ -31,8 +31,8 @@ A Reaction Announcement is for publishing emoji reactions to anything with a [DS
 
 ### emoji
 
-- Emoji fields must not be empty.
-- Emoji fields must only consist of [Unicode points](https://unicode.org/standard/standard.html) from `U+2000` to `U+2BFF`, from `U+E000` to `U+FFFF`, or from `U+1F000` to `U+10FFFF`.
+- Emoji fields must not be empty
+- Emoji fields must only consist of [Unicode points](https://unicode.org/standard/standard.html) from `U+2000` to `U+2BFF`, from `U+E000` to `U+FFFF`, or from `U+1F000` to `U+10FFFF`
 
 #### Examples
 
@@ -59,7 +59,7 @@ None of the following should be considered valid:
 
 ### signature
 
-- MUST be an [Announcement Signature](/Announcements/Signatures) over the all fields except the signature field.
+- MUST be an [Announcement Signature](/Announcements/Signatures) over the all fields except the signature field
 
 ## Non-Normative
 
