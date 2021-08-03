@@ -4,7 +4,7 @@ route: /Draft/Archivists
 menu: Draft Specifications
 ---
 
-# DRAFT: Archives Overview
+# DRAFT: Archivists Overview
 
 The job of an Archivist is to permanently store Batch content and DSNP Announcements in a format that is easily validated and retrieved.
 

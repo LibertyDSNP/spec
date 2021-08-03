@@ -16,7 +16,7 @@ menu: Reference
 * **Hash Collision** - The vanishingly unlikely possibility of a hash providing the same output for two different inputs
 * **Hash function** - A cryptographic function whose output is effectively unique for any given input without any information from the input being accessible in the output
 * **Hash** - A string of characters generated from a hash function, see "Hash function"
-* **Identity Contract Address** - The contract address of the smart contract we use to represent a user's delegations identity in our system, see "Contract address"
+* **Identity Contract** - The smart contract used to store a user's delegated public addresses and permissions, see "Contract address"
 * **Publisher** - The contract that posts new content from a publisher to the blockchain through batch publications
 * **Store** - A means of keeping messages or data for an extended period of time
 * **User** - A human using our application. [See article for an exception](https://time.com/4008832/17-dogs-to-follow-on-instagram/)
