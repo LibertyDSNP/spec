@@ -9,12 +9,6 @@ menu: Identity
 A registry allows for distinct user identifiers and human readable discovery of network members.
 The DSNP User Id Registry is a simple contract that allows switching handles, identity contracts, and chain migration while maintaining all graph connections, public and private.
 
-## Specification Status
-
-| Version | Status |
----------- | ---------
-| 0.5     | Tentative |
-
 ## Purpose
 
 1. Describes how the Identity Registry resolves a DSNP User Id to an identity contract address.

@@ -5,17 +5,10 @@ route: /Identifiers
 
 # DSNP Identifiers
 
-## Specification Status
-
-| Version | Status   |
-| ------  | -------- |
-| 1.0     | Proposed |
-
 ## DSNP User Id
 
 - MUST be registered in the [Identity Registry](/Identity/Registry)
 - MUST be hexadecimal
-- MUST truncate any leading zeros
 - MUST have a `0x` prefix
 - MUST NOT be longer than 8 bytes
 

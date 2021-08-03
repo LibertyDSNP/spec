@@ -8,13 +8,6 @@ menu: Announcements
 
 A Graph Change Announcement is for publishing relationship state changes for a user.
 
-## Specification Status
-
-| Version | Status   |
-| ------  | -------- |
-| 1.0     | Proposed |
-
-
 ## Fields
 
 | Field | Description | Serialization | Parquet Type | Bloom Filter |

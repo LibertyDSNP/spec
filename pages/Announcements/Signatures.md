@@ -11,12 +11,6 @@ The signatures use the [SECP-256k1 curve](https://link.springer.com/chapter/10.1
 and matches the signature algorithms found in the Ethereum JSON-RPC method [`eth_sign`](https://eth.wiki/json-rpc/API#eth_sign).
 All parties interacting with Announcements should independently validate signatures to guard against creator impersonation.
 
-## Specification Status
-
-| Version | Status   |
-| ------  | -------- |
-| 1.0     | Proposed |
-
 
 ## Signing an Announcement
 

@@ -12,12 +12,6 @@ Official contracts will provide one or more of these standard interfaces to easi
 **Remember:** Using a factory or even a proxy is just an optimization and *NOT* required.
 Any contract that matches the [DSNP Identity](/Identity/Overview) interfaces is valid.
 
-## Specification Status
-
-| Version | Status |
----------- | ---------
-| 0.3     | Tentative |
-
 ## Purpose
 
 1. Describe how an Identity Factory can create an identity.

@@ -8,12 +8,6 @@ route: /BatchPublications/FileFormat
 
 Batch files are stored and transferred in Apache Parquet format.
 
-## Specification Status
-
-| Version | Status   |
-| ------  | -------- |
-| 1.0     | Proposed |
-
 ## Requirements
 
 - Batch File MUST match the spec for a single [Announcement Type](/Announcements/Overview).

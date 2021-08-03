@@ -8,12 +8,6 @@ menu: Identity
 
 This specification is intended to cover the concept of identity within the protocol and how we represent it.
 
-## Specification Status
-
-| Version | Status |
----------- | ---------
-| 0.4     | Tentative |
-
 ## Purpose
 
 1. Provide the interface for a DSNP identity.

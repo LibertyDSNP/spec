@@ -15,7 +15,7 @@ AT LEAST ONE hash in the array MUST be one of the [supported algorithms](#suppor
 | Property | Required | Description | Restrictions |
 | --- | --- | --- | --- |
 | `algorithm` | YES | The algorithm of the given hash | |
-| `value` | no | Hash value serialization for appropriate algorithms | |
+| `value` | YES | Hash value serialization | |
 
 ### Supported Algorithms
 

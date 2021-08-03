@@ -8,12 +8,6 @@ route: /BatchPublications/Overview
 
 The Batch Publication specifies how groups of Announcements are stored, communicated, retrieved, and validated.
 
-## Specification Status
-
-| Version | Status   |
-| ------  | -------- |
-| 1.0     | Proposed |
-
 ## Collection of Announcements
 
 Each Batch Publication is reference to a Batch File with a collections of a single type of [Announcement](/Announcements/Overview).
