@@ -14,14 +14,14 @@ All Announcements have a [signature](/Announcements/Signatures) to validate the 
 
 Each Announcement has a enumerated type for use when separating out a stream of Announcements.
 
-| Value | Name | Description | DSNP Announcement URI |
-|------ | ---- | ----------- | -------------------- |
-| 0 | Reserved | reserved for future use | - |
-| 1 | [Graph Change](/Announcements/Types/GraphChange) | social graph changes | no |
-| 2 | [Broadcast](/Announcements/Types/Broadcast) | a public post | YES |
-| 3 | [Reply](/Announcements/Types/Reply) | a public response to a Broadcast | YES |
-| 4 | [Reaction](/Announcements/Types/Reaction) | a public visual reply to a Broadcast | no |
-| 5 | [Profile](/Announcements/Types/Profile) | a profile | YES |
+| Value | Name | Description | DSNP Announcement URI | Tombstone Allowed |
+|------ | ---- | ----------- | --------------------- | ----------------- |
+| 0 | [Tombstone](/Announcements/Types/Tombstone) | an invalidation of another announcement | no | no |
+| 1 | [Graph Change](/Announcements/Types/GraphChange) | social graph changes | no | no |
+| 2 | [Broadcast](/Announcements/Types/Broadcast) | a public post | YES | YES |
+| 3 | [Reply](/Announcements/Types/Reply) | a public response to a Broadcast | YES | YES |
+| 4 | [Reaction](/Announcements/Types/Reaction) | a public visual reply to a Broadcast | no | YES |
+| 5 | [Profile](/Announcements/Types/Profile) | a profile | YES | no |
 
 ## Value Serialization
 
@@ -50,12 +50,15 @@ Announcements in [Batch Publication Files](/BatchPublications/Overview) have an 
 The `DSNPBatchPublication` Ethereum events are ordered by information provided in the transaction.
 Announcements in a Batch Publication File are then ordered by row index.
 
-
 1. `DSNPBatchPublication` Block number ascending
 2. `DSNPBatchPublication` Transaction index ascending
 3. `DSNPBatchPublication` Log index ascending
 4. Batch Publication File Announcement row appearance order
 
+## Reverting an Announcement
+
+Announcements may not be deleted, but some may be marked as invalid by using a [Tombstone Announcement](/Announcements/Types/Tombstone).
+For example, if a user creates a reaction announcement, they may remove that reaction by creating a tombstone announcement.
 
 ## Non-Normative
 

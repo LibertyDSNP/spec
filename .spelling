@@ -160,10 +160,13 @@ specsspec
 stringified
 stringify
 subreddit
+targetAnnouncementType
+targetSignature
 testnet
 timestamp
 timestamps
 toAddress
+tombstoned
 uint64
 unencrypted
 unfollow

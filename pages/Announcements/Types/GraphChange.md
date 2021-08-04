@@ -54,7 +54,7 @@ Different change types have different meanings
 
 ### signature
 
-- MUST be an [Announcement Signature](/Announcements/Signatures) over the all fields except the signature field.
+- MUST be an [Announcement Signature](/Announcements/Signatures) over the all fields except the signature field
 
 ## Non-Normative
 
