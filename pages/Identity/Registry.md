@@ -212,7 +212,7 @@ interface IRegistry {
      * @dev Resolve a handle to a DSNP User Id and contract address
      * @param handle The handle to resolve
      *
-     * rejects if not found
+     * Returns zeros if not found
      * @return A tuple of the DSNP User Id and the Address of the contract
      */
     function resolveRegistration(string calldata handle) view external returns (uint64, address);
