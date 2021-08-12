@@ -30,22 +30,24 @@ All parties interacting with Announcements should independently validate signatu
 
 ```json
 {
+  "announcementType": 1,
   "fromId": "0x12345",
   "contentHash": "0x67890",
-  "url": "https://www.projectliberty.io/"
+  "url": "https://www.dsnp.org/",
+  "createdAt": "2021-07-31T10:11:12"
 }
 ```
 
 Expected serialization:
 
 ```
-\x19Ethereum Signed Message:\n64contentHash0x67890fromId0x12345urlhttps://www.projectliberty.io/
+\x19Ethereum Signed Message:\n64announcementType0x1contentHash0x67890createdAt0x17afc0bd600fromId0x12345urlhttps://www.dsnp.org/
 ```
 
 Serialization in hexadecimal:
 
 ```
-0x19457468657265756d205369676e6564204d6573736167653a0a3634636f6e74656e74486173683078363738393066726f6d49643078313233343575726c68747470733a2f2f7777772e70726f6a6563746c6962657274792e696f2f
+0x19457468657265756d205369676e6564204d6573736167653a0a3936616e6e6f756e63656d656e7454797065307831636f6e74656e7448617368307836373839306372656174656441743078313761666330626436303066726f6d49643078313233343575726c68747470733a2f2f7777772e64736e702e6f72672f
 ```
 
 ### Hashing
@@ -57,7 +59,7 @@ Serialization in hexadecimal:
 For the previous example, the resulting hexadecimal hash MUST match:
 
 ```
-0x47a23e34c4325f4461b9355027b314f3eb56d31af549f7da7bd9ef1ce951651e
+0xe998171b9eedfe13a181aa158c7b2dbb739af9e5ca062cc5822e668be1314478
 ```
 
 
@@ -76,16 +78,16 @@ Private Key: `0xd9d3b5afb7765ffd9f047fd0d1d9b47d4d538b6a56f1cf29dc160ab9c6d30aa3
 
 ```
 {
-  v: '0x1b',
-  r: '0xfb2260acfacf83bbb1fdac8a7126a14322c9163c20c6c87d7e9aac72fd15bd34',
-  s: '0x6c1854bdd441e5086b3cfb64c45e78a4cff83878e92ce378ee689343214cdcd6',
+  v: '0x1c',
+  r: '0xa34e5f6ba5f133cc1c8dfed613ad913f07dc5dff38c92278f9253c07ff43bd1d',
+  s: '0x3f86a862db3db7223a2d2b530dd15cbdc450fb2394917f1f413f4a102822deca',
 }
 ```
 
 The compressed form of the above being this (`r + s + v`):
 
 ```
-0xfb2260acfacf83bbb1fdac8a7126a14322c9163c20c6c87d7e9aac72fd15bd346c1854bdd441e5086b3cfb64c45e78a4cff83878e92ce378ee689343214cdcd61b
+0xa34e5f6ba5f133cc1c8dfed613ad913f07dc5dff38c92278f9253c07ff43bd1d3f86a862db3db7223a2d2b530dd15cbdc450fb2394917f1f413f4a102822deca1c
 ```
 
 ## Validating a Signature

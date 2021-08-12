@@ -31,7 +31,7 @@ AT LEAST ONE hash in the array MUST be one of the [supported algorithms](#suppor
   "hash": [
     {
       "algorithm": "keccak256",
-      "value": "0x0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF"
+      "value": "0x1234567890ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF"
     }
   ]
 }

@@ -34,6 +34,14 @@ Most serializations use outside standards, but some require additional clarifica
 - MUST be lowercase
 - MUST be prefixed with a `0x`
 - MUST NOT have spaces
+- MUST NOT have any zero padding
+
+| Bytes | Invalid | Valid |
+| --- | --- | --- |
+| 2 | `0x0123` | `0x123` |
+| 2 | `123h` | `0x123` |
+| 8 | `0x0000000000000abc` | `0xabc` |
+| 32 | `0x00003e34c4325f4461b9355027b314f3eb56d31af549f7da7bd9ef1ce951651e` | `0x3e34c4325f4461b9355027b314f3eb56d31af549f7da7bd9ef1ce951651e` |
 
 ## Duplicate Handling
 

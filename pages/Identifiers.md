@@ -7,17 +7,15 @@ route: /Identifiers
 
 ## DSNP User Id
 
+- Is 8 bytes in size
 - MUST be registered in the [Identity Registry](/Identity/Registry)
-- MUST be hexadecimal
-- MUST have a `0x` prefix
-- MUST NOT be longer than 8 bytes
+- MUST be serialized as [hexadecimal](/Announcements/Overview#hexadecimal)
 
 ## DSNP Content Hash
 
-- MUST be hexadecimal
-- MUST be 32 bytes long
-- MUST have a `0x` prefix
+- Is 32 bytes in size
 - MUST be a [keccak-256 hash](https://keccak.team/files/Keccak-submission-3.pdf) of the bytes of the content
+- MUST be serialized as [hexadecimal](/Announcements/Overview#hexadecimal)
 
 ### DSNP Protocol Scheme
 
@@ -47,11 +45,11 @@ Any [Announcement Types](/Announcements/Overview#announcement-types) with a `fro
 
 ### Example
 ```
-dsnp://0x1234567890abcdef/0x0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
+dsnp://0x1234567890/0x1234567890abcdef0123456789abcdef0123456789abcdef0123456789abcdef
 ```
 
 | part | value |
 | ---- | ----- |
 | Scheme | `dsnp://` |
 | User Id | `0x1234567890` |
-| Content Hash | `0x0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef` |
+| Content Hash | `0x1234567890abcdef0123456789abcdef0123456789abcdef0123456789abcdef` |
