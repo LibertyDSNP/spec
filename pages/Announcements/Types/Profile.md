@@ -15,8 +15,8 @@ The reference content *MUST be of profile type*.
 | ----- | ----------- | ------------- | ------------ | ------------ |
 | announcementType | Announcement Type Enum (`5`) | [decimal](/Announcements/Overview#decimal) | `INT32` | no |
 | contentHash | keccak-256 hash of content stored at URL | [hexadecimal](/Announcements/Overview#hexadecimal) | `BYTE_ARRAY` | YES
-| createdAt | milliseconds since Unix epoch | [decimal](/Announcements/Overview#decimal) | `INT64` | no
-| fromId | id of the user creating the announcement | [decimal](/Announcements/Overview#decimal) | `INT64` | YES
+| createdAt | milliseconds since Unix epoch | [decimal](/Announcements/Overview#decimal) | `UINT_64` | no
+| fromId | id of the user creating the announcement | [decimal](/Announcements/Overview#decimal) | `UINT_64` | YES
 | url | Profile content URL | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | no
 | signature | creator signature | [hexadecimal](/Announcements/Overview#hexadecimal) | `BYTE_ARRAY` | no
 

@@ -14,8 +14,8 @@ A Broadcast Announcement is a way to send a public message to everyone.
 | ----- | ----------- | --------- | ------------- | ------------ | ------------ |
 | announcementType | Announcement Type Enum (`2`) | enum | [decimal](/Announcements/Overview#decimal) | `INT32` | no |
 | contentHash | keccak-256 hash of content stored at URL | 32 bytes | [hexadecimal](/Announcements/Overview#hexadecimal) | `BYTE_ARRAY` | YES
-| createdAt | milliseconds since Unix epoch | 64 bit unsigned integer | [decimal](/Announcements/Overview#decimal) | `INT64` | no
-| fromId | id of the user creating the announcement | 64 bit unsigned integer | [decimal](/Announcements/Overview#decimal) | `INT64` | YES
+| createdAt | milliseconds since Unix epoch | 64 bit unsigned integer | [decimal](/Announcements/Overview#decimal) | `UINT_64` | no
+| fromId | id of the user creating the announcement | 64 bit unsigned integer | [decimal](/Announcements/Overview#decimal) | `UINT_64` | YES
 | url | content URL | UTF-8 | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | no
 | signature | creator signature | 65 bytes | [hexadecimal](/Announcements/Overview#hexadecimal) | `BYTE_ARRAY` | no
 

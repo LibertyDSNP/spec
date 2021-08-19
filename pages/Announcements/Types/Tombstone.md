@@ -20,8 +20,8 @@ It is NOT possible to revert a tombstone.
 | Field | Description | Data Type | Serialization | Parquet Type | Bloom Filter |
 | ----- | ----------- | --------- | ------------- | ------------ | ------------ |
 | announcementType | Announcement Type Enum (`0`) | enum | [decimal](/Announcements/Overview#decimal) | `INT32` | no |
-| createdAt | milliseconds since Unix epoch | 64 bit unsigned integer | [decimal](/Announcements/Overview#decimal) | `INT64` | no
-| fromId | id of the user creating the announcement and tombstoned announcement | 64 bit unsigned integer | [decimal](/Announcements/Overview#hecimal) | `INT64` | YES
+| createdAt | milliseconds since Unix epoch | 64 bit unsigned integer | [decimal](/Announcements/Overview#decimal) | `UINT_64` | no
+| fromId | id of the user creating the announcement and tombstoned announcement | 64 bit unsigned integer | [decimal](/Announcements/Overview#hecimal) | `UINT_64` | YES
 | targetAnnouncementType | target tombstoned announcement type | enum | [decimal](/Announcements/Overview#decimal) | `INT32` | no |
 | targetSignature | target announcement signature to tombstone | 65 bytes | [hexadecimal](/Announcements/Overview#hexadecimal) | `BYTE_ARRAY` | YES
 | signature | creator signature | 65 bytes | [hexadecimal](/Announcements/Overview#hexadecimal) | `BYTE_ARRAY` | no
