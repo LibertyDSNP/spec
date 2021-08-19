@@ -10,14 +10,14 @@ A Graph Change Announcement is for publishing relationship state changes for a u
 
 ## Fields
 
-| Field | Description | Serialization | Parquet Type | Bloom Filter |
-| ----- | ----------- | ------------- | ------------ | ------------ |
-| announcementType | Announcement Type Enum (`1`) | [decimal](/Announcements/Overview#decimal) | `INT32` | no |
-| changeType | Type of relationship change | [decimal](/Announcements/Overview#decimal) | `INT32` | no
-| createdAt | milliseconds since Unix epoch | [decimal](/Announcements/Overview#decimal) | `INT64` | no
-| fromId | id of the user creating the relationship | [decimal](/Announcements/Overview#decimal) | `INT64` | YES
-| objectId | id of the target of the relationship | [decimal](/Announcements/Overview#decimal) | `INT64` | YES
-| signature | creator signature | [hexadecimal](/Announcements/Overview#hexadecimal) | `BYTE_ARRAY` | no
+| Field | Description | Data Type | Serialization | Parquet Type | Bloom Filter |
+| ----- | ----------- | --------- | ------------- | ------------ | ------------ |
+| announcementType | Announcement Type Enum (`1`) | enum | [decimal](/Announcements/Overview#decimal) | `INT32` | no |
+| changeType | Type of relationship change | enum | [decimal](/Announcements/Overview#decimal) | `INT32` | no
+| createdAt | milliseconds since Unix epoch | 64 bit unsigned integer | [decimal](/Announcements/Overview#decimal) | `INT64` | no
+| fromId | id of the user creating the relationship | 64 bit unsigned integer | [decimal](/Announcements/Overview#decimal) | `INT64` | YES
+| objectId | id of the target of the relationship | 64 bit unsigned integer | [decimal](/Announcements/Overview#decimal) | `INT64` | YES
+| signature | creator signature | 65 bytes | [hexadecimal](/Announcements/Overview#hexadecimal) | `BYTE_ARRAY` | no
 
 ## Field Requirements
 
