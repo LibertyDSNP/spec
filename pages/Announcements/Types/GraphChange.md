@@ -12,11 +12,11 @@ A Graph Change Announcement is for publishing relationship state changes for a u
 
 | Field | Description | Serialization | Parquet Type | Bloom Filter |
 | ----- | ----------- | ------------- | ------------ | ------------ |
-| announcementType | Announcement Type Enum (`1`) | [hexadecimal](/Announcements/Overview#hexadecimal) | `INT32` | no |
-| changeType | Type of relationship change | [hexadecimal](/Announcements/Overview#hexadecimal) | `INT32` | no
-| createdAt | milliseconds since Unix epoch | [hexadecimal](/Announcements/Overview#hexadecimal) | `INT64` | no
-| fromId | id of the user creating the relationship | [hexadecimal](/Announcements/Overview#hexadecimal) | `BYTE_ARRAY` | YES
-| objectId | id of the target of the relationship | [hexadecimal](/Announcements/Overview#hexadecimal) | `BYTE_ARRAY` | YES
+| announcementType | Announcement Type Enum (`1`) | [decimal](/Announcements/Overview#decimal) | `INT32` | no |
+| changeType | Type of relationship change | [decimal](/Announcements/Overview#decimal) | `INT32` | no
+| createdAt | milliseconds since Unix epoch | [decimal](/Announcements/Overview#decimal) | `INT64` | no
+| fromId | id of the user creating the relationship | [decimal](/Announcements/Overview#decimal) | `INT64` | YES
+| objectId | id of the target of the relationship | [decimal](/Announcements/Overview#decimal) | `INT64` | YES
 | signature | creator signature | [hexadecimal](/Announcements/Overview#hexadecimal) | `BYTE_ARRAY` | no
 
 ## Field Requirements

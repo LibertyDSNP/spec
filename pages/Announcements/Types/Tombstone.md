@@ -19,10 +19,10 @@ It is NOT possible to revert a tombstone.
 
 | Field | Description | Serialization | Parquet Type | Bloom Filter |
 | ----- | ----------- | ------------- | ------------ | ------------ |
-| announcementType | Announcement Type Enum (`0`) | [hexadecimal](/Announcements/Overview#hexadecimal) | `INT32` | no |
-| createdAt | milliseconds since Unix epoch | [hexadecimal](/Announcements/Overview#hexadecimal) | `INT64` | no
-| fromId | id of the user creating the announcement and tombstoned announcement | [hexadecimal](/Announcements/Overview#hexadecimal) | `BYTE_ARRAY` | YES
-| targetAnnouncementType | target tombstoned announcement type | [hexadecimal](/Announcements/Overview#hexadecimal) | `INT32` | no |
+| announcementType | Announcement Type Enum (`0`) | [decimal](/Announcements/Overview#decimal) | `INT32` | no |
+| createdAt | milliseconds since Unix epoch | [decimal](/Announcements/Overview#decimal) | `INT64` | no
+| fromId | id of the user creating the announcement and tombstoned announcement | [decimal](/Announcements/Overview#hecimal) | `INT64` | YES
+| targetAnnouncementType | target tombstoned announcement type | [decimal](/Announcements/Overview#decimal) | `INT32` | no |
 | targetSignature | target announcement signature to tombstone  | [hexadecimal](/Announcements/Overview#hexadecimal) | `BYTE_ARRAY` | YES
 | signature | creator signature | [hexadecimal](/Announcements/Overview#hexadecimal) | `BYTE_ARRAY` | no
 

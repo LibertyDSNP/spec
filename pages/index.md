@@ -5,7 +5,7 @@ route: /
 
 # DSNP Specification
 
-## Version 0.9.2
+## Version 0.10.0
 
 Welcome to the Decentralized Social Networking Protocol (DSNP) specification!
 Here you can find a detailed documentation regarding the current state of the protocol, previous iterations and proposals for future extensions.

@@ -7,13 +7,13 @@ route: /Identifiers
 
 ## DSNP User Id
 
-- Is 8 bytes in size
+- 64 bit Unsigned Integer
 - MUST be registered in the [Identity Registry](/Identity/Registry)
-- MUST be serialized as [hexadecimal](/Announcements/Overview#hexadecimal)
+- MUST be serialized as [decimal](/Announcements/Overview#decimal)
 
 ## DSNP Content Hash
 
-- Is 32 bytes in size
+- MUST BE 32 bytes in size
 - MUST be a [keccak-256 hash](https://keccak.team/files/Keccak-submission-3.pdf) of the bytes of the content
 - MUST be serialized as [hexadecimal](/Announcements/Overview#hexadecimal)
 
@@ -28,13 +28,13 @@ It is used to identify a user via a URI.
 
 ### Example
 ```
-dsnp://0x1234567890abcdef
+dsnp://1311768467294899700
 ```
 
 | part | value |
 | ---- | ----- |
 | Scheme | `dsnp://` |
-| User Id | `0x1234567890abcdef` |
+| User Id | `1311768467294899700` |
 
 ## DSNP Announcement URI
 
@@ -45,11 +45,11 @@ Any [Announcement Types](/Announcements/Overview#announcement-types) with a `fro
 
 ### Example
 ```
-dsnp://0x1234567890/0x1234567890abcdef0123456789abcdef0123456789abcdef0123456789abcdef
+dsnp://78187493520/0x1234567890abcdef0123456789abcdef0123456789abcdef0123456789abcdef
 ```
 
 | part | value |
 | ---- | ----- |
 | Scheme | `dsnp://` |
-| User Id | `0x1234567890` |
+| User Id | `78187493520` |
 | Content Hash | `0x1234567890abcdef0123456789abcdef0123456789abcdef0123456789abcdef` |
