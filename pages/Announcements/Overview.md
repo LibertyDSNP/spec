@@ -36,7 +36,7 @@ Used to represent bytes.
 - MUST be lowercase
 - MUST be prefixed with a `0x`
 - MUST NOT have spaces or separators
-- MUST have two characters per byte
+- MUST have two characters per byte in addition to the `0x` characters
 
 | Bytes | Invalid | Valid |
 | --- | --- | --- |
@@ -55,11 +55,11 @@ Strings are used to avoid issues with different implementations of numbers.
 - MUST NOT have spaces or separators
 - MUST be a string
 
-| Invalid | Valid |
-| --- | --- |
-| `0x123` | `"291"` |
-| 291 | `"291"` |
-| `BigInt(291)` | `"291"` |
+| Invalid | Why | Valid |
+| --- | --- | --- |
+| `0x123` | Must be decimal | `"291"` |
+| 291 | Must be a string | `"291"` |
+| `291n` | `BigInt(291)` serialization appends an `n`  | `"291"` |
 
 ## Duplicate Handling
 
