@@ -28,15 +28,13 @@ All parties interacting with Announcements should independently validate signatu
 
 #### Example
 
-```json
-{
-  "announcementType": "1",
-  "fromId": "74565",
-  "contentHash": "0x9c22ff5f21f0b81b113e63f7db6da94fedef11b2119b4088b89664fb9a3cb658",
-  "url": "https://www.dsnp.org/",
-  "createdAt": "1627726272000"
-}
-```
+| Field | Value |
+| --- | --- |
+| announcementType | `1` |
+| contentHash | `0x9c22ff5f21f0b81b113e63f7db6da94fedef11b2119b4088b89664fb9a3cb658` |
+| createdAt | `1627726272000` |
+| fromId | `74565` |
+| url | `https://www.dsnp.org/` |
 
 Expected serialization:
 
