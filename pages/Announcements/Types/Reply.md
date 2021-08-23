@@ -11,15 +11,15 @@ but includes an `inReplyTo` field for noting it as a reply to a given [DSNP Anno
 
 ## Fields
 
-| Field | Description | Serialization | Parquet Type | Bloom Filter |
-| ----- | ----------- | ------------- | ------------ | ------------ |
-| announcementType | Announcement Type Enum (`3`) | [hexadecimal](/Announcements/Overview#hexadecimal) | `INT32` | no |
-| contentHash | keccak-256 hash of content stored at URL | [hexadecimal](/Announcements/Overview#hexadecimal) | `BYTE_ARRAY` | YES
-| createdAt | milliseconds since Unix epoch | [hexadecimal](/Announcements/Overview#hexadecimal) | `INT64` | no
-| fromId | id of the user creating the announcement | [hexadecimal](/Announcements/Overview#hexadecimal) | `BYTE_ARRAY` | YES
-| inReplyTo | Target [DSNP Announcement URI](/Identifiers#dsnp-announcement-uri) | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `BYTE_ARRAY` | YES
-| url | content URL | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `BYTE_ARRAY` | no
-| signature | creator signature | [hexadecimal](/Announcements/Overview#hexadecimal) | `BYTE_ARRAY` | no
+| Field | Description | Data Type | Serialization | Parquet Type | Bloom Filter |
+| ----- | ----------- | --------- | ------------- | ------------ | ------------ |
+| announcementType | Announcement Type Enum (`3`) | enum | [decimal](/Announcements/Overview#decimal) | `INT32` | no |
+| contentHash | keccak-256 hash of content stored at URL | 32 bytes | [hexadecimal](/Announcements/Overview#hexadecimal) | `BYTE_ARRAY` | YES
+| createdAt | milliseconds since Unix epoch | 64 bit unsigned integer | [decimal](/Announcements/Overview#decimal) | `UINT_64` | no
+| fromId | id of the user creating the announcement | 64 bit unsigned integer | [decimal](/Announcements/Overview#decimal) | `UINT_64` | YES
+| inReplyTo | Target [DSNP Announcement URI](/Identifiers#dsnp-announcement-uri) | UTF-8 | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | YES
+| url | content URL | UTF-8 | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | no
+| signature | creator signature | 65 bytes | [hexadecimal](/Announcements/Overview#hexadecimal) | `BYTE_ARRAY` | no
 
 ## Field Requirements
 
@@ -29,7 +29,6 @@ but includes an `inReplyTo` field for noting it as a reply to a given [DSNP Anno
 
 ### contentHash
 
-- MUST be 32 bytes in length
 - MUST be the [keccak-256 hash](https://keccak.team/files/Keccak-submission-3.pdf) of the bytes of the reference at the url
 
 ### createdAt
