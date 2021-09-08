@@ -5,11 +5,10 @@ route: /
 
 # DSNP Specification
 
-## Version 0.10.0
+## Version 1.0.0
 
 Welcome to the Decentralized Social Networking Protocol (DSNP) specification!
-Here you can find a detailed documentation regarding the current state of the protocol, previous iterations and proposals for future extensions.
-**Please note, the protocol specification is still very much a work in progress at this time, and the information within is subject to frequent changes.**
+Here you can find a detailed documentation regarding the current state of the protocol and proposals for future extensions.
 
 ## Goals & Purpose
 
@@ -27,12 +26,6 @@ however these proposals should be regarded with caution as they are largely inco
 
 ## Implementation Status
 
-**DISCLAIMER**
-
-The DSNP is still in a work in progress and as such it is currently subject to frequent changes.
-We do not recommend implementing any software based on this document in its current state.
-Once the Protocol Specification reaches an appropriate degree of completeness, we will remove this disclaimer.
-
 ### Versions
 
 DSNP Specification Versions follow [Semantic Versioning 2.0](https://semver.org/) for releases.
@@ -41,7 +34,7 @@ Reference and Roadmap changes do NOT effect the version number.
 
 | Name | Description | Date |
 | --- | --- | --- |
-| 1.0.0 | Initial Release | In Progress |
+| 1.0.0 | Initial Release | 2021-09-08 |
 
 ### Draft Specifications
 
