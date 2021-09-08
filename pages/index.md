@@ -37,6 +37,7 @@ Once the Protocol Specification reaches an appropriate degree of completeness, w
 
 DSNP Specification Versions follow [Semantic Versioning 2.0](https://semver.org/) for releases.
 Draft Specifications do NOT effect the version number until they are included.
+Reference and Roadmap changes do NOT effect the version number.
 
 | Name | Description | Date |
 | --- | --- | --- |
@@ -48,7 +49,7 @@ Draft Specifications do NOT effect the version number until they are included.
 | --- | --- | --- |
 | [Archivist](/Draft/Archivists) | DRAFT | Long term DSNP Announcement Storage |
 
-#### Status Definitions
+#### Draft Status Definitions
 
 | Name | Description |
 | --- | --- |
@@ -56,7 +57,9 @@ Draft Specifications do NOT effect the version number until they are included.
 | **Proposed** | Ready for formal review. It should be done except for minor changes. |
 | **Tentative** | This is the accepted plan. The specification should not change unless there are blocking issues. |
 
-## Solidity Interfaces
+## Language Interfaces
+
+### Solidity
 
 All included Solidity interfaces are targeting the Solidity language version 0.8.x.
 Other versions may be available in the [official contracts code repository](https://github.com/LibertyDSNP/contracts).
