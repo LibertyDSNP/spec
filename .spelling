@@ -140,6 +140,8 @@ keyList
 localhost
 mainnet
 messageID
+metadata
+multichain
 namespace
 objectId
 parseable
@@ -179,4 +181,3 @@ v3
 validator
 versioning
 x19Ethereum
-keccak256

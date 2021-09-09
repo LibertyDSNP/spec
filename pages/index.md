@@ -5,11 +5,10 @@ route: /
 
 # DSNP Specification
 
-## Version 0.10.0
+## Version 1.0.0
 
 Welcome to the Decentralized Social Networking Protocol (DSNP) specification!
-Here you can find a detailed documentation regarding the current state of the protocol, previous iterations and proposals for future extensions.
-**Please note, the protocol specification is still very much a work in progress at this time, and the information within is subject to frequent changes.**
+Here you can find a detailed documentation regarding the current state of the protocol and proposals for future extensions.
 
 ## Goals & Purpose
 
@@ -27,20 +26,15 @@ however these proposals should be regarded with caution as they are largely inco
 
 ## Implementation Status
 
-**DISCLAIMER**
-
-The DSNP is still in a work in progress and as such it is currently subject to frequent changes.
-We do not recommend implementing any software based on this document in its current state.
-Once the Protocol Specification reaches an appropriate degree of completeness, we will remove this disclaimer.
-
 ### Versions
 
 DSNP Specification Versions follow [Semantic Versioning 2.0](https://semver.org/) for releases.
 Draft Specifications do NOT effect the version number until they are included.
+Reference and Roadmap changes do NOT effect the version number.
 
 | Name | Description | Date |
 | --- | --- | --- |
-| 1.0.0 | Initial Release | In Progress |
+| 1.0.0 | Initial Release | 2021-09-08 |
 
 ### Draft Specifications
 
@@ -48,7 +42,7 @@ Draft Specifications do NOT effect the version number until they are included.
 | --- | --- | --- |
 | [Archivist](/Draft/Archivists) | DRAFT | Long term DSNP Announcement Storage |
 
-#### Status Definitions
+#### Draft Status Definitions
 
 | Name | Description |
 | --- | --- |
@@ -56,7 +50,9 @@ Draft Specifications do NOT effect the version number until they are included.
 | **Proposed** | Ready for formal review. It should be done except for minor changes. |
 | **Tentative** | This is the accepted plan. The specification should not change unless there are blocking issues. |
 
-## Solidity Interfaces
+## Language Interfaces
+
+### Solidity
 
 All included Solidity interfaces are targeting the Solidity language version 0.8.x.
 Other versions may be available in the [official contracts code repository](https://github.com/LibertyDSNP/contracts).
@@ -70,8 +66,9 @@ Official DSNP interfaces and implementations code may be found in [GitHub](https
 - [Official TypeScript/JavaScript](https://github.com/LibertyDSNP/sdk-ts)
 
 ## Roadmap
+*Last Updated: 2021-09-08*
 
-Here is a high level roadmap to what content is coming next!
+### Completed
 
 | Work | Status |
 | --- | --- |
@@ -86,13 +83,98 @@ Here is a high level roadmap to what content is coming next!
 | Batch Announce Filter System | Done (2021 Q3) |
 | Graph Data | Done (2021 Q3) |
 | Announcement/Publishing Revision | Done (2021 Q3) |
-| Chain Migration Options | 2021 |
-| Stabilize 1.0 | 2021 |
-| Archivist (Post 1.0) | 2021 |
-| Chain Migration Plan (Post 1.0) | Future |
-| Private Graph (Post 1.0) | Future |
-| Private Announcements and Content (Post 1.0) | Future |
-| Verified Attributes (Post 1.0) | Future |
+| Stabilize 1.0 | Done (2021 Q3) |
+
+### Future
+
+Below is a tentative roadmap to what protocol features are being developed next!
+Order is approximately in current priority order.
+
+#### Chain Migration
+*Status: In progress*
+
+Ethereum's cost is just too high.
+Migrate the DSNP architecture to another chain.
+
+#### Private Graph
+*Status: Whitepaper*
+
+Keep some graph connections private with permissioned access.  
+
+#### Direct Messaging
+*Status: Whitepaper*
+
+One-to-one messaging with metadata privacy.
+
+#### Public Friends
+*Status: Not Started*
+
+Graph connections are currently limited to one-way follow relationships.
+Build support for other forms of relationships that require all parties to opt-in.
+
+#### Social Account Recovery
+*Status: Not Started*
+
+Use the social graph to leverage safe account recovery and protect against private key losses.
+
+#### Private Friends
+*Status: Not Started*
+
+Expand private graph to other relationships while maintaining metadata protection.
+
+#### Verified Attributes
+*Status: Not Started*
+
+Some users and applications need social identities with additional layers of validation.
+How can these be created while being privacy preserving and support and open system.
+
+#### Distributed Content Moderation
+*Status: Not Started*
+
+Content moderation is hard because it is different for different people.
+Make the individual nature of content moderation easier through distributing the work and results.
+
+#### Namespace and Multichain support
+*Status: Not Started*
+
+Identity and content could flow from other systems needing to know where that data originated without collisions.
+Supporting multichain would be the first step and allow even greater user choice, without locking data to one chain or network.  
+
+#### Content Bridges
+*Status: Not Started*
+
+Open social network bridges would allow more content and users accessible to all via DSNP.
+
+#### Service-Node Protocols
+*Status: Not Started*
+
+Sub-specifications targeted at ecosystem services to promote interoperability.
+
+#### Private Group Messaging
+*Status: Not Started*
+
+Secure many-to-many conversions.
+Group chat style still with metadata privacy.
+
+#### Private Posts to Friends
+*Status: Not Started*
+
+Secure one-to-many posts that still allow for commenting.
+
+#### Third-party Identity Bridges
+*Status: Not Started*
+
+Create ways for users to be able to bring their own identities or connect a DSNP Identity with outside identities.
+
+#### Archivists
+*Status: [Draft](/Draft/Archivists)*
+
+Long-term storage for announcements and perhaps expanding to content storage.
+
+#### Peer-to-Peer publishing
+*Status: Not Started*
+
+Build a peer-to-peer system for announcement publishing for faster routing and message delivery.
 
 # Learning More
 
