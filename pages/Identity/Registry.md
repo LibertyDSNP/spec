@@ -97,8 +97,7 @@ While time consuming, discovering previous owners of a given handle requires loc
 
 ## EIP 721
 
-DSNP support for the NFT standard [EIP 721](https://eips.ethereum.org/EIPS/eip-721) for handles is not available for [Betanet](/Networks).
-It will be reconsidered for Mainnet.
+DSNP support for the NFT standard [EIP 721](https://eips.ethereum.org/EIPS/eip-721) for handles is under consideration.
 
 ### NFT Concerns
 
