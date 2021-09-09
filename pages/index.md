@@ -88,12 +88,12 @@ Official DSNP interfaces and implementations code may be found in [GitHub](https
 ### Future
 
 Below is a tentative roadmap to what protocol features are being developed next!
-Order is approximately in current priority order.
+Items are ordered by current priority.
 
 #### Chain Migration
 *Status: In progress*
 
-Ethereum's cost is just too high.
+Ethereum's cost is too high.
 Migrate the DSNP architecture to another chain.
 
 #### Private Graph
@@ -126,24 +126,24 @@ Expand private graph to other relationships while maintaining metadata protectio
 *Status: Not Started*
 
 Some users and applications need social identities with additional layers of validation.
-How can these be created while being privacy preserving and support and open system.
+How can these be created while being privacy preserving and support an open system.
 
 #### Distributed Content Moderation
 *Status: Not Started*
 
-Content moderation is hard because it is different for different people.
-Make the individual nature of content moderation easier through distributing the work and results.
+Content moderation is hard because it means different things to different people.
+Make customizing content moderation easier through distributing the work and results.
 
 #### Namespace and Multichain support
 *Status: Not Started*
 
-Identity and content could flow from other systems needing to know where that data originated without collisions.
-Supporting multichain would be the first step and allow even greater user choice, without locking data to one chain or network.  
+Identity and content from other systems could be used without needing to understand the originating system.
+Support DSNP across multiple chains to increase user choice and avoid locking data to one chain or network.
 
 #### Content Bridges
 *Status: Not Started*
 
-Open social network bridges would allow more content and users accessible to all via DSNP.
+Open social network bridges would allow more content and users to be accessible to all via DSNP.
 
 #### Service-Node Protocols
 *Status: Not Started*
