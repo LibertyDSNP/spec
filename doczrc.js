@@ -47,7 +47,6 @@ export default {
   },
   menu: [
     "Introduction",
-    "Networks",
     {
       name: "Identity",
       menu: [
