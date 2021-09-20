@@ -74,12 +74,6 @@ export default {
       ]
     },
     {
-      name: "Archivists",
-      menu: [
-        "Overview",
-      ]
-    },
-    {
       name: "Reference", menu: [
         "Glossary"
       ]
