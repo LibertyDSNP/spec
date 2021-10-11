@@ -2,7 +2,7 @@
 
 This repository holds the technical specification for the Decentralized Social Networking Protocol (DSNP).
 The current official specification can be viewed in its compiled form [here](https://spec.dsnp.org).
-Alternatively, the latest iteration of the spec can be viewed non-formatted [here](tree/main/pages).
+Alternatively, the latest iteration of the spec can be viewed non-formatted [here](https://github.com/LibertyDSNP/spec/tree/main/pages).
 For more information about the DSNP, visit [DSNP.org](https://www.dsnp.org)
 
 ## Running Locally
