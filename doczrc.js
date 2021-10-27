@@ -4,14 +4,14 @@ export default {
   ignore: ["CODEOFCONDUCT.md", "LICENSE.md", "README.md"],
   themeConfig: {
     colors: {
-      primary: "#21cf80",
-      secondary: "#21cf80",
-      accent: "#21cf80",
+      primary: "#f6695d",
+      secondary: "#f6695d",
+      accent: "#f6695d",
       header: {
         bg: "#424242",
       },
       sidebar: {
-        navLinkActive: "#21cf80",
+        navLinkActive: "#f6695d",
         bg: "#f7f7f7",
       },
       muted: '#f6f6f6',
