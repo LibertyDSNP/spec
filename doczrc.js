@@ -8,7 +8,7 @@ export default {
       secondary: "#f6695d",
       accent: "#f6695d",
       header: {
-        bg: "#424242",
+        bg: "#E0E0E0",
       },
       sidebar: {
         navLinkActive: "#f6695d",
@@ -18,14 +18,14 @@ export default {
       modes: {
         dark: {
           background: "#2b2b2b",
-          primary: "#26e990",
-          secondary: "#26e990",
-          accent: "#26e990",
+          primary: "#f6695d",
+          secondary: "#f6695d",
+          accent: "#f6695d",
           header: {
             bg: "#000",
           },
           sidebar: {
-            navLinkActive: "#26e990",
+            navLinkActive: "#f6695d",
             bg: "#1c1c1c",
           },
         }
