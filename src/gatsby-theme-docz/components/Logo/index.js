@@ -1,5 +1,5 @@
 // src/gatsby-theme-docz/components/Logo/index.js
 import React from "react";
-import logo from "./logo.png";
+import logo from "./DSNP_Logo.png";
 
-export const Logo = () => <img src={logo} alt="Unfinished Labs" height={55} width={230} />
+export const Logo = () => <img src={logo} alt="DSNP.org" height={55} width={123} />
