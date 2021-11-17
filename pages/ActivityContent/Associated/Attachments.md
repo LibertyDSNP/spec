@@ -30,7 +30,7 @@ menu: Activity Content
 
 | Format | MIME Type    | Specification(s)                                             |
 |--------|--------------|--------------------------------------------------------------|
-| MP3    | `audio/mp3`  | [RFC3003](https://tools.ietf.org/html/rfc3003)               |
+| MP3    | `audio/mpeg`  | [RFC3003](https://tools.ietf.org/html/rfc3003)               |
 | OGG    | `audio/ogg`  | [RFC5334](https://tools.ietf.org/html/rfc5334)               |
 | WebM   | `audio/webm` | [WebM standard](https://www.webmproject.org/docs/container/) |
 
@@ -93,7 +93,6 @@ Audio objects must include a `"hash"` field as described in the [content proofs 
 | Format | MIME Type       | Specification(s)                                                 |
 |--------|-----------------|------------------------------------------------------------------|
 | JPEG   | `image/jpeg`    | [RFC2045](https://www.iana.org/go/rfc2045)                       |
-| JPG    | `image/jpg`     | [RFC2045](https://www.iana.org/go/rfc2045)                       |
 | PNG    | `image/png`     | [W3C PNG Standard](https://www.w3.org/TR/2003/REC-PNG-20031110/) |
 | SVG    | `image/svg+xml` | [W3C SVG standard](https://www.w3.org/Graphics/SVG/)             |
 | WebP   | `image/webp`    | [WebP standard](https://developers.google.com/speed/webp/)       |
