@@ -1,7 +1,7 @@
 Problem
 =======
 problem statement, including
-[link to Pivotal Tracker #12345678](https://www.pivotaltracker.com/story/show/12345678)
+Link to GitHub Issue:
 
 Solution
 ========
@@ -26,5 +26,3 @@ Steps to Verify:
 Screenshots (optional):
 -----------------------
 Show-n-tell images/animations here
-
-
