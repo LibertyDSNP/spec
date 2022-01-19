@@ -161,7 +161,7 @@ Audio objects must include a `"hash"` field as described in the [content proofs 
 | MPEG   | `video/mpeg` | [RFC2045](https://www.iana.org/go/rfc2045)                   |
 | OGG    | `video/ogg`  | [RFC5334](https://www.iana.org/go/rfc5334)                   |
 | WebM   | `video/webm` | [WebM standard](https://www.webmproject.org/docs/container/) |
-| H256   | `video/H256` | [RFC7798](https://www.iana.org/go/rfc7798)                   |
+| H265   | `video/H265` | [RFC7798](https://www.iana.org/go/rfc7798)                   |
 | MP4    | `video/mp4`  | [RFC4337](https://www.iana.org/go/rfc4337)                   |
 
 ### Example
