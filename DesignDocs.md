@@ -15,21 +15,24 @@ Linking to technical explainers is encouraged, such as Wikipedia, the DSNP Spec,
 This will help readers to learn about concepts in the proposal if need be.
 
 ## Sections
-* Context + Scope: A short description of the landscape in which the new system is being built and what is actually being built
-* Problem Statement: The "why." A short summary of the issue(s) that this design solves.
+There are six required sections and one optional section.
+
+* **Context and Scope**: A short description of the landscape in which the new system is being built, what is actually being built. It may also say what is _not_ being built, and any assumptions.
+* **Problem Statement**: The "why." A short summary of the issue(s) that this design solves.
     This doesn't have to be a technical problem. 
     "Developer unhappiness" or "improved user experience" are also problems.
-* Goals + Non-goals:  what this solution is trying to do, and is also _not_ trying to do, in concrete terms.
-* Proposal: A high level overview, followed by a detailed description.
-    This can include diagrams such as [A system context diagram](https://en.wikipedia.org/wiki/System_context_diagram)
-* Benefits and Risks: the reasons why this solution was chosen, and the risks this solution poses.
+* **Goals and Non-goals**:  what this solution is trying to do, and is also _not_ trying to do, in concrete terms.  Measurable goals are best.
+* **Proposal**: A high level overview, followed by a detailed description. 
+    This is where specific technology, such as language, frameworks, encryption algorithms, type of authentication, and APIs can be described.  
+    It can include diagrams such as [a system context diagram](https://en.wikipedia.org/wiki/System_context_diagram), or a [sequence diagram](https://www.geeksforgeeks.org/unified-modeling-language-uml-sequence-diagrams/).
+* **Benefits and Risks**: the reasons why this solution was chosen, and the risks this solution poses.
     For example, the solution may be very simple, but there could performance bottlenecks above a certain threshold.
     Another: the solution is well known and widely used, but it's not a perfect fit and requires complicated changes in one area.   
-* Alternatives + Rationale:  discuss alternatives that were considered, and why they were rejected. 
+* **Alternatives and Rationale**: discuss alternatives that were considered, and why they were rejected. 
     Note when there are absolute requirements that the solution does not and can't meet.
     One example might be, it's a proprietary solution but we need something open source.
-* Sources: sources of information that led to this design.
-* Glossary (optional): if you think inline links to concepts are too distracting, include a glossary section. 
+* **Sources**: sources of information that led to this design.
+* **Glossary** (optional): if you think inline links to concepts are too distracting, include a glossary section. 
     This can be links, text or both.
 
 ## Process
