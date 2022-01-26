@@ -30,6 +30,7 @@ ERC165
 EncryptedInbox
 EncryptionKeyList
 Ethereum
+Filecoin
 ForgeFed
 GraphChange
 H265
@@ -126,7 +127,8 @@ e.g.
 ecrecover
 enum
 eth2
-followee
+explainer
+explainers
 followee
 fromAddress
 fromId
