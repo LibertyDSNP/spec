@@ -40,12 +40,13 @@ The process for adding a new DSNP Design Document is much like any other Pull Re
 4. When the PR is accepted, it can be merged.
 
 ## Writing style
+Remember that the first goal of the Design Document is to explain a solution to others so they can understand it well enough to start writing stories and then implement the solution. The next goal is explain the solution to the public. Also keep in mind that these documents will be written in English, and some readers' first language may not be English.
+
 ### General
-These documents will be written in English, and some readers' first language may not be English.
-Prefer shorter words and simpler sentences.
-This document is meant to be an example of the preferred writing style.
-Break up writing into short paragraphs with one concept each.
+Be clear, be concise. Prefer shorter words and simpler sentences. Break up writing into short paragraphs with one concept each.
 Use white space, headings and different text styles to separate and highlight important topics and ideas.
+
+This document is meant to be an example of the preferred writing style.
 
 ### Markdown
 * Please put each sentence on its own line in the Markdown.
