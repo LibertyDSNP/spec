@@ -5,7 +5,7 @@
 * To describe how and where DSNP Design Documents are produced and published.
 
 ## What Is a Design Document?
-It's a document clearly articulating a problem, a solution to that problem, and why we think the proposal is the right solution.
+It's a document clearly describing a problem, a solution to that problem, and why we think the proposal is the right solution.
 It has enough information to begin writing stories for implementing the solution in the document.
  
 ## Audience
