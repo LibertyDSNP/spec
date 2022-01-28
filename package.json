@@ -20,23 +20,26 @@
         "lint": "npm run lint-md && npm run spellcheck"
     },
     "dependencies": {
-        "@emotion/react": "^11.6.0",
+        "@emotion/react": "^11.7.1",
         "@emotion/styled": "^11.6.0",
         "docz": "^2.3.1",
         "markdown-spellcheck": "^1.3.1",
-        "next": "^12.0.4",
+        "next": "^12.0.10",
         "react": "^17.0.2",
         "react-dom": "^17.0.2"
     },
     "devDependencies": {
-        "@types/react": "^17.0.36",
+        "@types/react": "^17.0.39",
         "@types/react-dom": "^17.0.11",
         "compose-function": "3.0.3",
         "remark": "^14.0.2",
         "remark-cli": "^10.0.1",
-        "remark-lint": "^9.1.0",
-        "remark-preset-lint-recommended": "^6.1.1",
+        "remark-lint": "^9.1.1",
+        "remark-preset-lint-recommended": "^6.1.2",
         "remark-validate-links": "github:wilwade/remark-validate-links#7a52742ba4d94c088929f4c1ee7fe633d5a03e07"
+    },
+    "engines": {
+        "node": ">=16.14.0 <17"
     },
     "remarkConfig": {
         "plugins": [
