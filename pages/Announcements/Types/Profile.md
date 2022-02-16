@@ -37,8 +37,8 @@ The reference content *MUST be of profile type*.
 
 ### fromId
 
-- MUST be a [DSNP User Id](/Identifiers#dsnp-user-id)
-- MUST be the [signer](/Announcements/Signatures) of the announcement
+- MUST be a [DSNP User Id](/DSNP/Identifiers#dsnp-user-id)
+- MUST be the [signer](/DSNP/Signatures) of the announcement
 
 ### url
 
@@ -54,7 +54,7 @@ The reference content *MUST be of profile type*.
 
 ### signature
 
-- MUST be an [Announcement Signature](/Announcements/Signatures) over the all fields except the signature field
+- MUST be an [Announcement Signature](/DSNP/Signatures) over the all fields except the signature field
 
 ## Non-Normative
 

@@ -1,7 +1,7 @@
 ---
-name: Overview
-route: /Identity/Overview
-menu: Identity
+name: Identity
+route: /Ethereum/Identity
+menu: "DSNP: Ethereum"
 ---
 
 # Identity
@@ -39,10 +39,10 @@ Additional constraints were placed upon any solution:
 
 On the blockchain ownership is determined by the ability to sign messages.
 To this end, ownership of an identity is also determined by the address of the creator.
-(Options for allowing a delegate to create an identity on behalf of someone is described in the [Identity Factory](/Identity/Factory).)
+(Options for allowing a delegate to create an identity on behalf of someone is described in the [Identity Factory](/Ethereum/IdentityFactory).)
 
 Creation of any new identity MUST be authorized by the owner's address.
-The official [Identity Factory](/Identity/Factory) must be used for initial creation of a new identity.
+The official [Identity Factory](/Ethereum/IdentityFactory) must be used for initial creation of a new identity.
 
 ### Permissioned Owners
 
@@ -241,7 +241,7 @@ Implementations that choose to use this interface will need to consider that tra
 ### EIP 897
 
 [EIP 897](https://eips.ethereum.org/EIPS/eip-897) is for DSNP identity contracts
-that are proxies such as those produced by the default [Identity Factory](/Identity/Factory).
+that are proxies such as those produced by the default [Identity Factory](/Ethereum/IdentityFactory).
 
 ### EIP 1271
 

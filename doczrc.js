@@ -48,29 +48,33 @@ export default {
   menu: [
     "Introduction",
     {
-      name: "Identity",
+      name: "DSNP",
       menu: [
         "Overview",
+        "Identifiers",
+        "Graph",
+        "Batch Publications",
+        "Batch Publication File Format",
+        "Announcements"
       ]
-    },
-    "Identifiers",
-    "Graph",
-    {
-      name: "Batch Publications",
-      menu: [
-        "Overview",
-      ],
     },
     {
       name: "Announcements",
       menu: [
         "Overview",
-      ]
+      ],
     },
     {
       name: "Activity Content",
       menu: [
         "Overview",
+      ]
+    },
+    "DSNP Implementations",
+    {
+      name: "DSNP: Ethereum",
+      menu: [
+        "Overview"
       ]
     },
     {

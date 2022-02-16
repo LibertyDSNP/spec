@@ -38,8 +38,8 @@ It is NOT possible to revert a tombstone.
 
 ### fromId
 
-- MUST be a [DSNP User Id](/Identifiers#dsnp-user-id)
-- MUST be the [signer](/Announcements/Signatures) of the target announcement
+- MUST be a [DSNP User Id](/DSNP/Identifiers#dsnp-user-id)
+- MUST be the [signer](/DSNP/Signatures) of the target announcement
 
 ### targetAnnouncementType
 
@@ -56,9 +56,9 @@ It is NOT possible to revert a tombstone.
 
 ### targetSignature
 
-- MUST be an [Announcement Signature](/Announcements/Signatures) that the `fromId` has announced
+- MUST be an [Announcement Signature](/DSNP/Signatures) that the `fromId` has announced
 
 ### signature
 
-- MUST be an [Announcement Signature](/Announcements/Signatures) over the all fields except this signature field
+- MUST be an [Announcement Signature](/DSNP/Signatures) over the all fields except this signature field
 - MUST be the signature of the `fromId` user

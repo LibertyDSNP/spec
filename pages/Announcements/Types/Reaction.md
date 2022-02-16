@@ -6,7 +6,7 @@ menu: Announcements
 
 # Reaction Announcement
 
-A Reaction Announcement is for publishing emoji reactions to anything with a [DSNP Announcement URI](/Identifiers#dsnp-announcement-uri).
+A Reaction Announcement is for publishing emoji reactions to anything with a [DSNP Announcement URI](/DSNP/Identifiers#dsnp-announcement-uri).
 
 ## Fields
 
@@ -16,7 +16,7 @@ A Reaction Announcement is for publishing emoji reactions to anything with a [DS
 | createdAt | milliseconds since Unix epoch | 64 bit unsigned integer | [decimal](/Announcements/Overview#decimal) | `UINT_64` | no
 | emoji | the encoded reaction | UTF-8 | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | YES
 | fromId | id of the user creating the relationship | 64 bit unsigned integer | [decimal](/Announcements/Overview#decimal) | `UINT_64` | YES
-| inReplyTo | Target [DSNP Announcement URI](/Identifiers#dsnp-announcement-uri) | UTF-8 | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | YES
+| inReplyTo | Target [DSNP Announcement URI](/DSNP/Identifiers#dsnp-announcement-uri) | UTF-8 | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | YES
 | signature | creator signature | 65 bytes | [hexadecimal](/Announcements/Overview#hexadecimal) | `BYTE_ARRAY` | no
 
 ## Field Requirements
@@ -50,16 +50,16 @@ None of the following should be considered valid:
 
 ### fromId
 
-- MUST be a [DSNP User Id](/Identifiers#dsnp-user-id)
-- MUST be the [signer](/Announcements/Signatures) of the announcement
+- MUST be a [DSNP User Id](/DSNP/Identifiers#dsnp-user-id)
+- MUST be the [signer](/DSNP/Signatures) of the announcement
 
 ### inReplyTo
 
-- MUST be a [DSNP Announcement URI](/Identifiers#dsnp-announcement-uri)
+- MUST be a [DSNP Announcement URI](/DSNP/Identifiers#dsnp-announcement-uri)
 
 ### signature
 
-- MUST be an [Announcement Signature](/Announcements/Signatures) over the all fields except the signature field
+- MUST be an [Announcement Signature](/DSNP/Signatures) over the all fields except the signature field
 
 ## Non-Normative
 

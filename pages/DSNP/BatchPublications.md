@@ -1,7 +1,7 @@
 ---
-menu: Batch Publications
-name: Overview
-route: /BatchPublications/Overview
+menu: DSNP
+name: Batch Publications
+route: /DSNP/BatchPublications
 ---
 
 # Batch Publications
@@ -15,7 +15,7 @@ Each Batch Publication is reference to a Batch File with a collections of a sing
 ## Batch File Format
 
 The storage file format is [Apache Parquet](https://github.com/apache/parquet-format).
-See [Batch File Format](/BatchPublications/FileFormat) for additional details and requirements.
+See [Batch File Format](/DSNP/BatchPublicationFileFormat) for additional details and requirements.
 
 ## Batch File Retrieval
 
@@ -31,4 +31,4 @@ See [Batch File Format](/BatchPublications/FileFormat) for additional details an
 ## Publishing
 
 Batch Publications are communicated to the network via an Ethereum Log Event: `DSNPBatchPublication`.
-See [Publishing](/BatchPublications/Publishing) for details and requirements.
+See [Publishing](/Ethereum/Publishing) for details and requirements.

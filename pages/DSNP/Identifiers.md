@@ -1,6 +1,7 @@
 ---
 name: Identifiers
-route: /Identifiers
+route: /DSNP/Identifiers
+menu: DSNP
 ---
 
 # DSNP Identifiers
@@ -8,7 +9,7 @@ route: /Identifiers
 ## DSNP User Id
 
 - 64 bit Unsigned Integer
-- MUST be registered in the [Identity Registry](/Identity/Registry)
+- MUST be registered in the [Identity Registry](/Ethereum/IdentityRegistry)
 - MUST be serialized as [decimal](/Announcements/Overview#decimal)
 
 ## DSNP Content Hash

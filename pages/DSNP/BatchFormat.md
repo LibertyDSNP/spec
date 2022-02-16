@@ -1,7 +1,7 @@
 ---
-menu: Batch Publications
-name: File Format
-route: /BatchPublications/FileFormat
+menu: DSNP
+name: Batch Publication File Format
+route: /DSNP/BatchFormat
 ---
 
 # Batch File Storage

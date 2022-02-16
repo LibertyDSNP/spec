@@ -7,7 +7,7 @@ menu: Announcements
 # Reply Announcement
 
 A Reply Announcement is the same as a [Broadcast Announcement](/Announcements/Types/Broadcast),
-but includes an `inReplyTo` field for noting it as a reply to a given [DSNP Announcement URI](/Identifiers#dsnp-announcement-uri).
+but includes an `inReplyTo` field for noting it as a reply to a given [DSNP Announcement URI](/DSNP/Identifiers#dsnp-announcement-uri).
 
 ## Fields
 
@@ -17,7 +17,7 @@ but includes an `inReplyTo` field for noting it as a reply to a given [DSNP Anno
 | contentHash | keccak-256 hash of content stored at URL | 32 bytes | [hexadecimal](/Announcements/Overview#hexadecimal) | `BYTE_ARRAY` | YES
 | createdAt | milliseconds since Unix epoch | 64 bit unsigned integer | [decimal](/Announcements/Overview#decimal) | `UINT_64` | no
 | fromId | id of the user creating the announcement | 64 bit unsigned integer | [decimal](/Announcements/Overview#decimal) | `UINT_64` | YES
-| inReplyTo | Target [DSNP Announcement URI](/Identifiers#dsnp-announcement-uri) | UTF-8 | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | YES
+| inReplyTo | Target [DSNP Announcement URI](/DSNP/Identifiers#dsnp-announcement-uri) | UTF-8 | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | YES
 | url | content URL | UTF-8 | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | no
 | signature | creator signature | 65 bytes | [hexadecimal](/Announcements/Overview#hexadecimal) | `BYTE_ARRAY` | no
 
@@ -37,12 +37,12 @@ but includes an `inReplyTo` field for noting it as a reply to a given [DSNP Anno
 
 ### fromId
 
-- MUST be a [DSNP User Id](/Identifiers#dsnp-user-id)
-- MUST be the [signer](/Announcements/Signatures) of the announcement
+- MUST be a [DSNP User Id](/DSNP/Identifiers#dsnp-user-id)
+- MUST be the [signer](/DSNP/Signatures) of the announcement
 
 ### inReplyTo
 
-- MUST be a [DSNP Announcement URI](/Identifiers#dsnp-announcement-uri)
+- MUST be a [DSNP Announcement URI](/DSNP/Identifiers#dsnp-announcement-uri)
 
 ### url
 
@@ -58,4 +58,4 @@ but includes an `inReplyTo` field for noting it as a reply to a given [DSNP Anno
 
 ### signature
 
-- MUST be an [Announcement Signature](/Announcements/Signatures) over the all fields except the signature field
+- MUST be an [Announcement Signature](/DSNP/Signatures) over the all fields except the signature field

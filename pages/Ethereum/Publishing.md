@@ -1,7 +1,7 @@
 ---
-menu: Batch Publications
-name: Publishing
-route: /BatchPublications/Publishing
+menu: Publishing
+name: Ethereum
+route: /Ethereum/Publishing
 ---
 
 # Publishing Batch Publications

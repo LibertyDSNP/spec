@@ -1,65 +1,16 @@
 ---
-name: Overview
-menu: Announcements
-route: /Announcements/Overview
+menu: DSNP
+name: Announcements
+route: /DSNP/Announcements
 ---
+
+TODO: Why announcements and what they do in general and the requirements for implementations
 
 # Announcements Overview
 
 Announcements are content or reference to content that are included in [Batch Publication Files](/DSNP/BatchPublications)
 to communicate new user activity to the rest of the network.
 All Announcements have a [signature](/DSNP/Signatures) to validate the creators authority to publish content.
-
-## Announcement Types
-
-Each Announcement has a enumerated type for use when separating out a stream of Announcements.
-
-| Value | Name | Description | DSNP Announcement URI | Tombstone Allowed |
-|------ | ---- | ----------- | --------------------- | ----------------- |
-| 0 | [Tombstone](/Announcements/Types/Tombstone) | an invalidation of another announcement | no | no |
-| 1 | [Graph Change](/Announcements/Types/GraphChange) | social graph changes | no | no |
-| 2 | [Broadcast](/Announcements/Types/Broadcast) | a public post | YES | YES |
-| 3 | [Reply](/Announcements/Types/Reply) | a public response to a Broadcast | YES | YES |
-| 4 | [Reaction](/Announcements/Types/Reaction) | a public visual reply to a Broadcast | no | YES |
-| 5 | [Profile](/Announcements/Types/Profile) | a profile | YES | no |
-
-## Value Serialization
-
-Serialization is how the value should be stringified for signing and for transfer between systems.
-Most serializations use outside standards, but some require additional clarifications, provided here.
-
-### hexadecimal
-
-Used to represent bytes.
-
-- MUST use 0-9,a-f representation
-- MUST be lowercase
-- MUST be prefixed with a `0x`
-- MUST NOT have spaces or separators
-- MUST have two characters per byte in addition to the `0x` characters
-
-| Bytes | Invalid | Valid |
-| --- | --- | --- |
-| 2 | `0x123` | `0x0123` |
-| 2 | `123h` | `0x0123` |
-| 2 | `0x0ABC` | `0x0abc` |
-| 8 | `0xabc` | `0x0000000000000abc` |
-| 32 | `0x3e34c4325f4461b9355027b314f3eb56d31af549f7da7bd9ef1ce951651e` | `0x00003e34c4325f4461b9355027b314f3eb56d31af549f7da7bd9ef1ce951651e` |
-
-### decimal
-
-Used to represent integers.
-Strings are used to avoid issues with different implementations of numbers.
-
-- MUST use 0-9 representation
-- MUST NOT have spaces or separators
-- MUST be a string
-
-| Invalid | Why | Valid |
-| --- | --- | --- |
-| `0x123` | Must be decimal | `"291"` |
-| 291 | Must be a string | `"291"` |
-| `291n` | `BigInt(291)` serialization appends an `n`  | `"291"` |
 
 ## Duplicate Handling
 

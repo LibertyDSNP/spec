@@ -1,7 +1,7 @@
 ---
-menu: Batch Publications
-name: Validation
-route: /BatchPublications/Validation
+menu: "DSNP: Ethereum"
+name: Batch Publication Validation
+route: /Ethereum/BatchPublicationValidation
 ---
 
 # Batch Publication Validation
@@ -9,7 +9,7 @@ route: /BatchPublications/Validation
 ## Publication Hash Validation
 
 1. Hash the batch publication file using using [keccak-256](https://keccak.team/files/Keccak-submission-3.pdf).
-2. Retrieve the published hash for the given file from the [DSNPBatchPublication](/BatchPublications/Publishing) Event.
+2. Retrieve the published hash for the given file from the [DSNPBatchPublication](/Ethereum/Publishing) Event.
 3. The file hash MUST match the retrieved hash from the `DSNPBatchPublication` Event.
 
 ## Announcement Schema & Type Validation

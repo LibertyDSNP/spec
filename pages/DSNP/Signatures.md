@@ -1,10 +1,10 @@
 ---
-name: Signatures
-route: /Announcements/Signatures
-menu: Announcements
+name: Announcement Signatures
+route: /DSNP/Signatures
+menu: DSNP
 ---
 
-# Announcement Signature
+# Announcement Signatures
 
 Announcements are signed using recoverable ECDSA signatures similarly to how transactions are signed ([Ethereum Yellow Paper Appendix F](https://ethereum.github.io/yellowpaper/paper.pdf)).
 The signatures use the [SECP-256k1 curve](https://link.springer.com/chapter/10.1007%2F978-3-662-44893-9_12)
@@ -16,7 +16,7 @@ All parties interacting with Announcements should independently validate signatu
 
 1. Serialize all Announcement fields (except the signature field).
 1. Hash the serialized string.
-1. Sign the hash with an SECP-256k1 private key that is [authorized to Announce](/Identity/Overview) on the given DSNP User Id in the `fromId` field of the Announcement.
+1. Sign the hash with an SECP-256k1 private key that is [authorized to Announce](/Ethereum/Identity) on the given DSNP User Id in the `fromId` field of the Announcement.
 
 ### Serialization
 
@@ -92,7 +92,7 @@ The compressed form of the above being this (`r + s + v`):
 
 1. Repeat the serialization above.
 1. Perform [elliptic curve recovery](https://web.archive.org/web/20170921160141/http://cs.ucsb.edu/~koc/ccs130h/notes/ecdsa-cert.pdf) with the serialization and signature.
-1. Find the [Identity Contract](/Identity/Overview) for the given `fromId`.
+1. Find the [Identity Contract](/Ethereum/Identity) for the given `fromId`.
 1. Test the recovered Ethereum address against the Identity Contract via `IDelegation.isAuthorizedTo` with the permission `ANNOUNCE`.
 
 #### Example
