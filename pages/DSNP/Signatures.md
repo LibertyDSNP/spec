@@ -88,12 +88,10 @@ The compressed form of the above being this (`r + s + v`):
 0x2e05b0f769b0344a58a06718f90f5d605878b6d5e9e14e1f235de24b399cfe427135a0b704862a8bc2847c4bb9f78bb43f707d427f0ba19bb43f66d5666934c91c
 ```
 
-## Validating a Signature
+## Recovering a Signer's Ethereum Address
 
 1. Repeat the serialization above.
 1. Perform [elliptic curve recovery](https://web.archive.org/web/20170921160141/http://cs.ucsb.edu/~koc/ccs130h/notes/ecdsa-cert.pdf) with the serialization and signature.
-1. Find the [Identity Contract](/Ethereum/Identity) for the given `fromId`.
-1. Test the recovered Ethereum address against the Identity Contract via `IDelegation.isAuthorizedTo` with the permission `ANNOUNCE`.
 
 #### Example
 
