@@ -51,7 +51,7 @@ Announcements should have an eventually consistent ordering.
 
 ## TODO: Reverting an Announcement
 
-Announcements may not be deleted, but some may be marked as invalid by using a [Tombstone Announcement](/Announcements/Types/Tombstone).
+Announcements may not be deleted, but some may be marked as invalid by using a [Tombstone Announcement](/DSNP/Types/Tombstone).
 For example, if a user creates a reaction announcement, they may remove that reaction by creating a tombstone announcement.
 
 

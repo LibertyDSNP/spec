@@ -6,7 +6,7 @@ menu: DSNP
 
 # Reply Announcement
 
-A Reply Announcement is the same as a [Broadcast Announcement](/Announcements/Types/Broadcast),
+A Reply Announcement is the same as a [Broadcast Announcement](/DSNP/Types/Broadcast),
 but includes an `inReplyTo` field for noting it as a reply to a given [DSNP Announcement URI](/DSNP/Identifiers#dsnp-announcement-uri).
 
 ## Fields

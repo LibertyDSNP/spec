@@ -10,4 +10,4 @@ While it helps to have...
 
 | Blockchain | DSNP Version |
 | --- | --- |
-| [Ethereum/EVM Compatible](/Ethereum) | DSNP v1.0 |
+| [Ethereum/EVM Compatible](/Ethereum) | DSNP 1.0 |

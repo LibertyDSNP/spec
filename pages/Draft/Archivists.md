@@ -37,8 +37,8 @@ It is a key-value map consisting of the following fields:
 
 | field name | description |type |
 | --- | --- | --- |
-| `dsnpType` | DSNP message type |number/enum. see [DSNP Message Types](/Announcements/Types) |
-| `dsnpData` | DSNP message data | see fields in [DSNP Messages](/Announcements/Overview) |
+| `dsnpType` | DSNP message type |number/enum. see [DSNP Message Types](/DSNP/Types) |
+| `dsnpData` | DSNP message data | see fields in [DSNP Messages](/DSNP/Announcements) |
 | `signatures` | list of signatures for this message | array of Signatures |
 
 ### `dsnpType`
@@ -49,7 +49,7 @@ It is a key-value map consisting of the following fields:
 ### `dsnpData`
 
 * varies
-* This can be encrypted where appropriate. The decrypted, fully deserialized version must be one of the types described in [DSNP Messages](/Announcements/Overview).
+* This can be encrypted where appropriate. The decrypted, fully deserialized version must be one of the types described in [DSNP Messages](/DSNP/Announcements).
 
 ### `signatures`
 

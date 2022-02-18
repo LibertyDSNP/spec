@@ -21,8 +21,8 @@ DSNP uses only the following content types at the root level.
 
 | Name | Description | DSNP Announcements |
 | ---- | ----------- | -------------------- |
-[Note](/ActivityContent/Types/Note) | standard user content | [Broadcast](/Announcements/Types/Broadcast), [Reply](/Announcements/Types/Reply) |
-[Profile](/ActivityContent/Types/Profile) | user profile content | [Profile](/Announcements/Types/Profile) |
+[Note](/ActivityContent/Types/Note) | standard user content | [Broadcast](/DSNP/Types/Broadcast), [Reply](/DSNP/Types/Reply) |
+[Profile](/ActivityContent/Types/Profile) | user profile content | [Profile](/DSNP/Types/Profile) |
 
 ## Associated Types
 

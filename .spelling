@@ -126,6 +126,7 @@ e.g.
 ecrecover
 enum
 eth2
+EVM
 followee
 followee
 fromAddress

@@ -45,7 +45,7 @@ dsnp://1311768467294899700
 DSNP Announcement URI consists of three parts, the scheme, the user id, and the content hash.
 It is used to uniquely identify an announcements from a given user with content.
 
-Any [Announcement Types](/Announcements/Overview#announcement-types) with a `fromId` and `contentHash` have a DSNP Announcement URI.
+Any [Announcement Types](/DSNP/Announcements#announcement-types) with a `fromId` and `contentHash` have a DSNP Announcement URI.
 
 ### Example
 ```

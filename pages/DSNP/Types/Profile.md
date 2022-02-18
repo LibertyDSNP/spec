@@ -6,7 +6,7 @@ menu: DSNP
 
 # Profile Announcement
 
-A Profile Announcement is a constrained version of a [Broadcast Announcement](/Announcements/Types/Broadcast).
+A Profile Announcement is a constrained version of a [Broadcast Announcement](/DSNP/Types/Broadcast).
 The reference content *MUST be of profile type*.
 
 ## Fields

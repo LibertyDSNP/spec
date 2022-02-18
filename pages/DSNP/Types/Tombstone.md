@@ -43,7 +43,7 @@ It is NOT possible to revert a tombstone.
 
 ### targetAnnouncementType
 
-- MUST be the [Announcement Type](/Announcements/Overview#announcement-types) of the target announcement
+- MUST be the [Announcement Type](/DSNP/Announcements#announcement-types) of the target announcement
 - MUST ONLY be a Tombstone Allowed Announcement Type
 
 #### Tombstone Allowed Announcement Types
