@@ -4,38 +4,56 @@ name: Announcements
 route: /DSNP/Announcements
 ---
 
-TODO: Why announcements and what they do in general and the requirements for implementations
+
+# TODO
+
+I took out signatures from this level. Do we still need them for DSNP 1.0?
+
 
 # Announcements Overview
 
-Announcements are content or reference to content that are included in [Batch Publication Files](/DSNP/BatchPublications)
-to communicate new user activity to the rest of the network.
-All Announcements have a [signature](/DSNP/Signatures) to validate the creators authority to publish content.
+Announcements are content or reference to content that communicate new user activity to the rest of the network.
+Announcements are associated with an [Identifier](/DSNP/Identifiers) which can be validated as creator of the announcement.
+Depending on the implementation Announcements may be published directly to the network, included in [Batch Publication Files](/DSNP/BatchPublications), or some combination of those two.
+
+## Announcement Types
+
+Each Announcement has a enumerated type for use when separating out a stream of Announcements.
+
+| Value | Name | Description | DSNP Announcement URI | Tombstone Allowed |
+|------ | ---- | ----------- | --------------------- | ----------------- |
+| 0 | [Tombstone](/DSNP/Types/Tombstone) | an invalidation of another announcement | no | no |
+| 1 | [Graph Change](/DSNP/Types/GraphChange) | social graph changes | no | no |
+| 2 | [Broadcast](/DSNP/Types/Broadcast) | a public post | YES | YES |
+| 3 | [Reply](/DSNP/Types/Reply) | a public response to a Broadcast | YES | YES |
+| 4 | [Reaction](/DSNP/Types/Reaction) | a public visual reply to a Broadcast | no | YES |
+| 5 | [Profile](/DSNP/Types/Profile) | a profile | YES | no |
+
 
 ## Duplicate Handling
 
-Duplicate Announcements may occur.
-Duplicates may be identified as any Announcements that match a previous Announcement's `signature` field
-(per the [Announcement Order](#ordering-announcements)).
-Duplicate Announcements MUST be rejected or ignored.
+TODO? What about just saying that duplicates should be ignored? Is that enough?
+
+Duplicate Announcements may occur due to the nature of asynchronous communication.
+In the case of duplicates, the first Announcement should be considered the only valid Announcement.
+Additional duplicate Announcements MUST be rejected or ignored.
 
 ## Ordering Announcements
 
-Announcements are ordered on the network to provide for time dependent resolutions.
+Is this network dependent?
 
-Announcements in [Batch Publication Files](/DSNP/BatchPublications) have an eventually consistent canonical ordering.
-The `DSNPBatchPublication` Ethereum events are ordered by information provided in the transaction.
-Announcements in a Batch Publication File are then ordered by row index.
+Announcements should have an eventually consistent ordering.
 
-1. `DSNPBatchPublication` Block number ascending
-2. `DSNPBatchPublication` Transaction index ascending
-3. `DSNPBatchPublication` Log index ascending
-4. Batch Publication File Announcement row appearance order
+### Example? Or is this real?
 
-## Reverting an Announcement
+1. Order Batch Publications by network order
+2. Order Announcements in a Batch Publication File by row appearance order
+
+## TODO: Reverting an Announcement
 
 Announcements may not be deleted, but some may be marked as invalid by using a [Tombstone Announcement](/Announcements/Types/Tombstone).
 For example, if a user creates a reaction announcement, they may remove that reaction by creating a tombstone announcement.
+
 
 ## Non-Normative
 
