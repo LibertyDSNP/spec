@@ -1,7 +1,7 @@
 ---
 name: "Type: Reply"
-route: /Announcements/Types/Reply
-menu: Announcements
+route: /DSNP/Types/Reply
+menu: DSNP
 ---
 
 # Reply Announcement
@@ -13,13 +13,13 @@ but includes an `inReplyTo` field for noting it as a reply to a given [DSNP Anno
 
 | Field | Description | Data Type | Serialization | Parquet Type | Bloom Filter |
 | ----- | ----------- | --------- | ------------- | ------------ | ------------ |
-| announcementType | Announcement Type Enum (`3`) | enum | [decimal](/Announcements/Overview#decimal) | `INT32` | no |
-| contentHash | keccak-256 hash of content stored at URL | 32 bytes | [hexadecimal](/Announcements/Overview#hexadecimal) | `BYTE_ARRAY` | YES
-| createdAt | milliseconds since Unix epoch | 64 bit unsigned integer | [decimal](/Announcements/Overview#decimal) | `UINT_64` | no
-| fromId | id of the user creating the announcement | 64 bit unsigned integer | [decimal](/Announcements/Overview#decimal) | `UINT_64` | YES
+| announcementType | Announcement Type Enum (`3`) | enum | [decimal](/DSNP/Serializations#decimal) | `INT32` | no |
+| contentHash | keccak-256 hash of content stored at URL | 32 bytes | [hexadecimal](/DSNP/Serializations#hexadecimal) | `BYTE_ARRAY` | YES
+| createdAt | milliseconds since Unix epoch | 64 bit unsigned integer | [decimal](/DSNP/Serializations#decimal) | `UINT_64` | no
+| fromId | id of the user creating the announcement | 64 bit unsigned integer | [decimal](/DSNP/Serializations#decimal) | `UINT_64` | YES
 | inReplyTo | Target [DSNP Announcement URI](/DSNP/Identifiers#dsnp-announcement-uri) | UTF-8 | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | YES
 | url | content URL | UTF-8 | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | no
-| signature | creator signature | 65 bytes | [hexadecimal](/Announcements/Overview#hexadecimal) | `BYTE_ARRAY` | no
+| signature | creator signature | 65 bytes | [hexadecimal](/DSNP/Serializations#hexadecimal) | `BYTE_ARRAY` | no
 
 ## Field Requirements
 

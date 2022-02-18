@@ -10,13 +10,13 @@ menu: DSNP
 
 - 64 bit Unsigned Integer
 - MUST be registered in the [Identity Registry](/Ethereum/IdentityRegistry)
-- MUST be serialized as [decimal](/Announcements/Overview#decimal)
+- MUST be serialized as [decimal](/DSNP/Serializations#decimal)
 
 ## DSNP Content Hash
 
 - MUST be 32 bytes in size
 - MUST be a [keccak-256 hash](https://keccak.team/files/Keccak-submission-3.pdf) of the bytes of the content
-- MUST be serialized as [hexadecimal](/Announcements/Overview#hexadecimal)
+- MUST be serialized as [hexadecimal](/DSNP/Serializations#hexadecimal)
 
 ### DSNP Protocol Scheme
 

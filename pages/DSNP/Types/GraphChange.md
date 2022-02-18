@@ -1,7 +1,7 @@
 ---
 name: "Type: Graph Change"
-route: /Announcements/Types/GraphChange
-menu: Announcements
+route: /DSNP/Types/GraphChange
+menu: DSNP
 ---
 
 # Graph Change Announcement
@@ -12,12 +12,12 @@ A Graph Change Announcement is for publishing relationship state changes for a u
 
 | Field | Description | Data Type | Serialization | Parquet Type | Bloom Filter |
 | ----- | ----------- | --------- | ------------- | ------------ | ------------ |
-| announcementType | Announcement Type Enum (`1`) | enum | [decimal](/Announcements/Overview#decimal) | `INT32` | no |
-| changeType | Type of relationship change | enum | [decimal](/Announcements/Overview#decimal) | `INT32` | no
-| createdAt | milliseconds since Unix epoch | 64 bit unsigned integer | [decimal](/Announcements/Overview#decimal) | `UINT_64` | no
-| fromId | id of the user creating the relationship | 64 bit unsigned integer | [decimal](/Announcements/Overview#decimal) | `UINT_64` | YES
-| objectId | id of the target of the relationship | 64 bit unsigned integer | [decimal](/Announcements/Overview#decimal) | `UINT_64` | YES
-| signature | creator signature | 65 bytes | [hexadecimal](/Announcements/Overview#hexadecimal) | `BYTE_ARRAY` | no
+| announcementType | Announcement Type Enum (`1`) | enum | [decimal](/DSNP/Serializations#decimal) | `INT32` | no |
+| changeType | Type of relationship change | enum | [decimal](/DSNP/Serializations#decimal) | `INT32` | no
+| createdAt | milliseconds since Unix epoch | 64 bit unsigned integer | [decimal](/DSNP/Serializations#decimal) | `UINT_64` | no
+| fromId | id of the user creating the relationship | 64 bit unsigned integer | [decimal](/DSNP/Serializations#decimal) | `UINT_64` | YES
+| objectId | id of the target of the relationship | 64 bit unsigned integer | [decimal](/DSNP/Serializations#decimal) | `UINT_64` | YES
+| signature | creator signature | 65 bytes | [hexadecimal](/DSNP/Serializations#hexadecimal) | `BYTE_ARRAY` | no
 
 ## Field Requirements
 

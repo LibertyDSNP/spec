@@ -1,7 +1,7 @@
 ---
 name: "Type: Reaction"
-route: /Announcements/Types/Reaction
-menu: Announcements
+route: /DSNP/Types/Reaction
+menu: DSNP
 ---
 
 # Reaction Announcement
@@ -12,12 +12,12 @@ A Reaction Announcement is for publishing emoji reactions to anything with a [DS
 
 | Field | Description | Data Type | Serialization | Parquet Type | Bloom Filter |
 | ----- | ----------- | --------- | ------------- | ------------ | ------------ |
-| announcementType | Announcement Type Enum (`4`) | enum | [decimal](/Announcements/Overview#decimal) | `INT32` | no |
-| createdAt | milliseconds since Unix epoch | 64 bit unsigned integer | [decimal](/Announcements/Overview#decimal) | `UINT_64` | no
+| announcementType | Announcement Type Enum (`4`) | enum | [decimal](/DSNP/Serializations#decimal) | `INT32` | no |
+| createdAt | milliseconds since Unix epoch | 64 bit unsigned integer | [decimal](/DSNP/Serializations#decimal) | `UINT_64` | no
 | emoji | the encoded reaction | UTF-8 | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | YES
-| fromId | id of the user creating the relationship | 64 bit unsigned integer | [decimal](/Announcements/Overview#decimal) | `UINT_64` | YES
+| fromId | id of the user creating the relationship | 64 bit unsigned integer | [decimal](/DSNP/Serializations#decimal) | `UINT_64` | YES
 | inReplyTo | Target [DSNP Announcement URI](/DSNP/Identifiers#dsnp-announcement-uri) | UTF-8 | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | YES
-| signature | creator signature | 65 bytes | [hexadecimal](/Announcements/Overview#hexadecimal) | `BYTE_ARRAY` | no
+| signature | creator signature | 65 bytes | [hexadecimal](/DSNP/Serializations#hexadecimal) | `BYTE_ARRAY` | no
 
 ## Field Requirements
 

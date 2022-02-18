@@ -1,7 +1,7 @@
 ---
 name: "Type: Profile"
-route: /Announcements/Types/Profile
-menu: Announcements
+route: /DSNP/Types/Profile
+menu: DSNP
 ---
 
 # Profile Announcement
@@ -13,12 +13,12 @@ The reference content *MUST be of profile type*.
 
 | Field | Description | Serialization | Parquet Type | Bloom Filter |
 | ----- | ----------- | ------------- | ------------ | ------------ |
-| announcementType | Announcement Type Enum (`5`) | [decimal](/Announcements/Overview#decimal) | `INT32` | no |
-| contentHash | keccak-256 hash of content stored at URL | [hexadecimal](/Announcements/Overview#hexadecimal) | `BYTE_ARRAY` | YES
-| createdAt | milliseconds since Unix epoch | [decimal](/Announcements/Overview#decimal) | `UINT_64` | no
-| fromId | id of the user creating the announcement | [decimal](/Announcements/Overview#decimal) | `UINT_64` | YES
+| announcementType | Announcement Type Enum (`5`) | [decimal](/DSNP/Serializations#decimal) | `INT32` | no |
+| contentHash | keccak-256 hash of content stored at URL | [hexadecimal](/DSNP/Serializations#hexadecimal) | `BYTE_ARRAY` | YES
+| createdAt | milliseconds since Unix epoch | [decimal](/DSNP/Serializations#decimal) | `UINT_64` | no
+| fromId | id of the user creating the announcement | [decimal](/DSNP/Serializations#decimal) | `UINT_64` | YES
 | url | Profile content URL | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | no
-| signature | creator signature | [hexadecimal](/Announcements/Overview#hexadecimal) | `BYTE_ARRAY` | no
+| signature | creator signature | [hexadecimal](/DSNP/Serializations#hexadecimal) | `BYTE_ARRAY` | no
 
 ## Field Requirements
 
