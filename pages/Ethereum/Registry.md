@@ -1,6 +1,6 @@
 ---
 name: Identity Registry
-route: /Ethereum/IdentityRegistry
+route: /Ethereum/Registry
 menu: "DSNP: Ethereum"
 ---
 

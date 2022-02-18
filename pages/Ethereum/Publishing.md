@@ -1,10 +1,10 @@
 ---
 menu: "DSNP: Ethereum"
-name: Publishing Announcements
+name: Announcement Publishing
 route: /Ethereum/Publishing
 ---
 
-# Publishing Announcements
+# Announcement Publishing
 
 On Ethereum, all [Announcements](/DSNP/Announcements) are published via [Batch Publication Files](/DSNP/BatchPublications).
 Publishing is accomplished via an Ethereum Log Event.

@@ -59,12 +59,6 @@ export default {
       ]
     },
     {
-      name: "Announcements",
-      menu: [
-        "Overview",
-      ],
-    },
-    {
       name: "Activity Content",
       menu: [
         "Overview",

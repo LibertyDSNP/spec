@@ -8,6 +8,6 @@ route: /Implementations
 DSNP is designed to be chain agnostic.
 While it helps to have...
 
-| Blockchain | DSNP Version |
+| Name | DSNP Version |
 | --- | --- |
-| [Ethereum/EVM Compatible](/Ethereum) | DSNP 1.0 |
+| [Ethereum/EVM Compatible](/Ethereum) | 1.0 |

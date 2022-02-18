@@ -1,7 +1,7 @@
 ---
+menu: "DSNP: Ethereum"
 name: Announcement Validation
 route: /Ethereum/Validation
-menu: "DSNP: Ethereum"
 ---
 
 # Announcement Validation
