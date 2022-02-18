@@ -1,20 +1,14 @@
 ---
-name: Announcement Source Validation
+name: Announcement Validation
 route: /Ethereum/Validation
 menu: "DSNP: Ethereum"
 ---
 
-# Announcement Source Validation
+# Announcement Validation
 
-## Purpose
+DSNP Announcements on Ethereum are validated at read time.
 
-In order to fulfill the requirements of the [DSNP Source Validation Spec](/TODO)
-
-## Overview
-
-Messages on DSNP on Ethereum are validated at read time.
-
-1. Watch for `DSNPBatchPublication` Event
+1. Read `DSNPBatchPublication` events
 2. Fetch and validate the Batch Publication
 3. Recover and validate the Ethereum address from the Announcement
 
@@ -29,14 +23,3 @@ Messages on DSNP on Ethereum are validated at read time.
 1. Recover the Ethereum address from the [signature](/DSNP/Signatures).
 2. Find the [Identity Contract](/Ethereum/Identity) for the given `fromId`.
 3. Test the recovered Ethereum address against the Identity Contract via `IDelegation.isAuthorizedTo` with the permission `ANNOUNCE` and the block number from the `DSNPBatchPublication` event.
-
-
-
-
-MOVE TO DSNP BATCH PUBLICATION SPEC
-
-## Announcement Schema & Type Validation
-
-- Every batch file MUST contain only one type of [Announcement](/Announcements/Overview#announcement-types).
-- Batch file columns MUST match the Announcement Type Columns.
-- Column order is NOT guaranteed

@@ -27,9 +27,9 @@ Implementations MUST retain proof of existence of a Batch Publication.
 
 Batch files are stored and transferred in Apache Parquet format.
 
-- Batch File MUST match the spec for a single [Announcement Type](/Announcements/Overview).
-- Batch File MUST have Bloom filters set in accordance to the Announcement Type Spec.
-- Batch File MUST have NO MORE THAN 128*1024 rows
+- Batch file MUST match the spec for a single [Announcement Type](/Announcements/Overview).
+- Batch file MUST have Bloom filters set in accordance to the Announcement Type Spec.
+- Batch file MUST have NO MORE THAN 128*1024 rows
 
 ### Bloom Filter
 

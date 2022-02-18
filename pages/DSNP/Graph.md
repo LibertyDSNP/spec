@@ -14,10 +14,8 @@ The DSNP graph represents nodes as [DSNP User Ids](/DSNP/Identifiers#dsnp-user-i
 
 ## Public Graph
 
-The public graph is anchored in state transitions recorded in [Graph Change Announcements](/Announcements/Types/GraphChange).
-Possible graph nodes are limited to registered identifiers in the [Identity Registry](/Ethereum/IdentityRegistry).
-Playing all state transitions in [order](/Announcements/Overview#ordering-announcements) will
-generate the current state of the public graph.
+The public graph is anchored in state transitions recorded in [Graph Change Announcements](/DSNP/Types/GraphChange).
+Playing all state transitions in [order](/DSNP/Announcements#ordering-announcements) will generate the current state of the public graph.
 
 ## Private Graph
 
@@ -33,6 +31,6 @@ An "unfollow" is the act of publicly unfollowing a [DSNP User Identity](/DSNP/Id
 
 ### Friendship
 
-There is no concept of "friendship" within the DSNP network.
+There is currently no concept of "friendship" within the DSNP network.
 Friendship requires a mutual acknowledgement between 2 different DSNP User Identities.
-Friendship can be thought as "mutual following" - where 2 DSNP User Identities are following each other.
+Friendship could be thought as "mutual following" - where 2 DSNP User Identities are following each other.

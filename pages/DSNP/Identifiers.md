@@ -4,13 +4,16 @@ route: /DSNP/Identifiers
 menu: DSNP
 ---
 
-# DSNP Identifiers
+# Identifiers
+
+The DSNP Identifiers form the basis for pseudo-anonymous streams of content.
+Graph connections are formed through the DSNP User Id.
 
 ## DSNP User Id
 
 - 64 bit Unsigned Integer
-- MUST be registered in the [Identity Registry](/Ethereum/IdentityRegistry)
 - MUST be serialized as [decimal](/DSNP/Serializations#decimal)
+- MUST be unique per implementation
 
 ## DSNP Content Hash
 
