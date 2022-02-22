@@ -4,19 +4,24 @@ route: /DSNP
 menu: DSNP
 ---
 
-TODO
-
 # DSNP Specification
 
-## Version 1.0.0
+Implementation agnostic DSNP specification.
 
-Welcome to the Decentralized Social Networking Protocol (DSNP) specification!
-Here you can find a detailed documentation regarding the current state of the protocol and proposals for future extensions.
-
-## Implementation Status
-
-### Releases
+## Releases
 
 | Name | Description | Date |
 | --- | --- | --- |
 | 1.0.0 | Initial Release | 2021-09-08 |
+
+### Version 1.0.0
+
+Released this version on 09/09/2021. [Go to this release](https://github.com/LibertyDSNP/spec/releases/tag/v1.0.0)
+
+<details> 
+  <summary>Changelog</summary>
+    - Update spelling
+    - Minor homepage cleanup
+    - Roadmap Updates
+    - Tagged for v1.0.0
+</details>

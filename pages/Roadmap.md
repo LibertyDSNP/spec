@@ -6,6 +6,11 @@ route: /Roadmap
 # Roadmap
 *Last Updated: 2021-09-08*
 
+## Introduction
+
+This document represents Roadmap for DSNP and related specficiations.
+Roadmap may not reflect current priorities and is subject to change.
+
 ## Completed
 
 | Work | Status |

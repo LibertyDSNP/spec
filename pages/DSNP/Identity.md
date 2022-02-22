@@ -18,7 +18,7 @@ This specification is intended to cover the concept of identity within the proto
 
 The DSNP Identifiers form the basis for pseudo-anonymous streams of content. Graph connections are formed through the DSNP User Id.
 
-TODO: [Link to Identifiers](./Identifiers).
+TODO: [Link to Identifiers](/DSNP/Identifiers).
 
 ## Ownership
 
