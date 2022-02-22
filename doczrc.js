@@ -51,6 +51,7 @@ export default {
       name: "DSNP",
       menu: [
         "Overview",
+        "Identity",
         "Identifiers",
         "Graph",
         "Batch Publications",

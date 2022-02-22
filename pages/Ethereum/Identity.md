@@ -6,8 +6,6 @@ menu: "DSNP: Ethereum"
 
 # Identity
 
-This specification is intended to cover the concept of identity within the protocol and how we represent it.
-
 ## Purpose
 
 1. Provide the interface for a DSNP identity.
@@ -15,34 +13,16 @@ This specification is intended to cover the concept of identity within the proto
 1. Specify the ownership model and related interface.
 1. Provide the list of EIPs that must be supported by a DSNP compatible identity.
 
-## Assumptions
-
-* Identity is on Ethereum for Betanet.
-* Identity will need to be moved from Betanet to Mainnet.
-
 ## Details
-
-Identity is comprised of several parts:
-
-* Ownership
-* Delegation
-* Identification
-* Discovery
-
-Additional constraints were placed upon any solution:
-
-* Pseudo Anonymity: A consistent identifier that defaults to disconnected from real world identity
-* Flexibility: An interface that can produce multiple solutions
-* Extensibility: A default implementation that can be updated over time as DSNP changes
 
 ## Ownership
 
-On the blockchain ownership is determined by the ability to sign messages.
-To this end, ownership of an identity is also determined by the address of the creator.
-(Options for allowing a delegate to create an identity on behalf of someone is described in the [Identity Factory](/Ethereum/IdentityFactory).)
+Ownership of an identity on Ethereum is determined by the address of the signer of the content.
 
 Creation of any new identity MUST be authorized by the owner's address.
 The official [Identity Factory](/Ethereum/IdentityFactory) must be used for initial creation of a new identity.
+
+Creation of an identity on behalf of someone is described in the [Identity Factory](/Ethereum/IdentityFactory).
 
 ### Permissioned Owners
 
@@ -51,7 +31,7 @@ While at least one owner is required, additional public keys may be considered t
 
 ## Delegation
 
-Delegation allows adding public keys that are allowed to sign announcements or perform other actions in addition to the "owner" public key.
+Delegation allows adding additional public keys that are allowed to sign announcements or perform other actions in addition to the owner public key(s).
 
 ### Interface
 
