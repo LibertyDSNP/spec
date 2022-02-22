@@ -47,6 +47,7 @@ export default {
   },
   menu: [
     "Introduction",
+    "Roadmap",
     {
       name: "DSNP",
       menu: [
