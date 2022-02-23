@@ -20,9 +20,9 @@ There are three core specifications currently.
 
 | Name | Version | Description |
 | --- | --- | --- |
-| [DSNP](/DSNP/Overview) | v1.0.0 | The implementation agnostic DSNP specification |
+| [DSNP](/DSNP/Overview) | 1.0.0 | The implementation agnostic DSNP specification |
 | [DSNP Implementations](/Implementations) | - | Implementation specific specifications |
-| [Activity Content](/ActivityContent/Overview) | v1.0.0 | A specification for DSNP referenced content (sub-set of W3C Activity Streams) |
+| [Activity Content](/ActivityContent/Overview) | 1.0.0 | A specification for DSNP referenced content (sub-set of W3C Activity Streams) |
 
 Each specification is divided into several modules.
 Each module describes a mostly self-contained aspect of the specification.

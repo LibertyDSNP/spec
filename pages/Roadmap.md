@@ -8,7 +8,7 @@ route: /Roadmap
 
 ## Introduction
 
-This document represents Roadmap for DSNP and related specficiations.
+This document represents Roadmap for DSNP and related specifications.
 Roadmap may not reflect current priorities and is subject to change.
 
 ## Completed
