@@ -20,8 +20,10 @@ Released this version on 09/09/2021. [Go to this release](https://github.com/Lib
 
 <details> 
   <summary>Changelog</summary>
-    - Update spelling
-    - Minor homepage cleanup
-    - Roadmap Updates
-    - Tagged for v1.0.0
+  <ul>
+    <li> Update spelling</li>
+    <li> Update version number to v1.0.0</li>
+    <li> Roadmap updates</li>
+    <li> Minor homepage cleanup</li>
+  </ul>
 </details>
