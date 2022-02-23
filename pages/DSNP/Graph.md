@@ -17,11 +17,11 @@ The DSNP graph represents nodes as [DSNP User Ids](/DSNP/Identifiers#dsnp-user-i
 The public graph is anchored in state transitions recorded in [Graph Change Announcements](/DSNP/Types/GraphChange).
 Playing all state transitions in [order](/DSNP/Announcements#ordering-announcements) will generate the current state of the public graph.
 
-## Private Graph
+## Non-Normative
+
+### Private Graph
 
 Future. See the [DSNP Whitepaper](https://github.com/LibertyDSNP/papers) for foundational ideas.
-
-## Non-Normative
 
 ### Following
 
