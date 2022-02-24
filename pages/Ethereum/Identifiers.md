@@ -10,4 +10,4 @@ Graph connections are formed through the DSNP User Id.
 
 ## Uniqueness
 
-The [identity registry](/Ethereum/Registry) is the source of building and maintaining unique dsnp user id.
+The [identity registry](/Ethereum/Registry) is the source of building and maintaining unique DSNP User Id.
