@@ -8,8 +8,11 @@ route: /DSNP/Announcements
 
 Announcements are content or reference to content that communicate new user activity to the rest of the network.
 Announcements are associated with an [Identifier](/DSNP/Identifiers) which can be validated as creator of the announcement.
-Announcement validation starts with the [signature](/DSNP/Signatures) of the announcement.
 Depending on the implementation Announcements may be published directly to the network, included in [Batch Publication Files](/DSNP/BatchPublications), or some combination of those two.
+
+## Announcement Validation
+
+[Signature](/DSNP/Signatures) is the first step in validating an announcement.
 
 ## Announcement Types
 
