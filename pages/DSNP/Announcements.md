@@ -12,7 +12,9 @@ Depending on the implementation Announcements may be published directly to the n
 
 ## Announcement Validation
 
-[Signature](/DSNP/Signatures) is the first step in validating an announcement.
+There is no guarantee that, at time of creation, a given announcement will be from the `fromId` claimed in the announcement.
+The reader MUST perform a validation of the announcement at read time to ensure authenticity.
+Implementations MUST provide a way to validate what [signatures](/DSNP/Signatures) are associated with a given [identifier](/DSNP/Identifiers).
 
 ## Announcement Types
 
