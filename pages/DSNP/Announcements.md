@@ -4,17 +4,17 @@ name: Announcements
 route: /DSNP/Announcements
 ---
 
-
-# TODO
-
-I took out signatures from this level. Do we still need them for DSNP 1.0?
-
-
 # Announcements Overview
 
 Announcements are content or reference to content that communicate new user activity to the rest of the network.
 Announcements are associated with an [Identifier](/DSNP/Identifiers) which can be validated as creator of the announcement.
 Depending on the implementation Announcements may be published directly to the network, included in [Batch Publication Files](/DSNP/BatchPublications), or some combination of those two.
+
+## Announcement Validation
+
+There is no guarantee that, at time of creation, a given announcement will be from the `fromId` claimed in the announcement.
+The reader MUST perform a validation of the announcement at read time to ensure authenticity.
+Implementations MUST provide a way to validate what [signatures](/DSNP/Signatures) are associated with a given [identifier](/DSNP/Identifiers).
 
 ## Announcement Types
 
@@ -32,24 +32,16 @@ Each Announcement has a enumerated type for use when separating out a stream of 
 
 ## Duplicate Handling
 
-TODO? What about just saying that duplicates should be ignored? Is that enough?
-
 Duplicate Announcements may occur due to the nature of asynchronous communication.
 In the case of duplicates, the first Announcement should be considered the only valid Announcement.
 Additional duplicate Announcements MUST be rejected or ignored.
 
 ## Ordering Announcements
 
-Is this network dependent?
+1. Order Batch Publications by implementation order.
+2. Order Announcements in a Batch Publication File by row appearance order.
 
-Announcements should have an eventually consistent ordering.
-
-### Example? Or is this real?
-
-1. Order Batch Publications by network order
-2. Order Announcements in a Batch Publication File by row appearance order
-
-## TODO: Reverting an Announcement
+## Reverting an Announcement
 
 Announcements may not be deleted, but some may be marked as invalid by using a [Tombstone Announcement](/DSNP/Types/Tombstone).
 For example, if a user creates a reaction announcement, they may remove that reaction by creating a tombstone announcement.

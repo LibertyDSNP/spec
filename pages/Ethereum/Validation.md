@@ -23,3 +23,8 @@ DSNP Announcements on Ethereum are validated at read time.
 1. Recover the Ethereum address from the [signature](/DSNP/Signatures).
 2. Find the [Identity Contract](/Ethereum/Identity) for the given `fromId`.
 3. Test the recovered Ethereum address against the Identity Contract via `IDelegation.isAuthorizedTo` with the permission `ANNOUNCE` and the block number from the `DSNPBatchPublication` event.
+
+## Announcement Duplicates
+
+Duplicates may be identified as any Announcements that match a previous Announcement's signature field (per the [Announcement Order](/Ethereum/Publishing#ordering)).
+Duplicate Announcements MUST be rejected or ignored.
