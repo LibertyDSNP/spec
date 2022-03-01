@@ -56,7 +56,6 @@ export default {
         "Identifiers",
         "Graph",
         "Batch Publications",
-        "Batch Publication File Format",
         "Announcements"
       ]
     },
