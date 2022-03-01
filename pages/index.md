@@ -53,7 +53,6 @@ however these proposals should be regarded with caution as they are largely inco
 | **Proposed** | Ready for formal review. It should be done except for minor changes. |
 | **Tentative** | This is the accepted plan. The specification should not change unless there are blocking issues. |
 
-
 ## Learning More
 
 In addition to this document, more resources regarding our project can be found at [DSNP.org](https://www.dsnp.org), including our blog, forum, code repository and SDK.
