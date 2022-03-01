@@ -4,7 +4,8 @@ route: /ActivityContent/Overview
 menu: Activity Content
 ---
 
-# Activity Content Overview
+# Activity Content Specification
+__Version 1.0.0__
 
 Content references shared via the DSNP consists of URLs pointing to documents containing Activity Streams JSON objects.
 For the purposes of the DSNP, restrictions are placed on the [Activity Streams 2.0](https://www.w3.org/TR/activitystreams-core/) specification.
@@ -41,6 +42,14 @@ URLs in DSNP compatible Activity Content MUST to use one of the following URL sc
 | ------ |------------ | --------- | ------------------ |
 | HTTPS | Hypertext Transfer Protocol Secure | [RFC2818](https://datatracker.ietf.org/doc/html/rfc2818) | 1.0 |
 | HTTP | Hypertext Transfer Protocol | [RFC2616](https://datatracker.ietf.org/doc/html/rfc2616) | 1.0 |
+
+## Libraries
+
+| Name | Language(s) |
+| --- | --- |
+| [LibertyDSNP/activity-content](https://github.com/LibertyDSNP/activity-content) | JavaScript/TypeScript |
+| [LibertyDSNP/activity-content-java](https://github.com/LibertyDSNP/activity-content-java) | Java/Kotlin |
+| [LibertyDSNP/activity-content-swift](https://github.com/LibertyDSNP/activity-content-swift) | Swift |
 
 ## Non-Normative
 

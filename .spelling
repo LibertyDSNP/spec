@@ -49,6 +49,7 @@ JSON
 JTC-1
 Keccak
 KeyList
+Kotlin
 LibertyDSNP
 Lookups
 MDX
@@ -91,6 +92,7 @@ Reddit
 RocksDB
 S3
 SDK
+sdk-ts
 SDKs
 SECP-256k1
 SQLite
