@@ -34,7 +34,7 @@ DSNP specification versions follow [Semantic Versioning 2.0](https://semver.org/
 ## Contributions
 
 Development occurs on [GitHub](https://github.com/LibertyDSNP/spec).
-Contribution guidelines are found in [LibertyDSNP/meta](https://github.com/LibertyDSNP/meta/blob/main/CONTRIBUTING.md).
+All interactions must follow the [Code of Conduct](https://github.com/LibertyDSNP/spec/blob/main/CODE_OF_CONDUCT.md) and [Contribution guidelines](https://github.com/LibertyDSNP/spec/blob/main/CONTRIBUTING.md).
 
 ## Draft Specifications
 
