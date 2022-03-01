@@ -9,12 +9,6 @@ menu: DSNP
 A Tombstone Announcement is a way to note that a previous announcement signature is invalid and the related Announcement should be considered reverted.
 It is NOT possible to revert a tombstone.
 
-## Specification Status
-
-| Version | Status   |
-| ------  | -------- |
-| 1.0     | Proposed |
-
 ## Fields
 
 | Field | Description | Data Type | Serialization | Parquet Type | Bloom Filter |
