@@ -5,9 +5,10 @@ menu: "DSNP: Ethereum"
 ---
 # Identifiers
 
-The DSNP Identifiers form the basis for pseudo-anonymous streams of content.
-Graph connections are formed through the DSNP User Id.
-
-## Uniqueness
-
 The [identity registry](/Ethereum/Registry) is the source of building and maintaining unique DSNP User Id.
+
+## Creating and Retrieving a DSNP User Id
+
+1. Create an entry in the [Identity Registry](/Ethereum/Registry) contract.
+1. Use the `DSNPRegistryUpdate` log event or the `resolveRegistration` function to retrieve the uint64 `id`
+1. That `id` value is the DSNP User Id and can be used to generate the [DSNP User URI](/DSNP/Identifiers#dsnp-user-uri).
