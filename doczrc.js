@@ -1,7 +1,8 @@
 export default {
   base: "/",
+  src: "./pages",
   typescript: true,
-  ignore: ["CODEOFCONDUCT.md", "LICENSE.md", "README.md"],
+  ignore: [],
   themeConfig: {
     colors: {
       primary: "#f6695d",
