@@ -47,7 +47,7 @@ While there may not be an identity factory interface for each type, the document
 ### Can I switch from one type to another?
 
 Switching types is possible, but difficult.
-See [Identity Registry](/Ethereum/Registry) for more information on switching an identity contract.
+See [Identity Registry](/Ethereum/Registry) for more information on changing an identity contract to another type.
 
 ### Data storage and EIP 1967
 

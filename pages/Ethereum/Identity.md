@@ -20,7 +20,7 @@ menu: "DSNP: Ethereum"
 Ownership of an identity on Ethereum is determined by the address of the signer of the content.
 
 Creation of any new identity MUST be authorized by the owner's address.
-The official [Identity Factory](/Ethereum/IdentityFactory) must be used for initial creation of a new identity.
+The official [Identity Factory](/Ethereum/IdentityFactory) is provided for initial creation of a new identity.
 
 Creation of an identity on behalf of someone is described in the [Identity Factory](/Ethereum/IdentityFactory).
 
@@ -31,7 +31,8 @@ While at least one owner is required, additional public keys may be considered t
 
 ## Delegation
 
-Delegation allows adding additional public keys that are allowed to sign announcements or perform other actions in addition to the owner public key(s).
+Delegation allows adding additional public keys, in addition to the owner public key(s).
+These delegated keys are allowed to perform certain actions on behalf of the owner based on the delegate's "role".
 
 ### Interface
 
