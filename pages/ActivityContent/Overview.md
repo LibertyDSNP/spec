@@ -36,7 +36,7 @@ DSNP uses only the following content types at the root level.
 
 ## Supported URL Schema
 
-URLs in DSNP compatible Activity Content MUST to use one of the following URL schemes.
+URLs in DSNP-compatible Activity Content MUST to use one of the following URL schemes.
 
 | Scheme | Description | Reference | DSNP Version Added |
 | ------ |------------ | --------- | ------------------ |

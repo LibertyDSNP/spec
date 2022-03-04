@@ -26,7 +26,7 @@ Any contract that matches the [DSNP Identity](/Ethereum/Identity) interfaces is 
 
 While it is not required, most of the DSNP Identity compatible contracts are proxy contracts.
 Proxy contracts are often created through a factory contract.
-Here are the interfaces to be a DSNP compatible identity factory.
+Here are the interfaces to be a DSNP-compatible identity factory.
 
 ### What is a Proxy Contract?
 

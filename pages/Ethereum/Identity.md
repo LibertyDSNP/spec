@@ -11,7 +11,7 @@ menu: "DSNP: Ethereum"
 1. Provide the interface for a DSNP identity.
 1. Specify the delegation model and related interface.
 1. Specify the ownership model and related interface.
-1. Provide the list of EIPs that must be supported by a DSNP compatible identity.
+1. Provide the list of EIPs that must be supported by a DSNP-compatible identity.
 
 ## Details
 
