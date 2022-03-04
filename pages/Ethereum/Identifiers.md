@@ -5,7 +5,7 @@ menu: "DSNP: Ethereum"
 ---
 # Identifiers
 
-The [identity registry](/Ethereum/Registry) is the source of building and maintaining unique DSNP User Id.
+The [identity registry](/Ethereum/Registry) is the source of building and maintaining a unique DSNP User Id.
 
 ## Creating and Retrieving a DSNP User Id
 

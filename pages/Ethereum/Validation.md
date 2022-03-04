@@ -8,9 +8,9 @@ route: /Ethereum/Validation
 
 DSNP Announcements on Ethereum are validated at read time.
 
-1. Read `DSNPBatchPublication` events
-2. Fetch and validate the Batch Publication
-3. Recover and validate the Ethereum address from the Announcement
+1. Read `DSNPBatchPublication` events.
+2. Fetch and validate the Batch Publication.
+3. Recover and validate the Ethereum address from the Announcement.
 
 ## Batch Publication Validation
 
