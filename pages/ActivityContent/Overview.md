@@ -55,7 +55,7 @@ URLs in DSNP compatible Activity Content MUST to use one of the following URL sc
 
 | Version | Description | Release Date | Changelog |
 | --- | --- | --- | --- |
-| [1.0.0](https://github.com/LibertyDSNP/spec/tree/v1.0.0) | Initial Release | 2021-09-09 | [Changelog](https://github.com/LibertyDSNP/spec/releases/tag/v1.0.0) |
+| [1.0.0](https://github.com/LibertyDSNP/spec/tree/ActivityContent-v1.0.0) | Initial Release | 2021-09-09 | [Changelog](https://github.com/LibertyDSNP/spec/releases/tag/ActivityContent-v1.0.0) |
 
 ## Non-Normative
 

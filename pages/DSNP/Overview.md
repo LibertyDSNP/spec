@@ -17,4 +17,4 @@ Implementations MUST specify the version(s) of the DSNP specification with which
 
 | Version | Description | Release Date | Changelog |
 | --- | --- | --- | --- |
-| [1.0.0](https://github.com/LibertyDSNP/spec/tree/v1.0.0) | Initial Release | 2021-09-09 | [Changelog](https://github.com/LibertyDSNP/spec/releases/tag/v1.0.0) |
+| [1.0.0](https://github.com/LibertyDSNP/spec/tree/DSNP-v1.0.0) | Initial Release | 2021-09-09 | [Changelog](https://github.com/LibertyDSNP/spec/releases/tag/DSNP-v1.0.0) |

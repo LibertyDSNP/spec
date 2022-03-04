@@ -14,8 +14,8 @@ Betanet
 Braxton
 Brötli
 CBOR
-Changelog
 CODE_OF_CONDUCT
+Changelog
 CouchDB
 DAO
 DSNP
@@ -30,6 +30,7 @@ EIP
 EIPs
 ENS
 ERC165
+EVM
 EncryptedInbox
 EncryptionKeyList
 Ethereum
@@ -94,7 +95,6 @@ Reddit
 RocksDB
 S3
 SDK
-sdk-ts
 SDKs
 SECP-256k1
 SQLite
@@ -132,7 +132,6 @@ e.g.
 ecrecover
 enum
 eth2
-EVM
 followee
 followee
 fromAddress
@@ -161,6 +160,7 @@ roadmap
 s3
 schemaless
 schemas
+sdk-ts
 searchable
 secp256k1
 semver
