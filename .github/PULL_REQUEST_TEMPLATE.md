@@ -1,7 +1,7 @@
 Problem
 =======
 problem statement, including
-Link to GitHub Issue:
+Link to GitHub Issue(s):
 
 Solution
 ========
@@ -11,9 +11,10 @@ with @pairperson1
 
 Change summary:
 ---------------
-* Tidy, well formulated commit message
-* Another great commit message
-* Something else I/we did
+- [ ] Updated Spec Versions
+- [ ] Tidy, well formulated change
+- [ ] Another great message
+- [ ] Something else I/we did
 
 Steps to Verify:
 ----------------

@@ -4,6 +4,7 @@
 # one word per line, to define a file override use ' - filename'
 # where filename is relative to this configuration file
 0.8.x.
+1.0.x
 ActivityContent
 Alexa
 ArchiveEntries
@@ -13,6 +14,8 @@ Betanet
 Braxton
 Brötli
 CBOR
+CODE_OF_CONDUCT
+Changelog
 CouchDB
 DAO
 DSNP
@@ -27,6 +30,7 @@ EIP
 EIPs
 ENS
 ERC165
+EVM
 EncryptedInbox
 EncryptionKeyList
 Ethereum
@@ -48,6 +52,8 @@ JSON
 JTC-1
 Keccak
 KeyList
+Kotlin
+LibertyDSNP
 Lookups
 MDX
 MP3
@@ -154,6 +160,7 @@ roadmap
 s3
 schemaless
 schemas
+sdk-ts
 searchable
 secp256k1
 semver

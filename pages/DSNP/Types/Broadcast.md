@@ -1,7 +1,7 @@
 ---
 name: "Type: Broadcast"
-route: /Announcements/Types/Broadcast
-menu: Announcements
+route: /DSNP/Types/Broadcast
+menu: DSNP
 ---
 
 # Broadcast Announcement
@@ -12,12 +12,12 @@ A Broadcast Announcement is a way to send a public message to everyone.
 
 | Field | Description | Data Type | Serialization | Parquet Type | Bloom Filter |
 | ----- | ----------- | --------- | ------------- | ------------ | ------------ |
-| announcementType | Announcement Type Enum (`2`) | enum | [decimal](/Announcements/Overview#decimal) | `INT32` | no |
-| contentHash | keccak-256 hash of content stored at URL | 32 bytes | [hexadecimal](/Announcements/Overview#hexadecimal) | `BYTE_ARRAY` | YES
-| createdAt | milliseconds since Unix epoch | 64 bit unsigned integer | [decimal](/Announcements/Overview#decimal) | `UINT_64` | no
-| fromId | id of the user creating the announcement | 64 bit unsigned integer | [decimal](/Announcements/Overview#decimal) | `UINT_64` | YES
+| announcementType | Announcement Type Enum (`2`) | enum | [decimal](/DSNP/Serializations#decimal) | `INT32` | no |
+| contentHash | keccak-256 hash of content stored at URL | 32 bytes | [hexadecimal](/DSNP/Serializations#hexadecimal) | `BYTE_ARRAY` | YES
+| createdAt | milliseconds since Unix epoch | 64 bit unsigned integer | [decimal](/DSNP/Serializations#decimal) | `UINT_64` | no
+| fromId | id of the user creating the announcement | 64 bit unsigned integer | [decimal](/DSNP/Serializations#decimal) | `UINT_64` | YES
 | url | content URL | UTF-8 | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | no
-| signature | creator signature | 65 bytes | [hexadecimal](/Announcements/Overview#hexadecimal) | `BYTE_ARRAY` | no
+| signature | creator signature | 65 bytes | [hexadecimal](/DSNP/Serializations#hexadecimal) | `BYTE_ARRAY` | no
 
 ## Field Requirements
 
@@ -35,8 +35,8 @@ A Broadcast Announcement is a way to send a public message to everyone.
 
 ### fromId
 
-- MUST be a [DSNP User Id](/Identifiers#dsnp-user-id)
-- MUST be the [signer](/Announcements/Signatures) of the announcement
+- MUST be a [DSNP User Id](/DSNP/Identifiers#dsnp-user-id)
+- MUST be the [signer](/DSNP/Signatures) of the announcement
 
 ### url
 
@@ -52,4 +52,4 @@ A Broadcast Announcement is a way to send a public message to everyone.
 
 ### signature
 
-- MUST be an [Announcement Signature](/Announcements/Signatures) over the all fields except the signature field
+- MUST be an [Announcement Signature](/DSNP/Signatures) over the all fields except the signature field

@@ -1,7 +1,8 @@
 export default {
   base: "/",
+  src: "./pages",
   typescript: true,
-  ignore: ["CODEOFCONDUCT.md", "LICENSE.md", "README.md"],
+  ignore: [],
   themeConfig: {
     colors: {
       primary: "#f6695d",
@@ -47,30 +48,29 @@ export default {
   },
   menu: [
     "Introduction",
+    "Roadmap",
     {
-      name: "Identity",
+      name: "DSNP",
       menu: [
         "Overview",
-      ]
-    },
-    "Identifiers",
-    "Graph",
-    {
-      name: "Batch Publications",
-      menu: [
-        "Overview",
-      ],
-    },
-    {
-      name: "Announcements",
-      menu: [
-        "Overview",
+        "Identity",
+        "Identifiers",
+        "Graph",
+        "Batch Publications",
+        "Announcements"
       ]
     },
     {
       name: "Activity Content",
       menu: [
         "Overview",
+      ]
+    },
+    "DSNP Implementations",
+    {
+      name: "DSNP: Ethereum",
+      menu: [
+        "Overview"
       ]
     },
     {

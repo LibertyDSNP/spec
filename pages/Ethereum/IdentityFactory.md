@@ -1,7 +1,7 @@
 ---
-name: Factory
-route: /Identity/Factory
-menu: Identity
+name: Identity Factory
+route: /Ethereum/IdentityFactory
+menu: "DSNP: Ethereum"
 ---
 
 # Identity Factory
@@ -10,7 +10,7 @@ The least expensive way to create a new identity is through an identity factory.
 Official contracts will provide one or more of these standard interfaces to easily generate an identity with different upgrade paths.
 
 **Remember:** Using a factory or even a proxy is just an optimization and *NOT* required.
-Any contract that matches the [DSNP Identity](/Identity/Overview) interfaces is valid.
+Any contract that matches the [DSNP Identity](/Ethereum/Identity) interfaces is valid.
 
 ## Purpose
 
@@ -20,13 +20,13 @@ Any contract that matches the [DSNP Identity](/Identity/Overview) interfaces is 
 
 ## Assumptions
 
-* All assumptions from [DSNP Identity](/Identity/Overview)
+* All assumptions from [DSNP Identity](/Ethereum/Identity)
 
 ## Proxy Contracts
 
 While it is not required, most of the DSNP Identity compatible contracts are proxy contracts.
 Proxy contracts are often created through a factory contract.
-Here are the interfaces to be a DSNP compatible identity factory.
+Here are the interfaces to be a DSNP-compatible identity factory.
 
 ### What is a Proxy Contract?
 
@@ -47,7 +47,7 @@ While there may not be an identity factory interface for each type, the document
 ### Can I switch from one type to another?
 
 Switching types is possible, but difficult.
-See [Identity Registry](/Identity/Registry) for more information on switching an identity contract.
+See [Identity Registry](/Ethereum/Registry) for more information on changing an identity contract to another type.
 
 ### Data storage and EIP 1967
 

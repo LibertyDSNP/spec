@@ -1,12 +1,12 @@
 ---
-menu: Batch Publications
-name: Publishing
-route: /BatchPublications/Publishing
+menu: "DSNP: Ethereum"
+name: Announcement Publishing
+route: /Ethereum/Publishing
 ---
 
-# Publishing Batch Publications
+# Announcement Publishing
 
-Publishing a Batch Publication is how to communicate new Announcements to the network.
+On Ethereum, all [Announcements](/DSNP/Announcements) are published via [Batch Publication Files](/DSNP/BatchPublications).
 Publishing is accomplished via an Ethereum Log Event.
 
 ## Ethereum Log Event
@@ -22,7 +22,27 @@ The event topic for `DSNPBatchPublication` follows the standard Solidity event n
 | ------------- |------------- | ---- | --- |
 | `announcementType` | The single announcement type in the given file | int16 | YES
 | `fileHash` | [keccak-256](https://keccak.team/files/Keccak-submission-3.pdf) hash of the batch file | bytes32 | no
-| `fileUrl` | URL to retrieve the referenced batch file via an [approved schema](/BatchPublications/Overview#batch-file-retrieval) | string | no
+| `fileUrl` | URL to retrieve the referenced batch file via an [approved schema](#batch-file-retrieval) | string | no
+
+## Batch File Retrieval
+
+- Batch File URLs MUST NOT refer to localhost or any reserved IP addresses as defined in [RFC6890](https://datatracker.ietf.org/doc/html/rfc6890).
+- Batch File URLs MUST use one of the supported URL Schemes.
+
+### Supported URL Schemes
+
+| Scheme | Description | Reference | DSNP Version Added |
+| ------ |------------ | --------- | ------------------ |
+| HTTPS | Hypertext Transfer Protocol Secure | [RFC2818](https://datatracker.ietf.org/doc/html/rfc2818) | 1.0 |
+
+## Ordering
+
+The `DSNPBatchPublication` Ethereum events are ordered by information provided in the transaction.
+
+1. `DSNPBatchPublication` Block number ascending
+2. `DSNPBatchPublication` Transaction index ascending
+3. `DSNPBatchPublication` Log index ascending
+4. DSNP Standard: Order Announcements in a Batch Publication File by row appearance order
 
 ## Publisher Contract Requirements
 

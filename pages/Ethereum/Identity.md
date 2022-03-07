@@ -1,48 +1,28 @@
 ---
-name: Overview
-route: /Identity/Overview
-menu: Identity
+name: Identity
+route: /Ethereum/Identity
+menu: "DSNP: Ethereum"
 ---
 
 # Identity
-
-This specification is intended to cover the concept of identity within the protocol and how we represent it.
 
 ## Purpose
 
 1. Provide the interface for a DSNP identity.
 1. Specify the delegation model and related interface.
 1. Specify the ownership model and related interface.
-1. Provide the list of EIPs that must be supported by a DSNP compatible identity.
-
-## Assumptions
-
-* Identity is on Ethereum for Betanet.
-* Identity will need to be moved from Betanet to Mainnet.
+1. Provide the list of EIPs that must be supported by a DSNP-compatible identity.
 
 ## Details
 
-Identity is comprised of several parts:
-
-* Ownership
-* Delegation
-* Identification
-* Discovery
-
-Additional constraints were placed upon any solution:
-
-* Pseudo Anonymity: A consistent identifier that defaults to disconnected from real world identity
-* Flexibility: An interface that can produce multiple solutions
-* Extensibility: A default implementation that can be updated over time as DSNP changes
-
 ## Ownership
 
-On the blockchain ownership is determined by the ability to sign messages.
-To this end, ownership of an identity is also determined by the address of the creator.
-(Options for allowing a delegate to create an identity on behalf of someone is described in the [Identity Factory](/Identity/Factory).)
+Ownership of an identity on Ethereum is determined by the address of the signer of the content.
 
 Creation of any new identity MUST be authorized by the owner's address.
-The official [Identity Factory](/Identity/Factory) must be used for initial creation of a new identity.
+The official [Identity Factory](/Ethereum/IdentityFactory) is provided for initial creation of a new identity.
+
+Creation of an identity on behalf of someone is described in the [Identity Factory](/Ethereum/IdentityFactory).
 
 ### Permissioned Owners
 
@@ -51,7 +31,8 @@ While at least one owner is required, additional public keys may be considered t
 
 ## Delegation
 
-Delegation allows adding public keys that are allowed to sign announcements or perform other actions in addition to the "owner" public key.
+Delegation allows adding additional public keys, in addition to the owner public key(s).
+These delegated keys are allowed to perform certain actions on behalf of the owner based on the delegate's "role".
 
 ### Interface
 
@@ -241,7 +222,7 @@ Implementations that choose to use this interface will need to consider that tra
 ### EIP 897
 
 [EIP 897](https://eips.ethereum.org/EIPS/eip-897) is for DSNP identity contracts
-that are proxies such as those produced by the default [Identity Factory](/Identity/Factory).
+that are proxies such as those produced by the default [Identity Factory](/Ethereum/IdentityFactory).
 
 ### EIP 1271
 

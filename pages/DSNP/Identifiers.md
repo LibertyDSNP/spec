@@ -1,21 +1,25 @@
 ---
 name: Identifiers
-route: /Identifiers
+route: /DSNP/Identifiers
+menu: DSNP
 ---
 
-# DSNP Identifiers
+# Identifiers
+
+The DSNP Identifiers form the basis for pseudo-anonymous streams of content.
+Graph connections are formed through the DSNP User Id.
 
 ## DSNP User Id
 
 - 64 bit Unsigned Integer
-- MUST be registered in the [Identity Registry](/Identity/Registry)
-- MUST be serialized as [decimal](/Announcements/Overview#decimal)
+- MUST be serialized as [decimal](/DSNP/Serializations#decimal)
+- MUST be unique per implementation
 
 ## DSNP Content Hash
 
 - MUST be 32 bytes in size
 - MUST be a [keccak-256 hash](https://keccak.team/files/Keccak-submission-3.pdf) of the bytes of the content
-- MUST be serialized as [hexadecimal](/Announcements/Overview#hexadecimal)
+- MUST be serialized as [hexadecimal](/DSNP/Serializations#hexadecimal)
 
 ### DSNP Protocol Scheme
 
@@ -41,7 +45,7 @@ dsnp://1311768467294899700
 DSNP Announcement URI consists of three parts, the scheme, the user id, and the content hash.
 It is used to uniquely identify an announcements from a given user with content.
 
-Any [Announcement Types](/Announcements/Overview#announcement-types) with a `fromId` and `contentHash` have a DSNP Announcement URI.
+Any [Announcement Types](/DSNP/Announcements#announcement-types) with a `fromId` and `contentHash` have a DSNP Announcement URI.
 
 ### Example
 ```

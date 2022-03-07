@@ -1,20 +1,37 @@
 ---
-menu: Batch Publications
-name: File Format
-route: /BatchPublications/FileFormat
+menu: DSNP
+name: Batch Publications
+route: /DSNP/BatchPublications
 ---
 
-# Batch File Storage
+# Batch Publications
+
+A Batch Publication is an [Apache Parquet](https://github.com/apache/parquet-format) file with a collection of [Announcements](/DSNP/Announcements).
+
+## Implementation Requirements
+
+### Discoverable
+
+Implementations MUST have publicly discoverable Batch Publications.
+
+### Correctness
+
+Implementations MUST be able to validate the correctness of the Parquet file.
+
+### Historical
+
+Implementations MUST retain proof of existence of a Batch Publication.
+
+
+## File Requirements
 
 Batch files are stored and transferred in Apache Parquet format.
 
-## Requirements
+- Batch file MUST match the spec for a single [Announcement Type](/DSNP/Announcements).
+- Batch file MUST have Bloom filters set in accordance to the Announcement Type Spec.
+- Batch file MUST have NO MORE THAN 128*1024 rows
 
-- Batch File MUST match the spec for a single [Announcement Type](/Announcements/Overview).
-- Batch File MUST have Bloom filters set in accordance to the Announcement Type Spec.
-- Batch File MUST have NO MORE THAN 128*1024 rows
-
-## Bloom Filter
+### Bloom Filter
 
 - Bloom filter MUST be a [Split Block Bloom filter](https://github.com/apache/parquet-format/blob/apache-parquet-format-2.9.0/BloomFilter.md).
 - False positive rate MUST be 0.001.
@@ -23,9 +40,9 @@ Calculation for filter bits is different and nearly a factor of 10 lower than fo
 128*1024 rows with a 0.001 false positive rate results in around 29,000 bits for a Split Block Bloom filter.
 
 Bloom filters are ONLY added to some fields.
-See also [Announcement Types](/Announcements/Overview).
+See also [Announcement Types](/DSNP/Announcements).
 
-### Columns with Bloom Filters
+#### Columns with Bloom Filters
 
 | Column | Parquet Type |
 | ------ | ---- |

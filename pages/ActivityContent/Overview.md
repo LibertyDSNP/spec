@@ -4,7 +4,8 @@ route: /ActivityContent/Overview
 menu: Activity Content
 ---
 
-# Activity Content Overview
+# Activity Content Specification
+__Version 1.0.0__
 
 Content references shared via the DSNP consists of URLs pointing to documents containing Activity Streams JSON objects.
 For the purposes of the DSNP, restrictions are placed on the [Activity Streams 2.0](https://www.w3.org/TR/activitystreams-core/) specification.
@@ -21,8 +22,8 @@ DSNP uses only the following content types at the root level.
 
 | Name | Description | DSNP Announcements |
 | ---- | ----------- | -------------------- |
-[Note](/ActivityContent/Types/Note) | standard user content | [Broadcast](/Announcements/Types/Broadcast), [Reply](/Announcements/Types/Reply) |
-[Profile](/ActivityContent/Types/Profile) | user profile content | [Profile](/Announcements/Types/Profile) |
+[Note](/ActivityContent/Types/Note) | standard user content | [Broadcast](/DSNP/Types/Broadcast), [Reply](/DSNP/Types/Reply) |
+[Profile](/ActivityContent/Types/Profile) | user profile content | [Profile](/DSNP/Types/Profile) |
 
 ## Associated Types
 
@@ -35,12 +36,26 @@ DSNP uses only the following content types at the root level.
 
 ## Supported URL Schema
 
-URLs in DSNP compatible Activity Content MUST to use one of the following URL schemes.
+URLs in DSNP-compatible Activity Content MUST to use one of the following URL schemes.
 
 | Scheme | Description | Reference | DSNP Version Added |
 | ------ |------------ | --------- | ------------------ |
 | HTTPS | Hypertext Transfer Protocol Secure | [RFC2818](https://datatracker.ietf.org/doc/html/rfc2818) | 1.0 |
 | HTTP | Hypertext Transfer Protocol | [RFC2616](https://datatracker.ietf.org/doc/html/rfc2616) | 1.0 |
+
+## Libraries
+
+| Name | Language(s) |
+| --- | --- |
+| [LibertyDSNP/activity-content](https://github.com/LibertyDSNP/activity-content) | JavaScript/TypeScript |
+| [LibertyDSNP/activity-content-java](https://github.com/LibertyDSNP/activity-content-java) | Java/Kotlin |
+| [LibertyDSNP/activity-content-swift](https://github.com/LibertyDSNP/activity-content-swift) | Swift |
+
+## Releases
+
+| Version | Description | Release Date | Changelog |
+| --- | --- | --- | --- |
+| [1.0.0](https://github.com/LibertyDSNP/spec/tree/ActivityContent-v1.0.0) | Initial Release | 2021-09-09 | [Changelog](https://github.com/LibertyDSNP/spec/releases/tag/ActivityContent-v1.0.0) |
 
 ## Non-Normative
 

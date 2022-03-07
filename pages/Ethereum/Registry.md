@@ -1,7 +1,7 @@
 ---
-name: Registry
-route: /Identity/Registry
-menu: Identity
+name: Identity Registry
+route: /Ethereum/Registry
+menu: "DSNP: Ethereum"
 ---
 
 # Identity Registry

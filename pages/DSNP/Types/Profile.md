@@ -1,24 +1,24 @@
 ---
 name: "Type: Profile"
-route: /Announcements/Types/Profile
-menu: Announcements
+route: /DSNP/Types/Profile
+menu: DSNP
 ---
 
 # Profile Announcement
 
-A Profile Announcement is a constrained version of a [Broadcast Announcement](/Announcements/Types/Broadcast).
+A Profile Announcement is a constrained version of a [Broadcast Announcement](/DSNP/Types/Broadcast).
 The reference content *MUST be of profile type*.
 
 ## Fields
 
 | Field | Description | Serialization | Parquet Type | Bloom Filter |
 | ----- | ----------- | ------------- | ------------ | ------------ |
-| announcementType | Announcement Type Enum (`5`) | [decimal](/Announcements/Overview#decimal) | `INT32` | no |
-| contentHash | keccak-256 hash of content stored at URL | [hexadecimal](/Announcements/Overview#hexadecimal) | `BYTE_ARRAY` | YES
-| createdAt | milliseconds since Unix epoch | [decimal](/Announcements/Overview#decimal) | `UINT_64` | no
-| fromId | id of the user creating the announcement | [decimal](/Announcements/Overview#decimal) | `UINT_64` | YES
+| announcementType | Announcement Type Enum (`5`) | [decimal](/DSNP/Serializations#decimal) | `INT32` | no |
+| contentHash | keccak-256 hash of content stored at URL | [hexadecimal](/DSNP/Serializations#hexadecimal) | `BYTE_ARRAY` | YES
+| createdAt | milliseconds since Unix epoch | [decimal](/DSNP/Serializations#decimal) | `UINT_64` | no
+| fromId | id of the user creating the announcement | [decimal](/DSNP/Serializations#decimal) | `UINT_64` | YES
 | url | Profile content URL | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | no
-| signature | creator signature | [hexadecimal](/Announcements/Overview#hexadecimal) | `BYTE_ARRAY` | no
+| signature | creator signature | [hexadecimal](/DSNP/Serializations#hexadecimal) | `BYTE_ARRAY` | no
 
 ## Field Requirements
 
@@ -37,8 +37,8 @@ The reference content *MUST be of profile type*.
 
 ### fromId
 
-- MUST be a [DSNP User Id](/Identifiers#dsnp-user-id)
-- MUST be the [signer](/Announcements/Signatures) of the announcement
+- MUST be a [DSNP User Id](/DSNP/Identifiers#dsnp-user-id)
+- MUST be the [signer](/DSNP/Signatures) of the announcement
 
 ### url
 
@@ -54,7 +54,7 @@ The reference content *MUST be of profile type*.
 
 ### signature
 
-- MUST be an [Announcement Signature](/Announcements/Signatures) over the all fields except the signature field
+- MUST be an [Announcement Signature](/DSNP/Signatures) over the all fields except the signature field
 
 ## Non-Normative
 
