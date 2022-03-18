@@ -6,14 +6,13 @@
     "files": [
         "src/",
         "pages/",
-        "doczrc.js",
         "tsconfig.json",
         "package.json"
     ],
     "scripts": {
-        "dev": "docz dev",
-        "build": "docz build",
-        "serve": "docz serve",
+        "build": "mdbook build -o",
+        "serve": "mdbook serve -o",
+        "watch": "mdbook watch -o",
         "spellcheck": "mdspell './pages/**/*.md' './*.md' '!./LICENSE.md' --en-us --ignore-numbers --report",
         "spellfix": "mdspell './pages/**/*.md' './*.md' '!./LICENSE.md' --en-us --ignore-numbers",
         "lint-md": "remark --frail ./pages/**/*.md ./pages/*.md",
@@ -22,7 +21,6 @@
     "dependencies": {
         "@emotion/react": "^11.7.1",
         "@emotion/styled": "^11.6.0",
-        "docz": "^2.3.1",
         "markdown-spellcheck": "^1.3.1",
         "next": "^12.0.10",
         "react": "^17.0.2",
