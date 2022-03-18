@@ -1,9 +1,3 @@
----
-name: "Associated Type: Hash"
-route: /ActivityContent/Associated/Hash
-menu: Activity Content
----
-
 # Associated Type: Hash
 
 *NOT* part of the Activity Streams 2.0 Vocabulary.

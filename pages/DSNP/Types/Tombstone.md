@@ -1,9 +1,3 @@
----
-name: "Type: Tombstone"
-route: /DSNP/Types/Tombstone
-menu: DSNP
----
-
 # Tombstone Announcement
 
 A Tombstone Announcement is a way to note that a previous announcement signature is invalid and the related Announcement should be considered reverted.

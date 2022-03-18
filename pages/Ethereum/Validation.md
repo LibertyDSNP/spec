@@ -1,9 +1,3 @@
----
-menu: "DSNP: Ethereum"
-name: Announcement Validation
-route: /Ethereum/Validation
----
-
 # Announcement Validation
 
 DSNP Announcements on Ethereum are validated at read time.

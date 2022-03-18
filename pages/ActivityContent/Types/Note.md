@@ -1,9 +1,3 @@
----
-name: "Type: Note"
-route: /ActivityContent/Types/Note
-menu: Activity Content
----
-
 # Activity Stream Type: Note
 
 [Activity Vocabulary: Note](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-note)

@@ -1,9 +1,3 @@
----
-name: "Type: Reaction"
-route: /DSNP/Types/Reaction
-menu: DSNP
----
-
 # Reaction Announcement
 
 A Reaction Announcement is for publishing emoji reactions to anything with a [DSNP Announcement URI](/DSNP/Identifiers#dsnp-announcement-uri).

@@ -1,9 +1,3 @@
----
-name: "Associated: Attachments"
-route: /ActivityContent/Associated/Attachments
-menu: Activity Content
----
-
 # Associated Attachments
 
 ## Audio

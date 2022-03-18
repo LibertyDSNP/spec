@@ -1,9 +1,3 @@
----
-name: "Type: Profile"
-route: /ActivityContent/Types/Profile
-menu: Activity Content
----
-
 # Activity Stream Type: Profile
 
 Profiles are used to provide additional user information display.

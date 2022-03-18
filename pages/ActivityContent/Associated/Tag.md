@@ -1,9 +1,3 @@
----
-name: "Associated: Tag"
-route: /ActivityContent/Associated/Tag
-menu: Activity Content
----
-
 # Associated Type: Tag
 
 [Activity Vocabulary: tag](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-tag)

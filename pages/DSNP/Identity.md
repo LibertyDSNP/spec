@@ -1,9 +1,3 @@
----
-name: Identity
-route: /DSNP/Identity
-menu: "DSNP"
----
-
 # Identity
 
 This specification is intended to cover the concept of identity within the protocol and how we represent it.

@@ -1,9 +1,3 @@
----
-name: "Type: Broadcast"
-route: /DSNP/Types/Broadcast
-menu: DSNP
----
-
 # Broadcast Announcement
 
 A Broadcast Announcement is a way to send a public message to everyone.

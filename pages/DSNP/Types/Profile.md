@@ -1,9 +1,3 @@
----
-name: "Type: Profile"
-route: /DSNP/Types/Profile
-menu: DSNP
----
-
 # Profile Announcement
 
 A Profile Announcement is a constrained version of a [Broadcast Announcement](/DSNP/Types/Broadcast).

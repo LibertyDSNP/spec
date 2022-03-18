@@ -1,9 +1,3 @@
----
-name: Announcement Signatures
-route: /DSNP/Signatures
-menu: DSNP
----
-
 # Announcement Signatures
 
 Announcements are signed using recoverable ECDSA signatures similarly to how transactions are signed ([Ethereum Yellow Paper Appendix F](https://ethereum.github.io/yellowpaper/paper.pdf)).

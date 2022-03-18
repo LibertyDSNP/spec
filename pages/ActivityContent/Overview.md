@@ -1,9 +1,3 @@
----
-name: Overview
-route: /ActivityContent/Overview
-menu: Activity Content
----
-
 # Activity Content Specification
 __Version 1.0.0__
 

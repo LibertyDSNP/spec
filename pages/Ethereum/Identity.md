@@ -1,9 +1,3 @@
----
-name: Identity
-route: /Ethereum/Identity
-menu: "DSNP: Ethereum"
----
-
 # Identity
 
 ## Purpose

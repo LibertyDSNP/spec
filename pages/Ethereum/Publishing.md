@@ -1,9 +1,3 @@
----
-menu: "DSNP: Ethereum"
-name: Announcement Publishing
-route: /Ethereum/Publishing
----
-
 # Announcement Publishing
 
 On Ethereum, all [Announcements](/DSNP/Announcements) are published via [Batch Publication Files](/DSNP/BatchPublications).

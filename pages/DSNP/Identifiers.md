@@ -1,9 +1,3 @@
----
-name: Identifiers
-route: /DSNP/Identifiers
-menu: DSNP
----
-
 # Identifiers
 
 The DSNP Identifiers form the basis for pseudo-anonymous streams of content.

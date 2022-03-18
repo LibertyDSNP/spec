@@ -1,9 +1,3 @@
----
-name: Identity Factory
-route: /Ethereum/IdentityFactory
-menu: "DSNP: Ethereum"
----
-
 # Identity Factory
 
 The least expensive way to create a new identity is through an identity factory.

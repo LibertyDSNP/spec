@@ -1,9 +1,3 @@
----
-name: Overview
-route: /DSNP
-menu: DSNP
----
-
 # DSNP Specification
 __Version 1.0.0__
 

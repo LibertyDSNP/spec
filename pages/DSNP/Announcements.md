@@ -1,9 +1,3 @@
----
-menu: DSNP
-name: Announcements
-route: /DSNP/Announcements
----
-
 # Announcements Overview
 
 Announcements are content or reference to content that communicate new user activity to the rest of the network.

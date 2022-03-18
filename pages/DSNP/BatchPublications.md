@@ -1,9 +1,3 @@
----
-menu: DSNP
-name: Batch Publications
-route: /DSNP/BatchPublications
----
-
 # Batch Publications
 
 A Batch Publication is an [Apache Parquet](https://github.com/apache/parquet-format) file with a collection of [Announcements](/DSNP/Announcements).

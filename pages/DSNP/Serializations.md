@@ -1,9 +1,3 @@
----
-name: Serializations
-menu: DSNP
-route: /DSNP/Serializations
----
-
 # Serializations
 
 Serialization is how the value should be stringified for signing and for transfer between systems.

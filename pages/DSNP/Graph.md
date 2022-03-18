@@ -1,9 +1,3 @@
----
-name: Graph
-route: /DSNP/Graph
-menu: DSNP
----
-
 # Graph
 
 This specification describes the social network graph and how it is represented in the protocol.

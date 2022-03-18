@@ -1,9 +1,3 @@
----
-name: "Type: Reply"
-route: /DSNP/Types/Reply
-menu: DSNP
----
-
 # Reply Announcement
 
 A Reply Announcement is the same as a [Broadcast Announcement](/DSNP/Types/Broadcast),

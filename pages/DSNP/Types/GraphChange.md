@@ -1,9 +1,3 @@
----
-name: "Type: Graph Change"
-route: /DSNP/Types/GraphChange
-menu: DSNP
----
-
 # Graph Change Announcement
 
 A Graph Change Announcement is for publishing relationship state changes for a user.

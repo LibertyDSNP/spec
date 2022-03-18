@@ -1,8 +1,3 @@
----
-name: Introduction
-route: /
----
-
 # DSNP Specification
 
 Welcome to the Decentralized Social Networking Protocol (DSNP) specification!

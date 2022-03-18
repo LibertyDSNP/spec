@@ -1,8 +1,3 @@
----
-name: Identifiers
-route: /Ethereum/Identifiers
-menu: "DSNP: Ethereum"
----
 # Identifiers
 
 The [identity registry](/Ethereum/Registry) is the source of building and maintaining a unique DSNP User Id.
