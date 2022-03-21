@@ -2,7 +2,7 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - main
+      - docz
 jobs:
   build-and-deploy:
     runs-on: ubuntu-20.04
@@ -40,3 +40,4 @@ jobs:
         with:
           branch: gh-pages
           folder: .docz/dist
+# turn off deploy for later once it's all run 
