@@ -3,7 +3,7 @@ __Version 1.0.0__
 
 DSNP is a social networking protocol designed to run on a blockchain.
 It specifies an set of social primitives along with requirements for interoperability.
-Go to [Implementations](/Implementations) for specifics on how DSNP is implemented on a specific blockchain.
+Go to [Implementations](/Implementations.md) for specifics on how DSNP is implemented on a specific blockchain.
 
 ## Releases
 

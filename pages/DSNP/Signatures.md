@@ -10,7 +10,7 @@ All parties interacting with Announcements should independently validate signatu
 
 1. Serialize all Announcement fields (except the signature field).
 1. Hash the serialized string.
-1. Sign the hash with an SECP-256k1 private key that is [authorized to Announce](/Ethereum/Identity) on the given DSNP User Id in the `fromId` field of the Announcement.
+1. Sign the hash with an SECP-256k1 private key that is [authorized to Announce](/Ethereum/Identity.md) on the given DSNP User Id in the `fromId` field of the Announcement.
 
 ### Serialization
 

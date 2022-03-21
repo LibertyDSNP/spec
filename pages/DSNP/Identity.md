@@ -4,9 +4,9 @@ This specification is intended to cover the concept of identity within the proto
 
 ## Identifiers
 
-DSNP [Identifiers](/DSNP/Identifiers) form the basis for pseudo-anonymous streams of content.
+DSNP [Identifiers](Identifiers.md) form the basis for pseudo-anonymous streams of content.
 While some users may choose to link or expose their real world identity, DSNP implementations MUST NOT require such data exposure for account creation.
-The [social graph](/DSNP/Graph) is formed using this identifier so that a user's connections maintains integrity regardless of changes in any user's client choices or access changes.
+The [social graph](/DSNP/Graph.md) is formed using this identifier so that a user's connections maintains integrity regardless of changes in any user's client choices or access changes.
 
 ### Pseudo Anonymity
 

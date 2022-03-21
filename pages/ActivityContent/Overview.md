@@ -16,17 +16,17 @@ DSNP uses only the following content types at the root level.
 
 | Name | Description | DSNP Announcements |
 | ---- | ----------- | -------------------- |
-[Note](/ActivityContent/Types/Note) | standard user content | [Broadcast](/DSNP/Types/Broadcast), [Reply](/DSNP/Types/Reply) |
-[Profile](/ActivityContent/Types/Profile) | user profile content | [Profile](/DSNP/Types/Profile) |
+[Note](/ActivityContent/Types/Note.md) | standard user content | [Broadcast](/DSNP/Types/Broadcast.md), [Reply](/DSNP/Types/Reply.md) |
+[Profile](/ActivityContent/Types/Profile.md) | user profile content | [Profile](/DSNP/Types/Profile.md) |
 
 ## Associated Types
 
 | Name | Description | Specification |
 | ---- | ----------- | ------------- |
-[Location](/ActivityContent/Associated/Location) | add a location to content | [Activity Vocabulary](https://www.w3.org/TR/activitystreams-vocabulary/) |
-[Tag](/ActivityContent/Associated/Tag) | add a tag to content | [Activity Vocabulary](https://www.w3.org/TR/activitystreams-vocabulary/) |
-[Attachments](/ActivityContent/Associated/Attachments) | supported attachment types | [Activity Vocabulary](https://www.w3.org/TR/activitystreams-vocabulary/) |
-[Hash](/ActivityContent/Associated/Hash) | content validation hash | DSNP Extension |
+[Location](/ActivityContent/Associated/Location.md) | add a location to content | [Activity Vocabulary](https://www.w3.org/TR/activitystreams-vocabulary/) |
+[Tag](/ActivityContent/Associated/Tag.md) | add a tag to content | [Activity Vocabulary](https://www.w3.org/TR/activitystreams-vocabulary/) |
+[Attachments](/ActivityContent/Associated/Attachments.md) | supported attachment types | [Activity Vocabulary](https://www.w3.org/TR/activitystreams-vocabulary/) |
+[Hash](/ActivityContent/Associated/Hash.md) | content validation hash | DSNP Extension |
 
 ## Supported URL Schema
 
