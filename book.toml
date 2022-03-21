@@ -1,5 +1,5 @@
 [book]
-authors = ["mehtaishita"]
+authors = ["Unfinished"]
 language = "en"
 multilingual = false
 src = "pages"
@@ -7,7 +7,9 @@ title = "DSNP Specification"
 
 [output.html]
 no-section-label = true
+site-url = "/pages/"
+git-repository-url = "https://github.com/LibertyDSNP/spec"
+edit-url-template = "https://github.com/LibertyDSNP/spec/blob/main/{path}"
 
 [output.html.fold]
 enable = true
-level = 0
