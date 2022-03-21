@@ -14,9 +14,9 @@
 Ownership of an identity on Ethereum is determined by the address of the signer of the content.
 
 Creation of any new identity MUST be authorized by the owner's address.
-The official [Identity Factory](/Ethereum/IdentityFactory.md) is provided for initial creation of a new identity.
+The official [Identity Factory](Ethereum/IdentityFactory.md) is provided for initial creation of a new identity.
 
-Creation of an identity on behalf of someone is described in the [Identity Factory](/Ethereum/IdentityFactory.md).
+Creation of an identity on behalf of someone is described in the [Identity Factory](Ethereum/IdentityFactory.md).
 
 ### Permissioned Owners
 
@@ -216,7 +216,7 @@ Implementations that choose to use this interface will need to consider that tra
 ### EIP 897
 
 [EIP 897](https://eips.ethereum.org/EIPS/eip-897) is for DSNP identity contracts
-that are proxies such as those produced by the default [Identity Factory](/Ethereum/IdentityFactory.md).
+that are proxies such as those produced by the default [Identity Factory](Ethereum/IdentityFactory.md).
 
 ### EIP 1271
 

@@ -1,3 +1,3 @@
 # DSNP Implementations
 
-- [Ethereum/EVM Compatible](/Ethereum/Overview.md) (Official)
+- [Ethereum/EVM Compatible](Ethereum/Overview.md) (Official)

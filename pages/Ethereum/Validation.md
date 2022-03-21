@@ -9,16 +9,16 @@ DSNP Announcements on Ethereum are validated at read time.
 ## Batch Publication Validation
 
 1. Hash the batch publication file using using [keccak-256](https://keccak.team/files/Keccak-submission-3.pdf).
-2. Retrieve the published hash for the given file from the [DSNPBatchPublication](/Ethereum/Publishing.md) Event.
+2. Retrieve the published hash for the given file from the [DSNPBatchPublication](Ethereum/Publishing.md) Event.
 3. The file hash MUST match the retrieved hash from the `DSNPBatchPublication` event.
 
 ## Announcement Signature Validation
 
-1. Recover the Ethereum address from the [signature](/DSNP/Signatures.md).
-2. Find the [Identity Contract](/Ethereum/Identity.md) for the given `fromId`.
+1. Recover the Ethereum address from the [signature](DSNP/Signatures.md).
+2. Find the [Identity Contract](Ethereum/Identity.md) for the given `fromId`.
 3. Test the recovered Ethereum address against the Identity Contract via `IDelegation.isAuthorizedTo` with the permission `ANNOUNCE` and the block number from the `DSNPBatchPublication` event.
 
 ## Announcement Duplicates
 
-Duplicates may be identified as any Announcements that match a previous Announcement's signature field (per the [Announcement Order](/Ethereum/Publishing.md#ordering)).
+Duplicates may be identified as any Announcements that match a previous Announcement's signature field (per the [Announcement Order](Ethereum/Publishing.md#ordering)).
 Duplicate Announcements MUST be rejected or ignored.

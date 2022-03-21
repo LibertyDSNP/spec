@@ -105,7 +105,7 @@ Secure one-to-many posts that still allow for commenting.
 Create ways for users to be able to bring their own identities or connect a DSNP Identity with outside identities.
 
 ### Archivists
-*Status: [Draft](/Draft/Archivists.md)*
+*Status: [Draft](Draft/Archivists.md)*
 
 Long-term storage for announcements and perhaps expanding to content storage.
 

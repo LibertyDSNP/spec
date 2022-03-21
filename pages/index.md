@@ -15,9 +15,9 @@ There are three core specifications currently.
 
 | Name | Version | Description |
 | --- | --- | --- |
-| [DSNP](/DSNP/Overview.md) | 1.0.0 | The implementation agnostic DSNP specification |
-| [DSNP Implementations](/Implementations.md) | - | Implementation specific specifications |
-| [Activity Content](/ActivityContent/Overview.md) | 1.0.0 | A specification for DSNP referenced content (sub-set of W3C Activity Streams) |
+| [DSNP](DSNP/Overview.md) | 1.0.0 | The implementation agnostic DSNP specification |
+| [DSNP Implementations](Implementations.md) | - | Implementation specific specifications |
+| [Activity Content](ActivityContent/Overview.md) | 1.0.0 | A specification for DSNP referenced content (sub-set of W3C Activity Streams) |
 
 Each specification is divided into several modules.
 Each module describes a mostly self-contained aspect of the specification.
@@ -38,7 +38,7 @@ however these proposals should be regarded with caution as they are largely inco
 
 | Name | Status | Description |
 | --- | --- | --- |
-| [Archivist](/Draft/Archivists.md) | DRAFT | Long term DSNP Announcement Storage |
+| [Archivist](Draft/Archivists.md) | DRAFT | Long term DSNP Announcement Storage |
 
 ### Draft Status Definitions
 

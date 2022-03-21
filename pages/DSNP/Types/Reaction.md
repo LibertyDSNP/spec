@@ -1,17 +1,17 @@
 # Reaction Announcement
 
-A Reaction Announcement is for publishing emoji reactions to anything with a [DSNP Announcement URI](/DSNP/Identifiers.md#dsnp-announcement-uri).
+A Reaction Announcement is for publishing emoji reactions to anything with a [DSNP Announcement URI](DSNP/Identifiers.md#dsnp-announcement-uri).
 
 ## Fields
 
 | Field | Description | Data Type | Serialization | Parquet Type | Bloom Filter |
 | ----- | ----------- | --------- | ------------- | ------------ | ------------ |
-| announcementType | Announcement Type Enum (`4`) | enum | [decimal](/DSNP/Serializations.md#decimal) | `INT32` | no |
-| createdAt | milliseconds since Unix epoch | 64 bit unsigned integer | [decimal](/DSNP/Serializations.md#decimal) | `UINT_64` | no
+| announcementType | Announcement Type Enum (`4`) | enum | [decimal](DSNP/Serializations.md#decimal) | `INT32` | no |
+| createdAt | milliseconds since Unix epoch | 64 bit unsigned integer | [decimal](DSNP/Serializations.md#decimal) | `UINT_64` | no
 | emoji | the encoded reaction | UTF-8 | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | YES
-| fromId | id of the user creating the relationship | 64 bit unsigned integer | [decimal](/DSNP/Serializations.md#decimal) | `UINT_64` | YES
-| inReplyTo | Target [DSNP Announcement URI](/DSNP/Identifiers.md#dsnp-announcement-uri) | UTF-8 | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | YES
-| signature | creator signature | 65 bytes | [hexadecimal](/DSNP/Serializations.md#hexadecimal) | `BYTE_ARRAY` | no
+| fromId | id of the user creating the relationship | 64 bit unsigned integer | [decimal](DSNP/Serializations.md#decimal) | `UINT_64` | YES
+| inReplyTo | Target [DSNP Announcement URI](DSNP/Identifiers.md#dsnp-announcement-uri) | UTF-8 | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | YES
+| signature | creator signature | 65 bytes | [hexadecimal](DSNP/Serializations.md#hexadecimal) | `BYTE_ARRAY` | no
 
 ## Field Requirements
 
@@ -44,16 +44,16 @@ None of the following should be considered valid:
 
 ### fromId
 
-- MUST be a [DSNP User Id](/DSNP/Identifiers.md#dsnp-user-id)
-- MUST be the [signer](/DSNP/Signatures.md) of the announcement
+- MUST be a [DSNP User Id](DSNP/Identifiers.md#dsnp-user-id)
+- MUST be the [signer](DSNP/Signatures.md) of the announcement
 
 ### inReplyTo
 
-- MUST be a [DSNP Announcement URI](/DSNP/Identifiers.md#dsnp-announcement-uri)
+- MUST be a [DSNP Announcement URI](DSNP/Identifiers.md#dsnp-announcement-uri)
 
 ### signature
 
-- MUST be an [Announcement Signature](/DSNP/Signatures.md) over the all fields except the signature field
+- MUST be an [Announcement Signature](DSNP/Signatures.md) over the all fields except the signature field
 
 ## Non-Normative
 

@@ -5,9 +5,11 @@ multilingual = false
 src = "pages"
 title = "DSNP Specification"
 
+[build]
+create-missing = false
+
 [output.html]
 no-section-label = true
-site-url = "/pages/"
 git-repository-url = "https://github.com/LibertyDSNP/spec"
 edit-url-template = "https://github.com/LibertyDSNP/spec/blob/main/{path}"
 
