@@ -15,7 +15,7 @@
         - [Reaction](DSNP/Types/Reaction.md)
         - [Profile](DSNP/Types/Profile.md)
     - [Signatures](DSNP/Signatures.md)
-    - [Serealizations](DSNP/Serializations.md)
+    - [Serializations](DSNP/Serializations.md)
 - [DSNP Implementation Specs](Implementations.md)
     - [EVM](Ethereum/Overview.md)
         - [Identity](Ethereum/Identity.md)
