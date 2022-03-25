@@ -10,9 +10,9 @@
 | `mediaType` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-mediatype) | YES | MIME type for the `content` field | MUST be set to a [supported MIME type](#supported-content-mime-types) |
 | `name` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-name) | no | The display name for the note |  |
 | `published` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-published) | no | The time of publishing | MUST be [ISO8601](https://www.iso.org/iso-8601-date-and-time-format.html) |
-| `attachment` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-attachment) | no | Array of attached links or media | MUST be one of the [Supported Attachments](ActivityContent/Associated/Attachments.md) |
-| `tag` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-tag) | no | Array of tags/mentions | MUST follow [Tag Type](ActivityContent/Associated/Tag.md) |
-| `location` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-location) | no | For location | MUST follow [Location Type](ActivityContent/Associated/Location.md) |
+| `attachment` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-attachment) | no | Array of attached links or media | MUST be one of the [Supported Attachments](../Associated/Attachments.md) |
+| `tag` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-tag) | no | Array of tags/mentions | MUST follow [Tag Type](../Associated/Tag.md) |
+| `location` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-location) | no | For location | MUST follow [Location Type](../Associated/Location.md) |
 
 ## Supported Content MIME Types
 

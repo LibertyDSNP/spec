@@ -1,6 +1,6 @@
 # Batch Publications
 
-A Batch Publication is an [Apache Parquet](https://github.com/apache/parquet-format) file with a collection of [Announcements](DSNP/Announcements.md).
+A Batch Publication is an [Apache Parquet](https://github.com/apache/parquet-format) file with a collection of [Announcements](Announcements.md).
 
 ## Implementation Requirements
 
@@ -21,7 +21,7 @@ Implementations MUST retain proof of existence of a Batch Publication.
 
 Batch files are stored and transferred in Apache Parquet format.
 
-- Batch file MUST match the spec for a single [Announcement Type](DSNP/Announcements.md).
+- Batch file MUST match the spec for a single [Announcement Type](Announcements.md).
 - Batch file MUST have Bloom filters set in accordance to the Announcement Type Spec.
 - Batch file MUST have NO MORE THAN 128*1024 rows
 
@@ -34,7 +34,7 @@ Calculation for filter bits is different and nearly a factor of 10 lower than fo
 128*1024 rows with a 0.001 false positive rate results in around 29,000 bits for a Split Block Bloom filter.
 
 Bloom filters are ONLY added to some fields.
-See also [Announcement Types](DSNP/Announcements.md).
+See also [Announcement Types](Announcements.md).
 
 #### Columns with Bloom Filters
 

@@ -1,18 +1,18 @@
 # Profile Announcement
 
-A Profile Announcement is a constrained version of a [Broadcast Announcement](DSNP/Types/Broadcast.md).
+A Profile Announcement is a constrained version of a [Broadcast Announcement](../Types/Broadcast.md).
 The reference content *MUST be of profile type*.
 
 ## Fields
 
 | Field | Description | Serialization | Parquet Type | Bloom Filter |
 | ----- | ----------- | ------------- | ------------ | ------------ |
-| announcementType | Announcement Type Enum (`5`) | [decimal](DSNP/Serializations.md#decimal) | `INT32` | no |
-| contentHash | keccak-256 hash of content stored at URL | [hexadecimal](DSNP/Serializations.md#hexadecimal) | `BYTE_ARRAY` | YES
-| createdAt | milliseconds since Unix epoch | [decimal](DSNP/Serializations.md#decimal) | `UINT_64` | no
-| fromId | id of the user creating the announcement | [decimal](DSNP/Serializations.md#decimal) | `UINT_64` | YES
+| announcementType | Announcement Type Enum (`5`) | [decimal](../Serializations.md#decimal) | `INT32` | no |
+| contentHash | keccak-256 hash of content stored at URL | [hexadecimal](../Serializations.md#hexadecimal) | `BYTE_ARRAY` | YES
+| createdAt | milliseconds since Unix epoch | [decimal](../Serializations.md#decimal) | `UINT_64` | no
+| fromId | id of the user creating the announcement | [decimal](../Serializations.md#decimal) | `UINT_64` | YES
 | url | Profile content URL | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | no
-| signature | creator signature | [hexadecimal](DSNP/Serializations.md#hexadecimal) | `BYTE_ARRAY` | no
+| signature | creator signature | [hexadecimal](../Serializations.md#hexadecimal) | `BYTE_ARRAY` | no
 
 ## Field Requirements
 
@@ -31,13 +31,13 @@ The reference content *MUST be of profile type*.
 
 ### fromId
 
-- MUST be a [DSNP User Id](DSNP/Identifiers.md#dsnp-user-id)
-- MUST be the [signer](DSNP/Signatures.md) of the announcement
+- MUST be a [DSNP User Id](../Identifiers.md#dsnp-user-id)
+- MUST be the [signer](../Signatures.md) of the announcement
 
 ### url
 
 - MUST NOT refer to localhost or any reserved IP addresses as defined in [RFC6890](https://datatracker.ietf.org/doc/html/rfc6890)
-- Resource MUST be a valid [Profile Activity Content](ActivityContent/Types/Profile.md) Type
+- Resource MUST be a valid [Profile Activity Content](../../ActivityContent/Types/Profile.md) Type
 - MUST use one of the supported URL Schemes
 
 #### Supported URL Schemes
@@ -48,7 +48,7 @@ The reference content *MUST be of profile type*.
 
 ### signature
 
-- MUST be an [Announcement Signature](DSNP/Signatures.md) over the all fields except the signature field
+- MUST be an [Announcement Signature](../Signatures.md) over the all fields except the signature field
 
 ## Non-Normative
 

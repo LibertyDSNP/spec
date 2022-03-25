@@ -1,6 +1,6 @@
 # Announcement Publishing
 
-On Ethereum, all [Announcements](DSNP/Announcements.md) are published via [Batch Publication Files](DSNP/BatchPublications.md).
+On Ethereum, all [Announcements](../DSNP/Announcements.md) are published via [Batch Publication Files](../DSNP/BatchPublications.md).
 Publishing is accomplished via an Ethereum Log Event.
 
 ## Ethereum Log Event
