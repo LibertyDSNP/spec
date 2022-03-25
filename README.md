@@ -30,13 +30,19 @@ To run the spec generator locally and preview the formatted spec website, use th
 
 ```
 npm install
-npm run dev
+npm run build
 ```
 
-Once the local server is running, a live-reloading preview of the spec can be viewed at http://localhost:3000.
+To run the spec generator locally and also actively build after each change, use the following command:
+
+```
+npm run serve
+```
+
+Once the local server is running, the spec will automatically open in the browser. A live-reloading preview of the spec can also be viewed at http://localhost:3000.
 
 ## Tools and frameworks used in this repo
-* [Docz](https://www.docz.site/)
+* [mdBook](https://rust-lang.github.io/mdBook/)
 * [MDX](https://mdxjs.com/)
 
 # Contributing a specification
