@@ -13,5 +13,10 @@ no-section-label = true
 git-repository-url = "https://github.com/LibertyDSNP/spec"
 edit-url-template = "https://github.com/LibertyDSNP/spec/blob/main/{path}"
 
+# https://github.com/Michael-F-Bryan/mdbook-linkcheck
+[output.linkcheck]
+follow-web-links = true 
+traverse-parent-directories = false
+
 [output.html.fold]
 enable = true
