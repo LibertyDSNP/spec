@@ -1,7 +1,7 @@
 # Reply Announcement
 
 A Reply Announcement is the same as a [Broadcast Announcement](../Types/Broadcast.md),
-but includes an `inReplyTo` field for noting it as a reply to a given [DSNP Announcement URI](../Identifiers.md#dsnp-announcement-uri).
+but includes an `inReplyTo` field for noting it as a reply to a given [DSNP Content URI](../Identifiers.md#dsnp-content-uri).
 
 ## Fields
 
@@ -11,7 +11,7 @@ but includes an `inReplyTo` field for noting it as a reply to a given [DSNP Anno
 | contentHash | keccak-256 hash of content stored at URL | 32 bytes | [hexadecimal](../Serializations.md#hexadecimal) | `BYTE_ARRAY` | YES
 | createdAt | milliseconds since Unix epoch | 64 bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | no
 | fromId | id of the user creating the announcement | 64 bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | YES
-| inReplyTo | Target [DSNP Announcement URI](../Identifiers.md#dsnp-announcement-uri) | UTF-8 | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | YES
+| inReplyTo | Target [DSNP Content URI](../Identifiers.md#dsnp-content-uri) | UTF-8 | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | YES
 | url | content URL | UTF-8 | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | no
 | signature | creator signature | 65 bytes | [hexadecimal](../Serializations.md#hexadecimal) | `BYTE_ARRAY` | no
 
@@ -36,7 +36,7 @@ but includes an `inReplyTo` field for noting it as a reply to a given [DSNP Anno
 
 ### inReplyTo
 
-- MUST be a [DSNP Announcement URI](../Identifiers.md#dsnp-announcement-uri)
+- MUST be a [DSNP Content URI](../Identifiers.md#dsnp-content-uri)
 
 ### url
 

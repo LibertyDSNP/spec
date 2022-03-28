@@ -1,6 +1,6 @@
 # Reaction Announcement
 
-A Reaction Announcement is for publishing emoji reactions to anything with a [DSNP Announcement URI](../Identifiers.md#dsnp-announcement-uri).
+A Reaction Announcement is for publishing emoji reactions to anything with a [DSNP Content URI](../Identifiers.md#dsnp-content-uri).
 
 ## Fields
 
@@ -10,7 +10,7 @@ A Reaction Announcement is for publishing emoji reactions to anything with a [DS
 | createdAt | milliseconds since Unix epoch | 64 bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | no
 | emoji | the encoded reaction | UTF-8 | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | YES
 | fromId | id of the user creating the relationship | 64 bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | YES
-| inReplyTo | Target [DSNP Announcement URI](../Identifiers.md#dsnp-announcement-uri) | UTF-8 | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | YES
+| inReplyTo | Target [DSNP Content URI](../Identifiers.md#dsnp-content-uri) | UTF-8 | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | YES
 | signature | creator signature | 65 bytes | [hexadecimal](../Serializations.md#hexadecimal) | `BYTE_ARRAY` | no
 
 ## Field Requirements
@@ -49,7 +49,7 @@ None of the following should be considered valid:
 
 ### inReplyTo
 
-- MUST be a [DSNP Announcement URI](../Identifiers.md#dsnp-announcement-uri)
+- MUST be a [DSNP Content URI](../Identifiers.md#dsnp-content-uri)
 
 ### signature
 
