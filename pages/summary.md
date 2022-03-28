@@ -33,6 +33,7 @@
         - [Tag](ActivityContent/Associated/Tag.md)
         - [Attachments](ActivityContent/Associated/Attachments.md)
 - [Glossary](Reference/Glossary.md)
-- [Draft Specifications](Draft/Archivists.md)
+- [Draft Specifications]()
+  - [Archivists](Draft/Archivists.md)
 
 -----------
