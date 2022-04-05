@@ -390,6 +390,12 @@ ul#searchresults span.teaser em {
     display: flex;
     color: var(--sidebar-non-existant);
 }
+
+.chapter li :hover {
+    color: var(--sidebar-active);
+    cursor: pointer;
+}
+
 .chapter li a {
     display: block;
     padding: 0;
