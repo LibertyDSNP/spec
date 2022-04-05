@@ -5,6 +5,7 @@
 # where filename is relative to this configuration file
 0.8.x.
 1.0.x
+1.1.x
 ActivityContent
 Alexa
 ArchiveEntries
