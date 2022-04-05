@@ -393,10 +393,6 @@ ul#searchresults span.teaser em {
 
 .chapter li :hover {
     color: var(--sidebar-active);
-}
-
-.chapter li :hover div{
-    color: var(--sidebar-active);
     cursor: pointer;
 }
 
