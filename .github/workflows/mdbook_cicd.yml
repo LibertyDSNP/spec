@@ -5,7 +5,7 @@ on:
     branches: [main]
   create:
     tags: 
-      - "^\d{8}\.\d+"
+      - '^\d{8}\.\d+'
   pull_request:
 jobs:
   build:
