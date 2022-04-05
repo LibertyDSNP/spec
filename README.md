@@ -74,4 +74,4 @@ Once the local server is running, the spec will automatically open in the browse
       ^\d{8}\.\d+
    ```
 
-2. Trigger will rebuild and deploy the spec as github page.
+2. Trigger will rebuild and deploy the spec.
