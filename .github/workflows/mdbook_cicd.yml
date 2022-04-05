@@ -1,4 +1,4 @@
-name: CI
+name: Spec MDBook CI
 
 on: [pull_request]
 
