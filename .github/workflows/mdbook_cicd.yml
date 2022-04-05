@@ -8,7 +8,7 @@ jobs:
 
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v2.3.1
+        uses: actions/checkout@v3
 
       - uses: actions/cache@v2
         with:
@@ -20,35 +20,28 @@ jobs:
       - name: Use Node.js 🐰
         uses: actions/setup-node@v1
         with:
-          node-version: '14.17.3'
-
-      - name: Update npm to v7 🔼
-        run: npm i -g npm
+          node-version: 16.14.2
 
       - name: Install 💾
         run: npm install
 
-      - name: Lint 🧶
+      - name: Lint and Spellcheck 🧶
         run: npm run lint
       
-      - name: Remark 📝
-        run: npm run lint-md
-      
-      - name: Spellcheck 🧙‍♂️
-        run: npm run spellcheck
-
       - name: Setup mdbook and build dsnp spec book 📚
         uses: drmingdrmer/mdbook-full@main
         
       - name: Build dsnp spec book 📚
         run: mdbook build
 
+      - name: Create tarball 📦
+        run: tar -cvf spec_mdbook.tar ./book
+
       - name: Create mdbook build artifact 📦
         uses: actions/upload-artifact@v3
         with:
           name: spec_mdbook
-          path: |
-            book
+          path: spec_mdbook.tar
 
       #- name: Deploy mdBook to github pages
       #   uses: peaceiris/actions-gh-pages@v3
