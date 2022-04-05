@@ -27,7 +27,6 @@ jobs:
 
       - name: Install 💾
         run: npm install
-        run: cargo install mdbook --no-default-features --features search --vers "^0.4" --locked 
 
       - name: Lint 🧶
         run: npm run lint
