@@ -1,9 +1,3 @@
----
-name: Overview
-route: /Ethereum
-menu: "DSNP: Ethereum"
----
-
 # Ethereum/EVM Compatible DSNP Implementation
 __Version 1.0.0__
 

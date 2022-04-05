@@ -1,9 +1,3 @@
----
-name: "Associated: Location"
-route: /ActivityContent/Associated/Location
-menu: Activity Content
----
-
 # Associated Type: Location
 
 [Activity Vocabulary: location](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-location)

@@ -1,20 +1,14 @@
----
-menu: DSNP
-name: Announcements
-route: /DSNP/Announcements
----
-
 # Announcements Overview
 
 Announcements are content or reference to content that communicate new user activity to the rest of the network.
-Announcements are associated with an [Identifier](/DSNP/Identifiers) which can be validated as creator of the announcement.
-Depending on the implementation Announcements may be published directly to the network, included in [Batch Publication Files](/DSNP/BatchPublications), or some combination of those two.
+Announcements are associated with an [Identifier](Identifiers.md) which can be validated as creator of the announcement.
+Depending on the implementation Announcements may be published directly to the network, included in [Batch Publication Files](BatchPublications.md), or some combination of those two.
 
 ## Announcement Validation
 
 There is no guarantee that, at time of creation, a given announcement will be from the `fromId` claimed in the announcement.
 The reader MUST perform a validation of the announcement at read time to ensure authenticity.
-Implementations MUST provide a way to validate what [signatures](/DSNP/Signatures) are associated with a given [identifier](/DSNP/Identifiers).
+Implementations MUST provide a way to validate what [signatures](Signatures.md) are associated with a given [identifier](Identifiers.md).
 
 ## Announcement Types
 
@@ -22,12 +16,12 @@ Each Announcement has a enumerated type for use when separating out a stream of 
 
 | Value | Name | Description | DSNP Announcement URI | Tombstone Allowed |
 |------ | ---- | ----------- | --------------------- | ----------------- |
-| 0 | [Tombstone](/DSNP/Types/Tombstone) | an invalidation of another announcement | no | no |
-| 1 | [Graph Change](/DSNP/Types/GraphChange) | social graph changes | no | no |
-| 2 | [Broadcast](/DSNP/Types/Broadcast) | a public post | YES | YES |
-| 3 | [Reply](/DSNP/Types/Reply) | a public response to a Broadcast | YES | YES |
-| 4 | [Reaction](/DSNP/Types/Reaction) | a public visual reply to a Broadcast | no | YES |
-| 5 | [Profile](/DSNP/Types/Profile) | a profile | YES | no |
+| 0 | [Tombstone](Types/Tombstone.md) | an invalidation of another announcement | no | no |
+| 1 | [Graph Change](Types/GraphChange.md) | social graph changes | no | no |
+| 2 | [Broadcast](Types/Broadcast.md) | a public post | YES | YES |
+| 3 | [Reply](Types/Reply.md) | a public response to a Broadcast | YES | YES |
+| 4 | [Reaction](Types/Reaction.md) | a public visual reply to a Broadcast | no | YES |
+| 5 | [Profile](Types/Profile.md) | a profile | YES | no |
 
 
 ## Duplicate Handling
@@ -43,7 +37,7 @@ Additional duplicate Announcements MUST be rejected or ignored.
 
 ## Reverting an Announcement
 
-Announcements may not be deleted, but some may be marked as invalid by using a [Tombstone Announcement](/DSNP/Types/Tombstone).
+Announcements may not be deleted, but some may be marked as invalid by using a [Tombstone Announcement](Types/Tombstone.md).
 For example, if a user creates a reaction announcement, they may remove that reaction by creating a tombstone announcement.
 
 

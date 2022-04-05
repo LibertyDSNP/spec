@@ -1,9 +1,3 @@
----
-name: Glossary
-route: /Reference/Glossary
-menu: Reference
----
-
 # Glossary
 
 * **Activity Content** - The linked content connected to an "Announcement"

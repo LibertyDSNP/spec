@@ -1,9 +1,3 @@
----
-name: "Associated Type: Hash"
-route: /ActivityContent/Associated/Hash
-menu: Activity Content
----
-
 # Associated Type: Hash
 
 *NOT* part of the Activity Streams 2.0 Vocabulary.
@@ -21,7 +15,7 @@ AT LEAST ONE hash in the array MUST be one of the [supported algorithms](#suppor
 
 | Algorithm | Description | Value Serialization | Specification(s) |
 | --- | --- | --- | --- |
-| `keccak256` | keccak-256 hash | [hexadecimal](/DSNP/Serializations#hexadecimal) | [The Keccak SHA-3 submission v3](https://keccak.team/files/Keccak-submission-3.pdf) |
+| `keccak256` | keccak-256 hash | [hexadecimal](../../DSNP/Serializations.md#hexadecimal) | [The Keccak SHA-3 submission v3](https://keccak.team/files/Keccak-submission-3.pdf) |
 
 ### Example
 

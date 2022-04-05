@@ -1,9 +1,3 @@
----
-name: Identity
-route: /Ethereum/Identity
-menu: "DSNP: Ethereum"
----
-
 # Identity
 
 ## Purpose
@@ -20,9 +14,9 @@ menu: "DSNP: Ethereum"
 Ownership of an identity on Ethereum is determined by the address of the signer of the content.
 
 Creation of any new identity MUST be authorized by the owner's address.
-The official [Identity Factory](/Ethereum/IdentityFactory) is provided for initial creation of a new identity.
+The official [Identity Factory](IdentityFactory.md) is provided for initial creation of a new identity.
 
-Creation of an identity on behalf of someone is described in the [Identity Factory](/Ethereum/IdentityFactory).
+Creation of an identity on behalf of someone is described in the [Identity Factory](IdentityFactory.md).
 
 ### Permissioned Owners
 
@@ -222,7 +216,7 @@ Implementations that choose to use this interface will need to consider that tra
 ### EIP 897
 
 [EIP 897](https://eips.ethereum.org/EIPS/eip-897) is for DSNP identity contracts
-that are proxies such as those produced by the default [Identity Factory](/Ethereum/IdentityFactory).
+that are proxies such as those produced by the default [Identity Factory](IdentityFactory.md).
 
 ### EIP 1271
 

@@ -1,9 +1,3 @@
----
-name: "Associated: Tag"
-route: /ActivityContent/Associated/Tag
-menu: Activity Content
----
-
 # Associated Type: Tag
 
 [Activity Vocabulary: tag](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-tag)
@@ -37,7 +31,7 @@ menu: Activity Content
 | --- | --- | --- | --- | --- |
 | `name` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-name) | no | The text of the tag |  |
 | `type` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-type) | YES | Identifies the tag as type `Mention` |  MUST be `Mention`  |
-| `id` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-id) | YES | Link to the user mentioned | MUST be a [DSNP User URI](/DSNP/Identifiers#dsnp-user-uri) |
+| `id` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-id) | YES | Link to the user mentioned | MUST be a [DSNP User URI](../../DSNP/Identifiers.md#dsnp-user-uri) |
 
 ### Example
 

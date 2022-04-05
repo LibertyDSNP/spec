@@ -1,9 +1,3 @@
----
-name: Identity Registry
-route: /Ethereum/Registry
-menu: "DSNP: Ethereum"
----
-
 # Identity Registry
 
 A registry allows for distinct user identifiers and human readable discovery of network members.
