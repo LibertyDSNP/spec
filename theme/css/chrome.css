@@ -394,6 +394,7 @@ ul#searchresults span.teaser em {
 .chapter li :hover {
     color: var(--sidebar-active);
     cursor: pointer;
+    user-select: none;
 }
 
 .chapter li a {
