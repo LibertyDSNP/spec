@@ -53,5 +53,4 @@ jobs:
         # check tag
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          branch: gh-pages
           folder: ./book
