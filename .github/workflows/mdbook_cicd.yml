@@ -38,13 +38,11 @@ jobs:
         run: npm run spellcheck
 
       - name: Setup mdBook
-        uses: peaceiris/actions-mdbook@v1
-        with:
-          mdbook-version: 'latest'
+        uses: drmingdrmer/mdbook-full@main
       
       - run: mdbook build
 
-      # - name: Deploy mdBook to github pages
+      - name: Deploy mdBook to github pages
       #   uses: peaceiris/actions-gh-pages@v3
       #   if: ${{ github.ref == 'refs/heads/main' }}
       #   with:
