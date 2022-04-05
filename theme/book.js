@@ -453,11 +453,18 @@ function playground_text(playground) {
 
     var sidebarAnchorToggles = document.querySelectorAll('#sidebar a.toggle');
 
+
+    var sidebarDraftToggles = document.querySelectorAll('#sidebar div');
+
     function toggleSection(ev) {
         ev.currentTarget.parentElement.classList.toggle('expanded');
     }
 
     Array.from(sidebarAnchorToggles).forEach(function (el) {
+        el.addEventListener('click', toggleSection);
+    });
+
+    Array.from(sidebarDraftToggles).forEach(function (el) {
         el.addEventListener('click', toggleSection);
     });
 

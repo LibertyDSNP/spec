@@ -17,9 +17,9 @@ Currently the `main` branch is automatically released via GitHub Pages.
 1. Update the version at the top of the the `Overview.md` file for spec
 2. Update the releases table on the `Overview.md` file for spec
 3. Use the appropriate git tag(s) for the specs `[Spec]-v[Major].[Minor].[Patch]`
-  - DSNP: `DSNP-vX.X.X`
-  - Activity Content `ActivityContent-vX.X.X`
-  - DSNP on Ethereum `EVM-vX.X.X`
+      - DSNP: `DSNP-vX.X.X`
+      - Activity Content `ActivityContent-vX.X.X`
+      - DSNP on Ethereum `EVM-vX.X.X`
 4. Generate a [GitHub Release](https://github.com/LibertyDSNP/spec/releases) for each spec/tag combination with the Changelog.
 
 Note: Remember that you can link to the tag on GitHub before creating the tag.
@@ -28,33 +28,35 @@ Note: Remember that you can link to the tag on GitHub before creating the tag.
 
 To build the spec generator locally, install [mdBook](https://github.com/rust-lang/mdBook.git) and [link checker](https://github.com/Michael-F-Bryan/mdbook-linkcheck). The link checker will run during build process and throw warnings for any broken internal or external links.
 
-```
+``` bash
 cargo install mdbook
-cargo install link-check
+cargo install mdbook-linkcheck
 ```
 
 To run the spec generator locally and preview the formatted spec website, use the following commands:
 
-```
+``` bash
 npm install
 npm run build
 ```
 
 To run the spec generator locally and also actively build after each change, use the following command:
 
-```
+``` bash
 npm run serve
 ```
 
-Once the local server is running, the spec will automatically open in the browser. A live-reloading preview of the spec can also be viewed at http://localhost:3000.
+Once the local server is running, the spec will automatically open in the browser. A live-reloading preview of the spec can also be viewed at <http://localhost:3000>.
 
 ## Tools and frameworks used in this repo
+
 * [mdBook](https://rust-lang.github.io/mdBook/)
 * [MDX](https://mdxjs.com/)
 
-# Contributing a specification
+## Contributing a specification
 
-### Formatting, names, etc.
+### Formatting, names, etc
+
 1. Use the official outline for specifications. Respect and observe good file organization practices.
 1. Spec files are written in Markdown format, and are located in the _pages_ directory.
 1. When documenting an API, et, use the following table style:
