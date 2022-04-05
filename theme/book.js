@@ -453,6 +453,7 @@ function playground_text(playground) {
 
     var sidebarAnchorToggles = document.querySelectorAll('#sidebar a.toggle');
 
+
     var sidebarDraftToggles = document.querySelectorAll('#sidebar div');
 
     function toggleSection(ev) {
