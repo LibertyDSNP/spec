@@ -17,12 +17,12 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - name: Use Node.js
+      - name: Use Node.js 🐰
         uses: actions/setup-node@v1
         with:
           node-version: '14.17.3'
 
-      - name: Update npm to v7
+      - name: Update npm to v7 🔼
         run: npm i -g npm
 
       - name: Install 💾
@@ -40,7 +40,8 @@ jobs:
       - name: Setup mdbook and build dsnp spec book 📚
         uses: drmingdrmer/mdbook-full@main
         
-      - run: mdbook build
+      - name: Build dsnp spec book 📚
+        run: mdbook build
 
       - name: Create mdbook build artifact 📦
         uses: actions/upload-artifact@v3
