@@ -37,10 +37,17 @@ jobs:
       - name: Spellcheck 🧙‍♂️
         run: npm run spellcheck
 
-      - name: Setup mdbook and build dsnp spec book
+      - name: Setup mdbook and build dsnp spec book 📚
         uses: drmingdrmer/mdbook-full@main
         
       - run: mdbook build
+
+      - name: Create mdbook build artifact 📦
+        uses: actions/upload-artifact@v3
+        with:
+          name: spec_mdbook
+          path: |
+            book
 
       #- name: Deploy mdBook to github pages
       #   uses: peaceiris/actions-gh-pages@v3
