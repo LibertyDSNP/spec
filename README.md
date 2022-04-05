@@ -50,9 +50,8 @@ Once the local server is running, the spec will automatically open in the browse
 
 ## Tools and frameworks used in this repo
 
-- [mdBook](https://rust-lang.github.io/mdBook/)
-
-- [MDX](https://mdxjs.com/)
+* [mdBook](https://rust-lang.github.io/mdBook/)
+* [MDX](https://mdxjs.com/)
 
 ## Contributing a specification
 
