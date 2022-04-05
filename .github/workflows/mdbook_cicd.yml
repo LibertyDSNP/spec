@@ -30,6 +30,23 @@ jobs:
 
       - name: Lint 🧶
         run: npm run lint
+      
+      - name: Remark 📝
+        run: npm run lint-md
+      
+      - name: Spellcheck 🧙‍♂️
+        run: npm run spellcheck
 
-      # - name: Build 🔨
-      #   run: npm run build
+      - name: Setup mdBook
+        uses: peaceiris/actions-mdbook@v1
+        with:
+          mdbook-version: 'latest'
+      
+      - run: mdbook build
+
+      # - name: Deploy mdBook to github pages
+      #   uses: peaceiris/actions-gh-pages@v3
+      #   if: ${{ github.ref == 'refs/heads/main' }}
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     publish_dir: ./book
