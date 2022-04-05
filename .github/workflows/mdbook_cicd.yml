@@ -39,9 +39,10 @@ jobs:
 
       - name: Setup mdbook and build dsnp spec book
         uses: drmingdrmer/mdbook-full@main
-        run: mdbook build
+        
+      - run: mdbook build
 
-      - name: Deploy mdBook to github pages
+      #- name: Deploy mdBook to github pages
       #   uses: peaceiris/actions-gh-pages@v3
       #   if: ${{ github.ref == 'refs/heads/main' }}
       #   with:
