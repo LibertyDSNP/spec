@@ -68,7 +68,7 @@ Once the local server is running, the spec will automatically open in the browse
 
 ### Release process
 
-1. Deployment step of the spec actions workflow is triggered by tags fitting the regex:
+1. Deployment step of the github actions workflow is triggered by tags fitting the regex:
 
    ``` bash
       ^\d{8}\.\d+
