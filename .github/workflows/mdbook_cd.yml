@@ -3,7 +3,7 @@ name: Spec MDBook CD
 on:
   push:
     tags: 
-      - '*'
+      - '[0-9]+.[0-9]+'
 jobs:
   build:
     runs-on: ubuntu-20.04
@@ -11,11 +11,9 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
-        if: ${{ github.ref == 'refs/heads/main' }}
 
       - name: Download mdbook build artifact 📦
         uses: dawidd6/action-download-artifact@v2
-        if: ${{ github.ref == 'refs/heads/main' }}
         with:
           workflow: mdbook_ci.yml
           workflow_conclusion: success
@@ -23,11 +21,9 @@ jobs:
           check_artifacts:  true
 
       - name: Decompress mdbook build artifact 📦
-        if: ${{ github.ref == 'refs/heads/main' }}
-        run: mkdir book && tar -xvf spec_mdbook-${{github.sha}}/spec_mdbook.tar ./book && ls ./book
+        run: mkdir book && tar -xvf spec_mdbook_main/spec_mdbook.tar ./book && ls ./book
 
       - name: Deploy mdBook to github pages 🚀
         uses: peaceiris/actions-gh-pages@v3
-        if: ${{ github.ref == 'refs/heads/main' }}
         with:
           folder: ./book
