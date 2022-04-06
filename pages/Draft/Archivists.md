@@ -2,7 +2,7 @@
 
 The job of an Archivist is to permanently store Batch content and DSNP Announcements in a format that is easily validated and retrieved.
 
-The Archivist must be able to access chain data and all DSNP Announcement URLs.
+The Archivist must be able to access chain data and all DSNP Content.
 
 ## Validations that Archivists could perform
 

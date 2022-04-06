@@ -14,7 +14,7 @@ Implementations MUST provide a way to validate what [signatures](Signatures.md) 
 
 Each Announcement has a enumerated type for use when separating out a stream of Announcements.
 
-| Value | Name | Description | DSNP Announcement URI | Tombstone Allowed |
+| Value | Name | Description | DSNP Content URI | Tombstone Allowed |
 |------ | ---- | ----------- | --------------------- | ----------------- |
 | 0 | [Tombstone](Types/Tombstone.md) | an invalidation of another announcement | no | no |
 | 1 | [Graph Change](Types/GraphChange.md) | social graph changes | no | no |
