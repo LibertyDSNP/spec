@@ -13,15 +13,17 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Download mdbook build artifact 📦
-        uses: actions/download-artifact@v3
+        uses: dawidd6/action-download-artifact@v2
         with:
-          name: spec_mdbook-${{github.sha}}
-          path: spec_mdbook.tar
+          workflow: mdbook_ci.yml
+          workflow_conclusion: success
+          commit: ${{github.sha}}
+          check_artifacts:  true
 
       - name: Decompress mdbook build artifact 📦
-        run: tar -xvf spec_mdbook.tar ./book
+        run: tar -xvf spec_mdbook-${{github.sha}}.tar ./book | ls ./book
 
-      - name: Deploy mdBook to github pages 🚀
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          folder: ./book
+      # - name: Deploy mdBook to github pages 🚀
+      #   uses: peaceiris/actions-gh-pages@v3
+      #   with:
+      #     folder: ./book
