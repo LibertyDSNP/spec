@@ -8,6 +8,7 @@ on:
     workflows: ["Spec MDBook CI"]
     type:
       - complete
+  pull_request:
 
 jobs:
   build:
