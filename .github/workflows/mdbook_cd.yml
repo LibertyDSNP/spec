@@ -2,8 +2,6 @@ name: Spec MDBook CD
 
 on:
   push:
-    branches:
-      - main
     tags: 
       - '*'
 jobs:
@@ -13,6 +11,8 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
+        with:
+          path: main
 
       - name: Download mdbook build artifact 📦
         uses: dawidd6/action-download-artifact@v2
