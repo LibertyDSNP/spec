@@ -3,7 +3,7 @@ name: Spec MDBook CD
 on:
   push:
     tags: 
-      - '^\d{8}\.\d+'
+      - '*'
 jobs:
   build:
     runs-on: ubuntu-20.04
