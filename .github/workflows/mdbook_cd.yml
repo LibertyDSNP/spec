@@ -1,14 +1,13 @@
 name: Spec MDBook CD
 
 on:
-  push:
-    tags: 
-      - '^\d{8}\.\d+'
-  # Dependency to a forking workflow
   workflow_run:
     workflows: ["Spec MDBook CI"]
     type:
       - complete
+  # push:
+  #   tags: 
+  #     - '^\d{8}\.\d+'
 
 jobs:
   build:
