@@ -1,9 +1,13 @@
 name: Spec MDBook CD
 
 on:
-  push:
-    tags: 
-      - '^\d{8}\.\d+'
+  # push:
+  #   tags: 
+  #     - '^\d{8}\.\d+'
+  workflow_run:
+    workflows: ["Spec MDBook CI"]
+    type:
+      - complete
 
 jobs:
   build:
@@ -22,8 +26,8 @@ jobs:
       - name: Decompress mdbook build artifact 📦
         run: tar -xvf spec_mdbook.tar ./book
 
-      - name: Deploy mdBook to github pages 🚀
-        uses: JamesIves/github-pages-deploy-action@4.0.0
-        if: startsWith(github.ref, 'refs/tags/')
-        with:
-          folder: ./book
+      # - name: Deploy mdBook to github pages 🚀
+      #   uses: JamesIves/github-pages-deploy-action@4.0.0
+      #   if: startsWith(github.ref, 'refs/tags/')
+      #   with:
+      #     folder: ./book
