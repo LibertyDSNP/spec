@@ -24,4 +24,4 @@ Official DSNP interfaces, contracts, and deployment information may be found in 
 
 | Version | Description | DSNP Compatibility | Release Date | Changelog |
 | --- | --- | --- | --- | --- |
-| [1.0.0](https://github.com/LibertyDSNP/spec/tree/EVM-v1.0.0) | Initial Release | 1.0.x | 2021-09-09 | [Changelog](https://github.com/LibertyDSNP/spec/releases/tag/EVM-v1.0.0) |
+| [1.0.0](https://github.com/LibertyDSNP/spec/tree/EVM-v1.0.0) | Initial Release | 1.0.x, 1.1.x | 2021-09-09 | [Changelog](https://github.com/LibertyDSNP/spec/releases/tag/EVM-v1.0.0) |

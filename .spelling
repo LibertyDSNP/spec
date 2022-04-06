@@ -5,6 +5,7 @@
 # where filename is relative to this configuration file
 0.8.x.
 1.0.x
+1.1.x
 ActivityContent
 Alexa
 ArchiveEntries
@@ -18,6 +19,8 @@ CODE_OF_CONDUCT
 Changelog
 CouchDB
 DAO
+DIP
+DIP-148
 DSNP
 DSNP.org
 DSNPArchives
@@ -67,6 +70,7 @@ Nonces
 OGG
 OpenZeppelin
 PNG
+pre-1
 PrivateBroadcast
 PrivateGraph
 PrivateGraphChange
