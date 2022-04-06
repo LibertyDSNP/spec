@@ -3,7 +3,6 @@ name: Spec MDBook CI
 on:
   push:
     branches: [main]
-  create:
     tags: 
       - '^\d{8}\.\d+'
   pull_request:
