@@ -1,13 +1,9 @@
 name: Spec MDBook CD
 
 on:
-  workflow_run:
-    workflows: ["Spec MDBook CI"]
-    type:
-      - complete
-  # push:
-  #   tags: 
-  #     - '^\d{8}\.\d+'
+  push:
+    tags: 
+      - '^\d{8}\.\d+'
 
 jobs:
   build:
@@ -20,8 +16,8 @@ jobs:
       - name: Download mdbook build artifact 📦
         uses: actions/download-artifact@v3
         with:
-          name: spec_mdbook
-          path: ${{ github.event.workflow_run.artifacts_url}}
+          name: spec_mdbook-${{github.sha}}
+          path: spec_mdbook.tar
 
       - name: Decompress mdbook build artifact 📦
         run: tar -xvf spec_mdbook.tar ./book
