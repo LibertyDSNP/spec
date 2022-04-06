@@ -44,6 +44,6 @@ jobs:
       - name: Create mdbook build artifact 📦
         uses: actions/upload-artifact@v3
         with:
-          name: spec_mdbook-${{ github.event.pull_request.head.sha }}
+          name: spec_mdbook-${{github.sha}}
           path: spec_mdbook.tar
 
