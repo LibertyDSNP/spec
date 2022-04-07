@@ -65,3 +65,13 @@ Once the local server is running, the spec will automatically open in the browse
    | --- | --- | --- | --- |
    | `fileHash` | a description of `fileHash` | bytes | YES |
 1. Put images into the `images` folder and link to them using their URL in the GitHub repo.
+
+### Release process
+
+1. Deployment step of the github actions workflow is triggered by tags fitting the regex:
+
+   ``` bash
+      ^\d{8}\.\d+
+   ```
+
+2. Trigger will deploy the latest successful artifact from main branch.
