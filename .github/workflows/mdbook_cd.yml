@@ -17,11 +17,11 @@ jobs:
         with:
           workflow: mdbook_ci.yml
           workflow_conclusion: success
-          commit: ${{ github.event.before }}
+          commit: ${{ github.sha }}
           check_artifacts:  true
 
       - name: Decompress mdbook build artifact 📦
-        run: mkdir book && tar -xvf spec_mdbook-${{ github.event.before }}/spec_mdbook.tar ./book && ls ./book
+        run: mkdir book && tar -xvf spec_mdbook-${{ github.sha }}/spec_mdbook.tar ./book && ls ./book
 
       # - name: Deploy mdBook to github pages 🚀
       #   uses: peaceiris/actions-gh-pages@v3
