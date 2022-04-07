@@ -26,4 +26,5 @@ jobs:
       - name: Deploy mdBook to github pages 🚀
         uses: peaceiris/actions-gh-pages@v3
         with:
-          folder: ./book
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./book
