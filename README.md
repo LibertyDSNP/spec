@@ -74,4 +74,4 @@ Once the local server is running, the spec will automatically open in the browse
       ^\d{8}\.\d+
    ```
 
-2. Trigger will rebuild and deploy the spec.
+2. Trigger will deploy the latest successful artifact from main branch.
