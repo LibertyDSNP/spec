@@ -180,3 +180,9 @@ blockquote {
 .result-no-output {
     font-style: italic;
 }
+
+.nav-return,
+.nav-return:visited {
+    color: var(--searchbar-fg);
+    text-decoration: none;
+}
