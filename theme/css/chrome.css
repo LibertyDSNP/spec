@@ -500,3 +500,7 @@ ul#searchresults span.teaser em {
     border-top-left-radius: inherit;
     border-top-right-radius: inherit;
 }
+
+.nav-return:hover {
+    color: var(--sidebar-active);
+}
