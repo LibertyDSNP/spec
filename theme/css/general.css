@@ -183,6 +183,6 @@ blockquote {
 
 .nav-return,
 .nav-return:visited {
-    color: var(--searchbar-fg);
+    color: var(--sidebar-fg);
     text-decoration: none;
 }
