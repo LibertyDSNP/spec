@@ -21,6 +21,7 @@ CouchDB
 DAO
 DIP
 DIP-148
+DIP-158
 DSNP
 DSNP.org
 DSNPArchives
@@ -158,6 +159,7 @@ namespace
 objectId
 parseable
 permissioned
+pre-1
 prepended
 prosumer
 punycode
