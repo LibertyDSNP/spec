@@ -6,7 +6,7 @@ Here you can find the detailed specification documentation for DSNP, officiation
 ## Goals & Purpose
 
 The free communication of users on the internet faces a variety of problems in the modern day.
-These challenges include censorship from state and corporate actors, the amplification of misinformation through viral content, and an ever-shrinking collection of near monopolies with absolute power over social interaction in the 21st century.
+These challenges include censorship from state and corporate actors, the amplification of misinformation through viral content, and an ever-shrinking collection of near monopolies with absolute power over social interaction in the twenty-first century.
 Through the DSNP, we hope mitigate and ideally solve these challenges in the way social interaction operates online.
 
 ## How to Read This Specification

@@ -8,7 +8,7 @@ DSNP Announcements on Ethereum are validated at read time.
 
 ## Batch Publication Validation
 
-1. Hash the batch publication file using using [keccak-256](https://keccak.team/files/Keccak-submission-3.pdf).
+1. Hash the batch publication file using [keccak-256](https://keccak.team/files/Keccak-submission-3.pdf).
 2. Retrieve the published hash for the given file from the [DSNPBatchPublication](Publishing.md) Event.
 3. The file hash MUST match the retrieved hash from the `DSNPBatchPublication` event.
 

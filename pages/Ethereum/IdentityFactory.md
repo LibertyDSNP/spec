@@ -62,7 +62,7 @@ Official implementation contract addresses will be published once deployed.
 
 ### Clone Interface
 
-Clones follow [EIP 1167](https://eips.ethereum.org/EIPS/eip-1167) for a **non-upgradeable** identity contract.
+Clones follow [EIP 1167](https://eips.ethereum.org/EIPS/eip-1167) for a **non-upgradable** identity contract.
 
 ```solidity
 /**
