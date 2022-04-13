@@ -31,6 +31,8 @@ Different change types have different meanings
 | ----- |----- | ----------- |
 | 0 | Unfollow | Remove a Follow relationship |
 | 1 | Follow | Create a Follow relationship |
+| 2 | Block | Create a Block relationship |
+| 3 | Unblock | Remove a Block relationship |
 
 ### createdAt
 
