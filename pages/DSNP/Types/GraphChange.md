@@ -70,7 +70,7 @@ For example:
 Each graph change event represents a state transition for the graph.
 The state of the graph at any time is given by taking the state of the graph at a previous time and applying all graph change events not previously applied in the order specified above.
 Once those graph change events are retrieved, they can be ordered to reflect the current graph state
-(i.e. Charlie has followed Bob then unfollowed him and then followed him again. The graph state reflects that Charlie is Following Bob).
+(i.e. Charlie has followed Bob, then he unfollowed him, and then followed him again. The graph state reflects that Charlie is Following Bob).
 
 To retrieve the graph, do the following:
 1. Retrieve the [`DSNPBatchPublications`](../BatchPublications.md) events with [announcementType](../Announcements.md#announcement-types) matching the enum for "Graph Change" from the chain.

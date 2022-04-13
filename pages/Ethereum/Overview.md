@@ -15,10 +15,11 @@ Other versions may be available in the [official contracts code repository](http
 Official DSNP interfaces, contracts, and deployment information may be found in [GitHub](https://github.com/LibertyDSNP/contracts).
 
 ## Libraries
-
+<!-- yaspeller ignore:start -->
 | Name | Language(s) |
 | --- | --- |
 | [LibertyDSNP/sdk-ts](https://github.com/LibertyDSNP/sdk-ts) | JavaScript/TypeScript |
+<!-- yaspeller ignore:end -->
 
 ## Releases
 

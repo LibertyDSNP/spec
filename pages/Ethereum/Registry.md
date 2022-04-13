@@ -35,7 +35,7 @@ This issue is of ongoing discussion both for the DSNP as well as in for ICANN do
 
 Because the DSNP User Id is stable, attacks would only be successful in cases where the DSNP User Id were unknown.
 [Punycode](https://en.wikipedia.org/wiki/Punycode) is used by some software to prevent homographs by encoding all non-Latin characters into Latin characters.
-So punycode does not properly present non-Latin characters which isn't reaching the level of internationalization support desired by the DSNP.
+So Punycode does not properly present non-Latin characters which isn't reaching the level of internationalization support desired by the DSNP.
 
 #### Current Mitigation Strategies
 
@@ -96,14 +96,14 @@ DSNP support for the NFT standard [EIP 721](https://eips.ethereum.org/EIPS/eip-7
 ### NFT Concerns
 
 * The EIP 721 standard has its own ownership and permission system that is too limited for use across the DSNP.
-* Supporting two ownership systems adds unneeded complexity.
+* Supporting two ownership systems adds needless complexity.
 * Identity contract ownership would require additional complexity to receive and transfer 721 tokens.
 
 ## Rejected Alternatives
 
 * Why not the Ethereum Name Service ([ENS](https://ens.domains/))?
   * Overly complex and expensive for the simple use case of handles
-  * Support can be added later through a custom ENS resolver
+  * Support can be added later through custom ENS resolution
   * Didn't provide a numerical id for efficient graph storage
   * Still subject to homograph attacks
 
