@@ -31,7 +31,7 @@ Items are ordered by current priority.
 ### Chain Migration
 *Status: In progress*
 
-Ethereum's cost is too high.
+The cost to use Ethereum is too high.
 Migrate the DSNP architecture to another chain.
 
 ### Private Graph

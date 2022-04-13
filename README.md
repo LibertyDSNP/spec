@@ -59,7 +59,7 @@ Once the local server is running, the spec will automatically open in the browse
 
 1. Use the official outline for specifications. Respect and observe good file organization practices.
 1. Spec files are written in Markdown format, and are located in the _pages_ directory.
-1. When documenting an API, et, use the following table style:
+1. When documenting an API, use the following table style:
 
    | Name | Description | Type | Required? |
    | --- | --- | --- | --- |
@@ -68,7 +68,7 @@ Once the local server is running, the spec will automatically open in the browse
 
 ### Release process
 
-1. Deployment step of the github actions workflow is triggered by tags fitting the regex:
+1. Deployment step of the GitHub actions workflow is triggered by tags fitting the regex:
 
    ``` bash
       ^\d{8}\.\d+
