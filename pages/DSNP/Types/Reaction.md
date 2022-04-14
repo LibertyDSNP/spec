@@ -4,14 +4,15 @@ A Reaction Announcement is for publishing emoji reactions to anything with a [DS
 
 ## Fields
 
-| Field | Description | Data Type | Serialization | Parquet Type | Bloom Filter |
-| ----- | ----------- | --------- | ------------- | ------------ | ------------ |
-| announcementType | Announcement Type Enum (`4`) | enum | [decimal](../Serializations.md#decimal) | `INT32` | no |
-| createdAt | milliseconds since Unix epoch | 64-bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | no
-| emoji | the encoded reaction | UTF-8 | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | YES
-| fromId | id of the user creating the relationship | 64-bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | YES
-| inReplyTo | Target [DSNP Content URI](../Identifiers.md#dsnp-content-uri) | UTF-8 | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | YES
-| signature | creator signature | 65 bytes | [hexadecimal](../Serializations.md#hexadecimal) | `BYTE_ARRAY` | no
+| Field            | Description                                                   | Data Type               | Serialization | Parquet Type | Bloom Filter |
+|------------------|---------------------------------------------------------------|-------------------------| ------------- |--------------|--------------|
+| announcementType | Announcement Type Enum (`4`)                                  | enum                    | [decimal](../Serializations.md#decimal) | `INT32`      | no           |
+| createdAt        | milliseconds since Unix epoch                                 | 64-bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64`    | no           |
+| emoji            | the encoded reaction                                          | UTF-8                   | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8`       | YES          |
+| apply            | how to apply the reaction                                     | 8-bit unsigned integer  | [decimal](../Serializations.md#decimal)  | `UINT_8`     | no           | 
+| fromId           | id of the user creating the relationship                      | 64-bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64`    | YES          |
+| inReplyTo        | Target [DSNP Content URI](../Identifiers.md#dsnp-content-uri) | UTF-8                   | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8`       | YES          |
+| signature        | creator signature                                             | 65 bytes                | [hexadecimal](../Serializations.md#hexadecimal) | `BYTE_ARRAY` | no           |
 
 ## Field Requirements
 
@@ -41,6 +42,22 @@ None of the following should be considered valid:
 ```
 "F", ":custom-emoji:", "<custom-emoji>", "ᚱ", "ᘐ", "״"
 ```
+### apply
+- MUST be a UINT_8
+Indicates whether the emoji should be applied and if so, its "strength".
+
+Potential uses:
+- a single reaction
+- ratings
+- a range of responses, e.g. "strongly disagree" --> "strongly agree" = 1 --> 5 stars.
+- recommendation engines
+
+#### Apply Enums
+
+| Value | Name    | Description                        |
+|-------|---------|------------------------------------|
+| 0     | retract | Remove the referenced emoji        |
+| n     | apply   | Apply the referenced emoji N times |
 
 ### fromId
 
