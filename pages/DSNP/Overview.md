@@ -8,6 +8,7 @@ Go to [Implementations](../Implementations.md) for specifics on how DSNP is impl
 ## Prerelease Changelog
 
 - [DIP-148](https://github.com/LibertyDSNP/spec/issues/148) Require published for Note
+- [DIP-149](https://github.com/LibertyDSNP/spec/issues/149) Reaction retraction
 
 ## Releases
 
