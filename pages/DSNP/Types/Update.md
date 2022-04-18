@@ -18,7 +18,7 @@ announced content.
 
 ### announcementType
 
-- MUST be fixed to `0`
+- MUST be fixed to `6`
 
 ### createdAt
 
