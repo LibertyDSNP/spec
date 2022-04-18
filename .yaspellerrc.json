@@ -113,6 +113,7 @@
     "namespace",
     "objectId",
     "officiation",
+    "oldUrl",
     "parseable",
     "permissioned",
     "prepended",
