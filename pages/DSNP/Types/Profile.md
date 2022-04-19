@@ -10,8 +10,8 @@ The reference content *MUST be of profile type*.
 | announcementType | Announcement Type Enum (`5`) | [decimal](../Serializations.md#decimal) | `INT32` | no |
 | contentHash | keccak-256 hash of content stored at URL | [hexadecimal](../Serializations.md#hexadecimal) | `BYTE_ARRAY` | YES
 | createdAt | milliseconds since Unix epoch | [decimal](../Serializations.md#decimal) | `UINT_64` | no
-| fromId | id of the user creating the announcement | [decimal](../Serializations.md#decimal) | `UINT_64` | YES
-| url | Profile content URL | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | no
+| fromId | id of the user creating the Announcement | [decimal](../Serializations.md#decimal) | `UINT_64` | YES
+| url | profile content URL | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | no
 | signature | creator signature | [hexadecimal](../Serializations.md#hexadecimal) | `BYTE_ARRAY` | no
 
 ## Field Requirements
@@ -23,7 +23,7 @@ The reference content *MUST be of profile type*.
 ### contentHash
 
 - MUST be 32 bytes in length
-- MUST be the [keccak-256 hash](https://keccak.team/files/Keccak-submission-3.pdf) of the bytes of the reference at the url
+- MUST be the [keccak-256 hash](https://keccak.team/files/Keccak-submission-3.pdf) of the bytes of the reference at the URL
 
 ### createdAt
 
@@ -32,7 +32,7 @@ The reference content *MUST be of profile type*.
 ### fromId
 
 - MUST be a [DSNP User Id](../Identifiers.md#dsnp-user-id)
-- MUST be the [signer](../Signatures.md) of the announcement
+- MUST be the [signer](../Signatures.md) of the Announcement
 
 ### url
 

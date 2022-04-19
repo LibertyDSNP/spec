@@ -8,8 +8,8 @@ A Broadcast Announcement is a way to send a public message to everyone.
 | ----- | ----------- | --------- | ------------- | ------------ | ------------ |
 | announcementType | Announcement Type Enum (`2`) | enum | [decimal](../Serializations.md#decimal) | `INT32` | no |
 | contentHash | keccak-256 hash of content stored at URL | 32 bytes | [hexadecimal](../Serializations.md#hexadecimal) | `BYTE_ARRAY` | YES
-| createdAt | milliseconds since Unix epoch | 64 bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | no
-| fromId | id of the user creating the announcement | 64 bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | YES
+| createdAt | milliseconds since Unix epoch | 64-bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | no
+| fromId | id of the user creating the announcement | 64-bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | YES
 | url | content URL | UTF-8 | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | no
 | signature | creator signature | 65 bytes | [hexadecimal](../Serializations.md#hexadecimal) | `BYTE_ARRAY` | no
 
@@ -21,7 +21,7 @@ A Broadcast Announcement is a way to send a public message to everyone.
 
 ### contentHash
 
-- MUST be the [keccak-256 hash](https://keccak.team/files/Keccak-submission-3.pdf) of the bytes of the reference at the url
+- MUST be the [keccak-256 hash](https://keccak.team/files/Keccak-submission-3.pdf) of the bytes of the reference at the URL
 
 ### createdAt
 
@@ -35,7 +35,7 @@ A Broadcast Announcement is a way to send a public message to everyone.
 ### url
 
 - MUST NOT refer to localhost or any reserved IP addresses as defined in [RFC6890](https://datatracker.ietf.org/doc/html/rfc6890)
-- Resource MUST one of the supported [Activity Content](../../ActivityContent/Overview.md) Types
+- Resource MUST be one of the supported [Activity Content](../../ActivityContent/Overview.md) Types
 - MUST use one of the supported URL Schemes
 
 #### Supported URL Schemes
@@ -46,4 +46,4 @@ A Broadcast Announcement is a way to send a public message to everyone.
 
 ### signature
 
-- MUST be an [Announcement Signature](../Signatures.md) over the all fields except the signature field
+- MUST be an [Announcement Signature](../Signatures.md) over all fields except the signature field

@@ -5,18 +5,19 @@ This specification is intended to cover the concept of identity within the proto
 ## Identifiers
 
 DSNP [Identifiers](Identifiers.md) form the basis for pseudo-anonymous streams of content.
-While some users may choose to link or expose their real world identity, DSNP implementations MUST NOT require such data exposure for account creation.
-The [social graph](Graph.md) is formed using this identifier so that a user's connections maintains integrity regardless of changes in any user's client choices or access changes.
+While some users may choose to link or expose their real-world identity, DSNP implementations MUST NOT require such data exposure for account creation.
+The [social graph](Graph.md) is formed using this identifier so that a user's connections maintain integrity regardless of changes in any user's client choices or access changes.
 
 ### Pseudo Anonymity
 
-* An identifier MUST default to being disconnected from a real world identity.
+* An identifier MUST default to being disconnected from a real-world identity.
 * An identifier MUST be unique to the implementation.
 
 ## Ownership
 
-User ownership of their identity is expressed via ownership and control of their pseudo-anonymous identifier(s).
-Control entails the power to announce content associated with the identifier and ability to permission others to announce content on their behalf.
+A user's ownership of their identity is expressed via ownership and control of their pseudo-anonymous identifier(s).
+Control entails the power to announce content associated with the identifier and
+the ability to delegate permission to others to announce content on the user's behalf.
 
 ### Delegation
 
