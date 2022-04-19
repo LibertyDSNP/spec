@@ -17,7 +17,7 @@
     --sidebar-bg: #292c2f;
     --sidebar-fg: #a1adb8;
     --sidebar-non-existant: var(--sidebar-fg);
-    --sidebar-active: #3473ad;
+    --sidebar-active: #F67367;
     --sidebar-spacer: #393939;
 
     --scrollbar: var(--sidebar-fg);
@@ -25,8 +25,7 @@
     --icons: #43484d;
     --icons-hover: #b3c0cc;
 
-    --links: #2b79a2;
-
+    --links: #DA7F77;
     --inline-code-color: #c5c8c6;
 
     --theme-popup-bg: #141617;
@@ -57,7 +56,7 @@
     --sidebar-bg: #fafafa;
     --sidebar-fg: hsl(0, 0%, 0%);
     --sidebar-non-existant: var(--sidebar-fg);
-    --sidebar-active: #1f1fff;
+    --sidebar-active: #F67367;
     --sidebar-spacer: #f4f4f4;
 
     --scrollbar: #8F8F8F;
@@ -65,7 +64,7 @@
     --icons: #747474;
     --icons-hover: #000000;
 
-    --links: #20609f;
+    --links: #DA7F77;
 
     --inline-code-color: #301900;
 
