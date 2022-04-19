@@ -2,7 +2,7 @@
 
 Announcements are signed using recoverable ECDSA signatures similarly to how transactions are signed ([Ethereum Yellow Paper Appendix F](https://ethereum.github.io/yellowpaper/paper.pdf)).
 The signatures use the [SECP-256k1 curve](https://link.springer.com/chapter/10.1007%2F978-3-662-44893-9_12)
-and matches the signature algorithms found in the Ethereum JSON-RPC method [`eth_sign`](https://eth.wiki/json-rpc/API#eth_sign).
+and match the signature algorithms found in the Ethereum JSON-RPC method [`eth_sign`](https://eth.wiki/json-rpc/API#eth_sign).
 All parties interacting with Announcements should independently validate signatures to guard against creator impersonation.
 
 
@@ -59,7 +59,7 @@ For the previous example, the resulting hexadecimal hash MUST match:
 
 #### Wallet Signing
 
-- Ethereum Wallets will do the prefix and hashing
+- Ethereum wallets will do the prefix and hashing.
 
 #### Example
 
@@ -100,5 +100,5 @@ Given the message and signature provided in the previous examples, the elliptic 
 ### Ethereum Wallets
 
 Ethereum wallets can use the JSON-RPC method [`eth_sign`](https://eth.wiki/json-rpc/API#eth_sign)
-to go directly from announcement serialization sans-prefix to signature.
+to go directly from Announcement serialization sans-prefix to signature.
 The Announcement Signature specification matches this signature algorithm.
