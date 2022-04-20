@@ -12,7 +12,7 @@ announced content.
 | fromId | id of the user creating the announcement | 64 bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | YES
 | contentHash | keccak-256 hash of updated content | 32 bytes | [hexadecimal](../Serializations.md#hexadecimal) | `BYTE_ARRAY` | YES
 | url | updated content URL | UTF-8 | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | no
-| oldUrl | URL of old content | UTF-8 | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | no
+| contentURI | URL of old content | UTF-8 | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | no
 
 ## Field Requirements
 
@@ -39,7 +39,7 @@ announced content.
 - Resource MUST one of the supported [Activity Content](../../ActivityContent/Overview.md) Types
 - MUST use one of the supported URL Schemes
 
-### oldUrl
+### contentURI
 
 - All above points for urls apply
 - MUST only point to Broadcast or Reply Announcements
