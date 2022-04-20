@@ -23,8 +23,8 @@ jobs:
       - name: Decompress mdbook build artifact 📦
         run: mkdir book && tar -xvf spec_mdbook-${{ github.sha }}/spec_mdbook.tar ./book && ls ./book
 
-      - name: Deploy mdBook to github pages 🚀
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.0.0
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./book/html
+          branch: gh-pages
+          folder: .book/html
