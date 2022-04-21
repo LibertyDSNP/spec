@@ -1,7 +1,8 @@
 # Update Announcement
 
 An Update Announcement is a way to note intent to update previously
-announced content.
+announced content. If the original Broadcast/Reply is Tombstoned, subsequent
+Updates should be ignored.
 
 ## Fields
 
