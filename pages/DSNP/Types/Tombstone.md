@@ -1,6 +1,6 @@
 # Tombstone Announcement
 
-A Tombstone Announcement is a way to note that a previous Announcement signature is invalid and the related Announcement should be considered reverted.
+A Tombstone Announcement is a way to note that a previously announced content is invalid and the related Announcement should be considered reverted.
 It is NOT possible to revert a tombstone.
 
 ## Fields
@@ -11,7 +11,7 @@ It is NOT possible to revert a tombstone.
 | createdAt | milliseconds since Unix epoch | 64-bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | no
 | fromId | id of the user creating the Announcement and the Tombstoned Announcement | 64-bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | YES
 | targetAnnouncementType | target tombstoned Announcement type | enum | [decimal](../Serializations.md#decimal) | `INT32` | no |
-| targetSignature | target Announcement Signature to tombstone | 65 bytes | [hexadecimal](../Serializations.md#hexadecimal) | `BYTE_ARRAY` | YES
+| targetContentHash | target `contentHash` of the original Announcement to tombstone | 32 bytes | [hexadecimal](../Serializations.md#hexadecimal) | `BYTE_ARRAY` | YES
 | signature | creator signature | 65 bytes | [hexadecimal](../Serializations.md#hexadecimal) | `BYTE_ARRAY` | no
 
 ## Field Requirements
@@ -31,8 +31,8 @@ It is NOT possible to revert a tombstone.
 
 ### targetAnnouncementType
 
-- MUST be the [Announcement Type](../Announcements.md#announcement-types) of the Target Announcement
-- MUST ONLY be a Tombstone Allowed Announcement Type
+- MUST be the [Announcement Type](../Announcements.md#announcement-types) of the target Announcement
+- MUST ONLY be a Tombstone allowed Announcement Type
 
 #### Tombstone Allowed Announcement Types
 
@@ -40,11 +40,10 @@ It is NOT possible to revert a tombstone.
 |------ | ---- |
 | 2 | [Broadcast](../Types/Broadcast.md) |
 | 3 | [Reply](../Types/Reply.md) |
-| 4 | [Reaction](../Types/Reaction.md) |
 
-### targetSignature
+### targetContentHash
 
-- MUST be an [Announcement Signature](../Signatures.md) that the `fromId` has announced
+- MUST match a `contentHash` of previous Announcement with the same `fromId` as the Tombstone Announcement
 
 ### signature
 

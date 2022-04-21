@@ -9,6 +9,7 @@ Go to [Implementations](../Implementations.md) for specifics on how DSNP is impl
 
 - [DIP-148](https://github.com/LibertyDSNP/spec/issues/148) Require published for Note
 - [DIP-149](https://github.com/LibertyDSNP/spec/issues/149) Reaction retraction
+- [DIP-180](https://github.com/LibertyDSNP/spec/issues/180) Tombstones target content hashes instead of signatures
 
 ## Releases
 
