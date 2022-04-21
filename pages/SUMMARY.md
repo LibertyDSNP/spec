@@ -35,5 +35,3 @@
 - [Glossary](Reference/Glossary.md)
 - [Draft Specifications]()
     - [Archivists](Draft/Archivists.md)
-
------------

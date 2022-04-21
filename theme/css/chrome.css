@@ -444,7 +444,7 @@ ul#searchresults span.teaser em {
     height: 3px;
     margin: 5px 0px;
 }
-.chapter .spacer {
+.chapter .spacer, div.spacer {
     background-color: var(--sidebar-spacer);
 }
 
