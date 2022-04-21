@@ -11,7 +11,7 @@
 /* Themes */
 
 .coal {
-    --bg: #2b2b2b; 
+    --bg: #2b2b2b;
     --fg:#F5F6F7;
 
     --sidebar-bg: #1c1c1c;
@@ -37,9 +37,9 @@
     --quote-bg: hsl(234, 21%, 18%);
     --quote-border: hsl(234, 21%, 23%);
 
-    --table-border-color: hsl(200, 7%, 13%);
-    --table-header-bg: hsl(200, 7%, 28%);
-    --table-alternate-bg: hsl(200, 7%, 11%);
+    --table-border-color: #67788a;
+    --table-header-bg: #67788a;
+    --table-alternate-bg: hsl(0, 0%, 15%);
 
     --searchbar-border-color: #aaa;
     --searchbar-bg: #b7b7b7;
@@ -79,7 +79,7 @@
 
     --table-border-color: hsl(0, 0%, 95%);
     --table-header-bg: hsl(0, 0%, 80%);
-    --table-alternate-bg: hsl(0, 0%, 97%);
+    --table-alternate-bg: hsl(0, 0%, 99%);
 
     --searchbar-border-color: #aaa;
     --searchbar-bg: #fafafa;
@@ -93,9 +93,9 @@
 
 @media (prefers-color-scheme: dark) {
     .light.no-js {
-        --bg: #2b2b2b; 
+        --bg: #2b2b2b;
         --fg:#F5F6F7;
-    
+
         --sidebar-bg: #1c1c1c;
         --sidebar-fg: #a1adb8;
         --sidebar-non-existant: var(--sidebar-fg);
@@ -106,21 +106,21 @@
 
         --icons: #545a60;
         --icons-hover: #F5F6F7;
-    
+
         --links: var(--sidebar-active);
         --inline-code-color: #c5c8c6;
-    
+
         --theme-popup-bg: #141617;
         --theme-popup-border: #43484d;
         --theme-hover: #1f2124;
-    
+
         --quote-bg: hsl(234, 21%, 18%);
         --quote-border: hsl(234, 21%, 23%);
-    
-        --table-border-color: hsl(200, 7%, 13%);
-        --table-header-bg: hsl(200, 7%, 28%);
-        --table-alternate-bg: hsl(200, 7%, 11%);
-    
+
+        --table-border-color: #67788a;
+        --table-header-bg: #67788a;
+        --table-alternate-bg: hsl(0, 0%, 15%);
+
         --searchbar-border-color: #aaa;
         --searchbar-bg: #b7b7b7;
         --searchbar-fg: #000;

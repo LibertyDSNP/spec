@@ -106,23 +106,32 @@ h6:target::before {
 table {
     margin: 0 auto;
     border-collapse: collapse;
+    width: 100%;
 }
 table td {
-    padding: 3px 20px;
+    padding: 4px 12px;
     border: 1px var(--table-border-color) solid;
+    border-left-width: 0;
+    border-right-width: 0;
 }
+
 table thead {
-    background: var(--table-header-bg);
+    /* background: var(--table-header-bg); */
 }
+
 table thead td {
     font-weight: 700;
     border: none;
 }
 table thead th {
-    padding: 3px 20px;
+    padding: 4px 12px;
+    text-align: left;
 }
 table thead tr {
-    border: 1px var(--table-header-bg) solid;
+    border: 2px var(--table-header-bg) solid;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top: none;
 }
 /* Alternate background colors for rows */
 table tbody tr:nth-child(2n) {
