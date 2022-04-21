@@ -13,8 +13,9 @@ edit-url-template = "https://github.com/LibertyDSNP/spec/blob/main/{path}"
 
 # https://github.com/Michael-F-Bryan/mdbook-linkcheck
 [output.linkcheck]
-follow-web-links = true 
+follow-web-links = true
 traverse-parent-directories = false
+exclude = ['en\.bitcoin\.it']
 
 [output.html.fold]
 enable = true
