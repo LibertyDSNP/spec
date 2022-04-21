@@ -12,7 +12,7 @@ announced content.
 | fromId | id of the user creating the announcement | 64 bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | YES
 | contentHash | keccak-256 hash of updated content | 32 bytes | [hexadecimal](../Serializations.md#hexadecimal) | `BYTE_ARRAY` | YES
 | url | updated content URL | UTF-8 | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | no
-| contentURI | URL of old content | UTF-8 | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | no
+| targetContentHash | keccak-256 hash of target content | 32 bytes | [hexadecimal](../Serializations.md#hexadecimal) | `BYTE_ARRAY` | YES
 
 ## Field Requirements
 
@@ -39,7 +39,6 @@ announced content.
 - Resource MUST one of the supported [Activity Content](../../ActivityContent/Overview.md) Types
 - MUST use one of the supported URL Schemes
 
-### contentURI
+### targetContentHash
 
-- All above points for urls apply
-- MUST only point to Broadcast or Reply Announcements
+- MUST be the [keccak-256 hash](https://keccak.team/files/Keccak-submission-3.pdf) of the bytes of the reference at the url
