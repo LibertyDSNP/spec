@@ -1,6 +1,6 @@
 # Summary
 
-[Introduction](Index.md)
+[Introduction](index.md)
 [Roadmap](Roadmap.md)
 - [DSNP](DSNP/Overview.md)
     - [Identity](DSNP/Identity.md)
@@ -19,7 +19,7 @@
 - [DSNP Implementation Specs](Implementations.md)
     - [EVM](Ethereum/Overview.md)
         - [Identity](Ethereum/Identity.md)
-            - [Identifiers](Ethereum/Identifiers.md) 
+            - [Identifiers](Ethereum/Identifiers.md)
             - [Factory](Ethereum/IdentityFactory.md)
             - [Registry](Ethereum/Registry.md)
         - [Publishing](Ethereum/Publishing.md)
