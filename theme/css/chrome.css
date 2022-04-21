@@ -389,6 +389,7 @@ ul#searchresults span.teaser em {
 .chapter li {
     display: flex;
     color: var(--sidebar-non-existant);
+    margin-bottom: 0;
 }
 
 .chapter li :hover {
@@ -421,9 +422,29 @@ ul#searchresults span.teaser em {
     opacity: 0.68;
 }
 
+/* Switch to Chevron */
+.chapter li > a.toggle {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23a1adb8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chevron"><polyline points="9 18 15 12 9 6"></polyline></svg>');
+    background-repeat: no-repeat;
+}
+
+.chapter li:hover > a.toggle, .chapter a.active + a.toggle {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23F67367" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chevron"><polyline points="9 18 15 12 9 6"></polyline></svg>');
+}
+
 .chapter li > a.toggle div {
+    display: none;
+}
+
+.chapter li > a.toggle {
     transition: transform 0.5s;
 }
+
+.chapter li.expanded > a.toggle {
+    transform: rotate(90deg);
+}
+
+/* End Switch to Chevron */
 
 /* collapse the section */
 .chapter li:not(.expanded) + li > ol {
@@ -435,16 +456,12 @@ ul#searchresults span.teaser em {
     margin-top: 0.6em;
 }
 
-.chapter li.expanded > a.toggle div {
-    transform: rotate(90deg);
-}
-
 .spacer {
     width: 100%;
     height: 3px;
     margin: 5px 0px;
 }
-.chapter .spacer {
+.chapter .spacer, div.spacer {
     background-color: var(--sidebar-spacer);
 }
 
@@ -457,6 +474,7 @@ ul#searchresults span.teaser em {
     list-style: none outside none;
     padding-left: 20px;
     line-height: 1.9em;
+    margin-bottom: 0.5em;
 }
 
 /* Theme Menu Popup */
