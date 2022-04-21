@@ -12,7 +12,7 @@
 
 .coal {
     --bg: #2b2b2b;
-    --fg:#F5F6F7;
+    --fg: #F5F6F7;
 
     --sidebar-bg: #1c1c1c;
     /* Also change toggle background svg stroke */
@@ -52,7 +52,7 @@
 }
 
 .light {
-    --bg: hsl(0, 0%, 100%);
+    --bg: #FFFFFF;
     --fg: #2D3747;
 
     --sidebar-bg: #f7f7f7;
@@ -94,7 +94,7 @@
 @media (prefers-color-scheme: dark) {
     .light.no-js {
         --bg: #2b2b2b;
-        --fg:#F5F6F7;
+        --fg: #F5F6F7;
 
         --sidebar-bg: #1c1c1c;
         --sidebar-fg: #a1adb8;

@@ -10,6 +10,7 @@ no-section-label = true
 site-url = "/pages/"
 git-repository-url = "https://github.com/LibertyDSNP/spec"
 edit-url-template = "https://github.com/LibertyDSNP/spec/blob/main/{path}"
+preferred-dark-theme = "coal"
 
 # https://github.com/Michael-F-Bryan/mdbook-linkcheck
 [output.linkcheck]
