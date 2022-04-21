@@ -11,7 +11,6 @@ A Graph Change Announcement is for publishing relationship state changes for a u
 | createdAt | milliseconds since Unix epoch | 64-bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | no
 | fromId | id of the user creating the relationship | 64-bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | YES
 | objectId | id of the target of the relationship | 64-bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | YES
-| signature | creator signature | 65 bytes | [hexadecimal](../Serializations.md#hexadecimal) | `BYTE_ARRAY` | no
 
 ## Field Requirements
 
@@ -40,31 +39,13 @@ Different change types have different meanings.
 ### fromId
 
 - MUST be a [DSNP User Id](../Identifiers.md#dsnp-user-id)
-- MUST be the [signer](../Signatures.md) of the Announcement
+- MUST directly or via a chain of delegation have authorized the creation of the Announcement
 
 ### objectId
 
 - MUST be a [DSNP User Id](../Identifiers.md#dsnp-user-id)
 
-### signature
-
-- MUST be an [Announcement Signature](../Signatures.md) over all fields except the signature field
-
 ## Non-Normative
-
-### Replay Attacks
-
-Clients must ignore any Graph Change event that comes after another event with the same signature.
-This avoids [Replay attacks](https://en.wikipedia.org/wiki/Replay_attack).
-Each Graph Change event has a `createAt` that allows for differing signatures.
-The `createAt` is set to the timestamp it represented as milliseconds since Unix epoch.
-
-For example:
-1. Bob "follows" Charlie and then "unfollows" him, then "follows" him again.
-  - If the `GraphChange` event has no timestamp, the second follow event would have to be ignored when reading the graph.
-    It would appear to have the same signature as the first event and therefore be a duplicate, and a potential replay attack.
-  - With a timestamp, the second follow event would have a unique signature and could therefore be interpreted as a valid event.
-
 
 ### Graph Retrieval, Ordering and Reading
 Each Graph Change event represents a state transition for the graph.
@@ -73,7 +54,6 @@ Once those Graph Change events are retrieved, they can be ordered to reflect the
 (i.e. Charlie has followed Bob, then he unfollowed him, and then followed him again. The graph state reflects that Charlie is following Bob).
 
 To retrieve the graph, do the following:
-1. Retrieve the [`DSNPBatchPublications`](../BatchPublications.md) events with [announcementType](../Announcements.md#announcement-types) matching the enum for "Graph Change" from the chain.
-1. Retrieve the Batch files from each log event.
-1. Query the batch files for the data for a particular DSNP User Id to retrieve information about the respective graph.
+1. Retrieve the events with [announcementType](../Announcements.md#announcement-types) matching the enum for "Graph Change"
+1. Filter the events to a particular DSNP User Id to retrieve information about the respective graph.
 1. Order the retrieved data by [Announcement Ordering](../Announcements.md#ordering-announcements).

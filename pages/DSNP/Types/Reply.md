@@ -13,7 +13,6 @@ but includes an `inReplyTo` field for noting it as a reply to a given [DSNP Cont
 | fromId | id of the user creating the Announcement | 64-bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | YES
 | inReplyTo | Target [DSNP Content URI](../Identifiers.md#dsnp-content-uri) | UTF-8 | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | YES
 | url | content URL | UTF-8 | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | no
-| signature | creator signature | 65 bytes | [hexadecimal](../Serializations.md#hexadecimal) | `BYTE_ARRAY` | no
 
 ## Field Requirements
 
@@ -32,7 +31,7 @@ but includes an `inReplyTo` field for noting it as a reply to a given [DSNP Cont
 ### fromId
 
 - MUST be a [DSNP User Id](../Identifiers.md#dsnp-user-id)
-- MUST be the [signer](../Signatures.md) of the Announcement
+- MUST directly or via a chain of delegation have authorized the creation of the Announcement
 
 ### inReplyTo
 
@@ -49,7 +48,3 @@ but includes an `inReplyTo` field for noting it as a reply to a given [DSNP Cont
 | Scheme | Description | Reference | DSNP Version Added |
 | ------ |------------ | --------- | ------------------ |
 | HTTPS | Hypertext Transfer Protocol Secure | [RFC2818](https://datatracker.ietf.org/doc/html/rfc2818) | 1.0 |
-
-### signature
-
-- MUST be an [Announcement Signature](../Signatures.md) over all fields except the signature field

@@ -12,7 +12,6 @@ The reference content *MUST be of profile type*.
 | createdAt | milliseconds since Unix epoch | [decimal](../Serializations.md#decimal) | `UINT_64` | no
 | fromId | id of the user creating the Announcement | [decimal](../Serializations.md#decimal) | `UINT_64` | YES
 | url | profile content URL | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | no
-| signature | creator signature | [hexadecimal](../Serializations.md#hexadecimal) | `BYTE_ARRAY` | no
 
 ## Field Requirements
 
@@ -32,7 +31,7 @@ The reference content *MUST be of profile type*.
 ### fromId
 
 - MUST be a [DSNP User Id](../Identifiers.md#dsnp-user-id)
-- MUST be the [signer](../Signatures.md) of the Announcement
+- MUST directly or via a chain of delegation have authorized the creation of the Announcement
 
 ### url
 
@@ -45,10 +44,6 @@ The reference content *MUST be of profile type*.
 | Scheme | Description | Reference | DSNP Version Added |
 | ------ |------------ | --------- | ------------------ |
 | HTTPS | Hypertext Transfer Protocol Secure | [RFC2818](https://datatracker.ietf.org/doc/html/rfc2818) | 1.0 |
-
-### signature
-
-- MUST be an [Announcement Signature](../Signatures.md) over the all fields except the signature field
 
 ## Non-Normative
 

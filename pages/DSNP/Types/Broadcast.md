@@ -11,7 +11,6 @@ A Broadcast Announcement is a way to send a public message to everyone.
 | createdAt | milliseconds since Unix epoch | 64-bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | no
 | fromId | id of the user creating the announcement | 64-bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | YES
 | url | content URL | UTF-8 | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | no
-| signature | creator signature | 65 bytes | [hexadecimal](../Serializations.md#hexadecimal) | `BYTE_ARRAY` | no
 
 ## Field Requirements
 
@@ -30,7 +29,7 @@ A Broadcast Announcement is a way to send a public message to everyone.
 ### fromId
 
 - MUST be a [DSNP User Id](../Identifiers.md#dsnp-user-id)
-- MUST be the [signer](../Signatures.md) of the announcement
+- MUST directly or via a chain of delegation have authorized the creation of the Announcement
 
 ### url
 
@@ -43,7 +42,3 @@ A Broadcast Announcement is a way to send a public message to everyone.
 | Scheme | Description | Reference | DSNP Version Added |
 | ------ |------------ | --------- | ------------------ |
 | HTTPS | Hypertext Transfer Protocol Secure | [RFC2818](https://datatracker.ietf.org/doc/html/rfc2818) | 1.0 |
-
-### signature
-
-- MUST be an [Announcement Signature](../Signatures.md) over all fields except the signature field

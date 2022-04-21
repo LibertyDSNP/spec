@@ -12,7 +12,6 @@ It is NOT possible to revert a tombstone.
 | fromId | id of the user creating the Announcement and the Tombstoned Announcement | 64-bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | YES
 | targetAnnouncementType | target tombstoned Announcement type | enum | [decimal](../Serializations.md#decimal) | `INT32` | no |
 | targetContentHash | target `contentHash` of the original Announcement to tombstone | 32 bytes | [hexadecimal](../Serializations.md#hexadecimal) | `BYTE_ARRAY` | YES
-| signature | creator signature | 65 bytes | [hexadecimal](../Serializations.md#hexadecimal) | `BYTE_ARRAY` | no
 
 ## Field Requirements
 
@@ -27,7 +26,7 @@ It is NOT possible to revert a tombstone.
 ### fromId
 
 - MUST be a [DSNP User Id](../Identifiers.md#dsnp-user-id)
-- MUST be the [signer](../Signatures.md) of the Target Announcement
+- MUST directly or via a chain of delegation have authorized the creation of the Announcement
 
 ### targetAnnouncementType
 
@@ -44,8 +43,3 @@ It is NOT possible to revert a tombstone.
 ### targetContentHash
 
 - MUST match a `contentHash` of previous Announcement with the same `fromId` as the Tombstone Announcement
-
-### signature
-
-- MUST be an [Announcement Signature](../Signatures.md) over all fields except this signature field
-- MUST be the signature of the `fromId` user
