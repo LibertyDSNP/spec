@@ -389,6 +389,7 @@ ul#searchresults span.teaser em {
 .chapter li {
     display: flex;
     color: var(--sidebar-non-existant);
+    margin-bottom: 0;
 }
 
 .chapter li :hover {
@@ -473,6 +474,7 @@ ul#searchresults span.teaser em {
     list-style: none outside none;
     padding-left: 20px;
     line-height: 1.9em;
+    margin-bottom: 0.5em;
 }
 
 /* Theme Menu Popup */

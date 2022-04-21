@@ -26,6 +26,10 @@ code {
     font-size: 0.875em; /* please adjust the ace font size accordingly in editor.js */
 }
 
+li {
+    margin-bottom: 0.2em;
+}
+
 /* Don't change font size in headers. */
 h1 code, h2 code, h3 code, h4 code, h5 code, h6 code {
     font-size: unset;
@@ -122,10 +126,6 @@ table td {
     border: 1px var(--table-border-color) solid;
     border-left-width: 0;
     border-right-width: 0;
-}
-
-table thead {
-    /* background: var(--table-header-bg); */
 }
 
 table thead td {
