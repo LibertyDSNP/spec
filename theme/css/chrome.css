@@ -421,9 +421,29 @@ ul#searchresults span.teaser em {
     opacity: 0.68;
 }
 
+/* Switch to Chevron */
+.chapter li > a.toggle {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23a1adb8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chevron"><polyline points="9 18 15 12 9 6"></polyline></svg>');
+    background-repeat: no-repeat;
+}
+
+.chapter li:hover > a.toggle, .chapter a.active + a.toggle {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23F67367" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chevron"><polyline points="9 18 15 12 9 6"></polyline></svg>');
+}
+
 .chapter li > a.toggle div {
+    display: none;
+}
+
+.chapter li > a.toggle {
     transition: transform 0.5s;
 }
+
+.chapter li.expanded > a.toggle {
+    transform: rotate(90deg);
+}
+
+/* End Switch to Chevron */
 
 /* collapse the section */
 .chapter li:not(.expanded) + li > ol {
@@ -433,10 +453,6 @@ ul#searchresults span.teaser em {
 .chapter li.chapter-item {
     line-height: 1.5em;
     margin-top: 0.6em;
-}
-
-.chapter li.expanded > a.toggle div {
-    transform: rotate(90deg);
 }
 
 .spacer {

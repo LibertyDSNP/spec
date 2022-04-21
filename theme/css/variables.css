@@ -15,8 +15,10 @@
     --fg:#F5F6F7;
 
     --sidebar-bg: #1c1c1c;
+    /* Also change toggle background svg stroke */
     --sidebar-fg: #a1adb8;
     --sidebar-non-existant: var(--sidebar-fg);
+    /* Also change toggle background svg stroke */
     --sidebar-active: #F67367;
     --sidebar-spacer: #393939;
 
