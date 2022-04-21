@@ -46,6 +46,15 @@ h4, h5 { margin-top: 1em; }
     margin-top: 1em;
 }
 
+h1:target,
+h2:target,
+h3:target,
+h4:target,
+h5:target,
+h6:target {
+    margin-left: 30px;
+}
+
 h1:target::before,
 h2:target::before,
 h3:target::before,
