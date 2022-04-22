@@ -20,7 +20,7 @@ Each Announcement has an enumerated type for use when separating out a stream of
 | 1 | [Graph Change](Types/GraphChange.md) | social graph changes | no | no |
 | 2 | [Broadcast](Types/Broadcast.md) | a public post | YES | YES |
 | 3 | [Reply](Types/Reply.md) | a public response to a Broadcast | YES | YES |
-| 4 | [Reaction](Types/Reaction.md) | a public visual reply to a Broadcast | no | YES |
+| 4 | [Reaction](Types/Reaction.md) | a public visual reply to a Broadcast | no | no |
 | 5 | [Profile](Types/Profile.md) | a profile | YES | no |
 
 ## Duplicate Handling
