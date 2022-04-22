@@ -62,3 +62,15 @@ but may be used to indicate ordering other than the network order for Announceme
 Some Announcements contain references to other Announcements via the `inReplyTo` field.
 Due to the distributed nature, the canonical order can have an Announcement that refers to another later in the order.
 For display purposes, these messages should be considered to have occurred after the reference.
+
+### DSNP v1.0 Announcement Signatures
+
+In DSNP v1.0, Announcements had individual signatures.
+That produced Batch Publications that were generic and disconnected from the user.
+They could be submitted to the chain via anyone not just delegates or users.
+
+In DSNP v1.1, Announcement signatures were removed in favor of the implementation being responsible for the connection between the on-chain signature and the user.
+The expected and [EVM implementation](../Ethereum/Validation.md) is that the implementation chain requires that the transaction that produces a Batch be performed by the user or delegate directly.
+This created batches that are delegate specific, but allows for faster testing of the validity of individual Announcements in a Batch.
+
+For more information see [DIP-145](https://github.com/LibertyDSNP/spec/issues/145).
