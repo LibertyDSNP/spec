@@ -8,7 +8,6 @@ It is NOT possible to revert a tombstone.
 | Field | Description | Data Type | Serialization | Parquet Type | Bloom Filter |
 | ----- | ----------- | --------- | ------------- | ------------ | ------------ |
 | announcementType | Announcement Type Enum (`0`) | enum | [decimal](../Serializations.md#decimal) | `INT32` | no |
-| createdAt | milliseconds since Unix epoch | 64-bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | no
 | fromId | id of the user creating the Announcement and the Tombstoned Announcement | 64-bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | YES
 | targetAnnouncementType | target tombstoned Announcement type | enum | [decimal](../Serializations.md#decimal) | `INT32` | no |
 | targetContentHash | target `contentHash` of the original Announcement to tombstone | 32 bytes | [hexadecimal](../Serializations.md#hexadecimal) | `BYTE_ARRAY` | YES
@@ -18,10 +17,6 @@ It is NOT possible to revert a tombstone.
 ### announcementType
 
 - MUST be fixed to `0`
-
-### createdAt
-
-- MUST be set to the milliseconds since Unix epoch at time of signing
 
 ### fromId
 

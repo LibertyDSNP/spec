@@ -8,7 +8,6 @@ A Graph Change Announcement is for publishing relationship state changes for a u
 | ----- | ----------- | --------- | ------------- | ------------ | ------------ |
 | announcementType | Announcement Type Enum (`1`) | enum | [decimal](../Serializations.md#decimal) | `INT32` | no |
 | changeType | Type of relationship change | enum | [decimal](../Serializations.md#decimal) | `INT32` | no
-| createdAt | milliseconds since Unix epoch | 64-bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | no
 | fromId | id of the user creating the relationship | 64-bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | YES
 | objectId | id of the target of the relationship | 64-bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | YES
 
@@ -30,11 +29,6 @@ Different change types have different meanings.
 | ----- |----- | ----------- |
 | 0 | Unfollow | Remove a Follow relationship |
 | 1 | Follow | Create a Follow relationship |
-
-### createdAt
-
-- MUST be set to the milliseconds since Unix epoch at time of signing
-- MUST be unique for the given `fromId` and `objectId` pair
 
 ### fromId
 

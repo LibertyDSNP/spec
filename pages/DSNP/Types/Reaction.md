@@ -7,7 +7,6 @@ A Reaction Announcement is for publishing emoji reactions to anything with a [DS
 | Field            | Description                                                   | Data Type               | Serialization | Parquet Type | Bloom Filter |
 |------------------|---------------------------------------------------------------|-------------------------| ------------- |--------------|--------------|
 | announcementType | Announcement Type Enum (`4`)                                  | enum                    | [decimal](../Serializations.md#decimal) | `INT32`      | no           |
-| createdAt        | milliseconds since Unix epoch                                 | 64-bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64`    | no           |
 | emoji            | the encoded reaction                                          | UTF-8                   | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8`       | YES          |
 | apply            | how to apply the reaction                                     | 8-bit unsigned integer  | [decimal](../Serializations.md#decimal)  | `UINT_8`     | no           | 
 | fromId           | id of the user creating the relationship                      | 64-bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64`    | YES          |
@@ -18,10 +17,6 @@ A Reaction Announcement is for publishing emoji reactions to anything with a [DS
 ### announcementType
 
 - MUST be fixed to `4`
-
-### createdAt
-
-- MUST be set to the milliseconds since Unix epoch at time of signing
 
 ### emoji
 
