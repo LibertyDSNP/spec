@@ -19,12 +19,12 @@ Future. See the [DSNP Whitepaper](https://github.com/LibertyDSNP/papers) for fou
 
 ### Following
 
-A "follow" is the act of publicly following a [DSNP User Identity](Identifiers.md#dsnp-user-id) which results in adding this DSNP User Id to a user's social graph.
+A "follow" is the act of publicly following a [DSNP User Identity](Identifiers.md#dsnp-user-id), which results in adding this DSNP User Id to a user's social graph.
 
 An "unfollow" is the act of publicly unfollowing a [DSNP User Identity](Identifiers.md#dsnp-user-id) which results in the removal of this DSNP User Id from a user's social graph.
 
 ### Friendship
 
 There is currently no concept of "friendship" within the DSNP network.
-Friendship requires a mutual acknowledgement between 2 different DSNP User Identities.
-Friendship could be thought as "mutual following" - where 2 DSNP User Identities are following each other.
+Friendship requires a mutual acknowledgment between two different DSNP User Identities.
+Friendship could be thought of as "mutual following" - where two DSNP User Identities are following each other.
