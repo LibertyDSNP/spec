@@ -1,5 +1,5 @@
 # Ethereum/EVM Compatible DSNP Implementation
-__Version 1.0.0__
+__Version pre-1.1.0__
 
 DSNP on Ethereum is designed using smart contracts and log messages.
 Smart contracts are used for identity and delegation.
@@ -20,6 +20,9 @@ Official DSNP interfaces, contracts, and deployment information may be found in 
 | --- | --- |
 | [LibertyDSNP/sdk-ts](https://github.com/LibertyDSNP/sdk-ts) | JavaScript/TypeScript |
 <!-- yaspeller ignore:end -->
+
+## Prerelease Changelog
+- [DIP-180](https://github.com/LibertyDSNP/spec/issues/180) Tombstones target content hashes instead of signatures
 
 ## Releases
 
