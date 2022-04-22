@@ -8,7 +8,7 @@ Depending on the implementation, Announcements may be published directly to the 
 
 There is no guarantee that, at time of creation, a given Announcement will be from the `fromId` claimed in the Announcement.
 The reader MUST perform a validation of the Announcement at read time to ensure authenticity.
-Implementations MUST provide a way to validate what [signatures](Signatures.md) are associated with a given [identifier](Identifiers.md).
+Implementations MUST provide a way to validate that the [identifier](Identifiers.md) associated with a given [Announcement](Announcements.md) is authentic.
 
 ## Announcement Types
 
@@ -41,6 +41,15 @@ For example, if a user creates a Reaction Announcement, they may remove that rea
 
 
 ## Non-Normative
+
+### Duplicate Announcements
+
+Due to the distributed nature of DSNP, duplicate Announcements are possible from time to time.
+These should be discarded and ignored.
+
+### Replay Attacks
+
+Implementations restrict replay attacks usually through testing that the chain transaction sender is authorized, often through delegation, to publish an Announcement.
 
 ### Announcement Ordering and Activity Content Published Timestamp
 
