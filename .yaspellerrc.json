@@ -133,7 +133,7 @@
     "stringify",
     "subreddit",
     "targetAnnouncementType",
-    "targetSignature",
+    "targetContentHash",
     "testnet",
     "timestamp",
     "timestamps",
