@@ -8,7 +8,7 @@ A Reaction Announcement is for publishing emoji reactions to anything with a [DS
 |------------------|---------------------------------------------------------------|-------------------------| ------------- |--------------|--------------|
 | announcementType | Announcement Type Enum (`4`)                                  | enum                    | [decimal](../Serializations.md#decimal) | `INT32`      | no           |
 | emoji            | the encoded reaction                                          | UTF-8                   | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8`       | YES          |
-| apply            | how to apply the reaction                                     | 8-bit unsigned integer  | [decimal](../Serializations.md#decimal)  | `UINT_8`     | no           | 
+| apply            | how to apply the reaction                                     | 8-bit unsigned integer  | [decimal](../Serializations.md#decimal)  | `UINT_8`     | no           |
 | fromId           | id of the user creating the relationship                      | 64-bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64`    | YES          |
 | inReplyTo        | Target [DSNP Content URI](../Identifiers.md#dsnp-content-uri) | UTF-8                   | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8`       | YES          |
 
@@ -56,7 +56,7 @@ Potential uses:
 ### fromId
 
 - MUST be a [DSNP User Id](../Identifiers.md#dsnp-user-id)
-- MUST directly or via a chain of delegation have authorized the creation of the Announcement
+- MUST have authorized the creation of the Announcement, either directly or via a transparent chain of delegation
 
 ### inReplyTo
 

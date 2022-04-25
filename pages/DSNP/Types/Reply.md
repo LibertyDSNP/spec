@@ -26,7 +26,7 @@ but includes an `inReplyTo` field for noting it as a reply to a given [DSNP Cont
 ### fromId
 
 - MUST be a [DSNP User Id](../Identifiers.md#dsnp-user-id)
-- MUST directly or via a chain of delegation have authorized the creation of the Announcement
+- MUST have authorized the creation of the Announcement, either directly or via a transparent chain of delegation
 
 ### inReplyTo
 
