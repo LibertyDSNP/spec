@@ -83,7 +83,6 @@
     "blocklists",
     "changeType",
     "contentHash",
-    "createdAt",
     "deadDropID",
     "dequeued",
     "deserialized",

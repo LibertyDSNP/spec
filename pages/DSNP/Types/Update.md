@@ -9,7 +9,6 @@ Updates should be ignored.
 | Field | Description | Data Type | Serialization | Parquet Type | Bloom Filter |
 | ----- | ----------- | --------- | ------------- | ------------ | ------------ |
 | announcementType | Announcement Type Enum (`6`) | enum | [decimal](../Serializations.md#decimal) | `INT32` | no |
-| createdAt | milliseconds since Unix epoch | 64 bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | no
 | fromId | id of the user creating the announcement | 64 bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | YES
 | contentHash | keccak-256 hash of updated content | 32 bytes | [hexadecimal](../Serializations.md#hexadecimal) | `BYTE_ARRAY` | YES
 | url | updated content URL | UTF-8 | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | no
@@ -20,10 +19,6 @@ Updates should be ignored.
 ### announcementType
 
 - MUST be fixed to `6`
-
-### createdAt
-
-- MUST be set to the milliseconds since Unix epoch at time of signing
 
 ### fromId
 
