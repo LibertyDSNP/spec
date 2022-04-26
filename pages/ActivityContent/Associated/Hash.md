@@ -29,7 +29,7 @@ AT LEAST ONE hash in the array MUST be one of the [supported algorithms](#suppor
     },
     {
       "algorithm": "Ripemd256",
-      "value": "96a9209006748794193d1811ef2dd5f447782b8b1635841165bc031bb3db64da"
+      "value": "0x96a9209006748794193d1811ef2dd5f447782b8b1635841165bc031bb3db64da"
     }
   ]
 }
