@@ -8,7 +8,7 @@ Depending on the implementation, Announcements may be published directly to the 
 
 There is no guarantee that, at time of creation, a given Announcement will be from the `fromId` claimed in the Announcement.
 The reader MUST perform a validation of the Announcement at read time to ensure authenticity.
-Implementations MUST provide a way to validate what [signatures](Signatures.md) are associated with a given [identifier](Identifiers.md).
+Implementations MUST provide a way to validate that the [identifier](Identifiers.md) associated with a given [Announcement](Announcements.md) is authentic.
 
 ## Announcement Types
 
@@ -20,7 +20,7 @@ Each Announcement has an enumerated type for use when separating out a stream of
 | 1 | [Graph Change](Types/GraphChange.md) | social graph changes | no | no |
 | 2 | [Broadcast](Types/Broadcast.md) | a public post | YES | YES |
 | 3 | [Reply](Types/Reply.md) | a public response to a Broadcast | YES | YES |
-| 4 | [Reaction](Types/Reaction.md) | a public visual reply to a Broadcast | no | YES |
+| 4 | [Reaction](Types/Reaction.md) | a public visual reply to a Broadcast | no | no |
 | 5 | [Profile](Types/Profile.md) | a profile | YES | no |
 
 ## Duplicate Handling
@@ -42,6 +42,15 @@ For example, if a user creates a Reaction Announcement, they may remove that rea
 
 ## Non-Normative
 
+### Duplicate Announcements
+
+Due to the distributed nature of DSNP, duplicate Announcements are possible from time to time.
+These should be discarded and ignored.
+
+### Replay Attacks
+
+Implementations restrict replay attacks usually through testing that the chain transaction sender is authorized, often through delegation, to publish an Announcement.
+
 ### Announcement Ordering and Activity Content Published Timestamp
 
 Activity Content has a published field that contains a user-generated timestamp.
@@ -53,3 +62,15 @@ but may be used to indicate ordering other than the network order for Announceme
 Some Announcements contain references to other Announcements via the `inReplyTo` field.
 Due to the distributed nature, the canonical order can have an Announcement that refers to another later in the order.
 For display purposes, these messages should be considered to have occurred after the reference.
+
+### DSNP v1.0 Announcement Signatures
+
+In DSNP v1.0, Announcements had individual signatures.
+That produced Batch Publications that were generic and disconnected from the user.
+They could be submitted to the chain via anyone not just delegates or users.
+
+In DSNP v1.1, Announcement signatures were removed in favor of the implementation being responsible for the connection between the on-chain signature and the user.
+The expected and [EVM implementation](../Ethereum/Validation.md) is that the implementation chain requires that the transaction that produces a Batch be performed by the user or delegate directly.
+This created batches that are delegate specific, but allows for faster testing of the validity of individual Announcements in a Batch.
+
+For more information see [DIP-145](https://github.com/LibertyDSNP/spec/issues/145).
