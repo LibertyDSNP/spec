@@ -28,7 +28,6 @@ Updates should be ignored.
 ### fromId
 
 - MUST be a [DSNP User Id](../Identifiers.md#dsnp-user-id)
-- MUST be the [signer](../Signatures.md) of the target announcement
 
 ### contentHash
 
