@@ -36,4 +36,11 @@ Updates should be ignored.
 
 ### targetContentHash
 
-- MUST be the [keccak-256 hash](https://keccak.team/files/Keccak-submission-3.pdf) of the bytes of the reference at the url
+- MUST be the `contentHash` of an allowed Announcement type with the same `fromId` as the Update Announcement
+
+#### Update Allowed Announcement Types
+
+| Value | Name |
+|------ | ---- |
+| 2 | [Broadcast](../Types/Broadcast.md) |
+| 3 | [Reply](../Types/Reply.md) |
