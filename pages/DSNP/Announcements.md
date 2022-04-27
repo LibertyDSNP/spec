@@ -22,6 +22,7 @@ Each Announcement has an enumerated type for use when separating out a stream of
 | 3 | [Reply](Types/Reply.md) | a public response to a Broadcast | YES | YES |
 | 4 | [Reaction](Types/Reaction.md) | a public visual reply to a Broadcast | no | no |
 | 5 | [Profile](Types/Profile.md) | a profile | YES | no |
+| 6 | [Update](Types/Update.md) | an update to content| YES | no |
 
 ## Duplicate Handling
 
@@ -36,9 +37,8 @@ Additional duplicate Announcements MUST be rejected or ignored.
 
 ## Reverting an Announcement
 
-Announcements may not be deleted, but some may be marked as invalid by using a [Tombstone Announcement](Types/Tombstone.md).
+Announcements may not be deleted, but some may be marked as invalid by using a [Tombstone Announcement](Types/Tombstone.md), or updated by using an [Update Announcement](Types/Update.md).
 For example, if a user creates a Reaction Announcement, they may remove that reaction by creating a Tombstone Announcement.
-
 
 ## Non-Normative
 

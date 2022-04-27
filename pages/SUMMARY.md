@@ -14,6 +14,7 @@
         - [Reply](DSNP/Types/Reply.md)
         - [Reaction](DSNP/Types/Reaction.md)
         - [Profile](DSNP/Types/Profile.md)
+        - [Update](DSNP/Types/Update.md)
     - [Serializations](DSNP/Serializations.md)
 - [DSNP Implementation Specs](Implementations.md)
     - [EVM](Ethereum/Overview.md)
