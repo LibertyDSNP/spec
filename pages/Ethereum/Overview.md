@@ -23,6 +23,7 @@ Official DSNP interfaces, contracts, and deployment information may be found in 
 
 ## Prerelease Changelog
 - [DIP-180](https://github.com/LibertyDSNP/spec/issues/180) Tombstones target content hashes instead of signatures
+- [DIP-150](https://github.com/LibertyDSNP/spec/issues/150) Revocation of a delegate MUST target the current block
 
 ## Releases
 
