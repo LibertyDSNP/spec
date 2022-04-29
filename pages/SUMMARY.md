@@ -1,6 +1,6 @@
 # Summary
 
-[Introduction](Index.md)
+[Introduction](index.md)
 [Roadmap](Roadmap.md)
 - [DSNP](DSNP/Overview.md)
     - [Identity](DSNP/Identity.md)
@@ -14,12 +14,12 @@
         - [Reply](DSNP/Types/Reply.md)
         - [Reaction](DSNP/Types/Reaction.md)
         - [Profile](DSNP/Types/Profile.md)
-    - [Signatures](DSNP/Signatures.md)
+        - [Update](DSNP/Types/Update.md)
     - [Serializations](DSNP/Serializations.md)
 - [DSNP Implementation Specs](Implementations.md)
     - [EVM](Ethereum/Overview.md)
         - [Identity](Ethereum/Identity.md)
-            - [Identifiers](Ethereum/Identifiers.md) 
+            - [Identifiers](Ethereum/Identifiers.md)
             - [Factory](Ethereum/IdentityFactory.md)
             - [Registry](Ethereum/Registry.md)
         - [Publishing](Ethereum/Publishing.md)
@@ -35,5 +35,3 @@
 - [Glossary](Reference/Glossary.md)
 - [Draft Specifications]()
     - [Archivists](Draft/Archivists.md)
-
------------

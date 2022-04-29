@@ -5,7 +5,7 @@ Graph connections are formed through the DSNP User Id.
 
 ## DSNP User Id
 
-- 64 bit Unsigned Integer
+- 64-bit Unsigned Integer
 - MUST be serialized as [decimal](Serializations.md#decimal)
 - MUST be unique per implementation
 
@@ -21,7 +21,7 @@ Graph connections are formed through the DSNP User Id.
 
 ## DSNP User URI
 
-DSNP User URI consists of two parts, the scheme and the user id.
+DSNP User URI consists of two parts: the scheme and the user id.
 It is used to identify a user via a URI.
 
 ### Example
@@ -36,7 +36,7 @@ dsnp://1311768467294899700
 
 ## DSNP Content URI
 
-DSNP Content URI consists of three parts, the scheme, the user id, and the content hash.
+DSNP Content URI consists of three parts: the scheme, the user id, and the content hash.
 It is used to uniquely identify an announcements from a given user with content.
 
 Any [Announcement Types](Announcements.md#announcement-types) with a `fromId` and `contentHash` have a DSNP Content URI.

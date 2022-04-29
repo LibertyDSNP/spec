@@ -80,7 +80,6 @@
 | `height` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-height) | no | A hint as to the rendering height in device-independent pixels |  |
 | `width` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-width) | no | A hint as to the rendering width in device-independent pixels |  |
 
-Audio objects must include a `"hash"` field as described in the [content proofs section](#content-proofs) below.
 
 ### Supported Image MIME Types
 
@@ -146,7 +145,6 @@ Audio objects must include a `"hash"` field as described in the [content proofs 
 | `height` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-height) | no | A hint as to the rendering height in device-independent pixels |  |
 | `width` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-width) | no | A hint as to the rendering width in device-independent pixels |  |
 
-Audio objects must include a `"hash"` field as described in the [content proofs section](#content-proofs) below.
 
 ### Supported Video MIME Types
 

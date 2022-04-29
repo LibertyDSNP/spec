@@ -104,9 +104,10 @@
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
                 <a href="https://www.dsnp.org/">
-                    <img src="{{ path_to_root }}images/DSNP_Logo.png" alt="The DSNP Logo" width="123" height="55"/> 
+                    <img src="{{ path_to_root }}images/DSNP_Logo.png" alt="The DSNP Logo" width="123" height="55"/>
                 </a>
                 {{#toc}}{{/toc}}
+                <div class="spacer"></div>
                 <a href="https://www.dsnp.org/developer-portal/" class="nav-return">↩ Developer Portal</a>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
@@ -127,10 +128,7 @@
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
                             <li role="none"><button role="menuitem" class="theme" id="light">{{ theme_option "Light" }}</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">{{ theme_option "Rust" }}</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="coal">{{ theme_option "Coal" }}</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="navy">{{ theme_option "Navy" }}</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">{{ theme_option "Ayu" }}</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">{{ theme_option "Dark" }}</button></li>
                         </ul>
                         {{#if search_enabled}}
                         <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
@@ -164,7 +162,7 @@
                 {{#if search_enabled}}
                 <div id="search-wrapper" class="hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Type to search..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
                     </form>
                     <div id="searchresults-outer" class="searchresults-outer hidden">
                         <div id="searchresults-header" class="searchresults-header"></div>

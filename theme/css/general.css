@@ -17,13 +17,17 @@ html {
 
 body {
     margin: 0;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     overflow-x: hidden;
 }
 
 code {
     font-family: "Source Code Pro", Consolas, "Ubuntu Mono", Menlo, "DejaVu Sans Mono", monospace, monospace !important;
     font-size: 0.875em; /* please adjust the ace font size accordingly in editor.js */
+}
+
+li {
+    margin-bottom: 0.2em;
 }
 
 /* Don't change font size in headers. */
@@ -37,13 +41,22 @@ h1 code, h2 code, h3 code, h4 code, h5 code, h6 code {
 .hide-boring .boring { display: none; }
 .hidden { display: none !important; }
 
-h2, h3 { margin-top: 2.5em; }
-h4, h5 { margin-top: 2em; }
+h2, h3 { margin-top: 1.5em; }
+h4, h5 { margin-top: 1em; }
 
 .header + .header h3,
 .header + .header h4,
 .header + .header h5 {
     margin-top: 1em;
+}
+
+h1:target,
+h2:target,
+h3:target,
+h4:target,
+h5:target,
+h6:target {
+    margin-left: 30px;
 }
 
 h1:target::before,
@@ -106,23 +119,28 @@ h6:target::before {
 table {
     margin: 0 auto;
     border-collapse: collapse;
+    width: 100%;
 }
 table td {
-    padding: 3px 20px;
+    padding: 4px 12px;
     border: 1px var(--table-border-color) solid;
+    border-left-width: 0;
+    border-right-width: 0;
 }
-table thead {
-    background: var(--table-header-bg);
-}
+
 table thead td {
     font-weight: 700;
     border: none;
 }
 table thead th {
-    padding: 3px 20px;
+    padding: 4px 12px;
+    text-align: left;
 }
 table thead tr {
-    border: 1px var(--table-header-bg) solid;
+    border: 2px var(--table-header-bg) solid;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top: none;
 }
 /* Alternate background colors for rows */
 table tbody tr:nth-child(2n) {
