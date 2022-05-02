@@ -8,13 +8,18 @@ A Batch Publication is an [Apache Parquet](https://github.com/apache/parquet-for
 
 Implementations MUST have publicly discoverable Batch Publications.
 
-### Correctness
+### Validity
 
-Implementations MUST be able to validate the correctness of the Parquet file.
+Implementations MUST be able to validate the Parquet file contents.
+Validity MUST be immutable.
 
 ### Historical
 
 Implementations MUST retain proof of existence of a Batch Publication.
+
+### Transparent Chain of Delegation
+
+All Announcements in a Batch file MUST be able to be proven to be from or have a chain of delegation to the publisher of the Batch.
 
 
 ## File Requirements
@@ -71,3 +76,10 @@ Applications need to know if a given Batch file has any information they are int
 
 1. Cassandra, RocksDB, CouchDB, MongoDB, and HBASE were rejected since DSNP data needs neither a database for storage nor the overhead of one. Each of these was designed for use cases ranging from somewhat to drastically different than the DSNP network.
 1. JSON, BSON, and SQLite, while used for storage sometimes, are intended for serialization. They are schemaless, which results in redundant information and therefore a larger size than formats with schemas. They also don't support Bloom filters; instead, indexing would be required, or new batches would need to be downloaded entirely.  The exception is SQLite, which does support more advanced queries; however, it was designed for in-memory storage.
+
+### Batch Validity and Order
+
+Batch validity is immutable and usually in part based on the validation of the delegation of authors listed inside the batch to the publisher.
+Due to the nature of distributed systems, it is possible that a race condition occurs such that a user's delegation revocation presents before a Batch that contains a message from that user via the revoked delegate.
+While those individual messages should be considered invalid, testing a historical window of some time is suggested before considering the entire batch invalid.
+This is analogous to the idea of a [confirmation time](https://en.bitcoin.it/wiki/Confirmation), but only applies to the past instead of the future.
