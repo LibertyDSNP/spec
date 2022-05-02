@@ -11,7 +11,7 @@ Go to [Implementations](../Implementations.md) for specifics on how DSNP is impl
 - [DIP-149](https://github.com/LibertyDSNP/spec/issues/149) Reaction retraction
 - [DIP-180](https://github.com/LibertyDSNP/spec/issues/180) Tombstones target content hashes instead of signatures
 - [DIP-165](https://github.com/LibertyDSNP/spec/issues/165) Update Announcements
-- [DIP-150](https://github.com/LibertyDSNP/spec/issues/150) Batch Publication correctness is immutable
+- [DIP-150](https://github.com/LibertyDSNP/spec/issues/150) Batch Publication validation is immutable
 
 ## Releases
 
