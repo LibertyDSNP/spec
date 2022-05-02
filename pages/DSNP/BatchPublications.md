@@ -81,5 +81,5 @@ Applications need to know if a given Batch file has any information they are int
 
 Batch correctness is immutable and usually in part based on the validation of the delegation of authors listed inside the batch to the publisher.
 Due to the nature of distributed systems, it is possible that a race condition occurs such that a user's delegation revocation presents before a Batch that contains a message from that user via the revoked delegate.
-While those individual messages should be considered invalid, allowing amount of time to pass before considering the entire batch invalid is suggested.
-This is analogous to the idea of a [confirmation time](https://en.bitcoin.it/wiki/Confirmation).
+While those individual messages should be considered invalid, testing a historical window of some time is suggested before considering the entire batch invalid.
+This is analogous to the idea of a [confirmation time](https://en.bitcoin.it/wiki/Confirmation), but only applies to the past instead of the future.
