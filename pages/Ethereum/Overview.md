@@ -1,5 +1,5 @@
 # Ethereum/EVM Compatible DSNP Implementation
-__Version pre-1.1.0__
+__Version 1.1.0__
 
 DSNP on Ethereum is designed using smart contracts and log messages.
 Smart contracts are used for identity and delegation.
@@ -21,12 +21,15 @@ Official DSNP interfaces, contracts, and deployment information may be found in 
 | [LibertyDSNP/sdk-ts](https://github.com/LibertyDSNP/sdk-ts) | JavaScript/TypeScript |
 <!-- yaspeller ignore:end -->
 
+<!--- Uncomment for pre-release changes and prefix the version with `pre-[next version]`
 ## Prerelease Changelog
-- [DIP-180](https://github.com/LibertyDSNP/spec/issues/180) Tombstones target content hashes instead of signatures
-- [DIP-150](https://github.com/LibertyDSNP/spec/issues/150) Revocation of a delegate MUST target the current block
 
+- [DIP-###](https://github.com/LibertyDSNP/spec/issues/###)
+
+--->
 ## Releases
 
 | Version | Description | DSNP Compatibility | Release Date | Changelog |
 | --- | --- | --- | --- | --- |
+| [1.1.0](https://github.com/LibertyDSNP/spec/tree/EVM-v1.1.0) | DIP-150, DIP-180 | 1.0.x, 1.1.x | 2022-05-06 | [Changelog](https://github.com/LibertyDSNP/spec/releases/tag/EVM-v1.1.0) |
 | [1.0.0](https://github.com/LibertyDSNP/spec/tree/EVM-v1.0.0) | Initial Release | 1.0.x, 1.1.x | 2021-09-09 | [Changelog](https://github.com/LibertyDSNP/spec/releases/tag/EVM-v1.0.0) |
