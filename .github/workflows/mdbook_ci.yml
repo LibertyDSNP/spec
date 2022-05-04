@@ -31,10 +31,10 @@ jobs:
 
       - name: Lint and Spellcheck 🧶
         run: npm run lint
-      
+
       - name: Setup mdbook and build dsnp spec book 📚
         uses: drmingdrmer/mdbook-full@main
-        
+
       - name: Build dsnp spec book 📚
         run: mdbook build
 
