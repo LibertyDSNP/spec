@@ -1,0 +1,237 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Announcements - DSNP Specification</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <a href="https://www.dsnp.org/">
+                    <img src="../images/DSNP_Logo.png" alt="The DSNP Logo" width="123" height="55"/>
+                </a>
+                <ol class="chapter"><li class="chapter-item affix "><a href="../index.html">Introduction</a></li><li class="chapter-item affix "><a href="../Roadmap.html">Roadmap</a></li><li class="chapter-item expanded "><a href="../DSNP/Overview.html">DSNP</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../DSNP/Identity.html">Identity</a></li><li class="chapter-item "><a href="../DSNP/Identifiers.html">Identifiers</a></li><li class="chapter-item "><a href="../DSNP/Graph.html">Graph</a></li><li class="chapter-item "><a href="../DSNP/BatchPublications.html">Batch Publications</a></li><li class="chapter-item expanded "><a href="../DSNP/Announcements.html" class="active">Announcements</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../DSNP/Types/Tombstone.html">Tombstone</a></li><li class="chapter-item "><a href="../DSNP/Types/GraphChange.html">Graph Change</a></li><li class="chapter-item "><a href="../DSNP/Types/Broadcast.html">Broadcast</a></li><li class="chapter-item "><a href="../DSNP/Types/Reply.html">Reply</a></li><li class="chapter-item "><a href="../DSNP/Types/Reaction.html">Reaction</a></li><li class="chapter-item "><a href="../DSNP/Types/Profile.html">Profile</a></li><li class="chapter-item "><a href="../DSNP/Types/Update.html">Update</a></li></ol></li><li class="chapter-item "><a href="../DSNP/Serializations.html">Serializations</a></li></ol></li><li class="chapter-item "><a href="../Implementations.html">DSNP Implementation Specs</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../Ethereum/Overview.html">EVM</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../Ethereum/Identity.html">Identity</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../Ethereum/Identifiers.html">Identifiers</a></li><li class="chapter-item "><a href="../Ethereum/IdentityFactory.html">Factory</a></li><li class="chapter-item "><a href="../Ethereum/Registry.html">Registry</a></li></ol></li><li class="chapter-item "><a href="../Ethereum/Publishing.html">Publishing</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../Ethereum/Validation.html">Validation</a></li></ol></li></ol></li></ol></li><li class="chapter-item "><a href="../ActivityContent/Overview.html">Activity Content</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../ActivityContent/Types/Note.html">Note</a></li><li class="chapter-item "><a href="../ActivityContent/Types/Profile.html">Profile</a></li><li class="chapter-item "><div>Associated Type</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../ActivityContent/Associated/Hash.html">Hash</a></li><li class="chapter-item "><a href="../ActivityContent/Associated/Location.html">Location</a></li><li class="chapter-item "><a href="../ActivityContent/Associated/Tag.html">Tag</a></li><li class="chapter-item "><a href="../ActivityContent/Associated/Attachments.html">Attachments</a></li></ol></li></ol></li><li class="chapter-item "><a href="../Reference/Glossary.html">Glossary</a></li><li class="chapter-item "><div>Draft Specifications</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../Draft/Archivists.html">Archivists</a></li></ol></li></ol>
+                <div class="spacer"></div>
+                <a href="https://www.dsnp.org/developer-portal/" class="nav-return">↩ Developer Portal</a>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Dark</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">DSNP Specification</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/LibertyDSNP/spec" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/LibertyDSNP/spec/blob/main/pages/DSNP/Announcements.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Type to search..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="announcements-overview"><a class="header" href="#announcements-overview">Announcements Overview</a></h1>
+<p>Announcements are content or references to content that communicate new user activity to the rest of the network.
+Announcements are associated with an <a href="Identifiers.html">Identifier</a> that can be validated as the creator of the announcement.
+Depending on the implementation, Announcements may be published directly to the network, included in <a href="BatchPublications.html">Batch Publication Files</a>, or some combination of those two.</p>
+<h2 id="announcement-validation"><a class="header" href="#announcement-validation">Announcement Validation</a></h2>
+<p>There is no guarantee that, at time of creation, a given Announcement will be from the <code>fromId</code> claimed in the Announcement.
+The reader MUST perform a validation of the Announcement at read time to ensure authenticity.
+Implementations MUST provide a way to validate that the <a href="Identifiers.html">identifier</a> associated with a given <a href="Announcements.html">Announcement</a> is authentic.</p>
+<h2 id="announcement-types"><a class="header" href="#announcement-types">Announcement Types</a></h2>
+<p>Each Announcement has an enumerated type for use when separating out a stream of Announcements.</p>
+<table><thead><tr><th>Value</th><th>Name</th><th>Description</th><th>DSNP Content URI</th><th>Tombstone Allowed</th></tr></thead><tbody>
+<tr><td>0</td><td><a href="Types/Tombstone.html">Tombstone</a></td><td>an invalidation of previously announced content</td><td>no</td><td>no</td></tr>
+<tr><td>1</td><td><a href="Types/GraphChange.html">Graph Change</a></td><td>social graph changes</td><td>no</td><td>no</td></tr>
+<tr><td>2</td><td><a href="Types/Broadcast.html">Broadcast</a></td><td>a public post</td><td>YES</td><td>YES</td></tr>
+<tr><td>3</td><td><a href="Types/Reply.html">Reply</a></td><td>a public response to a Broadcast</td><td>YES</td><td>YES</td></tr>
+<tr><td>4</td><td><a href="Types/Reaction.html">Reaction</a></td><td>a public visual reply to a Broadcast</td><td>no</td><td>no</td></tr>
+<tr><td>5</td><td><a href="Types/Profile.html">Profile</a></td><td>a profile</td><td>YES</td><td>no</td></tr>
+<tr><td>6</td><td><a href="Types/Update.html">Update</a></td><td>an update to content</td><td>YES</td><td>no</td></tr>
+</tbody></table>
+<h2 id="duplicate-handling"><a class="header" href="#duplicate-handling">Duplicate Handling</a></h2>
+<p>Duplicate Announcements may occur due to the nature of asynchronous communication.
+In the case of duplicates, the first Announcement should be considered the ONLY valid Announcement.
+Additional duplicate Announcements MUST be rejected or ignored.</p>
+<h2 id="ordering-announcements"><a class="header" href="#ordering-announcements">Ordering Announcements</a></h2>
+<ol>
+<li>Order Batch Publications by implementation order.</li>
+<li>Order Announcements in a Batch Publication File by row appearance order.</li>
+</ol>
+<h2 id="reverting-an-announcement"><a class="header" href="#reverting-an-announcement">Reverting an Announcement</a></h2>
+<p>Announcements may not be deleted, but some may be marked as invalid by using a <a href="Types/Tombstone.html">Tombstone Announcement</a>, or updated by using an <a href="Types/Update.html">Update Announcement</a>.
+For example, if a user creates a Reaction Announcement, they may remove that reaction by creating a Tombstone Announcement.</p>
+<h2 id="non-normative"><a class="header" href="#non-normative">Non-Normative</a></h2>
+<h3 id="duplicate-announcements"><a class="header" href="#duplicate-announcements">Duplicate Announcements</a></h3>
+<p>Due to the distributed nature of DSNP, duplicate Announcements are possible from time to time.
+These should be discarded and ignored.</p>
+<h3 id="replay-attacks"><a class="header" href="#replay-attacks">Replay Attacks</a></h3>
+<p>Implementations restrict replay attacks usually through testing that the chain transaction sender is authorized, often through delegation, to publish an Announcement.</p>
+<h3 id="announcement-ordering-and-activity-content-published-timestamp"><a class="header" href="#announcement-ordering-and-activity-content-published-timestamp">Announcement Ordering and Activity Content Published Timestamp</a></h3>
+<p>Activity Content has a published field that contains a user-generated timestamp.
+User-generated timestamps cannot be validated,
+but may be used to indicate ordering other than the network order for Announcements, which are <em>not</em> time dependent.</p>
+<h3 id="announcement-reference-ordering"><a class="header" href="#announcement-reference-ordering">Announcement Reference Ordering</a></h3>
+<p>Some Announcements contain references to other Announcements via the <code>inReplyTo</code> field.
+Due to the distributed nature, the canonical order can have an Announcement that refers to another later in the order.
+For display purposes, these messages should be considered to have occurred after the reference.</p>
+<h3 id="dsnp-v10-announcement-signatures"><a class="header" href="#dsnp-v10-announcement-signatures">DSNP v1.0 Announcement Signatures</a></h3>
+<p>In DSNP v1.0, Announcements had individual signatures.
+That produced Batch Publications that were generic and disconnected from the user.
+They could be submitted to the chain via anyone not just delegates or users.</p>
+<p>In DSNP v1.1, Announcement signatures were removed in favor of the implementation being responsible for the connection between the on-chain signature and the user.
+The expected and <a href="../Ethereum/Validation.html">EVM implementation</a> is that the implementation chain requires that the transaction that produces a Batch be performed by the user or delegate directly.
+This created batches that are delegate specific, but allows for faster testing of the validity of individual Announcements in a Batch.</p>
+<p>For more information see <a href="https://github.com/LibertyDSNP/spec/issues/145">DIP-145</a>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../DSNP/BatchPublications.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../DSNP/Types/Tombstone.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../DSNP/BatchPublications.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../DSNP/Types/Tombstone.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

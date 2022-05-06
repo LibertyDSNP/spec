@@ -1,0 +1,133 @@
+
+/* Globals */
+
+:root {
+    --sidebar-width: 300px;
+    --page-padding: 15px;
+    --content-max-width: 750px;
+    --menu-bar-height: 50px;
+}
+
+/* Themes */
+
+.coal {
+    --bg: #2b2b2b;
+    --fg: #F5F6F7;
+
+    --sidebar-bg: #1c1c1c;
+    /* Also change toggle background svg stroke */
+    --sidebar-fg: #a1adb8;
+    --sidebar-non-existant: var(--sidebar-fg);
+    /* Also change toggle background svg stroke */
+    --sidebar-active: #F67367;
+    --sidebar-spacer: #393939;
+
+    --scrollbar: var(--sidebar-fg);
+
+    --icons: #545a60;
+    --icons-hover: #F5F6F7;
+
+    --links: var(--sidebar-active);
+    --inline-code-color: #c5c8c6;
+
+    --theme-popup-bg: #141617;
+    --theme-popup-border: #43484d;
+    --theme-hover: #1f2124;
+
+    --quote-bg: hsl(234, 21%, 18%);
+    --quote-border: hsl(234, 21%, 23%);
+
+    --table-border-color: #67788a;
+    --table-header-bg: #67788a;
+    --table-alternate-bg: hsl(0, 0%, 15%);
+
+    --searchbar-border-color: #aaa;
+    --searchbar-bg: #b7b7b7;
+    --searchbar-fg: #000;
+    --searchbar-shadow-color: #aaa;
+    --searchresults-header-fg: #666;
+    --searchresults-border-color: #98a3ad;
+    --searchresults-li-bg: #2b2b2f;
+    --search-mark-bg: #355c7d;
+}
+
+.light {
+    --bg: #FFFFFF;
+    --fg: #2D3747;
+
+    --sidebar-bg: #f7f7f7;
+    --sidebar-fg: #2D3747;
+    --sidebar-non-existant: var(--sidebar-fg);
+    --sidebar-active: #F67367;
+    --sidebar-spacer: #f4f4f4;
+
+    --scrollbar: var(--sidebar-fg);
+
+    --icons: #747474;
+    --icons-hover: #000000;
+
+    --links: var(--sidebar-active);
+
+    --inline-code-color: #301900;
+
+    --theme-popup-bg: #fafafa;
+    --theme-popup-border: #cccccc;
+    --theme-hover: #e6e6e6;
+
+    --quote-bg: hsl(197, 37%, 96%);
+    --quote-border: hsl(197, 37%, 91%);
+
+    --table-border-color: hsl(0, 0%, 95%);
+    --table-header-bg: hsl(0, 0%, 80%);
+    --table-alternate-bg: hsl(0, 0%, 99%);
+
+    --searchbar-border-color: #aaa;
+    --searchbar-bg: #fafafa;
+    --searchbar-fg: #000;
+    --searchbar-shadow-color: #aaa;
+    --searchresults-header-fg: #666;
+    --searchresults-border-color: #888;
+    --searchresults-li-bg: #e4f2fe;
+    --search-mark-bg: #a2cff5;
+}
+
+@media (prefers-color-scheme: dark) {
+    .light.no-js {
+        --bg: #2b2b2b;
+        --fg: #F5F6F7;
+
+        --sidebar-bg: #1c1c1c;
+        --sidebar-fg: #a1adb8;
+        --sidebar-non-existant: var(--sidebar-fg);
+        --sidebar-active: #F67367;
+        --sidebar-spacer: #393939;
+
+        --scrollbar: var(--sidebar-fg);
+
+        --icons: #545a60;
+        --icons-hover: #F5F6F7;
+
+        --links: var(--sidebar-active);
+        --inline-code-color: #c5c8c6;
+
+        --theme-popup-bg: #141617;
+        --theme-popup-border: #43484d;
+        --theme-hover: #1f2124;
+
+        --quote-bg: hsl(234, 21%, 18%);
+        --quote-border: hsl(234, 21%, 23%);
+
+        --table-border-color: #67788a;
+        --table-header-bg: #67788a;
+        --table-alternate-bg: hsl(0, 0%, 15%);
+
+        --searchbar-border-color: #aaa;
+        --searchbar-bg: #b7b7b7;
+        --searchbar-fg: #000;
+        --searchbar-shadow-color: #aaa;
+        --searchresults-header-fg: #666;
+        --searchresults-border-color: #98a3ad;
+        --searchresults-li-bg: #2b2b2f;
+        --search-mark-bg: #355c7d;
+    }
+}
