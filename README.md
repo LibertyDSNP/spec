@@ -9,8 +9,8 @@ For more information about the DSNP, visit [DSNP.org](https://www.dsnp.org)
 
 ### Spec Site Releases
 
-Currently the `main` branch is automatically released via GitHub Pages.
-(This might change in the future with website releases being tagged.)
+1. Merge all changes into `main` and handle any updated specifications (see below).
+2. Create a GitHub Release and tag it using the following CalVer: `YYYY.MM.###` (where `###` is the nth release in that month)
 
 ### Spec Version Release & Changelog Process
 

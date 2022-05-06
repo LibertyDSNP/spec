@@ -16,7 +16,7 @@ preferred-dark-theme = "coal"
 [output.linkcheck]
 follow-web-links = true
 traverse-parent-directories = false
-exclude = ['en\.bitcoin\.it']
+exclude = ['en\.bitcoin\.it', 'github\.com/LibertyDSNP/spec']
 
 [output.html.fold]
 enable = true

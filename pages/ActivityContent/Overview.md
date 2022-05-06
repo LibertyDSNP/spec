@@ -1,5 +1,5 @@
 # Activity Content Specification
-__Version pre-1.1.0__
+__Version 1.1.0__
 
 Content references shared via the DSNP consists of URLs pointing to documents containing Activity Streams JSON objects.
 For the purposes of the DSNP, restrictions are placed on the [Activity Streams 2.0](https://www.w3.org/TR/activitystreams-core/) specification.
@@ -45,14 +45,17 @@ URLs in DSNP-compatible Activity Content MUST to use one of the following URL sc
 | [LibertyDSNP/activity-content-java](https://github.com/LibertyDSNP/activity-content-java) | Java/Kotlin |
 | [LibertyDSNP/activity-content-swift](https://github.com/LibertyDSNP/activity-content-swift) | Swift |
 
+<!--- Uncomment for pre-release changes and prefix the version with `pre-[next version]`
 ## Prerelease Changelog
 
-- [DIP-158](https://github.com/LibertyDSNP/spec/issues/158)
+- [DIP-###](https://github.com/LibertyDSNP/spec/issues/###)
 
+--->
 ## Releases
 
 | Version | Description | Release Date | Changelog |
 | --- | --- | --- | --- |
+| [1.1.0](https://github.com/LibertyDSNP/spec/tree/ActivityContent-v1.1.0) | DIP-158 | 2022-05-05 | [Changelog](https://github.com/LibertyDSNP/spec/releases/tag/ActivityContent-v1.1.0) |
 | [1.0.0](https://github.com/LibertyDSNP/spec/tree/ActivityContent-v1.0.0) | Initial Release | 2021-09-09 | [Changelog](https://github.com/LibertyDSNP/spec/releases/tag/ActivityContent-v1.0.0) |
 
 ## Non-Normative
