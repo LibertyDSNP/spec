@@ -16,11 +16,12 @@ For more information about the DSNP, visit [DSNP.org](https://www.dsnp.org)
 
 1. Update the version at the top of the the `Overview.md` file for spec
 2. Update the releases table on the `Overview.md` file for spec
-3. Use the appropriate git tag(s) for the specs `[Spec]-v[Major].[Minor].[Patch]`
+3. Update the releases table on the root `index.md` file
+4. Use the appropriate git tag(s) for the specs `[Spec]-v[Major].[Minor].[Patch]`
       - DSNP: `DSNP-vX.X.X`
       - Activity Content `ActivityContent-vX.X.X`
       - DSNP on Ethereum `EVM-vX.X.X`
-4. Generate a [GitHub Release](https://github.com/LibertyDSNP/spec/releases) for each spec/tag combination with the Changelog.
+5. Generate a [GitHub Release](https://github.com/LibertyDSNP/spec/releases) for each spec/tag combination with the Changelog.
 
 Note: Remember that you can link to the tag on GitHub before creating the tag.
 
