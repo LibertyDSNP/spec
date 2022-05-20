@@ -7,6 +7,7 @@ title = "DSNP Specification"
 
 [output.html]
 no-section-label = true
+copy-fonts = false # Switched to custom fonts
 site-url = "/pages/"
 git-repository-url = "https://github.com/LibertyDSNP/spec"
 edit-url-template = "https://github.com/LibertyDSNP/spec/blob/main/{path}"
