@@ -2,13 +2,50 @@
 
 @import 'variables.css';
 
+/* raleway-300 */
+@font-face {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Raleway'), local('Raleway Thin'),
+         url('../fonts/raleway-300.woff2') format('woff2');
+  }
+
+/* raleway-400 */
+@font-face {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Raleway'), local('Raleway Thin'),
+         url('../fonts/raleway-400.woff2') format('woff2');
+  }
+
+  /* raleway-500 */
+@font-face {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Raleway'), local('Raleway Thin'),
+         url('../fonts/raleway-700.woff2') format('woff2');
+  }
+
+  /* source-code-pro-500 - latin_vietnamese_latin-ext_greek_cyrillic-ext_cyrillic */
+  @font-face {
+    font-family: 'Source Code Pro';
+    font-style: normal;
+    font-weight: 500;
+    src: url('../fonts/source-code-pro-v11-all-charsets-500.woff2') format('woff2');
+  }
+
+
 :root {
     /* Browser default font-size is 16px, this way 1 rem = 10px */
     font-size: 62.5%;
 }
 
 html {
-    font-family: "Open Sans", sans-serif;
+    font-family: "Raleway", sans-serif;
+    font-weight: 300;
     color: var(--fg);
     background-color: var(--bg);
     text-size-adjust: none;
@@ -69,6 +106,8 @@ h6:target::before {
     content: "»";
     margin-left: -30px;
     width: 30px;
+    position: relative;
+    top: -3px;
 }
 
 /* This is broken on Safari as of version 14, but is fixed
@@ -203,4 +242,12 @@ blockquote {
 .nav-return:visited {
     color: var(--sidebar-fg);
     text-decoration: none;
+}
+
+#logo, #logo:hover, #logo:visited, #logo:hover:visited {
+    color: var(--fg);
+    letter-spacing: -0.1rem;
+    text-decoration: none;
+    font-size: 4.2rem;
+    font-weight: 300;
 }

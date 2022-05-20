@@ -93,7 +93,7 @@
         <script type="text/javascript">
             var html = document.querySelector('html');
             var sidebar = 'hidden';
-            if (document.body.clientWidth >= 1080) {
+            if (document.body.clientWidth >= 800) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
             }
@@ -103,8 +103,8 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <a href="https://www.dsnp.org/">
-                    <img src="{{ path_to_root }}images/DSNP_Logo.png" alt="The DSNP Logo" width="123" height="55"/>
+                <a id="logo" href="https://www.dsnp.org/">
+                    DSNP
                 </a>
                 {{#toc}}{{/toc}}
                 <div class="spacer"></div>
