@@ -17,6 +17,7 @@
         - [Update](DSNP/Types/Update.md)
     - [Serializations](DSNP/Serializations.md)
 - [DSNP Implementation Specs](Implementations.md)
+    - [MRC](MRC/Overview.md)
     - [EVM](Ethereum/Overview.md)
         - [Identity](Ethereum/Identity.md)
             - [Identifiers](Ethereum/Identifiers.md)
