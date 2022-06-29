@@ -2,7 +2,7 @@
 
 TODO: https://github.com/LibertyDSNP/spec/issues/188
 
-On MRC, [Announcements](../DSNP/Announcements.md) are mapped to schemas which publish on-chain and via [Batch Publication Files](../DSNP/BatchPublications.md).
+On Frequency, [Announcements](../DSNP/Announcements.md) are mapped to schemas which publish on-chain and via [Batch Publication Files](../DSNP/BatchPublications.md).
 
 ...
 
