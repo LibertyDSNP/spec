@@ -1,13 +1,17 @@
 # Frequency DSNP Implementation
 __Version pre-1.0.0__
 
-DSNP on Frequency is designed using MSAs and schema messages.
-MSAs are used for identity and delegation.
-Schema messages are used for announcement publishing on-chain and via batches.
+DSNP on Frequency is built using Message Source Accounts (MSAs) for identity and delegation with Schemas defined for each Announcement Type.
+Frequency uses Schemas to define how to create and pass messages.
+
+## Links
+
+- [Frequency Documentation](https://libertydsnp.github.io/frequency/)
+- [Frequency GitHub](https://github.com/LibertyDSNP/frequency)
 
 ## Schemas
 
-Official DSNP Schema deployments may be found in [GitHub](https://github.com/LibertyDSNP/schemas).
+Official DSNP Schemas may be found in [GitHub](https://github.com/LibertyDSNP/schemas).
 
 ## Libraries
 <!-- yaspeller ignore:start -->
