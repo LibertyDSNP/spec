@@ -1,0 +1,23 @@
+name: "Install mdBook with Plugins"
+description: 'Shared action steps to install mdBook with required plugins'
+runs:
+  using: "composite"
+  steps: 
+    - name: Setup mdBook 📚
+      uses: peaceiris/actions-mdbook@v1
+      with:
+        mdbook-version: 'latest'
+
+    - name: Install mdbook-linkcheck plugin
+      shell: bash
+      run: |
+        curl -s https://api.github.com/repos/Michael-F-Bryan/mdbook-linkcheck/releases/latest \
+          | grep browser_download_url \
+          | grep $(rustc -Vv | grep host | cut -d' ' -f2) \
+          | cut -d : -f 2,3 \
+          | tr -d \" \
+          | wget -qi - -O mdbook-linkcheck.zip
+
+        unzip mdbook-linkcheck.zip -d mdbook-linkcheck
+        chmod +x mdbook-linkcheck/mdbook-linkcheck
+        echo "$PWD/mdbook-linkcheck" >> $GITHUB_PATH
