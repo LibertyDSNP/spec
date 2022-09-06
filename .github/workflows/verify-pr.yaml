@@ -1,0 +1,30 @@
+name: Verify PR
+
+on:
+  pull_request:
+    branches: 
+      - main
+
+jobs:
+  verify:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+
+      - name: Use Node.js 🐰
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install Node Modules 💾
+        run: npm ci
+
+      - name: Lint and Spellcheck 🧶
+        run: npm run lint
+
+      - name: Set up mdBook 📚
+        uses: ./.github/workflows/common/set-up-mdbook
+      
+      - name: Build mdBook 📚
+        run: mdbook build
