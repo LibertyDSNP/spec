@@ -1,24 +1,64 @@
 # Announcement Publishing
 
-TODO: https://github.com/LibertyDSNP/spec/issues/188
+On Frequency, [Announcements](../DSNP/Announcements.md) are mapped to schemas which in turn publish Frequency Messages.
+Frequency Messages are either direct Graph Changes from a particular user, or a Batch Publication with a multitude of users possible.
 
-On Frequency, [Announcements](../DSNP/Announcements.md) are mapped to schemas which publish on-chain and via [Batch Publication Files](../DSNP/BatchPublications.md).
+<!-- Links to https://libertydsnp.github.io/frequency should be updated with links to docs.frequency.xyz when able to be -->
 
-...
+| Announcement Type Enum | Announcement | Batched | Schema Id Mainnet | Schema Id Rococo | Frequency Model Type | Frequency Payload Location |
+| --- | --- | --- | --- | --- | --- | --- |
+| 0 | [Tombstone](../DSNP/Types/Tombstone.md) | YES | TBD | TBD | [`Parquet`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
+| 1 | [Graph Change](../DSNP/Types/GraphChange.md) | no | TBD | TBD | [`AvroBinary`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.AvroBinary) | [`OnChain`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.OnChain) |
+| 2 | [Broadcast](../DSNP/Types/Broadcast.md) | YES | TBD | TBD | [`Parquet`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
+| 3 | [Reply](../DSNP/Types/Reply.md) | YES | TBD | TBD | [`Parquet`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
+| 4 | [Reaction](../DSNP/Types/Reaction.md) | YES | TBD | TBD | [`Parquet`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
+| 5 | [Profile](../DSNP/Types/Profile.md) | YES | TBD | TBD | [`Parquet`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
+| 6 | [Update](../DSNP/Types/Update.md) | YES | TBD | TBD | [`Parquet`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
 
-## Batch File Retrieval
+Source code for each schema is also located in the [LibertyDSNP/schemas](https://github.com/LibertyDSNP/schemas) repository.
 
-- Batch File URLs MUST NOT refer to localhost or any reserved IP addresses as defined in [RFC6890](https://datatracker.ietf.org/doc/html/rfc6890).
-- Batch File URLs MUST use one of the supported URL Schemes.
+## DSNP Non-Batched Announcements
 
-### Supported URL Schemes
+Frequency uses an on-chain data structure for storage of `GraphChange` Announcements.
+Each individual announcement is submitted using the [`add_onchain_message`](https://libertydsnp.github.io/frequency/pallet_messages/pallet/enum.Call.html#variant.add_onchain_message) extrinsic.
 
-| Scheme | Description | Reference | DSNP Version Added |
-| ------ |------------ | --------- | ------------------ |
-| HTTPS | Hypertext Transfer Protocol Secure | [RFC2818](https://datatracker.ietf.org/doc/html/rfc2818) | 1.0 |
+## DSNP Batched Announcements
+
+Frequency uses [DSNP Batch Publications](../DSNP/BatchPublications.md) for Announcements that are batched.
+The parquet file is stored on IPFS, but it is discovered through the Frequency Message.
+
+Frequency Messages maintain the data of when the data was published and what Providers MSA published it.
+It is the publisher's responsibility to maintain the IPFS pin so that the batch file is continuously available.
+
+DSNP Batch Publications [MUST be validated](./Validation.md) upon fetching to ensure data and permission integrity.
+
+### Message Data
+
+| Field | Description | Type | Indexed |
+| ------------- |------------- | ---- | --- |
+| `announcementType` | The single announcement type in the given file | int16 | YES
+| `fileHash` | [keccak-256](https://keccak.team/files/Keccak-submission-3.pdf) hash of the batch file | bytes32 | no
+| `fileUrl` | URL to retrieve the referenced batch file via an [approved schema](#batch-file-retrieval) | string | no
 
 ## Ordering
 
-...
+Frequency Messages are well ordered within a Schema
 
-##
+1. Frequency: Block number ascending
+2. Frequency: Transaction index ascending
+3. DSNP Standard: Order Announcements in a Batch Publication File by row appearance order
+
+### Ordering Across Schemas
+
+Frequency does not provide complete order information for Messages across Schemas.
+In the case of dependent Announcements, where one Announcement refers to another Announcement, the order may be inferred.
+Announcements without an order able to be inferred are considered to have happened simultaneously.
+
+## Retrieval
+
+Frequency nodes provide an RPC interface [`get_messages_by_schema`](https://libertydsnp.github.io/frequency/pallet_messages_rpc/trait.MessagesApiClient.html#method.get_messages_by_schema) with paginated responses that differ based on the Schema.
+
+Frequency nodes can provide a websocket interface that will emit an event for each block that has one or more messages of a given schema in that block.
+The [`MessagesStored`](https://libertydsnp.github.io/frequency/pallet_messages/pallet/enum.Event.html#variant.MessagesStored) event can be used to know when to call the RPC interface to retrieve the messages.
+
+See the [Frequency Documentation](https://libertydsnp.github.io/frequency/pallet_messages_rpc/trait.MessagesApiClient.html#method.get_messages_by_schema) for more details on Message retrieval.
