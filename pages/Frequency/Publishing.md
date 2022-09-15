@@ -25,10 +25,10 @@ Each individual announcement is submitted using the [`add_onchain_message`](http
 ## DSNP Batched Announcements
 
 Frequency uses [DSNP Batch Publications](../DSNP/BatchPublications.md) for Announcements that are batched.
-The parquet file is stored on IPFS, but it is discovered through the Frequency Message.
+The parquet file is stored on [IPFS](https://ipfs.io/), but it is discovered through the Frequency Message.
 
-Frequency Messages maintain the data of when the data was published and what Providers MSA published it.
-It is the publisher's responsibility to maintain the IPFS pin so that the batch file is continuously available.
+Frequency Messages maintain the metadata of where and when the Batch Publication was published and which Provider MSA published it.
+It is the publisher's responsibility to maintain the [IPFS pin](https://docs.ipfs.tech/concepts/glossary/#pinning) so that the batch file is continuously available.
 
 DSNP Batch Publications [MUST be validated](./Validation.md) upon fetching to ensure data and permission integrity.
 
@@ -42,7 +42,7 @@ Frequency Messages are well ordered within a Schema
 
 ### Ordering Across Schemas
 
-Frequency does not provide complete order information for Messages across Schemas.
+Frequency does not provide complete ordering metadata for Messages across Schemas.
 In the case of dependent Announcements, where one Announcement refers to another Announcement, the order may be inferred.
 Announcements without an order able to be inferred are considered to have happened simultaneously.
 
