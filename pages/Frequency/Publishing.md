@@ -32,14 +32,6 @@ It is the publisher's responsibility to maintain the IPFS pin so that the batch 
 
 DSNP Batch Publications [MUST be validated](./Validation.md) upon fetching to ensure data and permission integrity.
 
-### Message Data
-
-| Field | Description | Type | Indexed |
-| ------------- |------------- | ---- | --- |
-| `announcementType` | The single announcement type in the given file | int16 | YES
-| `fileHash` | [keccak-256](https://keccak.team/files/Keccak-submission-3.pdf) hash of the batch file | bytes32 | no
-| `fileUrl` | URL to retrieve the referenced batch file via an [approved schema](#batch-file-retrieval) | string | no
-
 ## Ordering
 
 Frequency Messages are well ordered within a Schema
