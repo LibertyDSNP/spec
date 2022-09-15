@@ -59,6 +59,7 @@
     "NodeJS",
     "Nonces",
     "OpenZeppelin",
+    "Payload",
     "PrivateBroadcast",
     "PrivateGraph",
     "PrivateGraphChange",
@@ -149,6 +150,7 @@
     "url",
     "validator",
     "vanishingly",
-    "versioning"
+    "versioning",
+    "websocket"
   ]
 }
