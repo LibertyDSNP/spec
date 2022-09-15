@@ -37,14 +37,20 @@ DSNP Batch Publications [MUST be validated](./Validation.md) upon fetching to en
 Frequency Messages are well ordered within a Schema
 
 1. Frequency: Block number ascending
-2. Frequency: Transaction index ascending
+2. Frequency: Block index ascending
 3. DSNP Standard: Order Announcements in a Batch Publication File by row appearance order
 
 ### Ordering Across Schemas
 
-Frequency does not provide complete ordering metadata for Messages across Schemas.
-In the case of dependent Announcements, where one Announcement refers to another Announcement, the order may be inferred.
-Announcements without an order able to be inferred are considered to have happened simultaneously.
+Frequency provides complete ordering metadata for Messages across Schemas.
+Block index is unique per Message within the same block.
+
+### Human Order
+
+Due to the asynchronous nature of networks and batching, it is possible that the canonical ordering of Announcements is wrong from a human viewpoint.
+With dependent Announcements, where one Announcement refers to another Announcement, the order may be inferred differently than the canonical ordering.
+It is left to user interfaces to handle these situations.
+
 
 ## Retrieval
 
