@@ -1,5 +1,7 @@
-# Frequency DSNP Implementation
+# Frequency DSNP Implementation (Pre-Release)
 __Version pre-1.0.0__
+
+_Final release is pending release of [Frequency v1.0.0](https://github.com/LibertyDSNP/frequency)_
 
 DSNP on Frequency is built using Message Source Accounts (MSAs) for identity and delegation with Schemas defined for each Announcement Type.
 Frequency uses Schemas to define how to create and pass messages.
@@ -30,4 +32,7 @@ Official DSNP Schemas may be found in [GitHub](https://github.com/LibertyDSNP/sc
 
 | Version | Description | DSNP Compatibility | Release Date | Changelog |
 | --- | --- | --- | --- | --- |
-| [1.0.0](https://github.com/LibertyDSNP/spec/tree/Frequency-v1.0.0) | Initial Release | 1.1.x | 2022-0?-?? | [Changelog](https://github.com/LibertyDSNP/spec/releases/tag/Frequency-v1.0.0) |
+| `pre-1.0.0` | Pre-Release | 1.1.x | 2022-09-19 | N/A |
+<!--
+| [1.0.0](https://github.com/LibertyDSNP/spec/tree/Frequency-v1.0.0) | Initial Release | 1.1.x | 2022-10-15 | [Changelog](https://github.com/LibertyDSNP/spec/releases/tag/Frequency-v1.0.0) |
+-->
