@@ -1,8 +1,8 @@
 # Announcement Validation
 
 DSNP Announcements are validated differently depending on the type of Announcement.
-Batched Announcements are validated at read time.
-Non-batched Announcements (example: Graph Change), are validated at write time and do not need to be re-validated at read time.
+Batched Announcements are off-chain and MUST be validated at read time.
+Non-batched Announcements (example: Graph Change), are on-chain and are validated at write time and do not need to be re-validated at read time.
 
 ## On-chain Announcements
 
