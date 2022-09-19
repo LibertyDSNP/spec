@@ -1,3 +1,4 @@
 # DSNP Implementations
 
-- [Ethereum/EVM Compatible](Ethereum/Overview.md) (Official)
+- [Frequency](Frequency/Overview.md) (Official)
+- [Ethereum/EVM Compatible](Ethereum/Overview.md) (Deprecated)
