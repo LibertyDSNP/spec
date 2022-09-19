@@ -21,7 +21,7 @@
       - [Identity](Frequency/Identity.md)
       - [Publishing](Frequency/Publishing.md)
         - [Validation](Frequency/Validation.md)
-    - [EVM](Ethereum/Overview.md)
+    - [EVM (Deprecated)](Ethereum/Overview.md)
         - [Identity](Ethereum/Identity.md)
             - [Identifiers](Ethereum/Identifiers.md)
             - [Factory](Ethereum/IdentityFactory.md)

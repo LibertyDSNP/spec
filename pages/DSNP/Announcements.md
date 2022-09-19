@@ -70,7 +70,7 @@ That produced Batch Publications that were generic and disconnected from the use
 They could be submitted to the chain via anyone not just delegates or users.
 
 In DSNP v1.1, Announcement signatures were removed in favor of the implementation being responsible for the connection between the on-chain signature and the user.
-The expected and [EVM implementation](../Ethereum/Validation.md) is that the implementation chain requires that the transaction that produces a Batch be performed by the user or delegate directly.
+Implementations require that the transaction that produces a Batch be performed by the user or delegate directly.
 This created batches that are delegate specific, but allows for faster testing of the validity of individual Announcements in a Batch.
 
 For more information see [DIP-145](https://github.com/LibertyDSNP/spec/issues/145).
