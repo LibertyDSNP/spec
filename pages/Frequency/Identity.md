@@ -24,7 +24,7 @@ MSAs can be created by the user or on behalf of the user using a signed authoriz
 
 ### Retrieving a DSNP User Id from a Public Key
 
-1. Use the Frequency RPC call `msa_getMsaId` to retrieve the MSA Id from the public key generated in step 1.
+1. Use the Frequency state query `msa.messageSourceIdOf` to retrieve the MSA Id from the public key generated in step 1.
 1. The MSA Id is the DSNP Id and can be used to generate the [DSNP User URI](../DSNP/Identifiers.md#dsnp-user-uri).
 
 ## Ownership
