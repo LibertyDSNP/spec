@@ -6,18 +6,24 @@ This specification is intended to cover the concept of identity and how identity
 
 DSNP [Identifiers](Identifiers.md) form the basis for pseudo-anonymous streams of content.
 While some users may choose to link or expose their real-world identity, DSNP implementations MUST NOT require such data exposure for account creation.
-The [social graph](Graph.md) is formed using this identifier so that a user's connections maintain integrity regardless of changes in any user's client choices or access changes.
+The [social graph](Graph.md) is formed using this Identifier so that a user's connections maintain integrity regardless of changes in any user's client choices or access changes.
 
 ### Pseudo Anonymity
 
-* An identifier MUST default to being disconnected from a real-world identity.
-* An identifier MUST be unique to the implementation.
+* An Identifier MUST default to being disconnected from a real-world identity.
+* An Identifier MUST be unique to the implementation.
 
 ## Ownership
 
-A user's ownership of their identity is expressed via ownership and control of their pseudo-anonymous identifier(s).
-Control entails the power to announce content associated with the identifier and
-the ability to delegate permission to others to announce content on the user's behalf.
+A user's ownership of their identity is expressed via ownership and control of their pseudo-anonymous Identifier(s).
+Control entails the power to invoke DSNP Operations including publishing announcements that create, update and delete (tombstone) content associated with the Identifier, delegating these powers to others, and managing keys associated with the Identifier.
+
+### Key Management
+
+An initial control key must be created in order to acquire an Identifier.
+Each distinct Identifier MUST have distinct control keys; that is, the same key MUST NOT be linked to multiple Identifiers.
+Optionally, an implementation MAY allow the user to add and remove additional keys.
+An implementation MUST NOT allow the user to remove the only or last remaining control key.
 
 ### Delegation
 
@@ -26,6 +32,13 @@ the ability to delegate permission to others to announce content on the user's b
 * Announcements from a delegate MUST be able to be verify which delegate made the specific announcement.
 * Delegation revocation MUST NOT be retroactive.
 
+## Related Operations
+
+* [Create Identifier](Operations.md#create-identifier)
+* [Define Delegation](Operations.md#define-delegation)
+* [Revoke Delegation](Operations.md#revoke-delegation)
+* [Add Control Key](Operations.md#add-control-key)
+* [Remove Control Key](Operations.md#remove-control-key)
 
 ## Non-normative
 

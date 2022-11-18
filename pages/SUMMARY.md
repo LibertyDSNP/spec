@@ -15,6 +15,8 @@
         - [Reaction](DSNP/Types/Reaction.md)
         - [Profile](DSNP/Types/Profile.md)
         - [Update](DSNP/Types/Update.md)
+    - [Operations](DSNP/Operations.md)
+    - [State Change Records](DSNP/Records.md)
     - [Serializations](DSNP/Serializations.md)
 - [DSNP Implementation Specs](Implementations.md)
     - [Frequency](Frequency/Overview.md)

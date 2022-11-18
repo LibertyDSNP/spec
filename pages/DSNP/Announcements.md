@@ -38,7 +38,12 @@ Additional duplicate Announcements MUST be rejected or ignored.
 ## Reverting an Announcement
 
 Announcements may not be deleted, but may be marked invalid by using a [Tombstone Announcement](Types/Tombstone.md), or updated by using an [Update Announcement](Types/Update.md).
-For example, if a user creates a Reaction Announcement, they may remove that reaction by creating a Tombstone Announcement.
+For example, if a user creates a [Reaction Announcement](Types/Reaction.md), they may remove that reaction by creating a Tombstone Announcement.
+
+## Related Operations
+
+* [Publish Announcement](Operations.md#PublishAnnouncement)
+* [Publish Batch](Operations.md#PublishBatch)
 
 ## Non-Normative
 
