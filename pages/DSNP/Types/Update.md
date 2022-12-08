@@ -12,6 +12,7 @@ Updates should be ignored.
 | fromId | id of the user creating the announcement | 64 bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | YES
 | contentHash | keccak-256 hash of updated content | 32 bytes | [hexadecimal](../Serializations.md#hexadecimal) | `BYTE_ARRAY` | YES
 | url | updated content URL | UTF-8 | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | no
+| targetAnnouncementType | target updated Announcement type | enum | [decimal](../Serializations.md#decimal) | `INT32` | no |
 | targetContentHash | keccak-256 hash of target content | 32 bytes | [hexadecimal](../Serializations.md#hexadecimal) | `BYTE_ARRAY` | YES
 
 ## Field Requirements
@@ -34,9 +35,10 @@ Updates should be ignored.
 - Resource MUST be one of the supported [Activity Content](../../ActivityContent/Overview.md) Types
 - MUST use one of the supported URL Schemes
 
-### targetContentHash
+### targetAnnouncementType
 
-- MUST be the `contentHash` of an allowed Announcement type with the same `fromId` as the Update Announcement
+- MUST be the [Announcement Type](../Announcements.md#announcement-types) of the target Announcement
+- MUST ONLY be an Update allowed Announcement Type
 
 #### Update Allowed Announcement Types
 
@@ -44,3 +46,7 @@ Updates should be ignored.
 |------ | ---- |
 | 2 | [Broadcast](../Types/Broadcast.md) |
 | 3 | [Reply](../Types/Reply.md) |
+
+### targetContentHash
+
+- MUST be the `contentHash` of an allowed Announcement type with the same `fromId` as the Update Announcement
