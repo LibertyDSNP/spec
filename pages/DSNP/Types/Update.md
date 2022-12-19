@@ -31,7 +31,7 @@ Updates should be ignored.
 ### url
 
 - MUST NOT refer to localhost or any reserved IP addresses as defined in [RFC6890](https://datatracker.ietf.org/doc/html/rfc6890)
-- Resource MUST one of the supported [Activity Content](../../ActivityContent/Overview.md) Types
+- Resource MUST be one of the supported [Activity Content](../../ActivityContent/Overview.md) Types
 - MUST use one of the supported URL Schemes
 
 ### targetContentHash

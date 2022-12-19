@@ -3,8 +3,8 @@
 
 ## Introduction
 
-This document represents Roadmap for DSNP and related specifications.
-Roadmap may not reflect current priorities and is subject to change.
+This document represents the Roadmap for DSNP and related specifications.
+The Roadmap may not reflect current priorities and is subject to change.
 
 ## Completed
 
@@ -13,7 +13,7 @@ Roadmap may not reflect current priorities and is subject to change.
 | Whitepaper | Done (2020 Q4) |
 | Spec Outline | Done (2021 Q1) |
 | Batch Announce First Draft  | Done (2021 Q1) |
-| Spec Live! | Done (2021 Q1) |
+| Spec Live | Done (2021 Q1) |
 | Identity Contract & Delegation | Done (2021 Q2) |
 | Batch Announce File Format | Done (2021 Q3) |
 | Identity Factory | Done (2021 Q2) |
@@ -25,7 +25,7 @@ Roadmap may not reflect current priorities and is subject to change.
 
 ## Future
 
-Below is a tentative roadmap to what protocol features are being developed next!
+Below is a tentative roadmap to what protocol features are being developed next.
 Items are ordered by current priority.
 
 ### Chain Migration
@@ -42,7 +42,7 @@ Keep some graph connections private with permissioned access.
 ### Direct Messaging
 *Status: Whitepaper*
 
-One-to-one messaging with metadata privacy.
+Offer one-to-one messaging with metadata privacy.
 
 ### Public Friends
 *Status: Not Started*
@@ -69,7 +69,7 @@ How can these be created while preserving privacy and supporting an open system?
 ### Distributed Content Moderation
 *Status: Not Started*
 
-Content moderation is hard because it means different things to different people.
+Content moderation can be challenging because it means different things to different people.
 Make customizing content moderation easier through distributing the work and results.
 
 ### Namespace and Multichain Support
@@ -102,7 +102,7 @@ Secure one-to-many posts that still allow for commenting.
 ### Third-Party Identity Bridges
 *Status: Not Started*
 
-Create ways for users to be able to bring their own identities or connect a DSNP Identity with outside identities.
+Create ways for users to either bring their own identities or connect a DSNP Identity with outside identities.
 
 ### Archivists
 *Status: [Draft](Draft/Archivists.md)*

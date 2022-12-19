@@ -2,7 +2,7 @@
 
 ## Purpose
 
-1. Provide the interface for a DSNP identity.
+1. Provide the interface for a DSNP Identity.
 1. Specify the delegation model and related interface.
 1. Specify the ownership model and related interface.
 1. Provide the list of EIPs that must be supported by a DSNP-compatible identity.
@@ -25,7 +25,7 @@ While at least one owner is required, additional public keys may be considered t
 
 ## Delegation
 
-Delegation allows adding additional public keys, in addition to the owner public key(s).
+Delegation allows adding additional public keys, to the owner public key(s).
 These delegated keys are allowed to perform certain actions on behalf of the owner based on the delegate's "role".
 
 ### Interface
@@ -195,7 +195,7 @@ interface IDelegation {
 
 ## Upgrade Interface
 
-It is an open question if we want to require a standard set of upgrade interfaces.
+It is an open question whether a standard set of upgrade interfaces should be required.
 
 ## Additional Required Interfaces
 
@@ -239,20 +239,20 @@ Unlike `IDelegation.isAuthorizedToAnnounce` which supports permission levels and
 
 * Centralized smart contract maintaining identifiers and owners
   * Top Rejection Reasons:
-    * A centralized contract must either be controlled by the foundation, a DAO, or non-upgradable
-    * Does not allow for complete flexibility in ownership
+    * A centralized contract must either be controlled by the foundation, a DAO, or be non-upgradable.
+    * Does not allow for complete flexibility in ownership.
 * Using a single public key as an identifier
   * Top Rejection Reasons:
-    * Does not allow for flexibility in ownership
-    * Completely dependent on off-chain software and processing for verification of delegation
+    * Does not allow for flexibility in ownership.
+    * Completely dependent on off-chain software and processing for verification of delegation.
 * Using a single owner model
-  * A single owner (as well as the existing EIP 173 to manage it) was considered as opposed to the multi-owner role system
+  * A single owner (as well as the existing EIP 173 to manage it) was considered as opposed to the multi-owner role system.
   * Top Rejection Reasons:
-    * Does not allow for flexibility in ownership
-    * Single-owner increases the likelihood of users using choosing less secure key management practices
-    * Multi-owner pairs better with a permissioned system
+    * Does not allow for flexibility in ownership.
+    * Single-owner increases the likelihood of users using choosing less secure key management practices.
+    * Multi-owner pairs better with a permissioned system.
 * Using a simple two-tier permission model
   * Owner level and "everything" else
   * Top Rejection Reasons:
-    * Limits options for future specific roles such as social recovery
-    * Cost savings were minimal when paired with a role based system
+    * Limits options for future specific roles such as social recovery.
+    * Cost savings were minimal when paired with a role-based system.

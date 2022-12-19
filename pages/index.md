@@ -1,12 +1,12 @@
 # DSNP Specification
 
-Welcome to the Decentralized Social Networking Protocol (DSNP) specification!
+Welcome to the Decentralized Social Networking Protocol (DSNP) specification.
 Here you can find the detailed specification documentation for DSNP, official implementation specifications, associated specifications, as well as a roadmap and proposals for future extensions.
 
 ## Goals & Purpose
 
-The free communication of users on the Internet faces a variety of problems in the modern day.
-These challenges include censorship from state and corporate actors, the amplification of misinformation through viral content, and an ever-shrinking collection of near monopolies with absolute power over social interaction in the twenty-first century.
+Free communication among users on the Internet faces a variety of problems in the modern day.
+These challenges include censorship by state and corporate actors, the amplification of misinformation through viral content, and an ever-shrinking collection of near monopolies with absolute power over social interaction in the twenty-first century.
 Through the DSNP, we hope to mitigate and ideally solve these challenges in the way social interaction operates online.
 
 ## How to Read This Specification
@@ -29,7 +29,7 @@ DSNP specification versions follow [Semantic Versioning 2.0](https://semver.org/
 ## Contributions
 
 Development occurs on [GitHub](https://github.com/LibertyDSNP/spec).
-All interactions must follow the [Code of Conduct](https://github.com/LibertyDSNP/spec/blob/main/CODE_OF_CONDUCT.md) and [Contribution guidelines](https://github.com/LibertyDSNP/spec/blob/main/CONTRIBUTING.md).
+All interactions must follow the [Code of Conduct](https://github.com/LibertyDSNP/spec/blob/main/CODE_OF_CONDUCT.md) and [Contribution Guidelines](https://github.com/LibertyDSNP/spec/blob/main/CONTRIBUTING.md).
 
 ## Draft Specifications
 
@@ -44,9 +44,9 @@ Proposals for some future extensions can be found in the [Draft Specifications](
 | Name | Description |
 | --- | --- |
 | **Draft** | Open for comment and major changes. |
-| **Proposed** | Ready for formal review. It should be done except for minor changes. |
+| **Proposed** | Ready for formal review. It should be complete save for some minor changes. |
 | **Tentative** | This is the accepted plan. The specification should not change unless there are blocking issues. |
 
 ## Learning More
 
-In addition to this document, more resources regarding our project can be found at [DSNP.org](https://www.dsnp.org), including our blog, forum, code repository, and SDK.
+In addition to this document, more resources regarding the project can be found at [DSNP.org](https://www.dsnp.org), including the blog, forum, code repository, and SDK.

@@ -12,7 +12,7 @@ DSNP uses [Message Source Accounts (MSAs)](https://libertydsnp.github.io/frequen
 
 ## Identifier
 
-MSAs each receive a unique unsigned 64 bit identifier that is used as the DSNP Id.
+MSAs each receive a unique unsigned 64-bit identifier that is used as the DSNP Id.
 These MSAs are pseudo-anonymous identifiers that are associated with one or more public keys.
 MSAs can be created by the user or on behalf of the user using a signed authorization.
 
@@ -39,5 +39,5 @@ Frequency allows for delegation to others called [Providers](https://libertydsnp
 Delegation comes with permissions that grant publishing of specific Schemas to a provider.
 Since each [Announcement Type](../DSNP/Announcements.md) has a [set Schema Id](./Publishing.md), a user may permission specific Announcement Types.
 
-When a user delegates to a Provider, that delegation is either validated on-chain or can be validated off-chain using the `msa_checkDelegations` RPC call.
+When a user delegates to a Provider, that delegation is either validated on chain or can be validated off chain using the `msa_checkDelegations` RPC call.
 Users can revoke a delegation at anytime without any fees, and revocation is locked to the point the transaction is included in a block.

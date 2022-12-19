@@ -1,8 +1,8 @@
 # Announcement Validation
 
 DSNP Announcements are validated differently depending on the type of Announcement.
-Batched Announcements are off-chain and MUST be validated at read time.
-Non-batched Announcements (example: Graph Change), are on-chain and are validated at write time and do not need to be re-validated at read time.
+Batched Announcements are off chain and MUST be validated at read time.
+Non-batched Announcements (e.g. Graph Change) are on chain, are validated at write time, and do not need to be re-validated at read time.
 
 ## On-chain Announcements
 
@@ -40,7 +40,7 @@ The [Frequency Message](https://libertydsnp.github.io/frequency/common_primitive
 ### File Validation
 
 1. Retrieve the file from the IPFS network using the `cid`.
-1. (Required for non-trusted IPFS nodes) Verify the file hash by [comparing it to the hash included in the `cid`](https://docs.ipfs.tech/concepts/hashing/).
+1. Verify the file hash by [comparing it to the hash included in the `cid`](https://docs.ipfs.tech/concepts/hashing/). (Required for non-trusted IPFS nodes.)
 1. Verify that the byte length of the retrieved file matches the `payload_length`.
 
 ### Publication Announcements Validation

@@ -8,8 +8,8 @@ A Graph Change Announcement is for publishing relationship state changes for a u
 | ----- | ----------- | --------- | ------------- | ------------ | ------------ |
 | announcementType | Announcement Type Enum (`1`) | enum | [decimal](../Serializations.md#decimal) | `INT32` | no |
 | changeType | Type of relationship change | enum | [decimal](../Serializations.md#decimal) | `INT32` | no
-| fromId | id of the user creating the relationship | 64-bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | YES
-| objectId | id of the target of the relationship | 64-bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | YES
+| fromId | Id of the user creating the relationship | 64-bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | YES
+| objectId | Id of the target of the relationship | 64-bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | YES
 
 ## Field Requirements
 
@@ -43,11 +43,12 @@ Different change types have different meanings.
 
 ### Graph Retrieval, Ordering and Reading
 Each Graph Change event represents a state transition for the graph.
-The state of the graph at any time is given by taking the state of the graph at a previous time and applying all Graph Change events not previously applied in the order specified above.
+The state of the graph at any time is given by taking the state of the graph at a previous time and applying all Graph Change events not previously applied in the order specified by [Announcement Ordering](../Announcements.md#ordering-announcements).
+
 Once those Graph Change events are retrieved, they can be ordered to reflect the current graph state
-(i.e. Charlie has followed Bob, then he unfollowed him, and then followed him again. The graph state reflects that Charlie is following Bob).
+(i.e. Charlie has followed Bob, then he unfollowed him, and then followed him again. The graph state reflects that Charlie is following Bob.)
 
 To retrieve the graph, do the following:
-1. Retrieve the events with [announcementType](../Announcements.md#announcement-types) matching the enum for "Graph Change"
+1. Retrieve the events with [announcementType](../Announcements.md#announcement-types) matching the enum for Graph Change.
 1. Filter the events to a particular DSNP User Id to retrieve information about the respective graph.
 1. Order the retrieved data by [Announcement Ordering](../Announcements.md#ordering-announcements).

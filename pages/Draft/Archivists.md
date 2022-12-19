@@ -8,10 +8,10 @@ The Archivist must be able to access chain data and all DSNP Content.
 
 * Signature validation - proof that author provided a real signature
 * Signature authentication - proof that the From address is the signer, or that signer is a valid delegate  (proof of authorship)
-* There is retrievable content at the URL given in the DSNP message
-* The content hash is valid - that is, the URL serves the claimed data
+* Content authentication - retrievable content is at the URL given in the DSNP message
+* Content Hash authentication - content hash is valid and the URL serves the claimed data
 
-All signatures for the announcement are included in the batch regardless of how the signature was requested (or not)
+All signatures for the announcement are included in the batch regardless of how the signature was/was not requested.
 
 # Archive Storage Format
 
@@ -48,7 +48,7 @@ It is a key-value map consisting of the following fields:
 ### `signatures`
 
 * array
-* all the signatures applied to this message at the time of archival.
+* all signatures applied to this message at the time of archival
 
 ## Batch
 
@@ -60,7 +60,7 @@ It consists of one or more ArchiveEntries.
 | `archives`| a set of ArchiveEntries | map`[ArchiveEntry]`|
 | `batchID` | keccak-256 hash of content stored at URL |  bytes32
 | `blockHeight` | the block number this message was included in | number |
-| `fromAddress`| social identity of batch announcer,i.e. message sender | bytes |
+| `fromAddress`| social identity of batch announcer, i.e. message sender | bytes |
 | `logIndex` | the index within the logs of this message | number |
 | `signature` | announcer's signature | Signature |
 | `transactionIndex` | the index of the transaction this message is associated with | number |
@@ -69,20 +69,20 @@ It consists of one or more ArchiveEntries.
 ### `archives`
 
 The set of ArchiveEntries is a key-value map, with the key
-being the `archiveEntryID`, which is a:
+being the `archiveEntryID`:
 
 * bytes32
-* The keccak-256 hash of all of the Archive Entry fields in a keccak-256 hash with the archiveEntryID field being blank.
+* the keccak-256 hash of all of the Archive Entry fields in a keccak-256 hash with the archiveEntryID field being blank
 
 ### `batchID`
 
 * bytes32
-* the keccak-256 hash of content stored at the URL referenced in this batch.
+* the keccak-256 hash of content stored at the URL referenced in this batch
 
 ### `blockHeight`
 
 * number
-* The block in which this DSNP Message is included.
+* the block in which this DSNP Message is included
 
 ### `fromAddress`
 
@@ -96,23 +96,23 @@ the social identity of the batch announcer, i.e. the message sender.
 ### `signature`
 
 * [Signature](#Signature) (see below)
-* The signature of this batch announcer
+* the signature of this batch announcer
 
 ### `transactionIndex`
 
 * number
-* The transaction index in which this DSNP Message is included
+* the transaction index in which this DSNP Message is included
 
 ### `url`
 
 * string
-* The permanent URL address where this archive is stored.
+* the permanent URL address where this archive is stored
 
 ## Signature
 
 A Signature consists of two fields:
 * `signature` - A [secp256k1](https://en.bitcoin.it/wiki/Secp256k1) signature
-* `result` - Optional, bytes. A result of an operation performed. For example, if a signing entity wished to prove that they had performed some sort of validation or analysis on the message, they would put the result of the analysis in this field. It could be a meaningful number or string, some sort of proof hash, etc.
+* `result` - Optional, bytes - a result of an operation performed. For example, if a signing entity wished to prove that they had performed some sort of validation or analysis on the message, they would put the result of the analysis in this field. It could be a meaningful number or string, some sort of proof hash, etc.
 
 ## Diagram
 
