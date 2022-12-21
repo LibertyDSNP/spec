@@ -160,7 +160,7 @@ interface IIdentityUpgradableFactory {
 ### Beacon Factory Interface
 
 Beacon Proxies will use the beacon's logic address and will be upgraded when the beacon's logic address is changed.
-This is the suggested factory for use on Betanet to remain up to date.
+This is the suggested factory for use to remain up to date.
 
 ```solidity
 /**
@@ -228,8 +228,8 @@ interface IIdentityBeaconFactory {
 
 ### Beacon Interface
 
-A beacon contract follows the same interface as the OpenZeppelin 4 [IBeacon](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.0.0/contracts/proxy/beacon/IBeacon.sol).
-Updating the beacon logic address is left to the implementation of the beacon, however the OpenZeppelin 4 [UpgradeableBeacon](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.0.0/contracts/proxy/beacon/UpgradeableBeacon.sol) is suggested.
+A beacon contract follows the same interface as the OpenZeppelin 4 [`IBeacon`](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.0.0/contracts/proxy/beacon/IBeacon.sol).
+Updating the beacon logic address is left to the implementation of the beacon, however the OpenZeppelin 4 [`UpgradeableBeacon`](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.0.0/contracts/proxy/beacon/UpgradeableBeacon.sol) is suggested.
 
 ```solidity
 /**

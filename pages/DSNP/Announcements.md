@@ -60,12 +60,12 @@ but may be used to indicate ordering other than the network order for Announceme
 ### Announcement Reference Ordering
 
 Some Announcements contain references to other Announcements via the `inReplyTo` field.
-Due to the distributed nature of DSNP, the canonical order can have an Announcement that refers to another announcment appearing later in the network order.
+Due to the distributed nature of DSNP, the canonical order can have an Announcement that refers to another announcement appearing later in the network order.
 For display purposes, these messages should be considered to have occurred after the reference.
 
 ### DSNP v1.0 Announcement Signatures
 
-In DSNP v1.0, Announcements had individual signatures, 
+In DSNP v1.0, Announcements had individual signatures,
 producing Batch Publications that were generic and disconnected from the user.
 Announcements could be submitted to the chain via anyone--not just delegates or users.
 

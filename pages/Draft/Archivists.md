@@ -53,11 +53,11 @@ It is a key-value map consisting of the following fields:
 ## Batch
 
 A _Batch_ is data that is referenced by a Batch Announcement.
-It consists of one or more ArchiveEntries.
+It consists of one or more `ArchiveEntries`.
 
 |field|description|type|
 |---|---|---|
-| `archives`| a set of ArchiveEntries | map`[ArchiveEntry]`|
+| `archives`| a set of `ArchiveEntries` | map`[ArchiveEntry]`|
 | `batchID` | keccak-256 hash of content stored at URL |  bytes32
 | `blockHeight` | the block number this message was included in | number |
 | `fromAddress`| social identity of batch announcer, i.e. message sender | bytes |
@@ -68,11 +68,11 @@ It consists of one or more ArchiveEntries.
 
 ### `archives`
 
-The set of ArchiveEntries is a key-value map, with the key
+The set of `ArchiveEntries` is a key-value map, with the key
 being the `archiveEntryID`:
 
 * bytes32
-* the keccak-256 hash of all of the Archive Entry fields in a keccak-256 hash with the archiveEntryID field being blank
+* the keccak-256 hash of all of the Archive Entry fields in a keccak-256 hash with the `archiveEntryID` field being blank
 
 ### `batchID`
 

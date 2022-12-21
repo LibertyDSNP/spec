@@ -229,7 +229,7 @@ Unlike `IDelegation.isAuthorizedToAnnounce` which supports permission levels and
 
 | Interface | Required |
 |-----------|----------|
-| IDelegation | Required |
+| `IDelegation` | Required |
 | [EIP 165](https://eips.ethereum.org/EIPS/eip-165) | Required |
 | [EIP 897](https://eips.ethereum.org/EIPS/eip-897) | Proxy Contracts Only |
 | [EIP 173](https://eips.ethereum.org/EIPS/eip-173) | Optional |
