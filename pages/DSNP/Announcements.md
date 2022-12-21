@@ -26,7 +26,7 @@ Each Announcement has an enumerated type for use when separating out a stream of
 
 ## Duplicate Handling
 
-Due to the nature of asynchronous communication, Duplicate Announcements may occur.
+Due to the nature of asynchronous communication, duplicate Announcements may occur.
 In the case of duplicates, the first Announcement should be considered the ONLY valid Announcement.
 Additional duplicate Announcements MUST be rejected or ignored.
 
@@ -54,8 +54,7 @@ Implementations typically restrict replay attacks by testing that the chain tran
 ### Announcement Ordering and Activity Content Published Timestamp
 
 Activity Content has a published field that contains a user-generated timestamp.
-User-generated timestamps cannot be validated,
-but may be used to indicate ordering other than the network order for Announcements (which are *not* time dependent.)
+User-generated timestamps cannot be validated, but may be used to indicate ordering other than the network order for Announcements (which are *not* time dependent.)
 
 ### Announcement Reference Ordering
 
@@ -65,9 +64,8 @@ For display purposes, these messages should be considered to have occurred after
 
 ### DSNP v1.0 Announcement Signatures
 
-In DSNP v1.0, Announcements had individual signatures,
-producing Batch Publications that were generic and disconnected from the user.
-Announcements could be submitted to the chain via anyone--not just delegates or users.
+In DSNP v1.0, Announcements had individual signatures, producing Batch Publications that were generic and disconnected from the user.
+Announcements could be submitted to the chain via anyone—not just delegates or users.
 
 In DSNP v1.1, Announcement signatures were removed in favor of the implementation being responsible for the connection between the on-chain signature and the user.
 Implementations require that the transaction that produces a Batch be performed by the user or delegate directly.

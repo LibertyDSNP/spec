@@ -10,7 +10,7 @@ Implementations MUST have publicly discoverable Batch Publications.
 
 ### Validity
 
-Implementations MUST be able to validate  Parquet file contents.
+Implementations MUST be able to validate Parquet file contents.
 Validity MUST be immutable.
 
 ### Historical

@@ -58,7 +58,7 @@ It consists of one or more `ArchiveEntries`.
 |field|description|type|
 |---|---|---|
 | `archives`| a set of `ArchiveEntries` | map`[ArchiveEntry]`|
-| `batchID` | keccak-256 hash of content stored at URL |  bytes32
+| `batchId` | keccak-256 hash of content stored at URL |  bytes32
 | `blockHeight` | the block number this message was included in | number |
 | `fromAddress`| social identity of batch announcer, i.e. message sender | bytes |
 | `logIndex` | the index within the logs of this message | number |
@@ -69,12 +69,12 @@ It consists of one or more `ArchiveEntries`.
 ### `archives`
 
 The set of `ArchiveEntries` is a key-value map, with the key
-being the `archiveEntryID`:
+being the `archiveEntryId`:
 
 * bytes32
-* the keccak-256 hash of all of the Archive Entry fields in a keccak-256 hash with the `archiveEntryID` field being blank
+* the keccak-256 hash of all of the Archive Entry fields in a keccak-256 hash with the `archiveEntryId` field being blank
 
-### `batchID`
+### `batchId`
 
 * bytes32
 * the keccak-256 hash of content stored at the URL referenced in this batch

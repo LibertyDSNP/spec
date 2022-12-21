@@ -3,7 +3,7 @@
 The DSNP Identifiers form the basis for pseudo-anonymous streams of content.
 Graph connections are formed through the DSNP User Id.
 
-## DSNP User ID
+## DSNP User Id
 
 - 64-bit Unsigned Integer
 - MUST be serialized as [decimal](Serializations.md#decimal)

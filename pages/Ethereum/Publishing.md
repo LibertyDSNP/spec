@@ -16,7 +16,7 @@ The event topic for `DSNPBatchPublication` follows the standard Solidity event n
 | ------------- |------------- | ---- | --- |
 | `announcementType` | The single announcement type in the given file | int16 | YES
 | `fileHash` | [keccak-256](https://keccak.team/files/Keccak-submission-3.pdf) hash of the batch file | bytes32 | no
-| `fileUrl` | URL to retrieve the referenced batch file via an [approved Schema](#batch-file-retrieval) | string | no
+| `fileUrl` | URL to retrieve the referenced batch file via an [approved schema](#batch-file-retrieval) | string | no
 
 ## Batch File Retrieval
 
