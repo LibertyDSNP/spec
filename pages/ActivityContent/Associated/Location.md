@@ -11,7 +11,7 @@
 | `latitude` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-latitude) | no | The latitude of the location |  |
 | `longitude` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-longitude) | no | The longitude of the location |  |
 | `radius` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-radius) | no | The area around the given point that comprises the location |  |
-| `units` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-units) | no | The units for `radius` and `altitude` (defaults to meters) | MUST be one of: `cm`, `feet`, `inches`, `km`, `m`, `miles` |
+| `units` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-units) | no | The units for `radius` and `altitude` (defaults to meters) | MUST be one of these: `cm`, `feet`, `inches`, `km`, `m`, `miles` |
 
 ## Warning
 

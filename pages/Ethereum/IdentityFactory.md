@@ -3,13 +3,13 @@
 The least expensive way to create a new identity is through an identity factory.
 Official contracts will provide one or more of these standard interfaces to easily generate an identity with different upgrade paths.
 
-**Remember:** Using a factory or even a proxy is just an optimization and *NOT* required.
+**Remember:** Using a factory or even a proxy is just an optimization and is *NOT* required.
 Any contract that matches the [DSNP Identity](Identity.md) interfaces is valid.
 
 ## Purpose
 
 1. Describe how an Identity Factory can create an identity.
-1. Describe how an Identity Factory can allow someone else to pay for the creation an identity.
+1. Describe how an Identity Factory can allow someone else to pay for the creation of an identity.
 1. Restrict the creation of identities without owner permission.
 
 ## Assumptions
@@ -24,13 +24,13 @@ Here are the interfaces to be a DSNP-compatible identity factory.
 
 ### What is a Proxy Contract?
 
-Proxy contracts are used to limit the gas for deploying many contracts that all have the same logic, but need different state.
-The state is maintained at the "proxy" contract while the logic to alter the state is able to be in one "logic" contract.
+Proxy contracts are used to limit the gas for deploying multiple contracts that all have the same logic, but require different states.
+The state is maintained at the "proxy" contract while the logic to alter the state may exist in a single "logic" contract.
 
 __Remember: A Logic Contract has 100% control over the state of a smart contract.__
 While a logic contract cannot have state that effects the execution of a proxy contract,
 a logic contract's code can be written in such a way that allows for others to take control of a contract.
-Never use logic contracts that you do not trust!
+One should never use logic contracts that they do not trust.
 
 ### What are the different types of Proxy Contracts?
 
@@ -51,13 +51,13 @@ Implementations of upgradable proxies MUST use EIP 1967 style data storage.
 
 ### Logic Contract Constraints
 
-Contracts that are used as the logic for the proxy are not able to use constructors for initialization.
-Proxy contracts however can have constructors and additionally the factory can be used to call methods once the proxy is created.
-Remember that setting up the initial authorization state of a contract MUST be done in a single transaction to prevent others sniping the contract.
+Contracts that are used as the logic for the proxy cannot use constructors for initialization.
+Proxy contracts, however, can have constructors. Additionally the factory can be used to call methods once the proxy is created.
+Remember that setting up the initial authorization state of a contract MUST be done in a single transaction to prevent others from sniping the contract.
 
 ## Factory
 
-An identity factory will give easy methods to allow for the creation of proxy contracts that function as DSNP Identities.
+An identity factory will give easy methods that allow for the creation of proxy contracts that function as DSNP Identities.
 Official implementation contract addresses will be published once deployed.
 
 ### Clone Interface
@@ -160,7 +160,7 @@ interface IIdentityUpgradableFactory {
 ### Beacon Factory Interface
 
 Beacon Proxies will use the beacon's logic address and will be upgraded when the beacon's logic address is changed.
-This is the suggested factory for use on Betanet to remain up to date.
+This is the suggested factory for use to remain up to date.
 
 ```solidity
 /**
@@ -228,8 +228,8 @@ interface IIdentityBeaconFactory {
 
 ### Beacon Interface
 
-A beacon contract follows the same interface as the OpenZeppelin 4 [IBeacon](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.0.0/contracts/proxy/beacon/IBeacon.sol).
-Updating the beacon logic address is left to the implementation of the beacon, but the OpenZeppelin 4 [UpgradeableBeacon](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.0.0/contracts/proxy/beacon/UpgradeableBeacon.sol) is suggested.
+A beacon contract follows the same interface as the OpenZeppelin 4 [`IBeacon`](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.0.0/contracts/proxy/beacon/IBeacon.sol).
+Updating the beacon logic address is left to the implementation of the beacon, however the OpenZeppelin 4 [`UpgradeableBeacon`](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.0.0/contracts/proxy/beacon/UpgradeableBeacon.sol) is suggested.
 
 ```solidity
 /**

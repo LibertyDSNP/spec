@@ -45,10 +45,10 @@ A standard interface is available for use.
 
 | Interface | Required |
 |-----------|----------|
-| [IPublish](#ipublish-interface) | Required |
+| [`IPublish`](#ipublish-interface) | Required |
 | [ERC165](https://eips.ethereum.org/EIPS/eip-165) | Optional |
 
-## IPublish Interface
+## `IPublish` Interface
 
 ```solidity
 interface IPublish {

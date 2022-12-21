@@ -1,7 +1,7 @@
 # Identity Registry
 
-A registry allows for distinct user identifiers and human readable discovery of network members.
-The DSNP User Id Registry is a simple contract that allows switching handles, identity contracts, and chain migration while maintaining all graph connections, public and private.
+A registry allows for distinct user identifiers and human-readable discovery of network members.
+The DSNP User Id Registry is a simple contract that allows switching handles, identity contracts, and chain migration while maintaining all graph connections, both public and private.
 
 ## Purpose
 
@@ -12,40 +12,40 @@ The DSNP User Id Registry is a simple contract that allows switching handles, id
 
 ## Assumptions
 
-* Ids will need to be moved from Betanet to Mainnet.
+* Ids will need to be moved from beta test to Mainnet.
 * Handles are for display and discovery purposes only.
 
 ## Discovery via DSNP Handles
 
 * Contract addresses or numerical ids are not easy to remember.
 * Most networks rely on text based handles for discovery of users on a network.
-* DSNP handles are an easy way to allow easy user lookup.
+* DSNP handles are an easy way to allow user lookup.
 
 ### Handles
 
 * Handles are simple UTF-8 strings.
-* No limitations are placed on length or contents, although different clients may not have support for the full unicode set.
+* No limitations are placed on length or contents, although some clients may not have support for the full unicode set.
 * A user MAY NOT register multiple handles that point to the same DSNP User Id.
 * Handles must be unique.
 
 ### Homograph Attack Mitigation
 
 UTF-8 support for handles opens handle users up to [homograph attacks](https://en.wikipedia.org/wiki/IDN_homograph_attack), not to mention case-sensitivity issues.
-This issue is of ongoing discussion both for the DSNP as well as in for ICANN domain names and other projects working with internationalization support.
+Discussion is ongoing both for the DSNP as well as for ICANN domain names and other projects working with internationalization support.
 
 Because the DSNP User Id is stable, attacks would only be successful in cases where the DSNP User Id were unknown.
 [Punycode](https://en.wikipedia.org/wiki/Punycode) is used by some software to prevent homographs by encoding all non-Latin characters into Latin characters.
-So Punycode does not properly present non-Latin characters which isn't reaching the level of internationalization support desired by the DSNP.
+However, this means Punycode does not properly present non-Latin characters and thus fails to reach the level of internationalization support desired by the DSNP.
 
 #### Current Mitigation Strategies
 
-Clients resolving handles MUST implement a method to detect potential homographs and check both user settings and potentially check the registry for additional potential matching DSNP User Ids.
+Clients resolving handles MUST implement a method to detect potential homographs, check both user settings, and potentially check the registry for additional potential matching DSNP User Ids.
 
 ### EIP 712 Methods, Replay Attacks and Nonces
 
 The Registry supports EIP 712 methods to permit a second party to pay gas costs for address and handle changes.
 Once an EIP 712 transaction is made, anyone may replay that action without further authorization.
-This breaks our security guarantees when the registration owner has made an additional change to either address or handle.
+This breaks the security guarantees of DSNP when the registration owner has made additional changes to either address or handle.
 To mitigate this, the Registry contract MUST store a nonce for every registration.
 When it receives an EIP 712 transaction, it MUST check that the nonce parameter matches the stored nonce, and it MUST increment the stored nonce if the transaction succeeds.
 
@@ -53,8 +53,8 @@ If a handle is changed, the registry MUST preserve the stored nonce for the old 
 
 ## DSNP User Ids
 
-Ethereum contract addresses are currently 160 bit values which is much larger than needed for unique identification.
-Identification can be reduced to just 64 bit identifiers with the registry and enable contract changing.
+Ethereum contract addresses are currently 160-bit values which are much larger than needed for unique identification.
+Identification can be reduced to 64-bit identifiers with the registry and enable contract changing.
 
 **Remember:** Only DSNP User Ids are safe for long term data connections.
 
@@ -73,18 +73,18 @@ the other resolutions require using contract log events.
 
 ### Current Handle -> Nonce
 
-The `IRegistry.resolveHandleToNonce` method is the only method for discovery of the next nonce to use.
+`IRegistry.resolveHandleToNonce` is the only method for discovery of the next nonce to use.
 
 ### Other Lookups & Historical Values
 
 The `DSNPRegistryUpdate` event is provided to resolve DSNP User Ids, handles, and contract addresses.
-The DSNP User Id and contract address are indexed in the event so use a log search using the event and the search data as topics.
+The DSNP User Id and contract address are indexed in the event, and thus utilize a log search using the event and the search data as topics.
 
-A search by contract address may produce more than one result meaning that the contract address is currently or previously attached to other DSNP User Ids.
+A search by contract address may produce more than one result--meaning that the contract address is currently or previously attached to other DSNP User Ids.
 To test for the current value, the query would need to be run again with each of the resulting DSNP User Ids retrieving the most recent `DSNPRegistryUpdate` event.
 
 A search by DSNP User Id will retrieve the history of all handles and contract addresses that have been connected to that DSNP User Id.
-The most recent event (the one with the highest block number), will give the current handle and contract address for the given DSNP User Id.
+The most recent event (the one with the highest block number) will give the current handle and contract address for the given DSNP User Id.
 
 Handles may be reused if a DSNP User Id changes to a new handle.
 While time consuming, discovering previous owners of a given handle requires locally filtering all `DSNPRegistryUpdate` events for events with the given handle.
@@ -102,10 +102,10 @@ DSNP support for the NFT standard [EIP 721](https://eips.ethereum.org/EIPS/eip-7
 ## Rejected Alternatives
 
 * Why not the Ethereum Name Service ([ENS](https://ens.domains/))?
-  * Overly complex and expensive for the simple use case of handles
-  * Support can be added later through custom ENS resolution
-  * Didn't provide a numerical id for efficient graph storage
-  * Still subject to homograph attacks
+  * Overly complex and expensive for the simple use case of handles.
+  * Support can be added later through custom ENS resolution.
+  * Doesn't provide a numerical id for efficient graph storage.
+  * Still subject to homograph attacks.
 
 ## Contract Interface
 

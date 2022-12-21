@@ -1,18 +1,18 @@
 # Activity Content Specification
 __Version 1.1.0__
 
-Content references shared via the DSNP consists of URLs pointing to documents containing Activity Streams JSON objects.
+Content references shared via the DSNP consist of URLs pointing to documents containing Activity Streams JSON objects.
 For the purposes of the DSNP, restrictions are placed on the [Activity Streams 2.0](https://www.w3.org/TR/activitystreams-core/) specification.
 
 ## JSON-LD and Activity Streams
 
 All DSNP Activity Content is compatible with the [Activity Streams 2.0](https://www.w3.org/TR/activitystreams-core/) specification.
 While there are some DSNP extensions, they are guaranteed to use non-colliding terms.
-Therefore, we set the JSON-LD `@context` field to `https://www.w3.org/ns/activitystreams` according to [Activity Streams 2.0 §2.1](https://www.w3.org/TR/activitystreams-core/#jsonld).
+Therefore, the JSON-LD `@context` field is set to `https://www.w3.org/ns/activitystreams` according to [Activity Streams 2.0 §2.1](https://www.w3.org/TR/activitystreams-core/#jsonld).
 
 ## Core Activity Content Types
 
-DSNP uses only the following content types at the root level.
+DSNP uses only the following content types at the root level:
 
 | Name | Description | DSNP Announcements |
 | ---- | ----------- | -------------------- |
@@ -30,7 +30,7 @@ DSNP uses only the following content types at the root level.
 
 ## Supported URL Schema
 
-URLs in DSNP-compatible Activity Content MUST to use one of the following URL schemes.
+URLs in DSNP-compatible Activity Content MUST use one of the following URL schemes:
 
 | Scheme | Description | Reference | DSNP Version Added |
 | ------ |------------ | --------- | ------------------ |
@@ -62,5 +62,5 @@ URLs in DSNP-compatible Activity Content MUST to use one of the following URL sc
 
 ## Additional Fields
 
-Implementers may choose to support more of the Activity Streams standard as long as it does not conflict with this specification, but as a warning, other implementations may not recognize those additions.
+Implementers may choose to support more of the Activity Streams standard as long as it does not conflict with this specification, but should note that other implementations may not recognize those additions.
 Implementers who extend their support for Activity Streams objects beyond the subset defined here do so at their own risk.

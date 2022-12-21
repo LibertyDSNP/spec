@@ -2,9 +2,9 @@ name: "Install mdBook with Plugins"
 description: 'Shared action steps to install mdBook with required plugins'
 runs:
   using: "composite"
-  steps: 
+  steps:
     - name: Setup mdBook 📚
-      uses: peaceiris/actions-mdbook@v1
+      uses: peaceiris/actions-mdbook@adeb05db28a0c0004681db83893d56c0388ea9ea
       with:
         mdbook-version: 'latest'
 

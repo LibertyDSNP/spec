@@ -15,7 +15,7 @@ Playing all state transitions in [order](Announcements.md#ordering-announcements
 
 ### Private Graph
 
-Future. See the [DSNP Whitepaper](https://github.com/LibertyDSNP/papers) for foundational ideas.
+Implementation coming in the future. See the [DSNP Whitepaper](https://github.com/LibertyDSNP/papers) for foundational ideas.
 
 ### Following
 

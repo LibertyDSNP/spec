@@ -1,7 +1,7 @@
 # Serializations
 
 Serialization is how the value should be stringified for signing and for transfer between systems.
-Most serializations use outside standards, but some require additional clarifications, provided here.
+Most serializations use outside standards, but some requiring additional clarifications are provided here.
 
 ## decimal
 
@@ -22,7 +22,7 @@ Strings are used to avoid issues with different implementations of numbers.
 
 Used to represent bytes.
 
-- MUST use 0-9,a-f representation
+- MUST use 0-9 and a-f representation
 - MUST be lowercase
 - MUST be prefixed with a `0x`
 - MUST NOT have spaces or separators

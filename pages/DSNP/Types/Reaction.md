@@ -25,7 +25,7 @@ A Reaction Announcement is for publishing emoji reactions to anything with a [DS
 
 #### Examples
 
-All of the following should be considered valid emoji:
+All of the following should be considered valid emojis:
 
 ```
 "😀", "🤌🏼", "👩🏻‍🎤", "🧑🏿‍🏫", "🏳️‍🌈", "🏳️‍⚧️", "⚛︎", "🃑", "♻︎"
@@ -37,8 +37,8 @@ None of the following should be considered valid:
 "F", ":custom-emoji:", "<custom-emoji>", "ᚱ", "ᘐ", "״"
 ```
 ### apply
-- MUST be a UINT_8
-Indicates whether the emoji should be applied and if so, its "strength".
+- MUST be an UINT_8
+- Indicates whether the emoji should be applied and if so, at what "strength".
 
 Potential uses:
 - a single reaction

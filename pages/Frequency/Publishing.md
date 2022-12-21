@@ -1,7 +1,7 @@
 # Announcement Publishing
 
-On Frequency, [Announcements](../DSNP/Announcements.md) are mapped to schemas which in turn publish Frequency Messages.
-Frequency Messages are either direct Graph Changes from a particular user, or a Batch Publication with a multitude of users possible.
+On Frequency, [Announcements](../DSNP/Announcements.md) are mapped to Schemas which in turn publish Frequency Messages.
+Frequency Messages are either direct Graph Changes from a particular user, or a Batch Publication with a multitude of possible users.
 
 <!-- Links to https://libertydsnp.github.io/frequency should be updated with links to docs.frequency.xyz when able to be -->
 
@@ -25,7 +25,7 @@ Each individual announcement is submitted using the [`add_onchain_message`](http
 ## DSNP Batched Announcements
 
 Frequency uses [DSNP Batch Publications](../DSNP/BatchPublications.md) for Announcements that are batched.
-The parquet file is stored on [IPFS](https://ipfs.io/), but it is discovered through the Frequency Message.
+The Parquet file is stored on [IPFS](https://ipfs.io/), but it is discovered through the Frequency Message.
 
 Frequency Messages maintain the metadata of where and when the Batch Publication was published and which Provider MSA published it.
 It is the publisher's responsibility to maintain the [IPFS pin](https://docs.ipfs.tech/concepts/glossary/#pinning) so that the batch file is continuously available.
@@ -34,11 +34,11 @@ DSNP Batch Publications [MUST be validated](./Validation.md) upon fetching to en
 
 ## Ordering
 
-Frequency Messages are well ordered within a Schema
+Frequency Messages are well ordered within a Schema.
 
 1. Frequency: Block number ascending
 2. Frequency: Block index ascending
-3. DSNP Standard: Order Announcements in a Batch Publication File by row appearance order
+3. DSNP Standard: Order Announcements in a Batch Publication File by row appearance order.
 
 ### Ordering Across Schemas
 

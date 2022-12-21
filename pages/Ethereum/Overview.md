@@ -1,7 +1,7 @@
 # Ethereum/EVM Compatible DSNP Implementation
 __Version 1.1.0__
 
-### Deprecation Warning: EVM implementation is deprecated in favor of the [Frequency Implementation](../Frequency/Overview.md)
+### Deprecation Warning: EVM implementation is deprecated in favor of the [Frequency Implementation](../Frequency/Overview.md).
 
 DSNP on Ethereum is designed using smart contracts and log messages.
 Smart contracts are used for identity and delegation.
@@ -20,7 +20,7 @@ Official DSNP interfaces, contracts, and deployment information may be found in 
 <!-- yaspeller ignore:start -->
 | Name | Language(s) |
 | --- | --- |
-| [LibertyDSNP/sdk-ts](https://github.com/LibertyDSNP/sdk-ts) | JavaScript/TypeScript |
+| [`LibertyDSNP/eth-sdk-ts`](https://github.com/LibertyDSNP/eth-sdk-ts) | JavaScript/TypeScript |
 <!-- yaspeller ignore:end -->
 
 <!--- Uncomment for pre-release changes and prefix the version with `pre-[next version]`
