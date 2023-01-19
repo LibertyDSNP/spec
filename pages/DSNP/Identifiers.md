@@ -15,7 +15,7 @@ Graph connections are formed through the DSNP User Id.
 - MUST be a [keccak-256 hash](https://keccak.team/files/Keccak-submission-3.pdf) of the bytes of the content
 - MUST be serialized as [hexadecimal](Serializations.md#hexadecimal)
 
-### DSNP Protocol Scheme
+## DSNP Protocol Scheme
 
 - MUST always be the string `dsnp://`
 
