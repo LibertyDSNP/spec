@@ -25,9 +25,6 @@ All lowercase
 ## Decentralized Social Networking Protocol (DSNP)
 Spelled out fully first time it appears and then acronym thereafter.  Avoid preceding with the word "the" and never follow with the word "protocol".
 
-## delegate
-Used as a verb ONLY i.e. an MSA delegates to a Provider, not as a noun
-
 ## development community
 All lowercase
 
