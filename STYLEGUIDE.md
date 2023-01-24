@@ -82,12 +82,6 @@ Uppercase G and C lowercase e
 ## InterPlanetary File System (IPFS)
 Uppercase I, P, F and S. In the first instance, spell out followed by the acronym in parentheses. Use the acronym only thereafter.
 
-## Message Source Account (MSA)
-Uppercase M, S and A. In the first instance, spell out followed by the acronym in parentheses. Use the acronym only thereafter. Never MSA Account.
-
-## Messages
-Uppercase M
-
 ## MUST/MUST NOT
 All Caps when defining rules for specification
 
