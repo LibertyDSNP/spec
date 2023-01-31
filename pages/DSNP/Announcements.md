@@ -23,6 +23,7 @@ Each Announcement has an enumerated type for use when separating out a stream of
 | 4 | [Reaction](Types/Reaction.md) | a public visual reply to a Broadcast | no | no |
 | 5 | [Profile](Types/Profile.md) | a profile | YES | no |
 | 6 | [Update](Types/Update.md) | an update to content| YES | no |
+| 7 | [Public Key](Types/PublicKey.md) | a public key for secure communication | no | no |
 
 ## Duplicate Handling
 

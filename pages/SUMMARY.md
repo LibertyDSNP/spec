@@ -15,6 +15,7 @@
         - [Reaction](DSNP/Types/Reaction.md)
         - [Profile](DSNP/Types/Profile.md)
         - [Update](DSNP/Types/Update.md)
+        - [Public Key](DSNP/Types/PublicKey.md)
     - [Operations](DSNP/Operations.md)
     - [State Change Records](DSNP/Records.md)
     - [Serializations](DSNP/Serializations.md)
