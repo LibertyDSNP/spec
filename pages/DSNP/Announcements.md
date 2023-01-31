@@ -17,7 +17,6 @@ Each Announcement has an enumerated type for use when separating out a stream of
 | Value | Name | Description | DSNP Content URI | Tombstone Allowed |
 |------ | ---- | ----------- | --------------------- | ----------------- |
 | 0 | [Tombstone](Types/Tombstone.md) | an invalidation of previously announced content | no | no |
-| 1 | [Graph Change](Types/GraphChange.md) | social graph changes | no | no |
 | 2 | [Broadcast](Types/Broadcast.md) | a public post | YES | YES |
 | 3 | [Reply](Types/Reply.md) | a public response to a Broadcast | YES | YES |
 | 4 | [Reaction](Types/Reaction.md) | a public visual reply to a Broadcast | no | no |

@@ -12,7 +12,6 @@
     - [Batch Publications](DSNP/BatchPublications.md)
     - [Announcements](DSNP/Announcements.md)
         - [Tombstone](DSNP/Types/Tombstone.md)
-        - [Graph Change](DSNP/Types/GraphChange.md)
         - [Broadcast](DSNP/Types/Broadcast.md)
         - [Reply](DSNP/Types/Reply.md)
         - [Reaction](DSNP/Types/Reaction.md)

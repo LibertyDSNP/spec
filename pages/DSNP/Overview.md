@@ -37,6 +37,7 @@ A compliant implementation MUST specify a mapping from its implementation-specif
 - [DIP-225](https://github.com/LibertyDSNP/spec/issues/225)
 - [DIP-226](https://github.com/LibertyDSNP/spec/issues/226) 
 - [DIP-227](https://github.com/LibertyDSNP/spec/issues/227)
+- [DIP-228](https://github.com/LibertyDSNP/spec/issues/228)
 
 ## Releases
 
