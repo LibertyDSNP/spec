@@ -3,7 +3,8 @@
     ".git",
     "yaspeller",
     "node_modules",
-    "LICENSE.md"
+    "LICENSE.md",
+    "STYLEGUIDE.md"
   ],
   "format": "markdown",
   "lang": "en",
