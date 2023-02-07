@@ -20,6 +20,7 @@
   "dictionary": [
     "ActivityContent",
     "Alexa",
+    "Avro",  
     "Brötli",
     "CalVer",
     "Changelog",
@@ -28,6 +29,7 @@
     "EIP[s]?",
     "Ethereum",
     "GitHub",
+    "GraphItem",
     "Id",
     "Java",
     "Keccak",
@@ -73,11 +75,13 @@
     "fromId",
     "hashtag",
     "hostnames",
+    "idempotent",
     "implementers",
     "inReplyTo",
     "indexers",
     "internationalization",
     "keccak",
+    "libsodium",
     "localhost",
     "mainnet",
     "mdBook",
@@ -91,6 +95,7 @@
     "pre-[0-9]*",
     "prepended",
     "prosumer",
+    "reapply",
     "regex",
     "repo",
     "roadmap",
@@ -114,7 +119,7 @@
     "url",
     "validator",
     "vanishingly",
-    "versioning",
+    "version(ed|ing)",
     "websocket"
   ]
 }
