@@ -115,6 +115,16 @@ Records consists of one or more fields.
 <td>String</td>
 </tr>
 
+<tr>
+<td rowspan="2"><a id="user-data-replaced">User Data Replaced Record</a></td>
+<td>User Id</td>
+<td><a href="Identifiers.html#dsnp-user-id">DSNP User Id</a></td>
+</tr>
+<tr>
+<td>User Data Types</td>
+<td>Set of <a href="UserData.html#user-data-types">User Data Types</a></td>
+</tr>
+
 </tbody>
 </table>
 </div>

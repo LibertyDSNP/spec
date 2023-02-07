@@ -5,6 +5,7 @@
 - [DSNP](DSNP/Overview.md)
     - [Identity](DSNP/Identity.md)
     - [Identifiers](DSNP/Identifiers.md)
+    - [User Data](DSNP/UserData.md)
     - [Graph](DSNP/Graph.md)
     - [Batch Publications](DSNP/BatchPublications.md)
     - [Announcements](DSNP/Announcements.md)

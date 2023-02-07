@@ -24,7 +24,7 @@ Compliant implementations may respond to error conditions either synchronously, 
 
 ## List of Operations
 
-| Operation | Optional? | Principal(s) | Inputs | State Change Record |
+| Operation | Optional? | Principal(s) | Inputs | State Change Record or Output |
 |---------- |---------- |------------- |------- |-------------- |
 | <a id="create-identifier">Create Identifier</a> | no | None | Control Key, Control Key Ownership Proof | [Identifier Creation Record](Records.md#identifier-creation) |
 | <a id="retire-identifier">Retire Identifier</a> | no | User | None | [Identifier Retirement Record](Records.md#identifier-retirement) |
@@ -34,6 +34,8 @@ Compliant implementations may respond to error conditions either synchronously, 
 | <a id="remove-control-key">Remove Control Key</a> | YES | User | Key | [Control Key Removal Record](Records.md#control-key-removal) |
 | <a id="publish-announcement">Publish Announcement</a> | no* | User OR Delegate | [Announcement](Announcements.md) | [Announcement Published Record](Records.md#announcement-published) |
 | <a id="publish-batch">Publish Batch</a> | no* | User OR Delegate | [Announcement Type](Announcements.md#announcement-types), [Batch Publication](BatchPublications.md) URL, Batch Publication Content Hash | [Batch Published Record](Records.md#batch-published) |
+| <a id="get-user-data">Get User Data</a> | no | Any | User's Identifier, Set of Requested [User Data Types](UserData.md#user-data-types) | Map of [User Data Types](UserData.md#user-data-types) to [Data Chunks](UserData.md#data-chunks) |
+| <a id="replace-user-data">Replace User Data</a> | no | User OR Delegate | User's Identifier, Map of [User Data Types](UserData.md#user-data-types) to [Data Chunks](UserData.md#data-chunks) | [User Data Replaced Record](Records.md#user-data-replaced) |
 
 \* For each Announcement Type, an implementation may support one or both of these operations.
 Implementations MUST document which of the operations is available for each Announcement Type.
