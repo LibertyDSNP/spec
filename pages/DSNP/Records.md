@@ -32,6 +32,12 @@ Records consists of one or more fields.
 </tr>
 
 <tr>
+<td rowspan="1"><a id="identifier-retirement">Identifier Retirement Record</a></td>
+<td>User's Identifier</td>
+<td><a href="Identifiers.html#dsnp-user-id">DSNP User Id</a></td>
+</tr>
+
+<tr>
 <td rowspan="3"><a id="delegation-definition">Delegation Definition Record</a></td>
 <td>User Id</td>
 <td><a href="Identifiers.html#dsnp-user-id">DSNP User Id</a></td>

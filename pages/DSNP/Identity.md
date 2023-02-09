@@ -16,7 +16,7 @@ The [social graph](Graph.md) is formed using this Identifier so that a user's co
 ## Ownership
 
 A user's ownership of their identity is expressed via ownership and control of their pseudo-anonymous Identifier(s).
-Control entails the power to invoke DSNP Operations including publishing announcements that create, update and delete (tombstone) content associated with the Identifier, delegating these powers to others, and managing keys associated with the Identifier.
+Control entails the power to invoke DSNP Operations including publishing [Announcements](Announcements.md) that create, update and delete (Tombstone) content associated with the Identifier, [delegating](#delegation) these powers to others, [managing keys](#key-management) associated with the Identifier, and [retiring](#retirement) the Identifier.
 
 ### Key Management
 
@@ -24,6 +24,15 @@ An initial control key must be created in order to acquire an Identifier.
 Each distinct Identifier MUST have distinct control keys; that is, the same key MUST NOT be linked to multiple Identifiers.
 Optionally, an implementation MAY allow the user to add and remove additional keys.
 An implementation MUST NOT allow the user to remove the only or last remaining control key.
+
+### Retirement
+
+A user may choose to retire their Identifier at any time.
+Once an Identifier is retired, an implementation MAY remove all state data associated with that Identifier, provided that an indication that the Identifier is retired remains, so it may not be reused in the future.
+This means that all data previously sent from the Identifier, the keys associated with the Identifier, and the delegations (see next section) associated with the Identifier may be removed.
+
+After an Identifier is retired, any existing or future [Announcements](Announcements.md) from the Identifier should be treated as if they have been [tombstoned](Types/Tombstone.md) (for Announcement Types that support tombstoning).
+A retired Identifier MUST NOT be allowed to act as a principal for any additional DSNP [Operations](Operations.md).
 
 ### Delegation
 
@@ -35,6 +44,7 @@ An implementation MUST NOT allow the user to remove the only or last remaining c
 ## Related Operations
 
 * [Create Identifier](Operations.md#create-identifier)
+* [Retire Identifier](Operations.md#retire-identifier)
 * [Define Delegation](Operations.md#define-delegation)
 * [Revoke Delegation](Operations.md#revoke-delegation)
 * [Add Control Key](Operations.md#add-control-key)

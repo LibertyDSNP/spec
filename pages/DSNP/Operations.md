@@ -27,6 +27,7 @@ Compliant implementations may respond to error conditions either synchronously, 
 | Operation | Optional? | Principal(s) | Inputs | State Change Record |
 |---------- |---------- |------------- |------- |-------------- |
 | <a id="create-identifier">Create Identifier</a> | no | None | Control Key, Control Key Ownership Proof | [Identifier Creation Record](Records.md#identifier-creation) |
+| <a id="retire-identifier">Retire Identifier</a> | no | User | None | [Identifier Retirement Record](Records.md#identifier-retirement) |
 | <a id="define-delegation">Define Delegation</a> | no | User AND Delegate | User's Identifier, Delegate's Identifier, Set of Allowed [Announcement Types](Announcements.md#announcement-types) | [Delegation Definition Record](Records.md#delegation-definition) |
 | <a id="revoke-delegation">Revoke Delegation</a> | no | User OR Delegate | User's Identifier, Delegate's Identifier | [Delegation Revocation Record](Records.md#delegation-revocation) |
 | <a id="add-control-key">Add Control Key</a> | YES | User | Key, Key Ownership Proof | [Control Key Addition Record](Records.md#control-key-addition) |

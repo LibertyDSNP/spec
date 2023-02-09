@@ -107,7 +107,7 @@
     "testnet",
     "timestamp[s]?",
     "toAddress",
-    "tombstoned",
+    "tombston(ed|ing)",
     "unencrypted",
     "unfollow(s|ed|ing)?",
     "unicode",
