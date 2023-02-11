@@ -2,7 +2,7 @@
 
 DSNP stores user-related data of well defined formats associated with a user's DSNP Identifier.
 Data may be public or stored in encrypted form.
-The [Avro](https://avro.apache.org) specification is used to define the binary representation of relevant data types.
+The [Avro](https://avro.apache.org) schema specification is used to define the binary representation of relevant data types.
 
 ## User Data Types
 
@@ -10,20 +10,21 @@ DSNP implementations MUST support the following user data types:
 
 | System Name | Version | Encryption Algorithm | Compression Codec | Avro Object Type |
 | --- | --- | --- | --- | --- |
-| `publicFollows` | 1.2 | NONE | `zlib` | [GraphItem](#graphitem) |
-| `privateFollows` | 1.2 | `curve25519xsalsa20poly1305` | `zlib` | [GraphItem](#graphitem) |
-| `privateConnections` | 1.2 | `curve25519xsalsa20poly1305` | `zlib` | [GraphItem](#graphitem) |
-| `privateConnectionDeclarations` | 1.2 | NONE | NONE | [Hash256](#hash256) |
+| `publicFollows` | 1.2 | NONE | [`brotli`](https://brotli.org) | [GraphEdge](Graph.md#edges) |
+| `privateFollows` | 1.2 | `curve25519xsalsa20poly1305` |  [`brotli`](https://brotli.org) | [GraphEdge](Graph.md#edges) |
+| `privateConnections` | 1.2 | `curve25519xsalsa20poly1305` | [`brotli`](https://brotli.org) | [GraphEdge](Graph.md#edges) |
+| `privateConnectionPRIds` | 1.2 | NONE | NONE | [PRId](Graph.md#pseudonymous-relationship-identifiers) |
 
-Data for each data type is formatted as a stream of Avro objects that should conform to the schema specified.
+Data for each data type is initially formatted as a stream of Avro objects that should conform to the schema specified.
 Avro file- and block-level information (including in-stream schema) is omitted.
+The Avro stream is then compressed (or not) and encrypted (or not) as specified.
+
+`curve25519xsalsa20poly1305` (that is, x25519 key exchange, xsalsa20 encryption, and poly1305 message authentication) is the default authenticated encryption algorithm used in the [NaCl](https://nacl.cr.yp.to) ("Salt") library, and its successor [libsodium](https://libsodium.org). In the specification of cryptographic operations below, relevant methods from these libraries are noted. While these specific implementations are not required for DSNP compatibility, they are highly recommended.
 
 ## Data Chunks
 
 Because blockchain systems often have specific limits to the amount of data that can be included in a given transaction, operations on user data deal with the data in discrete chunks.
 As implementation strategies may vary, implementations MUST define their own maximum chunk size in bytes to be used in the operations described below.
-
-After chunking, data type-specific compression is then applied, and finally, if the data type should be encrypted, the data is encrypted using the authenticated encryption algorithm specified.
 
 ## Entity Tags
 
@@ -54,7 +55,7 @@ Data chunks should be generated for each included data type using the following 
     If no key exists, one should be created and published as an Announcement before invoking the Operation.
     * Create a sealed box, as in the [libsodium](https://doc.libsodium.org/public-key_cryptography/sealed_boxes) function `crypto_box_seal`, using U<sub>public</sub>.
   * Include the previous `etag` value for the chunk. If the chunk is new, `etag` should be `null`.
-  If any chunks should be deleted, they should be included in the input as a chunk object with the existing `etag` and a `null` value for the data field.
+  If any chunks are to be deleted, they should be included in the input as a chunk object with the existing `etag` and a `null` value for the data field.
 
 If the Operation is invoked successfully it MUST (synchronously) return a new set of `etag` values for each data type replaced, corresponding to the updated state of the data.
 Applications should not interpret this response as an indication that the operation was completed and a state change record emitted, as this typically occurs asynchronously.
@@ -82,49 +83,3 @@ To transform the public data from the output to Avro binary records, a consumer 
   * If compression is required, uncompress the chunk data using the specified codec.
   * Append the chunk to the list of records for the data type.
   * Retain the chunk's `etag` value if needed for any updates.
-
-## Schemas
-
-User data types make use of the following Avro schema definitions.
-
-### GraphItem
-
-A GraphItem is a representation of a relationship from the controlling user to another DSNP user.
-
-Each graph item record consists of the following data:
-* DSNP User Id (64-bit unsigned integer)
-  * To allow for optimal compression, User Ids are stored using the `long` type in the Avro schema, which is a 64-bit _signed_ integer. Care should be taken to ensure that User Id values greater than or equal to 2<sup>63</sup>, where used by an implementation, are converted correctly between signed and unsigned representations.
-* Timestamp when relationship was created (64-bit milliseconds since the [Unix epoch](https://en.wikipedia.org/wiki/Unix_time))
-
-```
-{
-    "namespace": "org.dsnp.userdata",
-    "name": "GraphItem",
-    "type": "record", 
-    "fields": [
-        {
-            "name": "userId",
-            "type": "long",
-            "doc": "DSNP User Id of object of relationship"
-        },
-        {
-            "name": "since",
-            "type": "long",
-            "doc": "Time when this relationship was originally established"
-        }
-    ]
-}
-```
-
-### Hash256
-
-Hash256 is a datatype used to store the output of a 256-bit hash function.
-
-```
-{
-    "namespace": "org.dsnp.userdata",
-    "name": "Hash256",
-    "type": "fixed",
-    "size": 32
-}
-```
