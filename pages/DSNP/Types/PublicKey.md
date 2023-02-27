@@ -20,7 +20,7 @@ Any data previously generated through use of the key that is after such a backda
 | keyType | Key Type Enum | enum | [decimal](../Serializations.md#decimal)  |`INT32` | YES |
 | keyId | user-assigned identifier | 64 bit unsigned integer | [decimal](../Serializations.md#decimal)  |`UINT_64` | no |
 | publicKey | public key in multikey format | UTF-8 | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | no
-| revokedAsOf | revocation time in Unix epoch milliseconds, or `null` if not revoked  | 64 bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | no |
+| revokedAsOf | revocation time in Unix epoch seconds, or `null` if not revoked  | 64 bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | no |
 
 ## Field Requirements
 
@@ -63,4 +63,4 @@ For example, the string `z6LStiZsmxiK4odS4Sb6JmdRFuJ6e1SYP157gtiCyJKfrYha` decod
 
 - MUST be one of the following:
   - the `null` value, indicating that the key has not been revoked, or
-  - a timestamp in milliseconds since the Unix epoch, i.e. `'1970-01-01T00:00:00Z'`.
+  - a timestamp in seconds since the [Unix epoch](https://en.wikipedia.org/wiki/Unix_time).
