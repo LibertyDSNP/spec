@@ -2,7 +2,7 @@
 
 A Public Key Announcement is a way to note a new or updated cryptographic key that can be used in DSNP to secure and verify the authenticity of communications.
 
-A Public Key Announcement should be treated as updating an existing key if the `fromId`, `keyType`, and `publicKey` fields of the new  announcement match those of a previous announcement.
+A Public Key Announcement should be treated as updating an existing key if the `fromId`, `keyType`, `keyId` and `publicKey` fields of the new  announcement match those of a previous announcement.
 This may be used to announce that a particular key has been revoked or is no longer in use.
 
 The most recently published unrevoked key (if one exists) for a given key type should be treated as the active key of that key type.
@@ -16,8 +16,9 @@ Any data previously generated through use of the key that is after such a backda
 | Field | Description | Data Type | Serialization | Parquet Type | Bloom Filter |
 | ----- | ----------- | --------- | ------------- | ------------ | ------------ |
 | announcementType | Announcement Type Enum (`7`) | enum | [decimal](../Serializations.md#decimal) | `INT32` | no |
-| fromId | id of the user creating the announcement | 64 bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | YES
-| keyType | Key Type Enum | enum | [decimal](../Serializations.md#decimal)  |`INT32` | YES
+| fromId | id of the user creating the announcement | 64 bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | YES |
+| keyType | Key Type Enum | enum | [decimal](../Serializations.md#decimal)  |`INT32` | YES |
+| keyId | user-assigned identifier | 64 bit unsigned integer | [decimal](../Serializations.md#decimal)  |`UINT_64` | no |
 | publicKey | public key in multikey format | UTF-8 | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | no
 | revokedAsOf | revocation time in Unix epoch milliseconds, or `null` if not revoked  | 64 bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | no |
 
@@ -40,6 +41,14 @@ Any data previously generated through use of the key that is after such a backda
 | Value | Name | Allowed Algorithms ([multicodec](https://github.com/multiformats/multicodec/blob/master/table.csv)) | Purpose |
 | --- | --- | --- | --- |
 | 1 | `keyAgreement` | `x25519-pub` | A Curve25519 public key that can be used in key exchange protocols to generate a shared secret |
+
+### keyId
+
+- A user-assigned 64-bit identifier for the key.
+
+The user may assign a new `keyId` each time they announce a new key of a given `keyType`.
+A `keyId` value is useful when invoking certain DSNP Operations in order to indicate which key was used to encrypt data.
+It may also provide a hint to the user if they ever need to regenerate their private key (for example, many key derivation functions enable the use of a subkey identifier).
 
 ### publicKey
 
