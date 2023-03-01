@@ -1,13 +1,19 @@
 # Operations
 ## Method of execution
-Since DSNP Operations change state, DSNP operations are executed on Frequency via on-chain transactions, also known as extrinsic calls.
+DSNP operations are executed on Frequency via on-chain transactions, also known as extrinsic calls.
 An extrinsic is a type of function defined in a Substrate Pallet.  A Pallet is a Substrate runtime module and also a Cargo crate.
 
-### msa pallet
+State
+
+### MSA Pallet
 Responsible for DSNP Identity operations and Delegation management
 
-### messages pallet
+### Messages Pallet
 Responsible for DSNP Announcement operations.
+
+### Documentation Links
+- [Frequency Documentation](https://docs.frequency.xyz)
+- [Frequency Rust Documentation](https://libertydsnp.github.io/frequency)
 
 ## List of Operations
 

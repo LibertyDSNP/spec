@@ -6,7 +6,7 @@ Frequency is a Polkadot Parachain written in Rust, using the Substrate framework
 - [Rust-lang.org](https://www.rust-lang.org/)
 - [Getting Started - Polkadot Wiki](https://wiki.polkadot.network/docs/getting-started)
 - [Parachains - Polkadot Wiki](https://wiki.polkadot.network/docs/learn-parachains)
-- [Substrate Rustdocs](https://paritytech.github.io/substrate/master/sc_service/index.html)
+- [Substrate Rust Docs](https://paritytech.github.io/substrate/master/sc_service/index.html)
 - [Frequency Documentation](https://libertydsnp.github.io/frequency/)
 - [Frequency GitHub](https://github.com/LibertyDSNP/frequency)
 
