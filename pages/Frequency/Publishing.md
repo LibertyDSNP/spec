@@ -17,33 +17,26 @@ Frequency Messages are either direct Graph Changes from a particular user, or a 
 
 Source code for each schema is also located in the [LibertyDSNP/schemas](https://github.com/LibertyDSNP/schemas) repository.
 
-## DSNP Non-Batched Announcements
+## Batch Publications
 
-Frequency uses an on-chain data structure for storage of `GraphChange` Announcements.
-Each individual announcement is submitted using the [`add_onchain_message`](https://libertydsnp.github.io/frequency/pallet_messages/pallet/enum.Call.html#variant.add_onchain_message) extrinsic.
-
-## DSNP Batched Announcements
-
-Frequency uses [DSNP Batch Publications](../DSNP/BatchPublications.md) for Announcements that are batched.
-The Parquet file is stored on [IPFS](https://ipfs.io/), but it is discovered through the Frequency Message.
-
-Frequency Messages maintain the metadata of where and when the Batch Publication was published and which Provider MSA published it.
-It is the publisher's responsibility to maintain the [IPFS pin](https://docs.ipfs.tech/concepts/glossary/#pinning) so that the batch file is continuously available.
+Frequency uses [DSNP Batch Publications](../DSNP/BatchPublications.md) for some types of Announcements.
+The Parquet file is stored on [IPFS](https://ipfs.io/), but it is discovered through a Frequency Message.
 
 DSNP Batch Publications [MUST be validated](./Validation.md) upon fetching to ensure data and permission integrity.
 
-## Ordering
+## Announcement Validation
 
-Frequency Messages are well ordered within a Schema.
+DSNP Announcements are validated differently depending on the type of Announcement.
+Non-batched Announcements (e.g. Graph) are on chain, are validated at write time, and do not need to be re-validated at read time.
+Batched Announcements are off chain and MUST be validated at read time (See: [Validation](./Validation.md)).
+
+## Ordering Announcements
+
+Frequency Messages are well ordered:
 
 1. Frequency: Block number ascending
-2. Frequency: Block index ascending
+2. Frequency: Block index ascending (unique)
 3. DSNP Standard: Order Announcements in a Batch Publication File by row appearance order.
-
-### Ordering Across Schemas
-
-Frequency provides complete ordering metadata for Messages across Schemas.
-Block index is unique per Message within the same block.
 
 ### Human Order
 
@@ -51,12 +44,11 @@ Due to the asynchronous nature of networks and batching, it is possible that the
 With dependent Announcements, where one Announcement refers to another Announcement, the order may be inferred differently than the canonical ordering.
 It is left to user interfaces to handle these situations.
 
-
 ## Retrieval
 
-Frequency nodes provide an RPC interface [`get_messages_by_schema`](https://libertydsnp.github.io/frequency/pallet_messages_rpc/trait.MessagesApiClient.html#method.get_messages_by_schema) with paginated responses that differ based on the Schema.
+Frequency nodes provide an RPC interface [`pallet_messages.get_messages_by_schema()`](https://libertydsnp.github.io/frequency/pallet_messages_rpc/trait.MessagesApiClient.html#method.get_messages_by_schema) with paginated responses that differ based on the Schema.
 
 Frequency nodes can provide a websocket interface that will emit an event for each block that has one or more messages of a given schema in that block.
-The [`MessagesStored`](https://libertydsnp.github.io/frequency/pallet_messages/pallet/enum.Event.html#variant.MessagesStored) event can be used to know when to call the RPC interface to retrieve the messages.
+The [`pallet_messages::MessagesStored`](https://libertydsnp.github.io/frequency/pallet_messages/pallet/enum.Event.html#variant.MessagesStored) event can be used to know when to call the RPC interface to retrieve the messages.
 
 See the [Frequency Documentation](https://libertydsnp.github.io/frequency/pallet_messages_rpc/trait.MessagesApiClient.html#method.get_messages_by_schema) for more details on Message retrieval.
