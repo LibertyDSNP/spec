@@ -4,16 +4,16 @@
 - **Name**: Message Source Account or MSA
 - **Representation**:
 The following data that constitute a Message Source Account are stored in the MSA pallet:
-  * The DSNP Id associated with this MSA
+  * The DSNP User Id associated with this MSA
   * Delegation relationships to Providers
   * Schema permissions granted to Providers
   * MSA user state (Profile, Graph, etc...)
   * [Control keys](#control-keys)
 
-## DSNP Identifier
+## DSNP User Identifier
 - **Name**: Message Source Account Identifier, or MSA Id.
 - **Data Type**: `uint64`
-- **Mapping**: The MSA Id is able to be used directly as the DSNP Id
+- **Mapping**: The MSA Id is able to be used directly as the DSNP User Id
 - **Description**:
 At least one public key MUST be associated with an MSA Id for it to be considered active.
 
