@@ -5,21 +5,18 @@ Frequency uses a combination of on chain data to store and Events to notify for 
 
 ## Frequency Transaction Identifier
 
-Frequency uses the hash of the [Operation](Operations.md) transaction to then request a node report the transaction status and any Events related to the that hash.
+Frequency uses the hash of the [Operation](Operations.md) transaction to then request a node report the transaction status and any Events related to that hash.
 (Client libraries usually have this built in.)
 
 ## Frequency Records
 
-Frequency produces three types of Records.
-- Events
-- Messages
-- State
+Frequency produces three types of data that map or point to DSNP Records.
 
 ### Events
 
 Events are generated on each block and may contain a pointer to the Record data instead of the entire Record.
 
-Events are reference by `pallet::EventName`.
+Events are referenced by `pallet::EventName`.
 
 ### Messages
 
@@ -31,7 +28,7 @@ Messages are retrieved via state queries (`pallet.stateQuery`) or RPC calls (`pa
 ### State
 
 Frequency State stores data associated with an [Identity](Identity.md).
-It can also be used to lookup the state of prior Records related to an Identity.
+It can also be used to look up the state of prior Records related to an Identity.
 
 State data is retrieved via state queries (`pallet.stateQuery`) or RPC calls (`pallet.rpc_call()`).
 

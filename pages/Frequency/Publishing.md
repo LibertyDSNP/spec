@@ -20,7 +20,7 @@ Source code for each schema is also located in the [LibertyDSNP/schemas](https:/
 ## Batch Publications
 
 Frequency uses [DSNP Batch Publications](../DSNP/BatchPublications.md) for some types of Announcements.
-The Parquet file is stored on [IPFS](https://ipfs.io/), but it is discovered through a Frequency Message.
+Parquet files are stored on [IPFS](https://ipfs.io/), but are discovered through Frequency Messages.
 
 DSNP Batch Publications [MUST be validated](./Validation.md) upon fetching to ensure data and permission integrity.
 

@@ -20,8 +20,9 @@ The [Frequency Message](https://libertydsnp.github.io/frequency/common_primitive
 ## Publication Announcements Validation
 
 1. Collect the unique set of `fromId` values.
-1. Use the [Custom RPC `msa_checkDelegations`](https://libertydsnp.github.io/frequency/pallet_msa_rpc/trait.MsaApiClient.html#method.check_delegations) with the `fromId` values as the `delegator_msa_ids` and the `provider_msa_id` at the `block_number`.
-1. The `fromId` values that `msa_checkDelegations` verifies as having a delegation at `block_number` are valid Announcements.
+1. Use the [Custom RPC `pallet_msa.check_delegations()`](https://libertydsnp.github.io/frequency/pallet_msa_rpc/trait.MsaApiClient.html#method.check_delegations) with the `fromId` values as the `delegator_msa_ids` and the `provider_msa_id` at the `block_number`.
+1. The `fromId` values that `pallet_msa.check_delegations()` verifies as having a delegation at `block_number` are valid Announcements.
+1. Set the `schema_id` parameter to the Schema Id used in the Frequency Message
 
 ## Announcement Duplicates
 
