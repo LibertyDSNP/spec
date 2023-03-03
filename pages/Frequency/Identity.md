@@ -27,8 +27,8 @@ A public key CANNOT be associated with more than one MSA at a time.
 - **Name**: `delegation`
 - **Representation**:
   The following data storage relates necessary information for retrieving and validating delegations:
-    * Provider registry (`pallet_msa`)
-    * Delegations (`pallet_msa`)
+    * Provider registry (`msa`)
+    * Delegations (`msa`)
     * Schema permissions granted to Providers
 
 ### User
@@ -39,7 +39,7 @@ A public key CANNOT be associated with more than one MSA at a time.
 - **Name**: Provider
 - **Representation**: MSA Id
 - **Description**:
-A Provider MUST already have an MSA Id (via `pallet_msa::create`) and be approved as a Provider (via `pallet_msa::propose_to_be_provider`).
+A Provider MUST already have an MSA Id (via `msa::create`) and be approved as a Provider (via `msa::propose_to_be_provider`).
 
 ## Related Operations
 * [Create Identifier](Operations.md#create-identifier)

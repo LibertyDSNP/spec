@@ -46,9 +46,9 @@ It is left to user interfaces to handle these situations.
 
 ## Retrieval
 
-Frequency nodes provide an RPC interface [`pallet_messages.get_messages_by_schema()`](https://libertydsnp.github.io/frequency/pallet_messages_rpc/trait.MessagesApiClient.html#method.get_messages_by_schema) with paginated responses that differ based on the Schema.
+Frequency nodes provide an RPC interface [`messages.get_messages_by_schema()`](https://libertydsnp.github.io/frequency/pallet_messages_rpc/trait.MessagesApiClient.html#method.get_messages_by_schema) with paginated responses that differ based on the Schema.
 
 Frequency nodes can provide a websocket interface that will emit an event for each block that has one or more messages of a given schema in that block.
-The [`pallet_messages::MessagesStored`](https://libertydsnp.github.io/frequency/pallet_messages/pallet/enum.Event.html#variant.MessagesStored) event can be used to know when to call the RPC interface to retrieve the messages.
+The [`messages::MessagesStored`](https://libertydsnp.github.io/frequency/pallet_messages/pallet/enum.Event.html#variant.MessagesStored) event can be used to know when to call the RPC interface to retrieve the messages.
 
 See the [Frequency Documentation](https://libertydsnp.github.io/frequency/pallet_messages_rpc/trait.MessagesApiClient.html#method.get_messages_by_schema) for more details on Message retrieval.

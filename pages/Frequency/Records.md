@@ -30,18 +30,18 @@ Messages are retrieved via state queries (`pallet.stateQuery`) or RPC calls (`pa
 Frequency State stores data associated with an [Identity](Identity.md).
 It can also be used to look up the state of prior Records related to an Identity.
 
-State data is retrieved via state queries (`pallet.stateQuery`) or RPC calls (`pallet.rpc_call()`).
+State data is retrieved via state queries (`pallet.stateQuery`) or RPC calls (`pallet.rpcCall()`).
 
 ## Record Mappings
 
 | Record Type | Record Pointer/Location |
 | --- | --- |
-| <a id="identifier-creation">Identifier Creation Record</a> | Event: `pallet_msa::MsaCreated`<br/>State: `pallet_msa.publicKeyToMsaId` |
-| <a id="identifier-retirement">Identifier Retirement Record</a> | Event: `pallet_msa::MsaMsaRetired` |
-| <a id="delegation-definition">Delegation Definition Record</a> | Event: `pallet_msa::DelegationGranted`, `pallet_msa::DelegationUpdated`<br />RPC: `pallet_msa.check_delegations()`, `pallet_msa.get_granted_schemas_by_msa_id()` |
-| <a id="delegation-revocation">Delegation Revocation Record</a> | Event: `pallet_msa::DelegationRevoked`<br />RPC: `pallet_msa.check_delegations()` |
-| <a id="control-key-addition">Control Key Addition Record</a> | Event: `pallet_msa::PublicKeyAdded`<br />State: `pallet_msa.publicKeyToMsaId` |
-| <a id="control-key-removal">Control Key Removal Record</a> | Event: `pallet_msa::PublicKeyDeleted`<br />State: `pallet_msa.publicKeyToMsaId` |
-| <a id="announcement-published">Announcement Published Record</a> | Event: `pallet_messages::MessagesStored`<br />RPC: `pallet_messages.get_messages_by_schema_id()` |
-| <a id="batch-published">Batch Published Record</a> | Event: `pallet_messages::MessagesStored`<br />RPC: `pallet_messages.get_messages_by_schema_id()` |
+| <a id="identifier-creation">Identifier Creation Record</a> | Event: `msa::MsaCreated`<br/>State: `msa.publicKeyToMsaId` |
+| <a id="identifier-retirement">Identifier Retirement Record</a> | Event: `msa::MsaMsaRetired` |
+| <a id="delegation-definition">Delegation Definition Record</a> | Event: `msa::DelegationGranted`, `msa::DelegationUpdated`<br />RPC: `msa.checkDelegations()`, `msa.getGrantedSchemasByMsaId()` |
+| <a id="delegation-revocation">Delegation Revocation Record</a> | Event: `msa::DelegationRevoked`<br />RPC: `msa.checkDelegations()` |
+| <a id="control-key-addition">Control Key Addition Record</a> | Event: `msa::PublicKeyAdded`<br />State: `msa.publicKeyToMsaId` |
+| <a id="control-key-removal">Control Key Removal Record</a> | Event: `msa::PublicKeyDeleted`<br />State: `msa.publicKeyToMsaId` |
+| <a id="announcement-published">Announcement Published Record</a> | Event: `messages::MessagesStored`<br />RPC: `messages.getBySchemaId()` |
+| <a id="batch-published">Batch Published Record</a> | Event: `messages::MessagesStored`<br />RPC: `messages.getBySchemaId()` |
 | <a id="failure">Failure Record</a> | Transaction hash will not appear in block |
