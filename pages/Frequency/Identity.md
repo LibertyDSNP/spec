@@ -27,8 +27,8 @@ A public key CANNOT be associated with more than one MSA at a time.
 - **Name**: `delegation`
 - **Representation**:
   The following data storage relates necessary information for retrieving and validating delegations:
-    * Provider registry (`msa`)
-    * Delegations (`msa`)
+    * Provider registry
+    * Delegations
     * Schema permissions granted to Providers
 
 ### User

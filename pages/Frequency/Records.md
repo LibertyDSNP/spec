@@ -37,7 +37,7 @@ State data is retrieved via state queries (`pallet.stateQuery`) or RPC calls (`p
 | Record Type | Record Pointer/Location |
 | --- | --- |
 | <a id="identifier-creation">Identifier Creation Record</a> | Event: `msa::MsaCreated`<br/>State: `msa.publicKeyToMsaId` |
-| <a id="identifier-retirement">Identifier Retirement Record</a> | Event: `msa::MsaMsaRetired` |
+| <a id="identifier-retirement">Identifier Retirement Record</a> | Event: `msa::MsaRetired` |
 | <a id="delegation-definition">Delegation Definition Record</a> | Event: `msa::DelegationGranted`, `msa::DelegationUpdated`<br />RPC: `msa.checkDelegations()`, `msa.getGrantedSchemasByMsaId()` |
 | <a id="delegation-revocation">Delegation Revocation Record</a> | Event: `msa::DelegationRevoked`<br />RPC: `msa.checkDelegations()` |
 | <a id="control-key-addition">Control Key Addition Record</a> | Event: `msa::PublicKeyAdded`<br />State: `msa.publicKeyToMsaId` |
