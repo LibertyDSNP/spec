@@ -15,9 +15,9 @@ Graph edges that originate from a user are stored as DSNP [User Data](UserData.m
 
 Each graph edge consists of the following data:
 * DSNP User Id (64-bit unsigned integer)
-  * To allow for optimal compression, User Ids are stored using the `long` type in Avro schema, which is a 64-bit _signed_ integer.
-    Care should be taken to ensure that User Id values greater than or equal to 2<sup>63</sup>, where used by an implementation, are converted correctly between signed and unsigned representations.
-* Timestamp when relationship was created, in seconds since the [Unix epoch](https://en.wikipedia.org/wiki/Unix_time))
+  * <mark>To allow for optimal compression, User Ids are stored using the <tt>long</tt> type in Avro schema, which is a 64-bit _signed_ integer.
+    Care should be taken to ensure that User Id values greater than or equal to 2<sup>63</sup>, where used by an implementation, are converted correctly between signed and unsigned representations.</mark>
+* Timestamp when relationship was created, in seconds since the [Unix epoch](https://en.wikipedia.org/wiki/Unix_time)
 
 GraphEdge objects MUST conform to the following [Avro](https://avro.apache.org) schema:
 

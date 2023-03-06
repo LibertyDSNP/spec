@@ -38,7 +38,7 @@ Records consists of one or more fields.
 </tr>
 
 <tr>
-<td rowspan="3"><a id="delegation-definition">Delegation Definition Record</a></td>
+<td rowspan="4"><a id="delegation-definition">Delegation Definition Record</a></td>
 <td>User Id</td>
 <td><a href="Identifiers.html#dsnp-user-id">DSNP User Id</a></td>
 </tr>
@@ -49,6 +49,10 @@ Records consists of one or more fields.
 <tr>
 <td>Allowed Announcement Types</td>
 <td>List of <a href="Announcements.html#announcement-types">enum values</a></td>
+</tr>
+<tr>
+<td>Allowed User Data Types</td>
+<td>List of <a href="UserData.html">enum values</a></td>
 </tr>
 
 <tr>
