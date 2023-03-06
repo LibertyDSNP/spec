@@ -43,7 +43,7 @@ A public key CANNOT be associated with more than one MSA at a time.
 - **Name**: Provider
 - **Representation**: MSA Id
 - **Description**:
-A Provider MUST already have an MSA Id (via `msa::create`) and be approved as a Provider (via `msa::propose_to_be_provider`).
+A Provider MUST already have an MSA Id (via `msa::create()`) and be approved as a Provider (via `msa::propose_to_be_provider()`).
 
 ## Related Operations
 * [Create Identifier](Operations.md#create-identifier)
