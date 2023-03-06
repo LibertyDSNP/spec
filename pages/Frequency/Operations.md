@@ -17,6 +17,16 @@ Responsible for managing the data structures for DSNP Announcements.
 - [Frequency Documentation](https://docs.frequency.xyz)
 - [Frequency Rust Documentation](https://libertydsnp.github.io/frequency)
 
+## Principals
+
+Every Frequency transaction for DSNP is accompanied by an Schnorrkel/Ristretto x25519 ("sr25519") derived cryptographic signature and associated public key.
+When the transaction occurs, the signature is validated and the [MSA Id](./Identity.md#identity) is retrieved.
+
+| DSNP Term | Frequency Term |
+| --- | --- |
+| User | [User / Delegator](./Identity.md#user) |
+| Delegate | [Provider](./Identity.md#delegate) |
+
 ## List of Operations
 
 | Operation                                             | Principal(s)      | Pallet::Extrinsic                                                                      | State Change Record                                                     |
