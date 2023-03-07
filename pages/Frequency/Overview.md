@@ -1,38 +1,29 @@
-# Frequency DSNP Implementation (Pre-Release)
-__Version pre-1.0.0__
+# Frequency DSNP Implementation
 
-_Final release is pending release of [Frequency v1.0.0](https://github.com/LibertyDSNP/frequency)_
+## Language and Framework
+Frequency is a Polkadot Parachain written in Rust, using the Substrate framework.
 
-DSNP on Frequency is built using Message Source Accounts (MSAs) for identity and delegation with Schemas defined for each Announcement Type.
-Frequency uses Schemas to define how to create and pass messages.
-
-## Links
-
-- [Frequency Documentation](https://libertydsnp.github.io/frequency/)
+- [Frequency Website](https://www.frequency.xyz)
 - [Frequency GitHub](https://github.com/LibertyDSNP/frequency)
+- [Frequency Documentation](https://docs.frequency.xyz)
+- [Frequency Rust Documentation](https://libertydsnp.github.io/frequency/)
+- Helpful Links
+  - [Getting Started - Polkadot Wiki](https://wiki.polkadot.network/docs/getting-started)
+  - [Parachains - Polkadot Wiki](https://wiki.polkadot.network/docs/learn-parachains)
+  - [Substrate Rust Docs](https://paritytech.github.io/substrate/master/)
+  - [Rust-lang.org](https://www.rust-lang.org/)
 
-## Schemas
 
-Official DSNP Schemas may be found in [GitHub](https://github.com/LibertyDSNP/schemas).
+## DSNP Schemas
+Official DSNP Frequency Schemas may be found in [GitHub](https://github.com/LibertyDSNP/schemas).
 
-## Libraries
-<!-- yaspeller ignore:start -->
-| Name | Language(s) |
-| --- | --- |
-| [TODO]() | JavaScript/TypeScript |
-<!-- yaspeller ignore:end -->
-
-<!--- Uncomment for pre-release changes and prefix the version with `pre-[next version]`
+<!--- Uncomment for pre-release changes
 ## Prerelease Changelog
 
 - [DIP-###](https://github.com/LibertyDSNP/spec/issues/###)
 
 --->
-## Releases
 
-| Version | Description | DSNP Compatibility | Release Date | Changelog |
-| --- | --- | --- | --- | --- |
-| `pre-1.0.0` | Pre-Release | 1.1.x | 2022-09-19 | N/A |
-<!--
-| [1.0.0](https://github.com/LibertyDSNP/spec/tree/Frequency-v1.0.0) | Initial Release | 1.1.x | 2022-10-15 | [Changelog](https://github.com/LibertyDSNP/spec/releases/tag/Frequency-v1.0.0) |
--->
+| Frequency Release | DSNP Version | Spec Release Date |
+| --- | --- | --- |
+| 1.3.0 | 1.2.0 | 2023-03-07 |

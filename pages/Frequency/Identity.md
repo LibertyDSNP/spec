@@ -1,43 +1,55 @@
-# Identity
+# Frequency Identity
 
-## Purpose
+## Identity
+- **Name**: Message Source Account or MSA
+- **Docs**: [`MSA Pallet`](https://libertydsnp.github.io/frequency/pallet_msa/index.html)
+- **Representation**:
+The following data that constitute a Message Source Account are stored in the MSA pallet:
+  * The DSNP User Id associated with this MSA
+  * Delegation relationships to Providers
+  * Schema permissions granted to Providers
+  * MSA user state (Profile, Graph, etc...)
+  * [Control keys](#control-keys)
 
-1. Specify how DSNP Identifiers map to Frequency.
-1. Specify how the DSNP delegation maps to Frequency.
-1. Detail how Frequency matches the ownership requirements of DSNP.
+## DSNP User Identifier
+- **Name**: Message Source Account Identifier, or MSA Id.
+- **Data Type**: `uint64`
+- **Docs**: [`MessageSourceId`](https://libertydsnp.github.io/frequency/common_primitives/msa/type.MessageSourceId.html)
+- **Mapping**: The MSA Id is able to be used directly as the DSNP User Id
+- **Description**:
+At least one public key MUST be associated with an MSA Id for it to be considered active.
 
-## Details
-
-DSNP uses [Message Source Accounts (MSAs)](https://libertydsnp.github.io/frequency/pallet_msa/index.html) that map directly to a DSNP Identity.
-
-## Identifier
-
-MSAs each receive a unique unsigned 64-bit identifier that is used as the DSNP Id.
-These MSAs are pseudo-anonymous identifiers that are associated with one or more public keys.
-MSAs can be created by the user or on behalf of the user using a signed authorization.
-
-### Creating a DSNP User Id
-
-1. Generate a [compatible key pair](https://wiki.polkadot.network/docs/learn-keys) in your wallet.
-1. Create a Message Source Account (MSA) on Frequency using one of the `create` extrinsics.
-1. Wait for the transaction to process.
-
-### Retrieving a DSNP User Id from a Public Key
-
-1. Use the Frequency state query `msa.messageSourceIdOf` to retrieve the MSA Id from the public key generated in step 1.
-1. The MSA Id is the DSNP Id and can be used to generate the [DSNP User URI](../DSNP/Identifiers.md#dsnp-user-uri).
-
-## Ownership
-
-Frequency has a strong ownership model for MSAs.
-Ownership of an MSA is controlled by the associated keys.
-MSAs are the source for [Messages](https://libertydsnp.github.io/frequency/pallet_messages/index.html) either directly or via delegation.
+## Control Keys
+- **Name**: Referred to as: `public_key`, `provider_key`, or `delegator_key`
+- **Data Type**: `AccountId`, Schnorrkel/Ristretto x25519 ("sr25519") derived cryptographic public key
+- **Docs**: [`AccountId`](https://libertydsnp.github.io/frequency/common_primitives/node/type.AccountId.html)
+- **Description**: See [Cryptography on Polkadot](https://wiki.polkadot.network/docs/learn-cryptography) and [Polkadot Protocol Specification](https://spec.polkadot.network/#defn-account-key).
+A public key CANNOT be associated with more than one MSA at a time.
 
 ## Delegation
+- **Name**: `delegation`
+- **Docs**: [`Delegation`](https://libertydsnp.github.io/frequency/pallet_msa/types/struct.Delegation.html)
+- **Representation**:
+  The following data storage relates necessary information for retrieving and validating delegations:
+    * Provider registry
+    * Delegations
+    * Schema permissions granted to Providers
 
-Frequency allows for delegation to others called [Providers](https://libertydsnp.github.io/frequency/pallet_msa/index.html).
-Delegation comes with permissions that grant publishing of specific Schemas to a provider.
-Since each [Announcement Type](../DSNP/Announcements.md) has a [set Schema Id](./Publishing.md), a user may permission specific Announcement Types.
+### User
+- **Name**: Delegator
+- **Representation**: MSA Id
 
-When a user delegates to a Provider, that delegation is either validated on chain or can be validated off chain using the `msa_checkDelegations` RPC call.
-Users can revoke a delegation at anytime without any fees, and revocation is locked to the point the transaction is included in a block.
+### Delegate
+- **Name**: Provider
+- **Representation**: MSA Id
+- **Description**:
+A Provider MUST already have an MSA Id (via `msa::create()`) and be approved as a Provider (via `msa::propose_to_be_provider()`).
+
+## Related Operations
+* [Create Identifier](Operations.md#create-identifier)
+* [Retire Identifier](Operations.md#retire-identifier)
+* [Define Delegation](Operations.md#define-delegation)
+* [Revoke Delegation](Operations.md#revoke-delegation)
+* [Add Control Key](Operations.md#add-control-key)
+* [Remove Control Key](Operations.md#remove-control-key)
+
