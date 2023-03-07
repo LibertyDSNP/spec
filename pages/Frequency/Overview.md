@@ -3,22 +3,27 @@
 ## Language and Framework
 Frequency is a Polkadot Parachain written in Rust, using the Substrate framework.
 
-- [Rust-lang.org](https://www.rust-lang.org/)
-- [Getting Started - Polkadot Wiki](https://wiki.polkadot.network/docs/getting-started)
-- [Parachains - Polkadot Wiki](https://wiki.polkadot.network/docs/learn-parachains)
-- [Substrate Rust Docs](https://paritytech.github.io/substrate/master/sc_service/index.html)
-- [Frequency Documentation](https://libertydsnp.github.io/frequency/)
+- [Frequency Website](https://www.frequency.xyz)
 - [Frequency GitHub](https://github.com/LibertyDSNP/frequency)
+- [Frequency Documentation](https://docs.frequency.xyz)
+- [Frequency Rust Documentation](https://libertydsnp.github.io/frequency/)
+- Helpful Links
+  - [Getting Started - Polkadot Wiki](https://wiki.polkadot.network/docs/getting-started)
+  - [Parachains - Polkadot Wiki](https://wiki.polkadot.network/docs/learn-parachains)
+  - [Substrate Rust Docs](https://paritytech.github.io/substrate/master/)
+  - [Rust-lang.org](https://www.rust-lang.org/)
+
 
 ## DSNP Schemas
-Official DSNP Schemas may be found in [GitHub](https://github.com/LibertyDSNP/schemas).
+Official DSNP Frequency Schemas may be found in [GitHub](https://github.com/LibertyDSNP/schemas).
 
-<!--- Uncomment for pre-release changes and prefix the version with `pre-[next version]`
+<!--- Uncomment for pre-release changes
 ## Prerelease Changelog
 
 - [DIP-###](https://github.com/LibertyDSNP/spec/issues/###)
 
 --->
-<!--
-| [1.0.0](https://github.com/LibertyDSNP/spec/tree/Frequency-v1.0.0) | Initial Release | 1.1.x | 2022-10-15 | [Changelog](https://github.com/LibertyDSNP/spec/releases/tag/Frequency-v1.0.0) |
--->
+
+| Frequency Release | DSNP Version | Spec Release date |
+| --- | --- | --- |
+| 1.4.0 | 1.2.0 | 2023-03-?? |
