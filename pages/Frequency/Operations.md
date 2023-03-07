@@ -36,7 +36,8 @@ Frequency has a variety of errors that fall into these classes:
 - Node Validation Error: A node will reject malformed or invalid transactions when possible.
 - Execution Error: A transaction that was included in a block but failed upon execution.
 
-Transforming these into a [Frequency Failure Record](./Records.md#failure) depends on the particular libraries used.
+Transactions are not automatically resubmitted.
+Check with the [Frequency Documentation](https://docs.frequency.xyz) for more information regarding errors.
 
 ## List of Operations
 
