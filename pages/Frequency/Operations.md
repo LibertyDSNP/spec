@@ -27,6 +27,17 @@ When the transaction occurs, the signature is validated and the [MSA Id](./Ident
 | User | [User / Delegator](./Identity.md#user) |
 | Delegate | [Provider](./Identity.md#delegate) |
 
+## Failure Handling
+
+Frequency has a variety of errors that fall into these classes:
+
+- Timeout: A transaction with an unknown status after a set time.
+- Node Rejection: Public nodes may reject transactions from unknown parties.
+- Node Validation Error: A node will reject malformed or invalid transactions when possible.
+- Execution Error: A transaction that was included in a block but failed upon execution.
+
+Transforming these into a [Frequency Failure Record](./Records.md#failure) depends on the particular libraries used.
+
 ## List of Operations
 
 | Operation                                             | Principal(s)      | Pallet::Extrinsic                                                                      | State Change Record                                                     |
