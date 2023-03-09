@@ -108,20 +108,38 @@ In the following section, the Alice to Bob identifier for context C is called PR
 
 A PRId is derived from Alice and Bob's `keyAgreement` key pairs, using a key exchange protocol as follows. To illustrate the cryptographic operations required, the relevant functions from [libsodium](https://libsodium.org) are noted. Sodium is a stable, fast, free, and cross-platform cryptography library, and supports all encryption algorithms used in the DSNP specification out of the box.
 
-1. Both Alice and Bob generate an asymmetric key pair, and each publishes a Public Key Announcement with their generated X25519 public key and a `keyType` value of `keyAgreement`.
-1. When Alice wants to interact with Bob, she looks up Bob's public key and performs an X25519 key exchange operation using her private key and Bob's public key, generating a shared secret `k` as in the libsodium function <code>crypto_box_beforenm(k, Bob<sub>public</sub>, Alice<sub>private</sub>)</code>.
-1. Alice derives a context-specific subkey <code>k<sub>Bob</sub></code> from the shared secret `k` as the master key, using the Blake2b hash function as in the libsodium function `crypto_kdf_derive_from_key`, using Bob's DSNP User Id as the 64-bit key identifier and the ASCII encoding of the [PRId Context](#contexts) string (`"PRIdCtx0"` for connections) as the 8-byte human-readable identifier.
+Definitions:
+* <code>Id<sub>A</sub> = _DSNP User Id of A_</code>
+* <code>Id<sub>B</sub> = _DSNP User Id of B_</code>
+
+Algorithm:
+
+1. Both Alice and Bob generate an asymmetric key pair for use with x25519 <abbr title="Elliptic Curve Integrated Encryption Scheme">ECIES</abbr>.
+   Each publishes a Public Key Announcement with their generated public key with a `keyType` value of `keyAgreement`.
+    * Libsodium: [`crypto_box_keypair`](https://libsodium.gitbook.io/doc/public-key_cryptography/authenticated_encryption#key-pair-generation)
+    * <code>(A<sub>public</sub>, A<sub>private</sub>) = <abbr title="Key Generation Function">KGF</abbr>()</code>
+    * <code>(B<sub>public</sub>, B<sub>private</sub>) = <abbr title="Key Generation Function">KGF</abbr>()</code>
+1. When Alice wants to interact with Bob, she looks up Bob's public key and performs an x25519 Elliptic-curve Diffie-Hellman key exchange operation using her private key and Bob's public key, generating a root shared secret.
+    * Libsodium: [`crypto_box_beforenm`](https://libsodium.gitbook.io/doc/public-key_cryptography/authenticated_encryption#precalculation-interface)
+    * <code>RootSharedSecret<sub>AB</sub> = <abbr title="Elliptic-curve Diffie-Hellman">ECDH</abbr>(B<sub>public</sub>, A<sub>private</sub>)</code>
+1. Alice derives a context-specific subkey <code>CtxSharedSecret<sub>Bob</sub></code> from the shared secret `RootSharedSecret` as the master key, Bob's DSNP User Id as the 64-bit key identifier, and the ASCII encoding of the [PRId Context](#contexts) string (`"PRIdCtx0"` for connections).
+    * Libsodium: [`crypto_kdf_derive_from_key`](https://libsodium.gitbook.io/doc/key_derivation)
+    * <code>Ctx<sub>KDF</sub> = "PRIdCtx0"</code>
+    * <code>CtxSharedSecret<sub>A→B</sub> = <abbr title="Key Derivation Function">KDF</abbr>(Id<sub>B</sub> Ctx<sub>KDF</sub>, RootSharedSecret<sub>AB</sub>)</code>
 1. Alice uses Bob's DSNP User Id to form a 8-byte message.
-1. Alice encrypts the message using the PRId key <code>k<sub>Bob</sub></code> and a nonce of her own User Id (padded with zero bytes), as in the libsodium function `crypto_secretbox_easy`.
-1. Alice removes the message authentication code (MAC), leaving the 8-byte value <code>PRId<sub>A→B,C</sub></code>.
-  (Because Alice will publish the PRId, it can be authenticated without a MAC.)
+    * <code>MSG<    sub>A→B</sub> = Id<sub>B</sub></code>
+1. Alice encrypts the message using the PRId key <code>CtxSharedSecret<sub>A→B</sub></code> and a nonce of her own User Id (padded with zero bytes).
+    * Libsodium: [`crypto_secretbox_detached`](https://libsodium.gitbook.io/doc/secret-key_cryptography/secretbox#detached-mode)
+      * <i>Alice publishing provides authentication, so the <abbr title="Message Authentication Code">MAC</abbr> is unused.</i>
+    * <code>Nonce<sub>A→B</sub> = Padded(Id<sub>A</sub>)</code>
+    * <code>PRId<sub>A→B,C</sub> = XSalsa20(MSG<sub>A→B</sub>, CtxSharedSecret<sub>A→B</sub>, Nonce<sub>A→B</sub>)</code>
 1. Alice adds the generated PRId to her set of `privateConnectionPRIds` and publishes an updated copy via the [Replace User Data](UserData.md#replace-user-data-operation) Operation.
 
-Similarly, Bob can calculate the same shared secret `k` using <code>Alice<sub>public</sub></code> and <code>Bob<sub>private</sub></code>, derive the PRId subkey for his own DSNP User Id, and then calculate the Alice-to-Bob PRId in order to check if it is in Alice's published PRIds.
-Bob can also derive the PRId subkey for Alice's DSNP User Id and encrypt Alice's User Id, using his own as the nonce, to generate the Bob-to-Alice PRId, and then publish it to his own list, if desired.
+Similarly, Bob can calculate the same root shared secret `RootSharedSecret` using <code>Alice<sub>public</sub></code> and <code>Bob<sub>private</sub></code> and derive the same <code>PRId<sub>A→B,C</sub></code> in order to check if it is in Alice's published PRIds.
+Bob can also derive the PRId subkey for Alice's DSNP User Id and encrypt Alice's User Id, using his own as the nonce, to generate the Bob-to-Alice PRId (<code>PRId<sub>B→A,C</sub></code>), and then publish it to his own list, if desired.
 
-If Alice or Bob wants to prove to a third party that their PRIds are in each other's `privateConnectionPRIds` list, they can provide the third party with their own subkey <code>k<sub>Alice</sub></code> or <code>k<sub>Bob</sub></code>. The third party can repeat the encryption step using Alice and Bob's User Ids, and check that the output is present in the published set of PRIds. The shared secret `k` (used as a master key in this algorithm) should _not_ be divulged.
+If Alice or Bob wants to prove to a third party that their PRIds are in each other's `privateConnectionPRIds` list, they can provide the third party with their own subkey <code>CtxSharedSecret<sub>A→B</sub></code> or <code>CtxSharedSecret<sub>B→A</sub></code>.
+The third party can repeat the encryption step using Alice and Bob's User Ids, and check that the output is present in the published set of PRIds. The root shared secret `RootSharedSecret` (used as a master key in this algorithm) should _not_ be divulged.
 
 In more formal terms:
-* <code>PRId<sub>A→B,C</sub></code> = <code>XSalsa20(HKDF(SharedSecret<sub>AB</sub>, _DSNP User Id of B_, "PRIdCtx<i>C</i>"), _DSNP User Id of B_, _DSNP User Id of A_)</code>
-* <code>PRId<sub>B→A,C</sub></code> = <code>XSalsa20(HKDF(SharedSecret<sub>AB</sub>),_DSNP User Id of A_, "PRIdCtx<i>C</i>"), _DSNP User Id of A_, _DSNP User Id of B_)</code>
+* <code>PRId<sub>A→B,C</sub></code> = <code>XSalsa20(KDF(SharedSecret<sub>AB</sub>, Id<sub>B</sub>, "PRIdCtx<i>C</i>"), Padded(Id<sub>B</sub>), Id<sub>A</sub>)</code>
