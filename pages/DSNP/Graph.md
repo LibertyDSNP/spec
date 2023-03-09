@@ -109,8 +109,8 @@ In the following section, the Alice to Bob identifier for context C is called PR
 A PRId is derived from Alice and Bob's `keyAgreement` key pairs, using a key exchange protocol as follows. To illustrate the cryptographic operations required, the relevant functions from [libsodium](https://libsodium.org) are noted. Sodium is a stable, fast, free, and cross-platform cryptography library, and supports all encryption algorithms used in the DSNP specification out of the box.
 
 Definitions:
-* <code>Id<sub>A</sub> = _DSNP User Id of A_</code>
-* <code>Id<sub>B</sub> = _DSNP User Id of B_</code>
+* <code>Id<sub>A</sub> = _DSNP User Id of A (little-endian)_</code>
+* <code>Id<sub>B</sub> = _DSNP User Id of B (little-endian)_</code>
 
 Algorithm:
 
@@ -126,12 +126,12 @@ Algorithm:
     * Libsodium: [`crypto_kdf_derive_from_key`](https://libsodium.gitbook.io/doc/key_derivation)
     * <code>Ctx<sub>KDF</sub> = "PRIdCtx0"</code>
     * <code>CtxSharedSecret<sub>A→B</sub> = <abbr title="Key Derivation Function">KDF</abbr>(Id<sub>B</sub> Ctx<sub>KDF</sub>, RootSharedSecret<sub>AB</sub>)</code>
-1. Alice uses Bob's DSNP User Id to form a 8-byte message.
-    * <code>MSG<    sub>A→B</sub> = Id<sub>B</sub></code>
-1. Alice encrypts the message using the PRId key <code>CtxSharedSecret<sub>A→B</sub></code> and a nonce of her own User Id (padded with zero bytes).
+1. Alice uses Bob's DSNP User Id to form a 8-byte little-endian message.
+    * <code>MSG<sub>A→B</sub> = Id<sub>B</sub></code>
+1. Alice encrypts using [XSalsa20](http://cr.yp.to/snuffle/xsalsa-20110204.pdf) the message using the PRId key <code>CtxSharedSecret<sub>A→B</sub></code> and a nonce of her own User Id (little-endian, padded to 24 bytes with zeros per the XSalsa20 requirements).
     * Libsodium: [`crypto_secretbox_detached`](https://libsodium.gitbook.io/doc/secret-key_cryptography/secretbox#detached-mode)
       * <i>Alice publishing provides authentication, so the <abbr title="Message Authentication Code">MAC</abbr> is unused.</i>
-    * <code>Nonce<sub>A→B</sub> = Padded(Id<sub>A</sub>)</code>
+    * <code>Nonce<sub>A→B</sub> = Padded24BytesLE(Id<sub>A</sub>)</code>
     * <code>PRId<sub>A→B,C</sub> = XSalsa20(MSG<sub>A→B</sub>, CtxSharedSecret<sub>A→B</sub>, Nonce<sub>A→B</sub>)</code>
 1. Alice adds the generated PRId to her set of `privateConnectionPRIds` and publishes an updated copy via the [Replace User Data](UserData.md#replace-user-data-operation) Operation.
 
@@ -142,4 +142,4 @@ If Alice or Bob wants to prove to a third party that their PRIds are in each oth
 The third party can repeat the encryption step using Alice and Bob's User Ids, and check that the output is present in the published set of PRIds. The root shared secret `RootSharedSecret` (used as a master key in this algorithm) should _not_ be divulged.
 
 In more formal terms:
-* <code>PRId<sub>A→B,C</sub></code> = <code>XSalsa20(KDF(SharedSecret<sub>AB</sub>, Id<sub>B</sub>, "PRIdCtx<i>C</i>"), Padded(Id<sub>B</sub>), Id<sub>A</sub>)</code>
+* <code>PRId<sub>A→B,C</sub></code> = <code>XSalsa20(KDF(SharedSecret<sub>AB</sub>, Id<sub>B</sub>, "PRIdCtx<i>C</i>"), Padded24BytesLE(Id<sub>B</sub>), Id<sub>A</sub>)</code>
