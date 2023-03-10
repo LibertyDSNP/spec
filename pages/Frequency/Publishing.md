@@ -1,21 +1,23 @@
 # Announcement Publishing
 
-On Frequency, [Announcements](../DSNP/Announcements.md) are mapped to Schemas which in turn publish Frequency Messages.
-Frequency Messages are either direct Graph Changes from a particular user, or a Batch Publication with a multitude of possible users.
+On Frequency, [Announcements](../DSNP/Announcements.md) are mapped to Schemas which in turn publish Frequency Messages or Stateful Storage changes.
+Frequency Messages are either direct Announcements from a particular user, or a Batch Publication with a multitude of possible users.
+Frequency Stateful Storage is either direct Announcements from a particular user, or [User Data](./UserData.md) changes.
 
 <!-- Links to https://libertydsnp.github.io/frequency should be updated with links to docs.frequency.xyz when able to be -->
 
-| Announcement Type Enum | Announcement | Batched | Schema Id Mainnet | Schema Id Rococo | Frequency Model Type | Frequency Payload Location |
+| Announcement Type Enum | Announcement | Type | Schema Id Mainnet | Schema Id Rococo | Frequency Model Type | Frequency Payload Location |
 | --- | --- | --- | --- | --- | --- | --- |
-| 0 | [Tombstone](../DSNP/Types/Tombstone.md) | YES | TBD | 1 (_v1.1.0+_) | [`Parquet`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
-| 1 | [Graph Change](../DSNP/Types/GraphChange.md) | no | TBD | 7 (_v1.1.0+_) | [`AvroBinary`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.AvroBinary) | [`OnChain`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.OnChain) |
-| 2 | [Broadcast](../DSNP/Types/Broadcast.md) | YES | TBD | 2 (_v1.1.0+_) | [`Parquet`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
-| 3 | [Reply](../DSNP/Types/Reply.md) | YES | TBD | 3 (_v1.1.0+_) | [`Parquet`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
-| 4 | [Reaction](../DSNP/Types/Reaction.md) | YES | TBD | 4 (_v1.1.0+_) | [`Parquet`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
-| 5 | [Profile](../DSNP/Types/Profile.md) | YES | TBD | 5 (_v1.1.0+_) | [`Parquet`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
-| 6 | [Update](../DSNP/Types/Update.md) | YES | TBD | 6 (_v1.2.0+_) | [`Parquet`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
+| 0 | [Tombstone](../DSNP/Types/Tombstone.md) | Batched | TBD | 1 (_v1.1.0+_) | [`Parquet`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
+| 1 | ~~[Graph Change](../DSNP/Types/GraphChange.md)~~ | Deprecated | - | - | [`AvroBinary`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.AvroBinary) | [`OnChain`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.OnChain) |
+| 2 | [Broadcast](../DSNP/Types/Broadcast.md) | Batched | TBD | 2 (_v1.1.0+_) | [`Parquet`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
+| 3 | [Reply](../DSNP/Types/Reply.md) | Batched | TBD | 3 (_v1.1.0+_) | [`Parquet`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
+| 4 | [Reaction](../DSNP/Types/Reaction.md) | Batched | TBD | 4 (_v1.1.0+_) | [`Parquet`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
+| 5 | [Profile](../DSNP/Types/Profile.md) | Batched | TBD | 5 (_v1.1.0+_) | [`Parquet`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
+| 6 | [Update](../DSNP/Types/Update.md) | Batched | TBD | 6 (_v1.2.0+_) | [`Parquet`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
+| 7 | [Public Key](../DSNP/Types/PublicKey.md) | [Stateful](./UserData.md#announcements) | TBD | 7 (_v1.3.0+_) | [`AvroBinary`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.AvroBinary) | [`Itemized`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.Itemized) |
 
-Source code for each schema is also located in the [LibertyDSNP/schemas](https://github.com/LibertyDSNP/schemas) repository.
+Source code for each schema is located in the [LibertyDSNP/schemas](https://github.com/LibertyDSNP/schemas) repository.
 
 ## Batch Publications
 
