@@ -125,12 +125,12 @@ Algorithm:
 1. Alice derives a context-specific subkey <code>CtxSharedSecret<sub>Bob</sub></code> from the shared secret `RootSharedSecret` as the master key, Bob's DSNP User Id as the 64-bit key identifier, and the ASCII encoding of the [PRId Context](#contexts) string (`"PRIdCtx0"` for connections).
     * Libsodium: [`crypto_kdf_derive_from_key`](https://libsodium.gitbook.io/doc/key_derivation)
     * <code>Ctx<sub>KDF</sub> = "PRIdCtx0"</code>
-    * <code>CtxSharedSecret<sub>A→B</sub> = <abbr title="Key Derivation Function">KDF</abbr>(Id<sub>B</sub> Ctx<sub>KDF</sub>, RootSharedSecret<sub>AB</sub>)</code>
+    * <code>CtxSharedSecret<sub>A→B</sub> = <abbr title="Key Derivation Function">KDF</abbr>(Id<sub>B</sub>, Ctx<sub>KDF</sub>, RootSharedSecret<sub>AB</sub>)</code>
 1. Alice uses Bob's DSNP User Id to form a 8-byte little-endian message.
     * <code>Msg<sub>A→B</sub> = Id<sub>B</sub></code>
 1. Alice encrypts using [XSalsa20](http://cr.yp.to/snuffle/xsalsa-20110204.pdf) the message using the PRId key <code>CtxSharedSecret<sub>A→B</sub></code> and a nonce of her own User Id (little-endian, padded to 24 bytes with zeros per the XSalsa20 requirements).
     * Libsodium: [`crypto_secretbox_detached`](https://libsodium.gitbook.io/doc/secret-key_cryptography/secretbox#detached-mode)
-      * <i>Alice publishing provides authentication, so the <abbr title="Message Authentication Code">MAC</abbr> is unused.</i>
+      * <i>Alice's act of publishing provides authentication, so the <abbr title="Message Authentication Code">MAC</abbr> is unused.</i>
     * <code>Nonce<sub>A→B</sub> = Padded24BytesLE(Id<sub>A</sub>)</code>
     * <code>PRId<sub>A→B,C</sub> = XSalsa20(Msg<sub>A→B</sub>, CtxSharedSecret<sub>A→B</sub>, Nonce<sub>A→B</sub>)</code>
 1. Alice adds the generated PRId to her set of `privateConnectionPRIds` and publishes an updated copy via the [Replace User Data](UserData.md#replace-user-data-operation) Operation.
