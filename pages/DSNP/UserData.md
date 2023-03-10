@@ -64,7 +64,7 @@ Data chunks should be generated for each included data type using the following 
         1. Retrieve the user's active (most recently announced) `keyAgreement` public key, U<sub>public</sub>.
   The `keyId` in the announcement should match the key identifier provided for this Operation.
   If no key exists, one should be created and published as an Announcement before invoking the Operation.
-        1. Create a sealed box, as in the [libsodium](https://doc.libsodium.org/public-key_cryptography/sealed_boxes) function `crypto_box_seal`, using U<sub>public</sub>.
+        1. Create a sealed box (a payload encrypted with a symmetric key derived from an ephemeral key pair, and accompanied by the ephemeral public key), as in the [libsodium](https://doc.libsodium.org/public-key_cryptography/sealed_boxes) function `crypto_box_seal`, using U<sub>public</sub>.
         1. Include the previous `etag` value for the chunk. If the chunk is new, `etag` should be set to `null`.
   If any chunks are to be deleted, they should be included in the input identified with the existing `etag` and a `null` value for the data.
 
