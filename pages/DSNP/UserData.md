@@ -11,20 +11,21 @@ The [Avro](https://avro.apache.org) schema specification is used to define the b
 
 ## User Data Types
 
-DSNP implementations MUST support the following user data types:
+DSNP implementations MUST support the following User Data Types:
 
 | System Name | Version | Encryption Algorithm | Compression Codec | Avro Object Type |
 | --- | --- | --- | --- | --- |
-| `publicFollows` | 1.2 | NONE | [`DEFLATE`](https://en.wikipedia.org/wiki/Deflate) | [GraphEdge](Graph.md#edges) |
-| `privateFollows` | 1.2 | `curve25519xsalsa20poly1305` |  [`DEFLATE`](https://en.wikipedia.org/wiki/Deflate) | [GraphEdge](Graph.md#edges) |
-| `privateConnections` | 1.2 | `curve25519xsalsa20poly1305` | [`DEFLATE`](https://en.wikipedia.org/wiki/Deflate) | [GraphEdge](Graph.md#edges) |
-| `privateConnectionPRIds` | 1.2 | NONE | NONE | [PRId](Graph.md#pseudonymous-relationship-identifiers) |
+| <a name="public-follows">`publicFollows`</a> | 1.2 | NONE | [`DEFLATE`](https://en.wikipedia.org/wiki/Deflate) | [GraphEdge](Types/GraphEdge.md) |
+| <a name="private-follows">`privateFollows`</a> | 1.2 | `curve25519xsalsa20poly1305` |  [`DEFLATE`](https://en.wikipedia.org/wiki/Deflate) | [GraphEdge](Types/GraphEdge.md) |
+| <a name="private-connections">`privateConnections`</a> | 1.2 | `curve25519xsalsa20poly1305` | [`DEFLATE`](https://en.wikipedia.org/wiki/Deflate) | [GraphEdge](Types/GraphEdge.md) |
+| <a name="private-connection-prids">`privateConnectionPRIds`</a> | 1.2 | NONE | NONE | [PRId](Types/PRId.md) |
 
 Data for each data type is initially formatted as a stream of Avro objects that should conform to the schema specified.
 Avro file- and block-level information (including in-stream schema) is omitted.
-The Avro stream is then compressed (or not) and encrypted (or not) as specified.
+The Avro stream is then compressed and/or encrypted as specified.
 
-`curve25519xsalsa20poly1305` (that is, X25519 key exchange, XSalsa20 encryption, and Poly1305 message authentication) is the default authenticated encryption algorithm used in the [NaCl](https://nacl.cr.yp.to) ("Salt") library, and its successor [libsodium](https://libsodium.org). In the specification of cryptographic operations below, relevant methods from these libraries are noted. While these specific libraries are not required for DSNP compatibility, they are highly recommended.
+`curve25519xsalsa20poly1305` (that is, X25519 key exchange, XSalsa20 encryption, and Poly1305 message authentication) is the default authenticated encryption algorithm used in the [NaCl](https://nacl.cr.yp.to) ("Salt") library, and its successor [libsodium](https://libsodium.org).
+In the specification of cryptographic operations below, relevant methods from these libraries are noted. While these specific libraries are not required for DSNP compatibility, they are highly recommended.
 
 ## Data Chunks
 
@@ -67,13 +68,13 @@ Data chunks should be generated for each included data type using the following 
         1. Include the previous `etag` value for the chunk. If the chunk is new, `etag` should be set to `null`.
   If any chunks are to be deleted, they should be included in the input identified with the existing `etag` and a `null` value for the data.
 
-If the Operation is invoked successfully the implementation MUST (synchronously) return a new set of `etag` values for each data type replaced, corresponding to the updated state of the data (with new chunks added and deleted chunks removed).
+If the Operation is invoked successfully the implementation MUST synchronously return a new set of `etag` values for each data type replaced, corresponding to the updated state of the data (with new chunks added and deleted chunks removed).
 Applications should not interpret this response as an indication that the operation was completed and a state change record emitted, as this typically occurs asynchronously.
 However, this strategy allows applications to make the optimistic assumption that, in due course, the DSNP system will reflect the intended changes, without needing to wait for asynchronous confirmation.
 
 If, on the other hand, an invocation of Replace User Data is rejected due to entity tag discrepancies, this indicates that the relevant data on the network has changed since the entity tags were acquired by the application, and the application should fetch the most current version with the [Get User Data Operation](#get-user-data-operation), reapply any intended changes, and retry the operation.
 
-The Replace User Data Operation MUST generate a [User Data Replaced Record](Records.md#user-data-replaced) containing the DSNP User Id and the set of updated user data types (but not the data itself).
+The Replace User Data Operation MUST generate a [User Data Replaced Record](Records.md#user-data-replaced) containing the DSNP User Id and the set of updated User Data Types (but not the data itself).
 If the implementation detects that no change has occurred, it SHOULD omit the relevant unchanged data types from the state change record.
 
 ### Examples
@@ -148,13 +149,13 @@ To ensure that the deleted chunk was up to date, the deleted chunk should still 
 The Get User Data Operation takes the following parameters:
 * The DSNP User Id of the user who controls the data
   * Note: While _writing_ user data is reserved for the user and any delegates, anyone on the network can read any user's data (though it may be encrypted).
-* The user data types (by system name) that should be retrieved.
+* The User Data Types (by system name) that should be retrieved.
 
-The operation returns a mapping of user data type to data chunks, with each data chunk annotated with an entity tag and (optionally) a key identifier. (Note that this is the same general structure as the input data for [Replace User Data](#replace-user-data-operation), for each requested data type.
+The operation returns a mapping of User Data Type to data chunks, with each data chunk annotated with an entity tag and (optionally) a key identifier. (Note that this is the same general structure as the input data for [Replace User Data](#replace-user-data-operation), for each requested data type.
 If no chunks for a requested data type exist, an implementation MAY omit that data type from the response.
 
 To transform the data from the output to Avro binary records, a consumer should apply the following algorithm to each data type included:
-1. Determine the relevant encryption algorithm, compression codec, and object schema from the user data type and version noted.
+1. Determine the relevant encryption algorithm, compression codec, and object schema from the User Data Type and version noted.
 1. For each chunk,
     1. If encryption is indicated, decrypt the chunk data using the user's secret key (identified using the key identifier) as in the [libsodium](https://doc.libsodium.org/public-key_cryptography/sealed_boxes) function `crypto_box_seal_open`.
     1. If compression is required, uncompress the chunk data using the specified codec.
