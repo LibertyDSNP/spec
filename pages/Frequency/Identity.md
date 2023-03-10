@@ -21,7 +21,7 @@ At least one public key MUST be associated with an MSA Id for it to be considere
 
 ## Control Keys
 - **Name**: Referred to as: `public_key`, `provider_key`, or `delegator_key`
-- **Data Type**: `AccountId`, Schnorrkel/Ristretto x25519 ("sr25519") derived cryptographic public key
+- **Data Type**: `AccountId`, Schnorrkel/Ristretto X25519 ("sr25519") derived cryptographic public key
 - **Docs**: [`AccountId`](https://libertydsnp.github.io/frequency/common_primitives/node/type.AccountId.html)
 - **Description**: See [Cryptography on Polkadot](https://wiki.polkadot.network/docs/learn-cryptography) and [Polkadot Protocol Specification](https://spec.polkadot.network/#defn-account-key).
 A public key CANNOT be associated with more than one MSA at a time.
