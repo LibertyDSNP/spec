@@ -13,34 +13,6 @@ Relationships between users are the graph edges.
 
 Graph edges that originate from a user are stored as DSNP [User Data](UserData.md) associated with a given user.
 
-Each graph edge consists of the following data:
-* DSNP User Id (64-bit unsigned integer)
-  * <mark>To allow for optimal compression, User Ids are stored using the <tt>long</tt> type in Avro schema, which is a 64-bit _signed_ integer.
-    Care should be taken to ensure that User Id values greater than or equal to 2<sup>63</sup>, where used by an implementation, are converted correctly between signed and unsigned representations.</mark>
-* Timestamp when relationship was created, in seconds since the [Unix epoch](https://en.wikipedia.org/wiki/Unix_time)
-
-GraphEdge objects MUST conform to the following [Avro](https://avro.apache.org) schema:
-
-```
-{
-    "namespace": "org.dsnp",
-    "name": "GraphEdge",
-    "type": "record",
-    "doc": "A relationship to another DSNP user",
-    "fields": [
-        {
-            "name": "userId",
-            "type": "long",
-            "doc": "DSNP User Id of object of relationship"
-        },
-        {
-            "name": "since",
-            "type": "long",
-            "doc": "Timestamp in Unix epoch seconds when this relationship was originally established"
-        }
-    ]
-}
-```
 
 ## User Data Sets
 
@@ -72,18 +44,6 @@ The `privateConnectionPRIds` user data type is composed of a set of PRId objects
 
 Private connections are complemented by publishing private connection Pseudonymous Relationship Identifiers (PRIds), which provide a means of making the connection relationship visible to the other user while maintaining privacy with respect to any third parties.
 Applications are encouraged to verify connection relationships by checking to see that they are reciprocated, with the appropriate identifier present in both users' data.
-
-Serialized PRId objects MUST comply with the following [Avro](https://avro.apache.org) schema:
-
-```
-{
-    "namespace": "org.dsnp",
-    "name": "PRId",
-    "type": "fixed",
-    "size": 8,
-    "doc": "Pseudonymous Relationship Identifier"
-}
-```
 
 More generally, a PRId is a means of allowing for private interactions between two DSNP users in a specific context, based on cryptographic primitives that enable two users to independently generate a shared secret.
 For each pair of users Alice and Bob, and a specified PRId [context](#contexts), a pair of PRIds can be generated from Alice and Bob's shared secret, with one representing a simplex channel from Alice to Bob, and the other representing the corresponding simplex channel from Bob to Alice.
