@@ -114,12 +114,12 @@ Definitions:
 
 Algorithm:
 
-1. Both Alice and Bob generate an asymmetric key pair for use with x25519 <abbr title="Elliptic Curve Integrated Encryption Scheme">ECIES</abbr>.
+1. Both Alice and Bob generate an asymmetric key pair for use with X25519 <abbr title="Elliptic Curve Integrated Encryption Scheme">ECIES</abbr>.
    Each publishes a Public Key Announcement with their generated public key with a `keyType` value of `keyAgreement`.
     * Libsodium: [`crypto_box_keypair`](https://libsodium.gitbook.io/doc/public-key_cryptography/authenticated_encryption#key-pair-generation)
     * <code>(A<sub>public</sub>, A<sub>private</sub>) = <abbr title="Key Generation Function">KGF</abbr>()</code>
     * <code>(B<sub>public</sub>, B<sub>private</sub>) = <abbr title="Key Generation Function">KGF</abbr>()</code>
-1. When Alice wants to interact with Bob, she looks up Bob's public key and performs an x25519 Elliptic-curve Diffie-Hellman key exchange operation using her private key and Bob's public key, generating a root shared secret.
+1. When Alice wants to interact with Bob, she looks up Bob's public key and performs an X25519 Elliptic-curve Diffie-Hellman key exchange operation using her private key and Bob's public key, generating a root shared secret.
     * Libsodium: [`crypto_box_beforenm`](https://libsodium.gitbook.io/doc/public-key_cryptography/authenticated_encryption#precalculation-interface)
     * <code>RootSharedSecret<sub>AB</sub> = <abbr title="Elliptic-curve Diffie-Hellman">ECDH</abbr>(B<sub>public</sub>, A<sub>private</sub>)</code>
 1. Alice derives a context-specific subkey <code>CtxSharedSecret<sub>Bob</sub></code> from the shared secret `RootSharedSecret` as the master key, Bob's DSNP User Id as the 64-bit key identifier, and the ASCII encoding of the [PRId Context](#contexts) string (`"PRIdCtx0"` for connections).
