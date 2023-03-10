@@ -7,11 +7,14 @@ A Pallet is a Substrate runtime module and also a Cargo crate.
 ### MSA Pallet
 Responsible for DSNP Identity Operations and Delegation management.
 
-### Messages Pallet
-Responsible for DSNP Announcement Operations.
-
 ### Schema Pallet
-Responsible for managing the data structures for DSNP Announcements.
+Responsible for managing the data structures for DSNP Announcements and User Data.
+
+### Messages Pallet
+Responsible for most DSNP Announcement Operations.
+
+### Stateful Storage Pallet
+Responsible for DSNP User Data and select Announcement Operations.
 
 ### Documentation Links
 - [Frequency Documentation](https://docs.frequency.xyz)
@@ -41,8 +44,10 @@ Check with the [Frequency Documentation](https://docs.frequency.xyz) for more in
 
 ## List of Operations
 
-| Operation                                             | Principal(s)      | Pallet::Extrinsic                                                                      | State Change Record                                                     |
-|-------------------------------------------------------|-------------------|----------------------------------------------------------------------------------------|-------------------------------------------------------------------------|
+Write operations are via Transactions (also called Extrinsics): `pallet::extrinsic()`
+
+| Operation | Principal(s) | Pallet::Extrinsic | State Change Record |
+| --- | --- | --- | --- |
 | <a id="create-identifier">Create Identifier</a>       | None              | [`msa::create()`](https://libertydsnp.github.io/frequency/pallet_msa/pallet/enum.Call.html#variant.create), [`msa::create_sponsored_account_with_delegation()`](https://libertydsnp.github.io/frequency/pallet_msa/pallet/enum.Call.html#variant.create_sponsored_account_with_delegation)           | [Identifier Creation Record](Records.md#identifier-creation)            |
 | <a id="retire-identifier">Retire Identifier</a>       | User              | [`msa::retire_msa()`](https://libertydsnp.github.io/frequency/pallet_msa/pallet/enum.Call.html#variant.retire_msa)                                                               | [Identifier Retirement Record](Records.md#identifier-retirement)        |
 | <a id="define-delegation">Define Delegation</a>       | User AND Delegate | [`msa::grant_delegation()`](https://libertydsnp.github.io/frequency/pallet_msa/pallet/enum.Call.html#variant.grant_delegation), [`msa::create_sponsored_account_with_delegation()`](https://libertydsnp.github.io/frequency/pallet_msa/pallet/enum.Call.html#variant.create_sponsored_account_with_delegation) | [Delegation Definition Record](Records.md#delegation-definition)        |
@@ -52,4 +57,5 @@ Check with the [Frequency Documentation](https://docs.frequency.xyz) for more in
 | <a id="remove-control-key">Remove Control Key</a>     | User              | [`msa::delete_msa_public_key()`](https://libertydsnp.github.io/frequency/pallet_msa/pallet/enum.Call.html#variant.delete_msa_public_key)                                                    | [Control Key Removal Record](Records.md#control-key-removal)            |
 | <a id="publish-announcement">Publish Announcement</a> | User OR Delegate  | [`messages::add_onchain_message()`](https://libertydsnp.github.io/frequency/pallet_messages/pallet/enum.Call.html#variant.add_onchain_message)                                                 | [Announcement Published Record](Records.md#announcement-published)      |
 | <a id="publish-batch">Publish Batch</a>               | User OR Delegate  | [`messages::add_ipfs_message()`](https://libertydsnp.github.io/frequency/pallet_messages/pallet/enum.Call.html#variant.add_ipfs_message)                                                    | [Batch Published Record](Records.md#batch-published)                    |
-
+| <a id="get-user-data">Get User Data</a> | Any | See [User Data: Read Operation Mapping](./UserData.md#read-operation-mapping) | - |
+| <a id="replace-user-data">Replace User Data</a> | User OR Delegate | See [User Data: Write Operation Mapping](./UserData.md#write-operation-mapping) | [User Data Replaced Record](Records.md#user-data-replaced) |
