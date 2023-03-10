@@ -106,6 +106,7 @@
     "namespace",
     "objectId",
     "parseable",
+    "payload",
     "permissioned",
     "pre-[0-9]*",
     "prepended",
