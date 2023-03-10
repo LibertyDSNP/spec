@@ -19,7 +19,7 @@ Responsible for managing the data structures for DSNP Announcements.
 
 ## Principals
 
-Every Frequency transaction for DSNP is accompanied by an Schnorrkel/Ristretto x25519 ("sr25519") derived cryptographic signature and associated public key.
+Every Frequency transaction for DSNP is accompanied by an Schnorrkel/Ristretto X25519 ("sr25519") derived cryptographic signature and associated public key.
 When the transaction occurs, the signature is validated and the [MSA Id](./Identity.md#identity) is retrieved.
 
 | DSNP Term | Frequency Term |
