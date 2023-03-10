@@ -190,12 +190,12 @@ The following example illustrates the output of a Get User Data Operation invoca
       {
         "data": base64_string,
         "etag": string,
-		"keyId": integer
+        "keyId": integer
       },
       {
         "data": base64_string,
         "etag": string,
-		"keyId": integer
+        "keyId": integer
       }
     ]
   },
