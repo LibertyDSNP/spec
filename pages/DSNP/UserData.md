@@ -15,9 +15,9 @@ DSNP implementations MUST support the following user data types:
 
 | System Name | Version | Encryption Algorithm | Compression Codec | Avro Object Type |
 | --- | --- | --- | --- | --- |
-| `publicFollows` | 1.2 | NONE | [`brotli`](https://brotli.org) | [GraphEdge](Graph.md#edges) |
-| `privateFollows` | 1.2 | `curve25519xsalsa20poly1305` |  [`brotli`](https://brotli.org) | [GraphEdge](Graph.md#edges) |
-| `privateConnections` | 1.2 | `curve25519xsalsa20poly1305` | [`brotli`](https://brotli.org) | [GraphEdge](Graph.md#edges) |
+| `publicFollows` | 1.2 | NONE | [`DEFLATE`](https://en.wikipedia.org/wiki/Deflate) | [GraphEdge](Graph.md#edges) |
+| `privateFollows` | 1.2 | `curve25519xsalsa20poly1305` |  [`DEFLATE`](https://en.wikipedia.org/wiki/Deflate) | [GraphEdge](Graph.md#edges) |
+| `privateConnections` | 1.2 | `curve25519xsalsa20poly1305` | [`DEFLATE`](https://en.wikipedia.org/wiki/Deflate) | [GraphEdge](Graph.md#edges) |
 | `privateConnectionPRIds` | 1.2 | NONE | NONE | [PRId](Graph.md#pseudonymous-relationship-identifiers) |
 
 Data for each data type is initially formatted as a stream of Avro objects that should conform to the schema specified.

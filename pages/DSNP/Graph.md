@@ -23,7 +23,7 @@ GraphEdge objects MUST conform to the following [Avro](https://avro.apache.org) 
 
 ```
 {
-    "namespace": "org.dsnp.userdata",
+    "namespace": "org.dsnp",
     "name": "GraphEdge",
     "type": "record",
     "doc": "A relationship to another DSNP user",
@@ -77,7 +77,7 @@ Serialized PRId objects MUST comply with the following [Avro](https://avro.apach
 
 ```
 {
-    "namespace": "org.dsnp.userdata",
+    "namespace": "org.dsnp",
     "name": "PRId",
     "type": "fixed",
     "size": 8,
