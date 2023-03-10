@@ -11,10 +11,10 @@ Responsible for DSNP Identity Operations and Delegation management.
 Responsible for managing the data structures for DSNP Announcements and User Data.
 
 ### Messages Pallet
-Responsible for most DSNP Announcement Operations.
+Responsible for most DSNP Announcement Operations (see [Publishing](./Publishing.md)).
 
 ### Stateful Storage Pallet
-Responsible for DSNP User Data and select Announcement Operations.
+Responsible for DSNP User Data (see [User Data](./UserData.md)) and select Announcement Operations (see [Publishing](./Publishing.md)).
 
 ### Documentation Links
 - [Frequency Documentation](https://docs.frequency.xyz)

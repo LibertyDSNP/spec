@@ -10,6 +10,8 @@ On Frequency, User Data and select Announcements are mapped to Schemas which use
 | [Private Follows](../DSNP/Graph.md#private-follows) | TBD | TBD | [`AvroBinary`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.AvroBinary) | [`Paginated`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.Paginated) | None |
 | [Private Connections](../DSNP/Graph.md#private-connections) | TBD | TBD | [`AvroBinary`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.AvroBinary) | [`Paginated`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.Paginated) | None |
 
+[Pseudonymous Relationship Identifiers](./../DSNP/Graph.md#pseudonymous-relationship-identifiers) (PRIds) are stored along side Private Connections in the same Stateful Storage page.
+
 Source code for each schema is located in the [LibertyDSNP/schemas](https://github.com/LibertyDSNP/schemas) repository.
 
 ## Announcements
