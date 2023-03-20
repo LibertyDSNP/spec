@@ -1,7 +1,8 @@
 # Announcement Publishing
 
 On Frequency, [Announcements](../DSNP/Announcements.md) are mapped to Schemas which in turn publish Frequency Messages.
-Frequency Messages are either mutable state changes from a particular user, or a Batch Publication with a multitude of possible users.
+On Frequency, [Announcements](../DSNP/Announcements.md) are mapped to Schemas which in turn publish Frequency Messages or state changes.
+Frequency Messages can be from a particular user, or a Batch Publication with a multitude of possible users.
 
 <!-- Links to https://libertydsnp.github.io/frequency should be updated with links to docs.frequency.xyz when able to be -->
 
