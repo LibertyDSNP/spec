@@ -19,7 +19,7 @@
         - [Update](DSNP/Types/Update.md)
         - [Public Key](DSNP/Types/PublicKey.md)
         - [Migrated Announcements](DSNP/Migrated.md)
-		    - [Graph Change](DSNP/Types/GraphChange.md)
+            - [Graph Change](DSNP/Types/GraphChange.md)
     - [Operations](DSNP/Operations.md)
     - [State Change Records](DSNP/Records.md)
     - [Serializations](DSNP/Serializations.md)
