@@ -1,5 +1,5 @@
 # DSNP Specification
-__Version pre-1.2.0__
+__Version 1.2.0__
 
 DSNP (Decentralized Social Networking Protocol) is a social networking protocol designed to run on a blockchain.
 It specifies a set of social primitives along with requirements for interoperability.
@@ -15,7 +15,7 @@ For each DSNP Operation, the DSNP specification defines the data to be provided 
 
 The nature of blockchain technology means that all DSNP Operations are potentially asynchronous; that is, DSNP State Change Records need not be created immediately upon invoking a DSNP Operation, and may appear in the stream of state changes at any subsequent time.
 A DSNP Operation can therefore only be confirmed to have completed successfully by observing the stream of newly-generated DSNP Records.
- 
+
 All DSNP Records MUST be publicly visible.
 On a blockchain, for example, all nodes must share a common set of Records, and an implementation MUST define how external systems can subscribe to or otherwise view all state changes.
 In practical terms, this means that all users of a given DSNP system exist conceptually within a single shared social graph, and a given user MUST have the ability at a protocol level to see and participate in all public discourse.
@@ -25,20 +25,13 @@ Finally, to ensure decentralization, a DSNP system MUST avoid having any single 
 
 ### Implementation Compliance
 
-Compliant DSNP implementations MUST document how each of the required DSNP Operations (for a given version of the DSNP specification) can be invoked, including, for example, what wire protocols should be used for discovery, authentication and operation execution, and how inputs and outputs will be serialized. 
+Compliant DSNP implementations MUST document how each of the required DSNP Operations (for a given version of the DSNP specification) can be invoked, including, for example, what wire protocols should be used for discovery, authentication and operation execution, and how inputs and outputs will be serialized.
 
 A compliant implementation MUST specify a mapping from its implementation-specific state change data (for example, the events emitted by a blockchain) to the DSNP State Change Records that data represents.
 
-<!--- Uncomment for pre-release changes and prefix the version with `pre-[next version]` --->
+<!--- Uncomment for pre-release changes and prefix the version with `pre-[next version]`
 ## Prerelease Changelog
-
-- [DIP-210](https://github.com/LibertyDSNP/spec/issues/210) 
-- [DIP-216](https://github.com/LibertyDSNP/spec/issues/216) 
-- [DIP-220](https://github.com/LibertyDSNP/spec/issues/220)
-- [DIP-225](https://github.com/LibertyDSNP/spec/issues/225)
-- [DIP-226](https://github.com/LibertyDSNP/spec/issues/226) 
-- [DIP-227](https://github.com/LibertyDSNP/spec/issues/227)
-- [DIP-228](https://github.com/LibertyDSNP/spec/issues/228)
+--->
 
 ## Releases
 
@@ -46,5 +39,6 @@ Implementations MUST specify the version(s) of the DSNP specification with which
 
 | Version | Description | Release Date | Changelog |
 | --- | --- | --- | --- |
+| [1.2.0](https://github.com/LibertyDSNP/spec/tree/DSNP-v1.2.0) | DIP-210, DIP-216, DIP-220, DIP-225, DIP-226, DIP-227, DIP-228 | 2023-03-23 | [Changelog](https://github.com/LibertyDSNP/spec/releases/tag/DSNP-v1.2.0) |
 | [1.1.0](https://github.com/LibertyDSNP/spec/tree/DSNP-v1.1.0) | DIP-148, DIP-149, DIP-150, DIP-165, DIP-180 | 2022-05-06 | [Changelog](https://github.com/LibertyDSNP/spec/releases/tag/DSNP-v1.1.0) |
 | [1.0.0](https://github.com/LibertyDSNP/spec/tree/DSNP-v1.0.0) | Initial Release | 2021-09-09 | [Changelog](https://github.com/LibertyDSNP/spec/releases/tag/DSNP-v1.0.0) |
