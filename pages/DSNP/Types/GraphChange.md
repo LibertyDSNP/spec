@@ -1,5 +1,7 @@
 # Graph Change Announcement
 
+<mark>_Since DSNP version 1.2, social graph changes use [User Data](../UserData.md) operations as described in the [Graph](../Graph.md) section._</mark>
+
 A Graph Change Announcement is for publishing relationship state changes for a user.
 
 ## Fields

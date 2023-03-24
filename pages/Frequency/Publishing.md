@@ -1,14 +1,13 @@
 # Announcement Publishing
 
 On Frequency, [Announcements](../DSNP/Announcements.md) are mapped to Schemas which in turn publish Frequency Messages.
-Frequency Messages are either direct Graph Changes from a particular user, or a Batch Publication with a multitude of possible users.
+Frequency Messages are either individual Announcements from a particular user, or a Batch Publication with a multitude of possible users.
 
 <!-- Links to https://libertydsnp.github.io/frequency should be updated with links to docs.frequency.xyz when able to be -->
 
 | Announcement Type Enum | Announcement | Batched | Schema Id Mainnet | Schema Id Rococo | Frequency Model Type | Frequency Payload Location |
 | --- | --- | --- | --- | --- | --- | --- |
 | 0 | [Tombstone](../DSNP/Types/Tombstone.md) | YES | TBD | 1 (_v1.1.0+_) | [`Parquet`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
-| 1 | [Graph Change](../DSNP/Types/GraphChange.md) | no | TBD | 7 (_v1.1.0+_) | [`AvroBinary`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.AvroBinary) | [`OnChain`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.OnChain) |
 | 2 | [Broadcast](../DSNP/Types/Broadcast.md) | YES | TBD | 2 (_v1.1.0+_) | [`Parquet`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
 | 3 | [Reply](../DSNP/Types/Reply.md) | YES | TBD | 3 (_v1.1.0+_) | [`Parquet`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
 | 4 | [Reaction](../DSNP/Types/Reaction.md) | YES | TBD | 4 (_v1.1.0+_) | [`Parquet`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
@@ -27,7 +26,7 @@ DSNP Batch Publications [MUST be validated](./Validation.md) upon fetching to en
 ## Announcement Validation
 
 DSNP Announcements are validated differently depending on the type of Announcement.
-Non-batched Announcements (e.g. Graph) are on chain, are validated at write time, and do not need to be re-validated at read time.
+Non-batched Announcements are on chain, are validated at write time, and do not need to be re-validated at read time.
 Batched Announcements are off chain and MUST be validated at read time (See: [Validation](./Validation.md)).
 
 ## Ordering Announcements
