@@ -1,4 +1,4 @@
-# Frequency DSNP Implementation
+# DSNP Over Frequency
 
 ## Language and Framework
 Frequency is a Polkadot Parachain written in Rust, using the Substrate framework.
@@ -15,7 +15,7 @@ Frequency is a Polkadot Parachain written in Rust, using the Substrate framework
 
 
 ## DSNP Schemas
-Official DSNP Frequency Schemas may be found in [GitHub](https://github.com/LibertyDSNP/schemas).
+Official DSNP Over Frequency Schemas may be found in [GitHub](https://github.com/LibertyDSNP/schemas).
 
 <!--- Uncomment for pre-release changes
 ## Prerelease Changelog

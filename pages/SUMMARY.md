@@ -23,7 +23,7 @@
     - [Operations](DSNP/Operations.md)
     - [State Change Records](DSNP/Records.md)
     - [Serializations](DSNP/Serializations.md)
-- [DSNP Implementation Specs](Implementations.md)
+- [DSNP System Specs](Systems.md)
     - [Frequency](Frequency/Overview.md)
       - [Identity](Frequency/Identity.md)
       - [Publishing](Frequency/Publishing.md)

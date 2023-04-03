@@ -1,7 +1,7 @@
 # DSNP Specification
 
 Welcome to the Decentralized Social Networking Protocol (DSNP) specification.
-Here you can find the detailed specification documentation for DSNP, official implementation specifications, associated specifications, as well as a roadmap and proposals for future extensions.
+Here you can find the detailed specification documentation for DSNP, official DSNP system specifications, and associated specifications, as well as a roadmap and proposals for future extensions.
 
 ## Goals & Purpose
 
@@ -15,8 +15,8 @@ There are three core specifications currently.
 
 | Name | Version | Description |
 | --- | --- | --- |
-| [DSNP](DSNP/Overview.md) | 1.2.0 | The implementation-agnostic DSNP specification |
-| [DSNP on Frequency (Pre-release)](Frequency/Overview.md) | pre-1.0.0 | Frequency implementation for DSNP specification |
+| [DSNP](DSNP/Overview.md) | 1.2.0 | The system-agnostic DSNP specification |
+| [DSNP Over Frequency](Frequency/Overview.md) | 1.3.0 | DSNP Over Frequency specification |
 | [Activity Content](ActivityContent/Overview.md) | 1.1.0 | A specification for DSNP-referenced content (subset of W3C Activity Streams) |
 
 Each specification is divided into several modules.
