@@ -43,6 +43,7 @@ Algorithm:
 1. Both Alice and Bob generate an asymmetric key pair for use with X25519 <abbr title="Elliptic Curve Integrated Encryption Scheme">ECIES</abbr>.
    Each publishes a Public Key Announcement with their generated public key with a `keyType` value of `keyAgreement`.
 
+<!-- yaspeller ignore:start -->
 <table style="table-layout:fixed">
 <tr><th>Libsodium</th><th>Algorithm</th></tr>
 <tr><td>
@@ -64,9 +65,11 @@ Algorithm:
 </tt></pre>
 
 </td></tr></table>
+<!-- yaspeller ignore:end -->
 
 2. When Alice wants to interact with Bob, she looks up Bob's public key and performs an X25519 Elliptic-curve Diffie-Hellman key exchange operation using her secret key and Bob's public key, generating a root shared secret.
 
+<!-- yaspeller ignore:start -->
 <table style="table-layout:fixed">
 <tr><th>Libsodium</th><th>Algorithm</th></tr>
 <tr><td>
@@ -82,9 +85,11 @@ RootSharedSecret<sub>AB</sub> &#8592;
   <abbr title="Elliptic-curve Diffie-Hellman">ECDH</abbr>(B<sub>public</sub>, A<sub>secret</sub>)
 </pre></tt>
 </td></tr></table>
+<!-- yaspeller ignore:end -->
 
 3. Alice derives a context-specific subkey <code>CtxSharedSecret<sub>Bob</sub></code> from the shared secret `RootSharedSecret` as the master key, Bob's DSNP User Id as the 64-bit key identifier, and the ASCII encoding of the [PRId Context](#contexts) string (`"PRIdCtx0"` for connections).
 
+<!-- yaspeller ignore:start -->
 <table style="table-layout:fixed">
 <tr><th>Libsodium</th><th>Algorithm</th></tr>
 <tr><td>
@@ -106,10 +111,12 @@ CtxSharedSecret<sub>A→B</sub> &#8592
     personal = "PRIdCtx0" || {0})
 </pre></tt>
 </td></tr></table>
+<!-- yaspeller ignore:end -->
 
 4. Alice uses Bob's DSNP User Id to form a 8-byte little-endian message.
 Alice encrypts this message using [XSalsa20](http://cr.yp.to/snuffle/xsalsa-20110204.pdf) with the PRId key <code>CtxSharedSecret<sub>A→B</sub></code> and a nonce of her own User Id (little-endian) followed by 16 zero bytes.
 
+<!-- yaspeller ignore:start -->
 <table style="table-layout:fixed">
 <tr><th>Libsodium</th><th>Algorithm</th></tr>
 <tr><td>
@@ -141,6 +148,7 @@ PRId<sub>A→B,C</sub> &#8592
   )
 </pre></tt>
 </td></tr></table>
+<!-- yaspeller ignore:end -->
 
 6. Alice adds the generated PRId to the relevant list of PRIds and publishes an updated copy via the [Replace User Data](../UserData.md#replace-user-data-operation) Operation.
 
