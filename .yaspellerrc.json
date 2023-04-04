@@ -57,6 +57,7 @@
     "RocksDB",
     "Schnorrkel",
     "SQLite",
+    "Stateful",
     "TypeScript",
     "URL[s]?",
     "WebM",
