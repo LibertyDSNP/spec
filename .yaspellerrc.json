@@ -103,6 +103,7 @@
     "multibase",
     "multichain",
     "multicodec",
+    "multihash",
     "multikey",
     "namespace",
     "objectId",
