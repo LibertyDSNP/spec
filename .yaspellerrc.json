@@ -145,6 +145,7 @@
     "varint",
     "vanishingly",
     "version(ed|ing)",
-    "websocket"
+    "websocket",
+    "whitepaper"
   ]
 }
