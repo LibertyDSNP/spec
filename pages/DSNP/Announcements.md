@@ -37,8 +37,9 @@ DSNP Announcements encode content hashes using the [multihash](https://github.co
 
 ### Supported Hashing Algorithms
 
-| Algorithm | Multihash Name | Leading bytes (as varint) | Reference | DSNP Version Added |
+| Algorithm | Multihash Name | Leading bytes (as [varint](https://github.com/multiformats/unsigned-varint)) | Reference | DSNP Version Added |
 | --- | --- | --- | --- | --- |
+| SHA-256 | `sha2-256` | `0x1220` | [RFC 6234](https://tools.ietf.org/html/rfc6234) | 1.2.0 |
 | BLAKE2b | `blake2b-256` | `0xa0e40220` | [RFC 7693](https://tools.ietf.org/html/rfc7693) | 1.2.0 |
 
 ## Duplicate Handling
