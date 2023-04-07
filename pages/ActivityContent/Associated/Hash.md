@@ -23,7 +23,7 @@ This example gives SHA-256 and BLAKE2b hashes for the [PDF version of the DSNP w
 {
   "hash": [
     "QmQNHNfHnbgJJ6nK4UPx2VtTUCafAKCbqZJ6ZRYUGjoeFj",
-	  "2DrjgbGgSsXRhTiBWckoVwBFC6H4qiBWWNumSsRwdUt82YnTdN"
+    "2DrjgbGgSsXRhTiBWckoVwBFC6H4qiBWWNumSsRwdUt82YnTdN"
   ]
 }
 ```
