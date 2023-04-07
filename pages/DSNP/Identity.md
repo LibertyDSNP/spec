@@ -38,7 +38,7 @@ A retired Identifier MUST NOT be allowed to act as a principal for any additiona
 
 * An owner MUST be able to delegate permission to announce on their behalf to other parties.
 * A user MUST be able to revoke delegated permissions.
-* Announcements from a delegate MUST be able to be verify which delegate made the specific announcement.
+* Announcements from a delegate MUST be able to be verify which delegate made the specific Announcement.
 * Delegation revocation MUST NOT be retroactive.
 
 ## Related Operations

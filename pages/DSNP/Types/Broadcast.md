@@ -8,7 +8,7 @@ A Broadcast Announcement is a way to send a public message to everyone.
 | ----- | ----------- | --------- | ------------- | ------------ | ------------ |
 | announcementType | Announcement Type Enum (`2`) | enum | [decimal](../Serializations.md#decimal) | `INT32` | no |
 | contentHash | multihash-encoded hash of content stored at URL | variable length byte array | [hexadecimal](../Serializations.md#hexadecimal) | `BYTE_ARRAY` | YES
-| fromId | id of the user creating the announcement | 64-bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | YES
+| fromId | id of the user creating the Announcement | 64-bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | YES
 | url | content URL | UTF-8 | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | no
 
 ## Field Requirements

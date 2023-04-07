@@ -5,12 +5,12 @@ The reference content *MUST be of profile type*.
 
 ## Fields
 
-| Field | Description | Serialization | Parquet Type | Bloom Filter |
-| ----- | ----------- | ------------- | ------------ | ------------ |
-| announcementType | Announcement Type Enum (`5`) | [decimal](../Serializations.md#decimal) | `INT32` | no |
-| contentHash | multihash-encoded hash of content stored at URL | [hexadecimal](../Serializations.md#hexadecimal) | `BYTE_ARRAY` | YES
-| fromId | id of the user creating the Announcement | [decimal](../Serializations.md#decimal) | `UINT_64` | YES
-| url | profile content URL | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | no
+| Field | Description | Data Type | Serialization | Parquet Type | Bloom Filter |
+| ----- | ----------- | --------- | ------------- | ------------ | ------------ |
+| announcementType | Announcement Type Enum (`5`) | enum | [decimal](../Serializations.md#decimal) | `INT32` | no |
+| contentHash | multihash-encoded hash of content stored at URL | variable length byte array | [hexadecimal](../Serializations.md#hexadecimal) | `BYTE_ARRAY` | YES
+| fromId | id of the user creating the Announcement | 64-bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | YES
+| url | profile content URL | UTF-8 | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | no
 
 ## Field Requirements
 
