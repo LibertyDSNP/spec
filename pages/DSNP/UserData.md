@@ -89,10 +89,10 @@ The following example illustrates the input to the Replace User Data Operation c
 The private connection's PRId is added to the private connection PRId list, but it remains a single chunk.
 
 ```
-{ 
+{
   "publicFollows": {
     "version": "1.2",
-    "chunks": [ 
+    "chunks": [
       {
         "etag": string                             // unchanged chunk
       },
@@ -132,7 +132,7 @@ To ensure that the deleted chunk was up to date, the deleted chunk should still 
 ```
   "publicFollows": {
     "version": "1.2",
-    "chunks": [ 
+    "chunks": [
       {
         "etag": string                     // unchanged chunk
       },
@@ -170,10 +170,10 @@ _The JSON schema and encoding used is provided for illustration only and impleme
 The following example illustrates the output of a Get User Data Operation invocation requesting data for `publicFollows`, `privateConnections`, and `privateConnectionPRIds`:
 
 ```
-{ 
+{
   "publicFollows": {
     "version": "1.2",
-    "chunks": [ 
+    "chunks": [
       {
         "data": base64_string,
         "etag": string
