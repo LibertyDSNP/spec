@@ -75,6 +75,7 @@
     "deadDropId",
     "dequeued",
     "deserialized",
+    "deterministically",
     "dsnpUserId",
     "ecrecover",
     "emoji[s]?",

@@ -12,7 +12,7 @@ The most recently published key (if one exists) for a given key type should be t
 | fromId | id of the user creating the Announcement | 64 bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | YES |
 | keyType | Key Type Enum | enum | [decimal](../Serializations.md#decimal)  |`INT32` | YES |
 | keyId | user-assigned identifier | 64 bit unsigned integer | [decimal](../Serializations.md#decimal)  |`UINT_64` | no |
-| publicKey | public key in multikey format | variable length byte array | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `BYTE_ARRAY` | no
+| publicKey | public key in multikey format | variable length byte array | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `BYTE_ARRAY` | no |
 
 ## Field Requirements
 
