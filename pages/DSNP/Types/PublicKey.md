@@ -12,7 +12,7 @@ The most recently published key (if one exists) for a given key type should be t
 | fromId | id of the user creating the Announcement | 64 bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | YES |
 | keyType | Key Type Enum | enum | [decimal](../Serializations.md#decimal)  |`INT32` | YES |
 | keyId | user-assigned identifier | 64 bit unsigned integer | [decimal](../Serializations.md#decimal)  |`UINT_64` | no |
-| publicKey | public key in multikey format | UTF-8 | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | no
+| publicKey | public key in multikey format | variable length byte array | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `BYTE_ARRAY` | no
 
 ## Field Requirements
 
@@ -40,7 +40,7 @@ The most recently published key (if one exists) for a given key type should be t
 
 The user may assign a new `keyId` each time they announce a new key of a given `keyType`.
 A `keyId` value is useful when invoking certain DSNP Operations in order to indicate which key was used to encrypt data.
-It may also provide a hint to the user if they ever need to regenerate their private key (for example, many key derivation functions enable the use of a subkey identifier).
+It may also provide a hint to the user if they ever need to regenerate their private key (for example, many key derivation functions enable the use of a subkey identifier to deterministically create a subkey from a root key).
 
 ### publicKey
 
