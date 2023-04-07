@@ -44,10 +44,7 @@
           "href": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Wilhelm_Scream.ogg",
           "mediaType": "audio/ogg",
           "hash": [
-            {
-              "algorithm": "keccak256",
-              "value": "0x3b33df3d163e86514e9041ac97e3d920a75bbafa8d9c1489e631897874b762cc"
-            }
+		    "QmQrGdv6Ky5sJhaVdw27y4aod5pdfihDkBTxiBkRaSGJJ7"
           ]
         }
       ],
@@ -109,10 +106,7 @@
           "height": 228,
           "mediaType": "image/jpg",
           "hash": [
-            {
-              "algorithm": "keccak256",
-              "value": "0x90b3b09658ec527d679c2de983b5720f6e12670724f7e227e5c360a3510b4cb5"
-            }
+            "2Drjgb5yoVWTpubcWmDBLJqkxrFkZamekzJoYLSWwM2ezpFkab"
           ]
         }
       ]
@@ -175,10 +169,7 @@
           "height": 2250,
           "mediaType": "video/webm",
           "hash": [
-            {
-              "algorithm": "keccak256",
-              "value": "0xf841950dfcedc968dbd63132da844b9f28faea3dbfd4cf326b3831b419a20e9a"
-            }
+            "2Drjgb4a8eC4XheBKCBcbAcaVdEWcKjMbCSZ2L2c9CQs4x98jf"
           ]
         }
       ]
