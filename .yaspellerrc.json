@@ -103,6 +103,7 @@
     "multibase",
     "multichain",
     "multicodec",
+    "multihash",
     "multikey",
     "namespace",
     "objectId",
@@ -144,6 +145,7 @@
     "varint",
     "vanishingly",
     "version(ed|ing)",
-    "websocket"
+    "websocket",
+    "whitepaper"
   ]
 }

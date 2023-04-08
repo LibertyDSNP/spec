@@ -37,7 +37,7 @@ dsnp://1311768467294899700
 ## DSNP Content URI
 
 The DSNP Content URI consists of three parts: the scheme, the user id, and the content hash.
-It is used to uniquely identify an announcement from a given user with content.
+It is used to uniquely identify an Announcement from a given user with content.
 
 Any [Announcement Types](Announcements.md#announcement-types) with a `fromId` and `contentHash` have a DSNP Content URI.
 
