@@ -174,9 +174,11 @@ For the following inputs:
 
 An implementation of the PRId generation algorithm should produce the following outputs:
 
+<!-- yaspeller ignore:start -->
 | Output | Value |
 | --- | --- |
 | <tt>PRId<sub>A→B</sub></tt> | `0xace4d2995b1a829c` |
 | <tt>CtxSharedSecret<sub>A→B</sub></tt> | `0x37cb1a870f0c1dce06f5116faf145ac2cf7a2f7d30136be4eea70c324932e6d2` |
 | <tt>PRId<sub>B→A</sub></tt> | `0x1a53b02a26503600` |
 | <tt>CtxSharedSecret<sub>B→A</sub></tt> | `0x32c45c49fcfe12f9db60e74fa66416c5a05832c298814d82032a6783a4b1fca0` |
+<!-- yaspeller ignore:end -->
