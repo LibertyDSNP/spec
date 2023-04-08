@@ -157,3 +157,28 @@ Bob can also derive the PRId subkey for Alice's DSNP User Id and encrypt Alice's
 
 If Alice or Bob wants to prove to a third party that their PRIds are in each other's PRId list, they can provide the third party with their own subkey <code>CtxSharedSecret<sub>A→B</sub></code> or <code>CtxSharedSecret<sub>B→A</sub></code>.
 The third party can repeat the encryption step using Alice and Bob's User Ids, and check that the output is present in the published set of PRIds. The root shared secret `RootSharedSecret` (used as a master key in this algorithm) should _not_ be divulged.
+
+### Test Vector
+
+For the following inputs:
+
+| Input | Value |
+| --- | --- |
+| <tt>A<sub>secret</tt> | `0xc9432ed5c0c5c24e8a4ff190619893918b4d1265a67d123895023fa7324b43e0` |
+| <tt>A<sub>public</sub></tt> | `0x0fea2cafabdc83752be36fa5349640da2c828add0a290df13cd2d8173eb2496f` |
+| <tt>B<sub>secret</sub></tt> | `0xdc106e1371293ee9536956e1253f43f8941d4a5c4e40f15968d24b75512b6920` |
+| <tt>B<sub>public</sub></tt> | `0xd0d4eb21db1df63369c147e63b2573816dd4b3fe513e95bf87f7ed1835407e62` |
+| <tt>Id<sub>A</sub></tt> | `42` |
+| <tt>Id<sub>B</sub></tt> | `478` |
+| <tt>Context</tt> | `PRIdCtx0` |
+
+An implementation of the PRId generation algorithm should produce the following outputs:
+
+<!-- yaspeller ignore:start -->
+| Output | Value |
+| --- | --- |
+| <tt>PRId<sub>A→B</sub></tt> | `0xace4d2995b1a829c` |
+| <tt>CtxSharedSecret<sub>A→B</sub></tt> | `0x37cb1a870f0c1dce06f5116faf145ac2cf7a2f7d30136be4eea70c324932e6d2` |
+| <tt>PRId<sub>B→A</sub></tt> | `0x1a53b02a26503600` |
+| <tt>CtxSharedSecret<sub>B→A</sub></tt> | `0x32c45c49fcfe12f9db60e74fa66416c5a05832c298814d82032a6783a4b1fca0` |
+<!-- yaspeller ignore:end -->
