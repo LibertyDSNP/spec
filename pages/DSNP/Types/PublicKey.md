@@ -1,15 +1,8 @@
 # Public Key Announcement
 
-A Public Key Announcement is a way to note a new or updated cryptographic key that can be used in DSNP to secure and verify the authenticity of communications.
+A Public Key Announcement is a way to note a new cryptographic key that can be used in DSNP to secure and verify the authenticity of communications.
 
-A Public Key Announcement should be treated as updating an existing key if the `fromId`, `keyType`, `keyId` and `publicKey` fields of the new  Announcement match those of a previous Announcement.
-This may be used to announce that a particular key has been revoked or is no longer in use.
-
-The most recently published unrevoked key (if one exists) for a given key type should be treated as the active key of that key type.
-
-A public key that has been revoked MUST NOT be used for any new cryptographic operations.
-The `revokedAsOf` timestamp may be backdated to a time in the past (for example, if a key is known to have been compromised at or after a given date).
-Any data previously generated through use of the key that is after such a backdated `revokedAsOf` timestamp should be considered invalid.
+The most recently published key (if one exists) for a given key type should be treated as the active key of that key type.
 
 ## Fields
 
@@ -19,8 +12,7 @@ Any data previously generated through use of the key that is after such a backda
 | fromId | id of the user creating the Announcement | 64 bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | YES |
 | keyType | Key Type Enum | enum | [decimal](../Serializations.md#decimal)  |`INT32` | YES |
 | keyId | user-assigned identifier | 64 bit unsigned integer | [decimal](../Serializations.md#decimal)  |`UINT_64` | no |
-| publicKey | public key in multikey format | UTF-8 | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | no
-| revokedAsOf | revocation time in Unix epoch seconds, or `null` if not revoked  | 64 bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | no |
+| publicKey | public key in multikey format | variable length byte array | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `BYTE_ARRAY` | no |
 
 ## Field Requirements
 
@@ -48,19 +40,14 @@ Any data previously generated through use of the key that is after such a backda
 
 The user may assign a new `keyId` each time they announce a new key of a given `keyType`.
 A `keyId` value is useful when invoking certain DSNP Operations in order to indicate which key was used to encrypt data.
-It may also provide a hint to the user if they ever need to regenerate their private key (for example, many key derivation functions enable the use of a subkey identifier).
+It may also provide a hint to the user if they ever need to regenerate their private key (for example, many key derivation functions enable the use of a subkey identifier to deterministically create a subkey from a root key).
 
 ### publicKey
 
-- MUST be a public key of an allowed algorithm for `keyType`, in multikey format
+- MUST be a public key of an allowed algorithm for `keyType`, encoded in `multikey` format
 
-The "multikey" encoding of public keys is described in section 3.1.3 of the draft [did:key Method](https://w3c-ccg.github.io/did-method-key/#decode-public-key-algorithm) specification.
-The encoded string consists of a [multibase](https://github.com/multiformats/multibase) identifier, a [multicodec](https://github.com/multiformats/multicodec/blob/master/table.csv) key identifier (as a varint), and the public key's binary data in the codec's format.
-`base58btc` encoding is recommended.
+The `multikey` encoding of public keys is described in the draft [did:key Method](https://w3c-ccg.github.io/did-method-key/) specification.
+The byte encoding consists of a [multicodec](https://github.com/multiformats/multicodec/blob/master/table.csv) key identifier (as a varint) followed by the public key's binary data in the codec's described format.
+
+If serializing the `multicodec` value as a string, `base58btc` encoding is recommended.
 For example, the string `z6LStiZsmxiK4odS4Sb6JmdRFuJ6e1SYP157gtiCyJKfrYha` decodes as a Base58 string using the `x25519-pub` multicodec value with a 32-byte raw key of `0xfd3384e132ad02a56c78f45547ee40038dc79002b90d29ed90e08eee762ae715`.
-
-### revokedAsOf
-
-- MUST be one of the following:
-  - the `null` value, indicating that the key has not been revoked, or
-  - a timestamp in seconds since the [Unix epoch](https://en.wikipedia.org/wiki/Unix_time).
