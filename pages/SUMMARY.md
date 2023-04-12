@@ -1,7 +1,6 @@
 # Summary
 
 [Introduction](index.md)
-[Roadmap](Roadmap.md)
 - [DSNP](DSNP/Overview.md)
     - [Identity](DSNP/Identity.md)
     - [Identifiers](DSNP/Identifiers.md)
