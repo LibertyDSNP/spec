@@ -1,7 +1,6 @@
 # Summary
 
 [Introduction](index.md)
-[Roadmap](Roadmap.md)
 - [DSNP](DSNP/Overview.md)
     - [Identity](DSNP/Identity.md)
     - [Identifiers](DSNP/Identifiers.md)
@@ -23,7 +22,7 @@
     - [Operations](DSNP/Operations.md)
     - [State Change Records](DSNP/Records.md)
     - [Serializations](DSNP/Serializations.md)
-- [DSNP Implementation Specs](Implementations.md)
+- [DSNP System Specs](Systems.md)
     - [Frequency](Frequency/Overview.md)
       - [Identity](Frequency/Identity.md)
       - [Publishing](Frequency/Publishing.md)
@@ -40,5 +39,3 @@
         - [Tag](ActivityContent/Associated/Tag.md)
         - [Attachments](ActivityContent/Associated/Attachments.md)
 - [Glossary](Reference/Glossary.md)
-- [Draft Specifications]()
-    - [Archivists](Draft/Archivists.md)
