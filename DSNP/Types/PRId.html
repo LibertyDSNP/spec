@@ -1,0 +1,365 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>PRId - DSNP Specification</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 800) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <a id="logo" href="https://www.dsnp.org/">
+                    DSNP
+                </a>
+                <ol class="chapter"><li class="chapter-item affix "><a href="../../index.html">Introduction</a></li><li class="chapter-item expanded "><a href="../../DSNP/Overview.html">DSNP</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../DSNP/Identity.html">Identity</a></li><li class="chapter-item "><a href="../../DSNP/Identifiers.html">Identifiers</a></li><li class="chapter-item "><a href="../../DSNP/Graph.html">Graph</a></li><li class="chapter-item expanded "><a href="../../DSNP/UserData.html">User Data</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../DSNP/Types/GraphEdge.html">Graph Edge</a></li><li class="chapter-item expanded "><a href="../../DSNP/Types/PRId.html" class="active">PRId</a></li></ol></li><li class="chapter-item "><a href="../../DSNP/BatchPublications.html">Batch Publications</a></li><li class="chapter-item "><a href="../../DSNP/Announcements.html">Announcements</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../DSNP/Types/Tombstone.html">Tombstone</a></li><li class="chapter-item "><a href="../../DSNP/Types/Broadcast.html">Broadcast</a></li><li class="chapter-item "><a href="../../DSNP/Types/Reply.html">Reply</a></li><li class="chapter-item "><a href="../../DSNP/Types/Reaction.html">Reaction</a></li><li class="chapter-item "><a href="../../DSNP/Types/Profile.html">Profile</a></li><li class="chapter-item "><a href="../../DSNP/Types/Update.html">Update</a></li><li class="chapter-item "><a href="../../DSNP/Types/PublicKey.html">Public Key</a></li><li class="chapter-item "><a href="../../DSNP/Migrated.html">Migrated Announcements</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../DSNP/Types/GraphChange.html">Graph Change</a></li></ol></li></ol></li><li class="chapter-item "><a href="../../DSNP/Operations.html">Operations</a></li><li class="chapter-item "><a href="../../DSNP/Records.html">State Change Records</a></li><li class="chapter-item "><a href="../../DSNP/Serializations.html">Serializations</a></li></ol></li><li class="chapter-item "><a href="../../Systems.html">DSNP System Specs</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../Frequency/Overview.html">Frequency</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../Frequency/Identity.html">Identity</a></li><li class="chapter-item "><a href="../../Frequency/Publishing.html">Publishing</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../Frequency/Validation.html">Validation</a></li></ol></li><li class="chapter-item "><a href="../../Frequency/Operations.html">Operations</a></li><li class="chapter-item "><a href="../../Frequency/Records.html">Records</a></li><li class="chapter-item "><a href="../../Frequency/UserData.html">User Data</a></li></ol></li></ol></li><li class="chapter-item "><a href="../../ActivityContent/Overview.html">Activity Content</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../ActivityContent/Types/Note.html">Note</a></li><li class="chapter-item "><a href="../../ActivityContent/Types/Profile.html">Profile</a></li><li class="chapter-item "><div>Associated Type</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../ActivityContent/Associated/Hash.html">Hash</a></li><li class="chapter-item "><a href="../../ActivityContent/Associated/Location.html">Location</a></li><li class="chapter-item "><a href="../../ActivityContent/Associated/Tag.html">Tag</a></li><li class="chapter-item "><a href="../../ActivityContent/Associated/Attachments.html">Attachments</a></li></ol></li></ol></li><li class="chapter-item "><a href="../../Reference/Glossary.html">Glossary</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Dark</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">DSNP Specification</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/LibertyDSNP/spec" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/LibertyDSNP/spec/blob/main/pages/DSNP/Types/PRId.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Type to search..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="prid"><a class="header" href="#prid">PRId</a></h1>
+<p>A Pseudonymous Relationship Identifier is represented by the PRId object type.</p>
+<h2 id="serialization"><a class="header" href="#serialization">Serialization</a></h2>
+<p>PRId object serialization MUST conform to the following <a href="https://avro.apache.org">Avro</a> schema:</p>
+<pre><code>{
+    &quot;namespace&quot;: &quot;org.dsnp&quot;,
+    &quot;name&quot;: &quot;PRId&quot;,
+    &quot;type&quot;: &quot;fixed&quot;,
+    &quot;size&quot;: 8,
+    &quot;doc&quot;: &quot;Pseudonymous Relationship Identifier&quot;
+}
+</code></pre>
+<h2 id="generation"><a class="header" href="#generation">Generation</a></h2>
+<p>PRIds are generated cryptographically to represent a relationship from one user to another within a specified context, in a privacy-preserving manner.</p>
+<h3 id="contexts"><a class="header" href="#contexts">Contexts</a></h3>
+<p>The following context values are currently defined for PRIds. All other values are reserved for future use.</p>
+<div class="table-wrapper"><table><thead><tr><th>Context Id</th><th>Description</th><th>Context string</th></tr></thead><tbody>
+<tr><td>0</td><td>Connection</td><td><code>PRIdCtx0</code></td></tr>
+</tbody></table>
+</div>
+<h3 id="algorithm"><a class="header" href="#algorithm">Algorithm</a></h3>
+<p>In the following section, the Alice to Bob identifier for context C is called PRId<sub>A→B,C</sub>, and the corresponding Bob to Alice identifier is called PRId<sub>B→A,C</sub>.</p>
+<p>A PRId is derived from Alice and Bob's <code>keyAgreement</code> key pairs, using a key exchange protocol as follows. To illustrate the cryptographic operations required, the relevant functions from <a href="https://libsodium.org">libsodium</a> are noted. Sodium is a stable, fast, free, and cross-platform cryptography library, and supports all encryption algorithms used in the DSNP specification out of the box.</p>
+<p>Definitions:</p>
+<ul>
+<li><code>Id<sub>A</sub> = <em>DSNP User Id of A (little-endian)</em></code></li>
+<li><code>Id<sub>B</sub> = <em>DSNP User Id of B (little-endian)</em></code></li>
+</ul>
+<p>Algorithm:</p>
+<ol>
+<li>Both Alice and Bob generate an asymmetric key pair for use with X25519 <abbr title="Elliptic Curve Integrated Encryption Scheme">ECIES</abbr>.
+Each publishes a Public Key Announcement with their generated public key with a <code>keyType</code> value of <code>keyAgreement</code>.</li>
+</ol>
+<!-- yaspeller ignore:start -->
+<table style="table-layout:fixed">
+<tr><th>Libsodium</th><th>Algorithm</th></tr>
+<tr><td>
+<tt>
+<pre>
+<a href="https://libsodium.gitbook.io/doc/public-key_cryptography/authenticated_encryption#key-pair-generation">crypto_box_keypair</a>(
+  &a_public,
+  &a_secret);
+<a href="https://libsodium.gitbook.io/doc/public-key_cryptography/authenticated_encryption#key-pair-generation">crypto_box_keypair</a>(
+  &b_public, 
+  &b_secret);
+  </pre>
+</tt>
+</td><td>
+<tt><pre>
+(A<sub>public</sub>, A<sub>secret</sub>) &#8592; <abbr title="Key Generation Function">KGF</abbr>()
+(B<sub>public</sub>, B<sub>secret</sub>) &#8592; <abbr title="Key Generation Function">KGF</abbr>()
+</tt></pre>
+</td></tr></table>
+<!-- yaspeller ignore:end -->
+<ol start="2">
+<li>When Alice wants to interact with Bob, she looks up Bob's public key and performs an X25519 Elliptic-curve Diffie-Hellman key exchange operation using her secret key and Bob's public key, generating a root shared secret.</li>
+</ol>
+<!-- yaspeller ignore:start -->
+<table style="table-layout:fixed">
+<tr><th>Libsodium</th><th>Algorithm</th></tr>
+<tr><td>
+<tt><pre>
+<a href="https://libsodium.gitbook.io/doc/public-key_cryptography/authenticated_encryption#precalculation-interface">crypto_box_beforenm</a>(
+  &root_shared_secret,
+  b_public,
+  a_secret);
+</pre></tt>
+</td><td>
+<tt><pre>
+RootSharedSecret<sub>AB</sub> &#8592;
+  <abbr title="Elliptic-curve Diffie-Hellman">ECDH</abbr>(B<sub>public</sub>, A<sub>secret</sub>)
+</pre></tt>
+</td></tr></table>
+<!-- yaspeller ignore:end -->
+<ol start="3">
+<li>Alice derives a context-specific subkey <code>CtxSharedSecret<sub>Bob</sub></code> from the shared secret <code>RootSharedSecret</code> as the master key, Bob's DSNP User Id as the 64-bit key identifier, and the ASCII encoding of the <a href="#contexts">PRId Context</a> string (<code>&quot;PRIdCtx0&quot;</code> for connections).</li>
+</ol>
+<!-- yaspeller ignore:start -->
+<table style="table-layout:fixed">
+<tr><th>Libsodium</th><th>Algorithm</th></tr>
+<tr><td>
+<tt><pre>
+<a href="https://libsodium.gitbook.io/doc/key_derivation">crypto_kdf_derive_from_key</a>(
+  ctx_shared_secret,
+  32,
+  b_user_id,
+  "PRIdCtx0",
+  root_shared_secret);
+</pre></tt>
+</td><td>
+<tt><pre>
+CtxSharedSecret<sub>A→B</sub> &#8592
+  Blake2b<sub>256</sub>(
+    key = RootSharedSecret<sub>AB</sub>,
+    message = {},
+    salt = Id<sub>B</sub> || {0},
+    personal = "PRIdCtx0" || {0})
+</pre></tt>
+</td></tr></table>
+<!-- yaspeller ignore:end -->
+<ol start="4">
+<li>Alice uses Bob's DSNP User Id to form a 8-byte little-endian message.
+Alice encrypts this message using <a href="http://cr.yp.to/snuffle/xsalsa-20110204.pdf">XSalsa20</a> with the PRId key <code>CtxSharedSecret<sub>A→B</sub></code> and a nonce of her own User Id (little-endian) followed by 16 zero bytes.</li>
+</ol>
+<!-- yaspeller ignore:start -->
+<table style="table-layout:fixed">
+<tr><th>Libsodium</th><th>Algorithm</th></tr>
+<tr><td>
+<tt><pre>
+char nonce[24] = {0};
+int i;
+for (i = 0; i < 8; i++) {
+  nonce[i] = (user_id_a >> (i*8))
+    & 0xff;
+}<br>
+<a href="https://libsodium.gitbook.io/doc/secret-key_cryptography/secretbox#detached-mode">crypto_secretbox_detached</a>(
+  &prid,
+  &mac_unused,
+  user_id_b,
+  8,
+  nonce,
+  ctx_shared_secret);
+</pre></tt>
+<ul>
+<li><i>Alice's act of publishing provides authentication, so the <abbr title="Message Authentication Code">MAC</abbr> is unused.</i></li>
+</ul>
+</td><td>
+<tt><pre>
+PRId<sub>A→B,C</sub> &#8592
+  XSalsa20(
+    message = Id<sub>B</sub>,
+    key = CtxSharedSecret<sub>A→B</sub>,
+    nonce = Padded24BytesLE(Id<sub>A</sub>)
+  )
+</pre></tt>
+</td></tr></table>
+<!-- yaspeller ignore:end -->
+<ol start="6">
+<li>Alice adds the generated PRId to the relevant list of PRIds and publishes an updated copy via the <a href="../UserData.html#replace-user-data-operation">Replace User Data</a> Operation.</li>
+</ol>
+<p>Similarly, Bob can calculate the same root shared secret <code>RootSharedSecret</code> using <code>Alice<sub>public</sub></code> and <code>Bob<sub>secret</sub></code> and derive the same <code>PRId<sub>A→B,C</sub></code> in order to check if it is in Alice's published PRIds.
+Bob can also derive the PRId subkey for Alice's DSNP User Id and encrypt Alice's User Id, using his own as the nonce, to generate the Bob-to-Alice PRId (<code>PRId<sub>B→A,C</sub></code>), and then publish it to his own list, if desired.</p>
+<p>If Alice or Bob wants to prove to a third party that their PRIds are in each other's PRId list, they can provide the third party with their own subkey <code>CtxSharedSecret<sub>A→B</sub></code> or <code>CtxSharedSecret<sub>B→A</sub></code>.
+The third party can repeat the encryption step using Alice and Bob's User Ids, and check that the output is present in the published set of PRIds. The root shared secret <code>RootSharedSecret</code> (used as a master key in this algorithm) should <em>not</em> be divulged.</p>
+<h3 id="test-vector"><a class="header" href="#test-vector">Test Vector</a></h3>
+<p>For the following inputs:</p>
+<div class="table-wrapper"><table><thead><tr><th>Input</th><th>Value</th></tr></thead><tbody>
+<tr><td><tt>A<sub>secret</tt></td><td><code>0xc9432ed5c0c5c24e8a4ff190619893918b4d1265a67d123895023fa7324b43e0</code></td></tr>
+<tr><td><tt>A<sub>public</sub></tt></td><td><code>0x0fea2cafabdc83752be36fa5349640da2c828add0a290df13cd2d8173eb2496f</code></td></tr>
+<tr><td><tt>B<sub>secret</sub></tt></td><td><code>0xdc106e1371293ee9536956e1253f43f8941d4a5c4e40f15968d24b75512b6920</code></td></tr>
+<tr><td><tt>B<sub>public</sub></tt></td><td><code>0xd0d4eb21db1df63369c147e63b2573816dd4b3fe513e95bf87f7ed1835407e62</code></td></tr>
+<tr><td><tt>Id<sub>A</sub></tt></td><td><code>42</code></td></tr>
+<tr><td><tt>Id<sub>B</sub></tt></td><td><code>478</code></td></tr>
+<tr><td><tt>Context</tt></td><td><code>PRIdCtx0</code></td></tr>
+</tbody></table>
+</div>
+<p>An implementation of the PRId generation algorithm should produce the following outputs:</p>
+<!-- yaspeller ignore:start -->
+<div class="table-wrapper"><table><thead><tr><th>Output</th><th>Value</th></tr></thead><tbody>
+<tr><td><tt>PRId<sub>A→B</sub></tt></td><td><code>0xace4d2995b1a829c</code></td></tr>
+<tr><td><tt>CtxSharedSecret<sub>A→B</sub></tt></td><td><code>0x37cb1a870f0c1dce06f5116faf145ac2cf7a2f7d30136be4eea70c324932e6d2</code></td></tr>
+<tr><td><tt>PRId<sub>B→A</sub></tt></td><td><code>0x1a53b02a26503600</code></td></tr>
+<tr><td><tt>CtxSharedSecret<sub>B→A</sub></tt></td><td><code>0x32c45c49fcfe12f9db60e74fa66416c5a05832c298814d82032a6783a4b1fca0</code></td></tr>
+</tbody></table>
+</div><!-- yaspeller ignore:end -->
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../DSNP/Types/GraphEdge.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../../DSNP/BatchPublications.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../DSNP/Types/GraphEdge.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../../DSNP/BatchPublications.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>

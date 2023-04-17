@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Graph Change - DSNP Specification</title>
+        <title>Public Key - DSNP Specification</title>
 
 
         <!-- Custom HTML head -->
@@ -83,7 +83,7 @@
                 <a id="logo" href="https://www.dsnp.org/">
                     DSNP
                 </a>
-                <ol class="chapter"><li class="chapter-item affix "><a href="../../index.html">Introduction</a></li><li class="chapter-item expanded "><a href="../../DSNP/Overview.html">DSNP</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../DSNP/Identity.html">Identity</a></li><li class="chapter-item "><a href="../../DSNP/Identifiers.html">Identifiers</a></li><li class="chapter-item "><a href="../../DSNP/Graph.html">Graph</a></li><li class="chapter-item "><a href="../../DSNP/UserData.html">User Data</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../DSNP/Types/GraphEdge.html">Graph Edge</a></li><li class="chapter-item "><a href="../../DSNP/Types/PRId.html">PRId</a></li></ol></li><li class="chapter-item "><a href="../../DSNP/BatchPublications.html">Batch Publications</a></li><li class="chapter-item expanded "><a href="../../DSNP/Announcements.html">Announcements</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../DSNP/Types/Tombstone.html">Tombstone</a></li><li class="chapter-item "><a href="../../DSNP/Types/Broadcast.html">Broadcast</a></li><li class="chapter-item "><a href="../../DSNP/Types/Reply.html">Reply</a></li><li class="chapter-item "><a href="../../DSNP/Types/Reaction.html">Reaction</a></li><li class="chapter-item "><a href="../../DSNP/Types/Profile.html">Profile</a></li><li class="chapter-item "><a href="../../DSNP/Types/Update.html">Update</a></li><li class="chapter-item "><a href="../../DSNP/Types/PublicKey.html">Public Key</a></li><li class="chapter-item expanded "><a href="../../DSNP/Migrated.html">Migrated Announcements</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../DSNP/Types/GraphChange.html" class="active">Graph Change</a></li></ol></li></ol></li><li class="chapter-item "><a href="../../DSNP/Operations.html">Operations</a></li><li class="chapter-item "><a href="../../DSNP/Records.html">State Change Records</a></li><li class="chapter-item "><a href="../../DSNP/Serializations.html">Serializations</a></li></ol></li><li class="chapter-item "><a href="../../Systems.html">DSNP System Specs</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../Frequency/Overview.html">Frequency</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../Frequency/Identity.html">Identity</a></li><li class="chapter-item "><a href="../../Frequency/Publishing.html">Publishing</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../Frequency/Validation.html">Validation</a></li></ol></li><li class="chapter-item "><a href="../../Frequency/Operations.html">Operations</a></li><li class="chapter-item "><a href="../../Frequency/Records.html">Records</a></li><li class="chapter-item "><a href="../../Frequency/UserData.html">User Data</a></li></ol></li></ol></li><li class="chapter-item "><a href="../../ActivityContent/Overview.html">Activity Content</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../ActivityContent/Types/Note.html">Note</a></li><li class="chapter-item "><a href="../../ActivityContent/Types/Profile.html">Profile</a></li><li class="chapter-item "><div>Associated Type</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../ActivityContent/Associated/Hash.html">Hash</a></li><li class="chapter-item "><a href="../../ActivityContent/Associated/Location.html">Location</a></li><li class="chapter-item "><a href="../../ActivityContent/Associated/Tag.html">Tag</a></li><li class="chapter-item "><a href="../../ActivityContent/Associated/Attachments.html">Attachments</a></li></ol></li></ol></li><li class="chapter-item "><a href="../../Reference/Glossary.html">Glossary</a></li></ol>
+                <ol class="chapter"><li class="chapter-item affix "><a href="../../index.html">Introduction</a></li><li class="chapter-item expanded "><a href="../../DSNP/Overview.html">DSNP</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../DSNP/Identity.html">Identity</a></li><li class="chapter-item "><a href="../../DSNP/Identifiers.html">Identifiers</a></li><li class="chapter-item "><a href="../../DSNP/Graph.html">Graph</a></li><li class="chapter-item "><a href="../../DSNP/UserData.html">User Data</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../DSNP/Types/GraphEdge.html">Graph Edge</a></li><li class="chapter-item "><a href="../../DSNP/Types/PRId.html">PRId</a></li></ol></li><li class="chapter-item "><a href="../../DSNP/BatchPublications.html">Batch Publications</a></li><li class="chapter-item expanded "><a href="../../DSNP/Announcements.html">Announcements</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../DSNP/Types/Tombstone.html">Tombstone</a></li><li class="chapter-item "><a href="../../DSNP/Types/Broadcast.html">Broadcast</a></li><li class="chapter-item "><a href="../../DSNP/Types/Reply.html">Reply</a></li><li class="chapter-item "><a href="../../DSNP/Types/Reaction.html">Reaction</a></li><li class="chapter-item "><a href="../../DSNP/Types/Profile.html">Profile</a></li><li class="chapter-item "><a href="../../DSNP/Types/Update.html">Update</a></li><li class="chapter-item expanded "><a href="../../DSNP/Types/PublicKey.html" class="active">Public Key</a></li><li class="chapter-item "><a href="../../DSNP/Migrated.html">Migrated Announcements</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../DSNP/Types/GraphChange.html">Graph Change</a></li></ol></li></ol></li><li class="chapter-item "><a href="../../DSNP/Operations.html">Operations</a></li><li class="chapter-item "><a href="../../DSNP/Records.html">State Change Records</a></li><li class="chapter-item "><a href="../../DSNP/Serializations.html">Serializations</a></li></ol></li><li class="chapter-item "><a href="../../Systems.html">DSNP System Specs</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../Frequency/Overview.html">Frequency</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../Frequency/Identity.html">Identity</a></li><li class="chapter-item "><a href="../../Frequency/Publishing.html">Publishing</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../Frequency/Validation.html">Validation</a></li></ol></li><li class="chapter-item "><a href="../../Frequency/Operations.html">Operations</a></li><li class="chapter-item "><a href="../../Frequency/Records.html">Records</a></li><li class="chapter-item "><a href="../../Frequency/UserData.html">User Data</a></li></ol></li></ol></li><li class="chapter-item "><a href="../../ActivityContent/Overview.html">Activity Content</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../ActivityContent/Types/Note.html">Note</a></li><li class="chapter-item "><a href="../../ActivityContent/Types/Profile.html">Profile</a></li><li class="chapter-item "><div>Associated Type</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../ActivityContent/Associated/Hash.html">Hash</a></li><li class="chapter-item "><a href="../../ActivityContent/Associated/Location.html">Location</a></li><li class="chapter-item "><a href="../../ActivityContent/Associated/Tag.html">Tag</a></li><li class="chapter-item "><a href="../../ActivityContent/Associated/Attachments.html">Attachments</a></li></ol></li></ol></li><li class="chapter-item "><a href="../../Reference/Glossary.html">Glossary</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -118,7 +118,7 @@
                         <a href="https://github.com/LibertyDSNP/spec" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
-                        <a href="https://github.com/LibertyDSNP/spec/blob/main/pages/DSNP/Types/GraphChange.md" title="Suggest an edit" aria-label="Suggest an edit">
+                        <a href="https://github.com/LibertyDSNP/spec/blob/main/pages/DSNP/Types/PublicKey.md" title="Suggest an edit" aria-label="Suggest an edit">
                             <i id="git-edit-button" class="fa fa-edit"></i>
                         </a>
 
@@ -147,64 +147,61 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="graph-change-announcement"><a class="header" href="#graph-change-announcement">Graph Change Announcement</a></h1>
-<p><mark><em>Since DSNP version 1.2, social graph changes use <a href="../UserData.html">User Data</a> operations as described in the <a href="../Graph.html">Graph</a> section.</em></mark></p>
-<p>A Graph Change Announcement is for publishing relationship state changes for a user.</p>
+                        <h1 id="public-key-announcement"><a class="header" href="#public-key-announcement">Public Key Announcement</a></h1>
+<p>A Public Key Announcement is a way to note a new cryptographic key that can be used in DSNP to secure and verify the authenticity of communications.</p>
+<p>The most recently published key (if one exists) for a given key type should be treated as the active key of that key type.</p>
 <h2 id="fields"><a class="header" href="#fields">Fields</a></h2>
 <div class="table-wrapper"><table><thead><tr><th>Field</th><th>Description</th><th>Data Type</th><th>Serialization</th><th>Parquet Type</th><th>Bloom Filter</th></tr></thead><tbody>
-<tr><td>announcementType</td><td>Announcement Type Enum (<code>1</code>)</td><td>enum</td><td><a href="../Serializations.html#decimal">decimal</a></td><td><code>INT32</code></td><td>no</td></tr>
-<tr><td>changeType</td><td>Type of relationship change</td><td>enum</td><td><a href="../Serializations.html#decimal">decimal</a></td><td><code>INT32</code></td><td>no</td></tr>
-<tr><td>fromId</td><td>Id of the user creating the relationship</td><td>64-bit unsigned integer</td><td><a href="../Serializations.html#decimal">decimal</a></td><td><code>UINT_64</code></td><td>YES</td></tr>
-<tr><td>objectId</td><td>Id of the target of the relationship</td><td>64-bit unsigned integer</td><td><a href="../Serializations.html#decimal">decimal</a></td><td><code>UINT_64</code></td><td>YES</td></tr>
+<tr><td>announcementType</td><td>Announcement Type Enum (<code>7</code>)</td><td>enum</td><td><a href="../Serializations.html#decimal">decimal</a></td><td><code>INT32</code></td><td>no</td></tr>
+<tr><td>fromId</td><td>id of the user creating the Announcement</td><td>64 bit unsigned integer</td><td><a href="../Serializations.html#decimal">decimal</a></td><td><code>UINT_64</code></td><td>YES</td></tr>
+<tr><td>keyType</td><td>Key Type Enum</td><td>enum</td><td><a href="../Serializations.html#decimal">decimal</a></td><td><code>INT32</code></td><td>YES</td></tr>
+<tr><td>keyId</td><td>user-assigned identifier</td><td>64 bit unsigned integer</td><td><a href="../Serializations.html#decimal">decimal</a></td><td><code>UINT_64</code></td><td>no</td></tr>
+<tr><td>publicKey</td><td>public key in multikey format</td><td>variable length byte array</td><td><a href="https://datatracker.ietf.org/doc/html/rfc3629">UTF-8</a></td><td><code>BYTE_ARRAY</code></td><td>no</td></tr>
 </tbody></table>
 </div>
 <h2 id="field-requirements"><a class="header" href="#field-requirements">Field Requirements</a></h2>
 <h3 id="announcementtype"><a class="header" href="#announcementtype">announcementType</a></h3>
 <ul>
-<li>MUST be fixed to <code>1</code></li>
+<li>MUST be fixed to <code>7</code></li>
 </ul>
-<h3 id="changetype"><a class="header" href="#changetype">changeType</a></h3>
-<ul>
-<li>MUST be one of the Change Type Enum</li>
-</ul>
-<h3 id="change-type-enum"><a class="header" href="#change-type-enum">Change Type Enum</a></h3>
-<p>Different change types have different meanings.</p>
-<div class="table-wrapper"><table><thead><tr><th>Value</th><th>Name</th><th>Description</th></tr></thead><tbody>
-<tr><td>0</td><td>Unfollow</td><td>Remove a Follow relationship</td></tr>
-<tr><td>1</td><td>Follow</td><td>Create a Follow relationship</td></tr>
-</tbody></table>
-</div>
 <h3 id="fromid"><a class="header" href="#fromid">fromId</a></h3>
 <ul>
 <li>MUST be a <a href="../Identifiers.html#dsnp-user-id">DSNP User Id</a></li>
-<li>MUST have authorized the creation of the Announcement, either directly or via a transparent chain of delegation</li>
 </ul>
-<h3 id="objectid"><a class="header" href="#objectid">objectId</a></h3>
+<h3 id="keytype"><a class="header" href="#keytype">keyType</a></h3>
 <ul>
-<li>MUST be a <a href="../Identifiers.html#dsnp-user-id">DSNP User Id</a></li>
+<li>MUST be an allowed Key Type value</li>
 </ul>
-<h2 id="non-normative"><a class="header" href="#non-normative">Non-Normative</a></h2>
-<h3 id="graph-retrieval-ordering-and-reading"><a class="header" href="#graph-retrieval-ordering-and-reading">Graph Retrieval, Ordering and Reading</a></h3>
-<p>Each Graph Change event represents a state transition for the graph.
-The state of the graph at any time is given by taking the state of the graph at a previous time and applying all Graph Change events not previously applied in the order specified by <a href="../Announcements.html#ordering-announcements">Announcement Ordering</a>.</p>
-<p>Once those Graph Change events are retrieved, they can be ordered to reflect the current graph state
-(i.e. Charlie has followed Bob, then he unfollowed him, and then followed him again. The graph state reflects that Charlie is following Bob.)</p>
-<p>To retrieve the graph, do the following:</p>
-<ol>
-<li>Retrieve the events with <a href="../Announcements.html#announcement-types">announcementType</a> matching the enum for Graph Change.</li>
-<li>Filter the events to a particular DSNP User Id to retrieve information about the respective graph.</li>
-<li>Order the retrieved data by <a href="../Announcements.html#ordering-announcements">Announcement Ordering</a>.</li>
-</ol>
+<h4 id="allowed-key-types"><a class="header" href="#allowed-key-types">Allowed Key Types</a></h4>
+<div class="table-wrapper"><table><thead><tr><th>Value</th><th>Name</th><th>Allowed Algorithms (<a href="https://github.com/multiformats/multicodec/blob/master/table.csv">multicodec</a>)</th><th>Purpose</th></tr></thead><tbody>
+<tr><td>1</td><td><code>keyAgreement</code></td><td><code>x25519-pub</code></td><td>A Curve25519 public key that can be used in key exchange protocols to generate a shared secret</td></tr>
+</tbody></table>
+</div>
+<h3 id="keyid"><a class="header" href="#keyid">keyId</a></h3>
+<ul>
+<li>A user-assigned 64-bit identifier for the key.</li>
+</ul>
+<p>The user may assign a new <code>keyId</code> each time they announce a new key of a given <code>keyType</code>.
+A <code>keyId</code> value is useful when invoking certain DSNP Operations in order to indicate which key was used to encrypt data.
+It may also provide a hint to the user if they ever need to regenerate their private key (for example, many key derivation functions enable the use of a subkey identifier to deterministically create a subkey from a root key).</p>
+<h3 id="publickey"><a class="header" href="#publickey">publicKey</a></h3>
+<ul>
+<li>MUST be a public key of an allowed algorithm for <code>keyType</code>, encoded in <code>multikey</code> format</li>
+</ul>
+<p>The <code>multikey</code> encoding of public keys is described in the draft <a href="https://w3c-ccg.github.io/did-method-key/">did:key Method</a> specification.
+The byte encoding consists of a <a href="https://github.com/multiformats/multicodec/blob/master/table.csv">multicodec</a> key identifier (as a varint) followed by the public key's binary data in the codec's described format.</p>
+<p>If serializing the <code>multicodec</code> value as a string, <code>base58btc</code> encoding is recommended.
+For example, the string <code>z6LStiZsmxiK4odS4Sb6JmdRFuJ6e1SYP157gtiCyJKfrYha</code> decodes as a Base58 string using the <code>x25519-pub</code> multicodec value with a 32-byte raw key of <code>0xfd3384e132ad02a56c78f45547ee40038dc79002b90d29ed90e08eee762ae715</code>.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../../DSNP/Migrated.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../../DSNP/Types/Update.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next" href="../../DSNP/Operations.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../../DSNP/Migrated.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -214,11 +211,11 @@ The state of the graph at any time is given by taking the state of the graph at 
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../../DSNP/Migrated.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../../DSNP/Types/Update.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next" href="../../DSNP/Operations.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="../../DSNP/Migrated.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

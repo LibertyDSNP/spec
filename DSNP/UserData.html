@@ -1,0 +1,406 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>User Data - DSNP Specification</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 800) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <a id="logo" href="https://www.dsnp.org/">
+                    DSNP
+                </a>
+                <ol class="chapter"><li class="chapter-item affix "><a href="../index.html">Introduction</a></li><li class="chapter-item expanded "><a href="../DSNP/Overview.html">DSNP</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../DSNP/Identity.html">Identity</a></li><li class="chapter-item "><a href="../DSNP/Identifiers.html">Identifiers</a></li><li class="chapter-item "><a href="../DSNP/Graph.html">Graph</a></li><li class="chapter-item expanded "><a href="../DSNP/UserData.html" class="active">User Data</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../DSNP/Types/GraphEdge.html">Graph Edge</a></li><li class="chapter-item "><a href="../DSNP/Types/PRId.html">PRId</a></li></ol></li><li class="chapter-item "><a href="../DSNP/BatchPublications.html">Batch Publications</a></li><li class="chapter-item "><a href="../DSNP/Announcements.html">Announcements</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../DSNP/Types/Tombstone.html">Tombstone</a></li><li class="chapter-item "><a href="../DSNP/Types/Broadcast.html">Broadcast</a></li><li class="chapter-item "><a href="../DSNP/Types/Reply.html">Reply</a></li><li class="chapter-item "><a href="../DSNP/Types/Reaction.html">Reaction</a></li><li class="chapter-item "><a href="../DSNP/Types/Profile.html">Profile</a></li><li class="chapter-item "><a href="../DSNP/Types/Update.html">Update</a></li><li class="chapter-item "><a href="../DSNP/Types/PublicKey.html">Public Key</a></li><li class="chapter-item "><a href="../DSNP/Migrated.html">Migrated Announcements</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../DSNP/Types/GraphChange.html">Graph Change</a></li></ol></li></ol></li><li class="chapter-item "><a href="../DSNP/Operations.html">Operations</a></li><li class="chapter-item "><a href="../DSNP/Records.html">State Change Records</a></li><li class="chapter-item "><a href="../DSNP/Serializations.html">Serializations</a></li></ol></li><li class="chapter-item "><a href="../Systems.html">DSNP System Specs</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../Frequency/Overview.html">Frequency</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../Frequency/Identity.html">Identity</a></li><li class="chapter-item "><a href="../Frequency/Publishing.html">Publishing</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../Frequency/Validation.html">Validation</a></li></ol></li><li class="chapter-item "><a href="../Frequency/Operations.html">Operations</a></li><li class="chapter-item "><a href="../Frequency/Records.html">Records</a></li><li class="chapter-item "><a href="../Frequency/UserData.html">User Data</a></li></ol></li></ol></li><li class="chapter-item "><a href="../ActivityContent/Overview.html">Activity Content</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../ActivityContent/Types/Note.html">Note</a></li><li class="chapter-item "><a href="../ActivityContent/Types/Profile.html">Profile</a></li><li class="chapter-item "><div>Associated Type</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../ActivityContent/Associated/Hash.html">Hash</a></li><li class="chapter-item "><a href="../ActivityContent/Associated/Location.html">Location</a></li><li class="chapter-item "><a href="../ActivityContent/Associated/Tag.html">Tag</a></li><li class="chapter-item "><a href="../ActivityContent/Associated/Attachments.html">Attachments</a></li></ol></li></ol></li><li class="chapter-item "><a href="../Reference/Glossary.html">Glossary</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Dark</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">DSNP Specification</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/LibertyDSNP/spec" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/LibertyDSNP/spec/blob/main/pages/DSNP/UserData.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Type to search..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="user-data"><a class="header" href="#user-data">User Data</a></h1>
+<p>DSNP stores user-related data of well defined formats associated with a user's DSNP Identifier.
+DSNP User Data is designed for data with the following characteristics:</p>
+<ul>
+<li>The data is intended to be accessible across the network with the strongest possible durability guarantees</li>
+<li>The data may change frequently.</li>
+<li>The data does not need to be widely announced and instead can be read just-in-time for a particular user.</li>
+</ul>
+<p>Data may be public or stored in encrypted form.
+The <a href="https://avro.apache.org">Avro</a> schema specification is used to define the binary representation of relevant data types.</p>
+<h2 id="user-data-types"><a class="header" href="#user-data-types">User Data Types</a></h2>
+<p>DSNP implementations MUST support the following User Data Types:</p>
+<div class="table-wrapper"><table><thead><tr><th>System Name</th><th>Version</th><th>Encryption Algorithm</th><th>Compression Codec</th><th>Avro Object Type</th></tr></thead><tbody>
+<tr><td><a name="public-follows"><code>publicFollows</code></a></td><td>1.2</td><td>NONE</td><td><a href="https://en.wikipedia.org/wiki/Deflate"><code>DEFLATE</code></a></td><td><a href="Types/GraphEdge.html">GraphEdge</a></td></tr>
+<tr><td><a name="private-follows"><code>privateFollows</code></a></td><td>1.2</td><td><code>curve25519xsalsa20poly1305</code></td><td><a href="https://en.wikipedia.org/wiki/Deflate"><code>DEFLATE</code></a></td><td><a href="Types/GraphEdge.html">GraphEdge</a></td></tr>
+<tr><td><a name="private-connections"><code>privateConnections</code></a></td><td>1.2</td><td><code>curve25519xsalsa20poly1305</code></td><td><a href="https://en.wikipedia.org/wiki/Deflate"><code>DEFLATE</code></a></td><td><a href="Types/GraphEdge.html">GraphEdge</a></td></tr>
+<tr><td><a name="private-connection-prids"><code>privateConnectionPRIds</code></a></td><td>1.2</td><td>NONE</td><td>NONE</td><td><a href="Types/PRId.html">PRId</a></td></tr>
+</tbody></table>
+</div>
+<p>Data for each data type is initially formatted as a stream of Avro objects that should conform to the schema specified.
+Avro file- and block-level information (including in-stream schema) is omitted.
+The Avro stream is then compressed and/or encrypted as specified.</p>
+<p><code>curve25519xsalsa20poly1305</code> (that is, X25519 key exchange, XSalsa20 encryption, and Poly1305 message authentication) is the default authenticated encryption algorithm used in the <a href="https://nacl.cr.yp.to">NaCl</a> (&quot;Salt&quot;) library, and its successor <a href="https://libsodium.org">libsodium</a>.
+In the specification of cryptographic operations below, relevant methods from these libraries are noted. While these specific libraries are not required for DSNP compatibility, they are highly recommended.</p>
+<h2 id="data-chunks"><a class="header" href="#data-chunks">Data Chunks</a></h2>
+<p>Because blockchain systems often have specific limits to the amount of data that can be included in a given transaction, operations on user data deal with the data in discrete chunks.
+As implementation strategies may vary, implementations MUST define their own maximum chunk size in bytes to be used in the operations described below.</p>
+<h2 id="entity-tags"><a class="header" href="#entity-tags">Entity Tags</a></h2>
+<p>To allow for application-layer caching and prevent race conditions between different applications attempting to update the same data, an implementation MUST provide a non-empty <code>etag</code> (entity tag) value with each chunk fetched, and update this for each chunk replaced.</p>
+<p>An <code>etag</code> is any ASCII-encoded string with a minimum length of one byte and a maximum length of 255 bytes.</p>
+<p>An implementation MUST fail the Replace User Data Operation if the <code>etag</code> values supplied do not match the current <code>etag</code> values for all chunks of the specified data type.</p>
+<h2 id="replace-user-data-operation"><a class="header" href="#replace-user-data-operation">Replace User Data Operation</a></h2>
+<p>The Replace User Data Operation takes the following parameters:</p>
+<ul>
+<li>A DSNP User Id
+<ul>
+<li>Implementations MUST ensure that the principal invoking this Operation is this user, or a transparent chain of delegation from the user to the principal exists.</li>
+</ul>
+</li>
+<li>A <a href="Types/PublicKey.html#keyid">Key Identifier</a> for the <code>keyAgreement</code> key pair used to encrypt any private data in the operation.
+(If only unencrypted user data types are included, the key identifier is optional.)</li>
+<li>A map containing the set of data types to update as the keys, and tuples consisting of (1) the schema version used to encode the data type, and (2) a list where each element includes a data chunk and its associated entity tag, as the values.</li>
+</ul>
+<p>If the Operation is successful, any previous data associated with the user for each data type included in the input MUST be removed and replaced by the new data.</p>
+<p>Data chunks should be generated for each included data type using the following sequence of operations:</p>
+<ol>
+<li>Serialize the data records, in Avro binary format, according to the versioned schema.</li>
+<li>Divide the data records into one or more chunks, with each chunk containing a maximum byte count specified by the implementation.</li>
+</ol>
+<ul>
+<li>Note that the combined chunks constitute a different, and smaller, binary than a complete Avro file, as they exclude the header information, schema, and any block-level metadata.
+Each chunk should start and end with a complete Avro object; in other words, chunk boundaries MUST NOT occur mid-record.
+Applications SHOULD try to include as many records as possible within the byte length limit, but because compression and encryption may alter the byte size versus the raw Avro binary records, they may wish to use a heuristic approach that sometimes produces non-optimal chunks.</li>
+</ul>
+<ol start="3">
+<li>For each chunk generated, the application should then:
+<ol>
+<li>If the data type requires compression, apply the compression codec noted.</li>
+<li>If the data type requires encryption,
+<ol>
+<li>Retrieve the user's active (most recently announced) <code>keyAgreement</code> public key, U<sub>public</sub>.
+The <code>keyId</code> in the announcement should match the key identifier provided for this Operation.
+If no key exists, one should be created and published as an Announcement before invoking the Operation.</li>
+<li>Create a sealed box (a payload encrypted with a symmetric key derived from an ephemeral key pair, and accompanied by the ephemeral public key), as in the <a href="https://doc.libsodium.org/public-key_cryptography/sealed_boxes">libsodium</a> function <code>crypto_box_seal</code>, using U<sub>public</sub>.</li>
+<li>Include the previous <code>etag</code> value for the chunk. If the chunk is new, <code>etag</code> should be set to <code>null</code>.
+If any chunks are to be deleted, they should be included in the input identified with the existing <code>etag</code> and a <code>null</code> value for the data.</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p>If the Operation is invoked successfully the implementation MUST synchronously return a new set of <code>etag</code> values for each data type replaced, corresponding to the updated state of the data (with new chunks added and deleted chunks removed).
+Applications should not interpret this response as an indication that the operation was completed and a state change record emitted, as this typically occurs asynchronously.
+However, this strategy allows applications to make the optimistic assumption that, in due course, the DSNP system will reflect the intended changes, without needing to wait for asynchronous confirmation.</p>
+<p>If, on the other hand, an invocation of Replace User Data is rejected due to entity tag discrepancies, this indicates that the relevant data on the network has changed since the entity tags were acquired by the application, and the application should fetch the most current version with the <a href="#get-user-data-operation">Get User Data Operation</a>, reapply any intended changes, and retry the operation.</p>
+<p>The Replace User Data Operation MUST generate a <a href="Records.html#user-data-replaced">User Data Replaced Record</a> containing the DSNP User Id and the set of updated User Data Types (but not the data itself).
+If the implementation detects that no change has occurred, it SHOULD omit the relevant unchanged data types from the state change record.</p>
+<h3 id="examples"><a class="header" href="#examples">Examples</a></h3>
+<p><em>The following section is non-normative.</em>
+<em>The JSON schema and encoding used is provided for illustration only and implementations are free to define their own encoding.</em></p>
+<p>The following example illustrates the input to the Replace User Data Operation corresponding to the following scenario (utilizing <a href="Graph.html">social graph</a> data types):</p>
+<ul>
+<li>The user's previously stored data consists of one chunk for public follows, two chunks for private connections, and one chunk for private connection declarations.</li>
+<li>The user adds several follows to their public list, causing it to exceed the maximum capacity for a single chunk and require a new chunk.</li>
+<li>The user adds a relationship to their private connections, but it still fits in two chunks.
+The private connection's PRId is added to the private connection PRId list, but it remains a single chunk.</li>
+</ul>
+<pre><code>{
+  &quot;publicFollows&quot;: {
+    &quot;version&quot;: &quot;1.2&quot;,
+    &quot;chunks&quot;: [
+      {
+        &quot;etag&quot;: string                             // unchanged chunk
+      },
+      {
+        &quot;data&quot;: base64(compress(chunk2)),
+        &quot;etag&quot;: null,                              // new chunk
+      }
+    ]
+  },
+  &quot;privateFollows&quot;: {
+    &quot;version&quot;: &quot;1.2&quot;,
+    &quot;chunks&quot;: [
+      {
+        &quot;etag&quot;: string                             // unchanged chunk
+      },
+      {
+        &quot;data&quot;: base64(encrypt(compress(chunk2))), // updated chunk
+        &quot;etag&quot;: string
+      }
+    ]
+  },
+  &quot;privateConnectionPRIds&quot;: {
+    &quot;version&quot;: &quot;1.2&quot;,
+    &quot;chunks&quot;: [
+      {
+        &quot;data&quot;: base64(compress(chunk1)),
+        &quot;etag&quot;: string
+      }
+    ]
+  }
+}
+</code></pre>
+<p>Deletion of records may cause situations where the number of chunks decreases.
+To ensure that the deleted chunk was up to date, the deleted chunk should still be included in the array with the relevant entity tag value, using an explicit <code>null</code> value for the data field to indicate deletion, as in the following snippet:</p>
+<pre><code>  &quot;publicFollows&quot;: {
+    &quot;version&quot;: &quot;1.2&quot;,
+    &quot;chunks&quot;: [
+      {
+        &quot;etag&quot;: string                     // unchanged chunk
+      },
+      {
+        &quot;data&quot;: null,                      // deleted chunk
+        &quot;etag&quot;: string,
+      }
+    ]
+  }
+</code></pre>
+<h2 id="get-user-data-operation"><a class="header" href="#get-user-data-operation">Get User Data Operation</a></h2>
+<p>The Get User Data Operation takes the following parameters:</p>
+<ul>
+<li>The DSNP User Id of the user who controls the data
+<ul>
+<li>Note: While <em>writing</em> user data is reserved for the user and any delegates, anyone on the network can read any user's data (though it may be encrypted).</li>
+</ul>
+</li>
+<li>The User Data Types (by system name) that should be retrieved.</li>
+</ul>
+<p>The operation returns a mapping of User Data Type to data chunks, with each data chunk annotated with an entity tag and (optionally) a key identifier. (Note that this is the same general structure as the input data for <a href="#replace-user-data-operation">Replace User Data</a>, for each requested data type.
+If no chunks for a requested data type exist, an implementation MAY omit that data type from the response.</p>
+<p>To transform the data from the output to Avro binary records, a consumer should apply the following algorithm to each data type included:</p>
+<ol>
+<li>Determine the relevant encryption algorithm, compression codec, and object schema from the User Data Type and version noted.</li>
+<li>For each chunk,
+<ol>
+<li>If encryption is indicated, decrypt the chunk data using the user's secret key (identified using the key identifier) as in the <a href="https://doc.libsodium.org/public-key_cryptography/sealed_boxes">libsodium</a> function <code>crypto_box_seal_open</code>.</li>
+<li>If compression is required, uncompress the chunk data using the specified codec.</li>
+<li>Deserialize the uncompressed data to logical records according to the Avro object schema.</li>
+<li>Retain the chunk's <code>etag</code> value if needed for any updates.</li>
+</ol>
+</li>
+</ol>
+<h3 id="examples-1"><a class="header" href="#examples-1">Examples</a></h3>
+<p><em>The following section is non-normative.</em>
+<em>The JSON schema and encoding used is provided for illustration only and implementations are free to define their own encoding.</em></p>
+<p>The following example illustrates the output of a Get User Data Operation invocation requesting data for <code>publicFollows</code>, <code>privateConnections</code>, and <code>privateConnectionPRIds</code>:</p>
+<pre><code>{
+  &quot;publicFollows&quot;: {
+    &quot;version&quot;: &quot;1.2&quot;,
+    &quot;chunks&quot;: [
+      {
+        &quot;data&quot;: base64_string,
+        &quot;etag&quot;: string
+      },
+      {
+        &quot;data&quot;: base64_string,
+        &quot;etag&quot;: string
+      }
+    ]
+  },
+  &quot;privateConnections&quot;: {
+    &quot;version&quot;: &quot;1.2&quot;,
+    &quot;chunks&quot;: [
+      {
+        &quot;data&quot;: base64_string,
+        &quot;etag&quot;: string,
+        &quot;keyId&quot;: integer
+      },
+      {
+        &quot;data&quot;: base64_string,
+        &quot;etag&quot;: string,
+        &quot;keyId&quot;: integer
+      }
+    ]
+  },
+  &quot;privateConnectionPRIds&quot;: {
+    &quot;version&quot;: &quot;1.2&quot;,
+    &quot;chunks&quot;: [
+      {
+        &quot;data&quot;: base64_string,
+        &quot;etag&quot;: string
+      }
+    ]
+  }
+}
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../DSNP/Graph.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../DSNP/Types/GraphEdge.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../DSNP/Graph.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../DSNP/Types/GraphEdge.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>
