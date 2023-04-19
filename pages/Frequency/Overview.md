@@ -17,6 +17,22 @@ Frequency is a Polkadot Parachain written in Rust, using the Substrate framework
 ## DSNP Schemas
 Official DSNP Over Frequency Schemas may be found in [GitHub](https://github.com/LibertyDSNP/schemas).
 
+<!-- These ids are duplicated here for quick reference. -->
+
+| Name | Schema Id Mainnet | Schema Id Rococo |
+|---|---|---|
+| [Tombstone](./Publishing.md) | 1 | 1 |
+| [Broadcast](./Publishing.md) | 2 | 2 |
+| [Reply](./Publishing.md) | 3 | 3 |
+| [Reaction](./Publishing.md) | 4 | 4 |
+| [Profile](./Publishing.md) | 6 | 5 |
+| [Update](./Publishing.md) | 5 | 6 |
+| [Public Key](./Publishing.md) | TBD | 18 |
+| [Public Follows](./UserData.md) | TBD | 13 |
+| [Private Follows](./UserData.md) | TBD | 14 |
+| [Private Connections](./UserData.md) | TBD | 15 |
+
+
 <!--- Uncomment for pre-release changes
 ## Prerelease Changelog
 

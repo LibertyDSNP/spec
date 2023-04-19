@@ -6,14 +6,16 @@ Frequency Stateful Storage is either direct Announcements from a particular user
 
 <!-- Links to https://libertydsnp.github.io/frequency should be updated with links to docs.frequency.xyz when able to be -->
 
+<!-- Update ./Overview.md if a Schema Id is updated  -->
+
 | Announcement Type Enum | Announcement | Type | Schema Id Mainnet | Schema Id Rococo | Frequency Model Type | Frequency Payload Location |
 | --- | --- | --- | --- | --- | --- | --- |
-| 0 | [Tombstone](../DSNP/Types/Tombstone.md) | Batched | TBD | 1 | [`Parquet`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
-| 2 | [Broadcast](../DSNP/Types/Broadcast.md) | Batched | TBD | 2 | [`Parquet`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
-| 3 | [Reply](../DSNP/Types/Reply.md) | Batched | TBD | 3 | [`Parquet`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
-| 4 | [Reaction](../DSNP/Types/Reaction.md) | Batched | TBD | 4 | [`Parquet`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
-| 5 | [Profile](../DSNP/Types/Profile.md) | Batched | TBD | 5 | [`Parquet`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
-| 6 | [Update](../DSNP/Types/Update.md) | Batched | TBD | 6 | [`Parquet`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
+| 0 | [Tombstone](../DSNP/Types/Tombstone.md) | Batched | 1 | 1 | [`Parquet`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
+| 2 | [Broadcast](../DSNP/Types/Broadcast.md) | Batched | 2 | 2 | [`Parquet`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
+| 3 | [Reply](../DSNP/Types/Reply.md) | Batched | 3 | 3 | [`Parquet`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
+| 4 | [Reaction](../DSNP/Types/Reaction.md) | Batched | 4 | 4 | [`Parquet`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
+| 5 | [Profile](../DSNP/Types/Profile.md) | Batched | 6 | 5 | [`Parquet`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
+| 6 | [Update](../DSNP/Types/Update.md) | Batched | 5 | 6 | [`Parquet`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
 | 7 | [Public Key](../DSNP/Types/PublicKey.md) | [Stateful](./UserData.md#announcements) | TBD | 18 | [`AvroBinary`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.AvroBinary) | [`Itemized`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.Itemized) |
 
 Source code for each schema is located in the [LibertyDSNP/schemas](https://github.com/LibertyDSNP/schemas) repository.
