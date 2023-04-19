@@ -14,13 +14,13 @@ Frequency is a Polkadot Parachain written in Rust, using the Substrate framework
   - [Rust-lang.org](https://www.rust-lang.org/)
 
 
-## DSNP Schemas
-Official DSNP Over Frequency Schemas may be found in [GitHub](https://github.com/LibertyDSNP/schemas).
+## DSNP Over Frequency Schemas
+Official schemas may be found in [GitHub](https://github.com/LibertyDSNP/schemas).
 
 <!-- These ids are duplicated here for quick reference. -->
 
 | Name | Schema Id Mainnet | Schema Id Rococo |
-|---|---|---|
+| --- | --- | --- |
 | [Tombstone](./Publishing.md) | 1 | 1 |
 | [Broadcast](./Publishing.md) | 2 | 2 |
 | [Reply](./Publishing.md) | 3 | 3 |
@@ -32,6 +32,14 @@ Official DSNP Over Frequency Schemas may be found in [GitHub](https://github.com
 | [Private Follows](./UserData.md) | TBD | 14 |
 | [Private Connections](./UserData.md) | TBD | 15 |
 
+<!--
+### Obsolete
+
+| Name | Mainnet Block Obsoleted | Schema Id Mainnet | Schema Id Rococo |
+| --- | --- | --- | --- |
+| TBD | TBD | 0 | 0 |
+
+-->
 
 <!--- Uncomment for pre-release changes
 ## Prerelease Changelog
@@ -40,6 +48,6 @@ Official DSNP Over Frequency Schemas may be found in [GitHub](https://github.com
 
 --->
 
-| Frequency Release | DSNP Version | Spec Release Date |
+| Last Update Date | Frequency Release | DSNP Version |
 | --- | --- | --- |
-| 1.5.2 | 1.2.0 | 2023-04-19 |
+| 2023-04-19 | 1.5.2+ | 1.2.0 |
