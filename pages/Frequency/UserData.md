@@ -4,6 +4,8 @@ On Frequency, User Data and select Announcements are mapped to Schemas which use
 
 ## User Data Sets
 
+<!-- Update ./Overview.md if a Schema Id is updated  -->
+
 | User Data Set | Schema Id Mainnet | Schema Id Rococo | Frequency Model Type | Frequency Payload Location | Settings |
 | --- | --- | --- | --- | --- | --- |
 | [Public Follows](../DSNP/Graph.md#public-follows) | TBD | 13 | [`AvroBinary`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.AvroBinary) | [`Paginated`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.Paginated) | None |

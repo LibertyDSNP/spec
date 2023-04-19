@@ -16,8 +16,8 @@ There are three core specifications currently.
 | Name | Version | Description |
 | --- | --- | --- |
 | [DSNP](DSNP/Overview.md) | 1.2.0 | The system-agnostic DSNP specification |
-| [DSNP Over Frequency](Frequency/Overview.md) | 1.3.0 | DSNP Over Frequency specification |
-| [Activity Content](ActivityContent/Overview.md) | 1.1.0 | A specification for DSNP-referenced content (subset of W3C Activity Streams) |
+| [Activity Content](ActivityContent/Overview.md) | 1.2.0 | A specification for DSNP-referenced content (subset of W3C Activity Streams) |
+| [DSNP Over Frequency](Frequency/Overview.md) | - | DSNP Over Frequency specification |
 
 Each specification is divided into several modules.
 Each module describes a mostly self-contained aspect of the specification.
