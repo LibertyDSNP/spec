@@ -156,8 +156,8 @@ Through the DSNP, we hope to mitigate and ideally solve these challenges in the 
 <p>There are three core specifications currently.</p>
 <div class="table-wrapper"><table><thead><tr><th>Name</th><th>Version</th><th>Description</th></tr></thead><tbody>
 <tr><td><a href="DSNP/Overview.html">DSNP</a></td><td>1.2.0</td><td>The system-agnostic DSNP specification</td></tr>
-<tr><td><a href="Frequency/Overview.html">DSNP Over Frequency</a></td><td>1.3.0</td><td>DSNP Over Frequency specification</td></tr>
-<tr><td><a href="ActivityContent/Overview.html">Activity Content</a></td><td>1.1.0</td><td>A specification for DSNP-referenced content (subset of W3C Activity Streams)</td></tr>
+<tr><td><a href="ActivityContent/Overview.html">Activity Content</a></td><td>1.2.0</td><td>A specification for DSNP-referenced content (subset of W3C Activity Streams)</td></tr>
+<tr><td><a href="Frequency/Overview.html">DSNP Over Frequency</a></td><td>-</td><td>DSNP Over Frequency specification</td></tr>
 </tbody></table>
 </div>
 <p>Each specification is divided into several modules.
@@ -1423,16 +1423,37 @@ Strings are used to avoid issues with different implementations of numbers.</p>
 </ul>
 </li>
 </ul>
-<h2 id="dsnp-schemas"><a class="header" href="#dsnp-schemas">DSNP Schemas</a></h2>
-<p>Official DSNP Over Frequency Schemas may be found in <a href="https://github.com/LibertyDSNP/schemas">GitHub</a>.</p>
+<h2 id="dsnp-over-frequency-schemas"><a class="header" href="#dsnp-over-frequency-schemas">DSNP Over Frequency Schemas</a></h2>
+<p>Official schemas may be found in <a href="https://github.com/LibertyDSNP/schemas">GitHub</a>.</p>
+<!-- These ids are duplicated here for quick reference. -->
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Schema Id Mainnet</th><th>Schema Id Rococo</th></tr></thead><tbody>
+<tr><td><a href="Frequency/./Publishing.html">Tombstone</a></td><td>1</td><td>1</td></tr>
+<tr><td><a href="Frequency/./Publishing.html">Broadcast</a></td><td>2</td><td>2</td></tr>
+<tr><td><a href="Frequency/./Publishing.html">Reply</a></td><td>3</td><td>3</td></tr>
+<tr><td><a href="Frequency/./Publishing.html">Reaction</a></td><td>4</td><td>4</td></tr>
+<tr><td><a href="Frequency/./Publishing.html">Profile</a></td><td>6</td><td>5</td></tr>
+<tr><td><a href="Frequency/./Publishing.html">Update</a></td><td>5</td><td>6</td></tr>
+<tr><td><a href="Frequency/./Publishing.html">Public Key</a></td><td>TBD</td><td>18</td></tr>
+<tr><td><a href="Frequency/./UserData.html">Public Follows</a></td><td>TBD</td><td>13</td></tr>
+<tr><td><a href="Frequency/./UserData.html">Private Follows</a></td><td>TBD</td><td>14</td></tr>
+<tr><td><a href="Frequency/./UserData.html">Private Connections</a></td><td>TBD</td><td>15</td></tr>
+</tbody></table>
+</div><!--
+### Obsolete
+
+| Name | Mainnet Block Obsoleted | Schema Id Mainnet | Schema Id Rococo |
+| --- | --- | --- | --- |
+| TBD | TBD | 0 | 0 |
+
+-->
 <!--- Uncomment for pre-release changes
 ## Prerelease Changelog
 
 - [DIP-###](https://github.com/LibertyDSNP/spec/issues/###)
 
 --->
-<div class="table-wrapper"><table><thead><tr><th>Frequency Release</th><th>DSNP Version</th><th>Spec Release Date</th></tr></thead><tbody>
-<tr><td>1.3.0</td><td>1.2.0</td><td>2023-03-07</td></tr>
+<div class="table-wrapper"><table><thead><tr><th>Last Update Date</th><th>Frequency Release</th><th>DSNP Version</th></tr></thead><tbody>
+<tr><td>2023-04-19</td><td>1.5.2+</td><td>1.2.0</td></tr>
 </tbody></table>
 </div><div style="break-before: page; page-break-before: always;"></div><h1 id="frequency-identity"><a class="header" href="#frequency-identity">Frequency Identity</a></h1>
 <h2 id="identity-1"><a class="header" href="#identity-1">Identity</a></h2>
@@ -1506,13 +1527,14 @@ A Provider MUST already have an MSA Id (via <code>msa::create()</code>) and be a
 Frequency Messages are either individual Announcements from a particular user, or a Batch Publication with a multitude of possible users.
 Frequency Stateful Storage is either direct Announcements from a particular user or <a href="Frequency/./UserData.html">User Data</a> changes.</p>
 <!-- Links to https://libertydsnp.github.io/frequency should be updated with links to docs.frequency.xyz when able to be -->
+<!-- Update ./Overview.md if a Schema Id is updated  -->
 <div class="table-wrapper"><table><thead><tr><th>Announcement Type Enum</th><th>Announcement</th><th>Type</th><th>Schema Id Mainnet</th><th>Schema Id Rococo</th><th>Frequency Model Type</th><th>Frequency Payload Location</th></tr></thead><tbody>
-<tr><td>0</td><td><a href="Frequency/../DSNP/Types/Tombstone.html">Tombstone</a></td><td>Batched</td><td>TBD</td><td>1</td><td><a href="https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet"><code>Parquet</code></a></td><td><a href="https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS"><code>IPFS</code></a></td></tr>
-<tr><td>2</td><td><a href="Frequency/../DSNP/Types/Broadcast.html">Broadcast</a></td><td>Batched</td><td>TBD</td><td>2</td><td><a href="https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet"><code>Parquet</code></a></td><td><a href="https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS"><code>IPFS</code></a></td></tr>
-<tr><td>3</td><td><a href="Frequency/../DSNP/Types/Reply.html">Reply</a></td><td>Batched</td><td>TBD</td><td>3</td><td><a href="https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet"><code>Parquet</code></a></td><td><a href="https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS"><code>IPFS</code></a></td></tr>
-<tr><td>4</td><td><a href="Frequency/../DSNP/Types/Reaction.html">Reaction</a></td><td>Batched</td><td>TBD</td><td>4</td><td><a href="https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet"><code>Parquet</code></a></td><td><a href="https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS"><code>IPFS</code></a></td></tr>
-<tr><td>5</td><td><a href="Frequency/../DSNP/Types/Profile.html">Profile</a></td><td>Batched</td><td>TBD</td><td>5</td><td><a href="https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet"><code>Parquet</code></a></td><td><a href="https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS"><code>IPFS</code></a></td></tr>
-<tr><td>6</td><td><a href="Frequency/../DSNP/Types/Update.html">Update</a></td><td>Batched</td><td>TBD</td><td>6</td><td><a href="https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet"><code>Parquet</code></a></td><td><a href="https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS"><code>IPFS</code></a></td></tr>
+<tr><td>0</td><td><a href="Frequency/../DSNP/Types/Tombstone.html">Tombstone</a></td><td>Batched</td><td>1</td><td>1</td><td><a href="https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet"><code>Parquet</code></a></td><td><a href="https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS"><code>IPFS</code></a></td></tr>
+<tr><td>2</td><td><a href="Frequency/../DSNP/Types/Broadcast.html">Broadcast</a></td><td>Batched</td><td>2</td><td>2</td><td><a href="https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet"><code>Parquet</code></a></td><td><a href="https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS"><code>IPFS</code></a></td></tr>
+<tr><td>3</td><td><a href="Frequency/../DSNP/Types/Reply.html">Reply</a></td><td>Batched</td><td>3</td><td>3</td><td><a href="https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet"><code>Parquet</code></a></td><td><a href="https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS"><code>IPFS</code></a></td></tr>
+<tr><td>4</td><td><a href="Frequency/../DSNP/Types/Reaction.html">Reaction</a></td><td>Batched</td><td>4</td><td>4</td><td><a href="https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet"><code>Parquet</code></a></td><td><a href="https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS"><code>IPFS</code></a></td></tr>
+<tr><td>5</td><td><a href="Frequency/../DSNP/Types/Profile.html">Profile</a></td><td>Batched</td><td>6</td><td>5</td><td><a href="https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet"><code>Parquet</code></a></td><td><a href="https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS"><code>IPFS</code></a></td></tr>
+<tr><td>6</td><td><a href="Frequency/../DSNP/Types/Update.html">Update</a></td><td>Batched</td><td>5</td><td>6</td><td><a href="https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet"><code>Parquet</code></a></td><td><a href="https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS"><code>IPFS</code></a></td></tr>
 <tr><td>7</td><td><a href="Frequency/../DSNP/Types/PublicKey.html">Public Key</a></td><td><a href="Frequency/./UserData.html#announcements">Stateful</a></td><td>TBD</td><td>18</td><td><a href="https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.AvroBinary"><code>AvroBinary</code></a></td><td><a href="https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.Itemized"><code>Itemized</code></a></td></tr>
 </tbody></table>
 </div>
@@ -1652,6 +1674,7 @@ It can also be used to look up the state of prior Records related to an Identity
 </div><div style="break-before: page; page-break-before: always;"></div><h1 id="frequency-user-data"><a class="header" href="#frequency-user-data">Frequency User Data</a></h1>
 <p>On Frequency, User Data and select Announcements are mapped to Schemas which use <a href="https://libertydsnp.github.io/frequency/pallet_stateful_storage/index.html">Stateful Storage</a> for storage and retrieval of the data.</p>
 <h2 id="user-data-sets"><a class="header" href="#user-data-sets">User Data Sets</a></h2>
+<!-- Update ./Overview.md if a Schema Id is updated  -->
 <div class="table-wrapper"><table><thead><tr><th>User Data Set</th><th>Schema Id Mainnet</th><th>Schema Id Rococo</th><th>Frequency Model Type</th><th>Frequency Payload Location</th><th>Settings</th></tr></thead><tbody>
 <tr><td><a href="Frequency/../DSNP/Graph.html#public-follows">Public Follows</a></td><td>TBD</td><td>13</td><td><a href="https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.AvroBinary"><code>AvroBinary</code></a></td><td><a href="https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.Paginated"><code>Paginated</code></a></td><td>None</td></tr>
 <tr><td><a href="Frequency/../DSNP/Graph.html#private-follows">Private Follows</a></td><td>TBD</td><td>14</td><td><a href="https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.AvroBinary"><code>AvroBinary</code></a></td><td><a href="https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.Paginated"><code>Paginated</code></a></td><td>None</td></tr>
