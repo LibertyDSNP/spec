@@ -26,4 +26,4 @@ Official DSNP Over Frequency Schemas may be found in [GitHub](https://github.com
 
 | Frequency Release | DSNP Version | Spec Release Date |
 | --- | --- | --- |
-| 1.3.0 | 1.2.0 | 2023-03-07 |
+| 1.5.2 | 1.2.0 | 2023-04-19 |
