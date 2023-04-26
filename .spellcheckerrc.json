@@ -1,0 +1,11 @@
+{
+  "files": [
+    "**/*.md",
+    "!STYLEGUIDE.md",
+    "!LICENSE.md",
+    "**/.github/**/*.md"
+  ],
+  "dictionaries": [
+    ".spellcheckerdict.txt"
+  ]
+}

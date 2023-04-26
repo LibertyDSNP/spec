@@ -14,7 +14,7 @@ For more information about the DSNP, visit [DSNP.org](https://www.dsnp.org)
 
 ### Spec Version Release & Changelog Process
 
-1. Update the version at the top of the the `Overview.md` file for spec
+1. Update the version at the top of the `Overview.md` file for spec
 2. Update the releases table on the `Overview.md` file for spec
 3. Update the releases table on the root `index.md` file
 4. Use the appropriate git tag(s) for the specs `[Spec]-v[Major].[Minor].[Patch]`
