@@ -49,9 +49,6 @@ Uppercase Acronym plus Uppercase I
 ## DSNP Id
 Short for DSNP Identity, Uppercase Acronym plus uppercase I
 
-## DSNP ID
-Short for DSNP Identity Document, do not confuse with DSNP Id
-
 ## DSNP Protocol Scheme
 Uppercase Acronym plus uppercase P and S
 
@@ -71,16 +68,21 @@ Uppercase E and U
 Should be avoided
 
 ## Graph Change Announcements
-Uppercase G, C and A
+Uppercase G, C and A.
+Note: Graph Change Announcements and events have been migrated to use User Data Operations as of version 1.2.0. 
 
 ## Graph Change event
-Uppercase G and C lowercase e
+Uppercase G and C lowercase e.
+Note: Graph Change Announcements and events have been migrated to use User Data Operations as of version 1.2.0. 
 
 ## InterPlanetary File System (IPFS)
 Uppercase I, P, F and S. In the first instance, spell out followed by the acronym in parentheses. Use the acronym only thereafter.
 
 ## MUST/MUST NOT
 All Caps when defining rules for specification
+
+## Operation
+Uppercase O when referring to spec-defined DSNP Operations
 
 ## Oxford Comma
 Always use
@@ -96,6 +98,9 @@ All lowercase
 
 ## Reaction Announcement
 Uppercase R and A
+
+## Record
+Uppercase R when referring to spec-defined DSNP State Change Records
 
 ## social network graph
 All lowercase
