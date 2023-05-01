@@ -65,6 +65,7 @@ PNG
 Polkadot
 Poly1305
 pre-configured
+Prerelease
 PRId([ABs])?
 publicKey
 repo

@@ -6,6 +6,7 @@
 | --- | --- | --- | --- | --- |
 | `@context` | [Activity Streams 2.0](https://www.w3.org/TR/activitystreams-core/#jsonld) | YES | JSON-LD @context | MUST be set to `https://www.w3.org/ns/activitystreams` |
 | `type` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-type) | YES | Identifies the type of the object | MUST be set to `Note` |
+| `actor` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-actor) | no | May be used to identify the DSNP User who originated the activity | Use [DSNP User URI](../DSNP/Identifiers.md#dsnp-user-uri) |
 | `content` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-content) | YES | Text content of the note |  |
 | `mediaType` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-mediatype) | YES | MIME type for the `content` field | MUST be set to a [supported MIME type](#supported-content-mime-types) |
 | `published` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-published) | YES | The time of publishing | MUST be [ISO8601](https://www.iso.org/iso-8601-date-and-time-format.html) |
@@ -26,6 +27,7 @@
 {
   "@context": "https://www.w3.org/ns/activitystreams",
   "type": "Note",
+  "actor": "dsnp://1727293022", 
   "content": "Hello world!",
   "mediaType": "text/plain",
   "published": "1970-01-01T00:00:00+00:00"
@@ -36,6 +38,7 @@
 {
   "@context": "https://www.w3.org/ns/activitystreams",
   "type": "Note",
+  "actor": "dsnp://1727293022", 
   "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   "mediaType": "text/plain",
   "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",

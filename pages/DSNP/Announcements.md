@@ -35,6 +35,12 @@ When readers retrieve content referenced in an Announcement, they can validate t
 
 DSNP Announcements encode content hashes using the [multihash](https://github.com/multiformats/multihash) specification.
 
+## External Content Validation
+
+There is no guarantee that external documents will be syntactically or semantically valid.
+Readers should determine whether documents are well formed and implement appropriate error checking based on the expected file format.
+Where Activity Content is referenced, if the external object contains the optional `actor` field, and this field's value is a [DSNP User URI](Identifiers.md#dsnp-user-uri), readers MUST ensure that the DSNP User given matches the `senderId` of the referring Announcement.
+
 ### Supported Hashing Algorithms
 
 | Algorithm | Multihash Name | Leading bytes (as [varint](https://github.com/multiformats/unsigned-varint)) | Reference | DSNP Version Added |
