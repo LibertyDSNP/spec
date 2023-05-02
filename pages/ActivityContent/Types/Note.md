@@ -6,7 +6,7 @@
 | --- | --- | --- | --- | --- |
 | `@context` | [Activity Streams 2.0](https://www.w3.org/TR/activitystreams-core/#jsonld) | YES | JSON-LD @context | MUST be set to `https://www.w3.org/ns/activitystreams` |
 | `type` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-type) | YES | Identifies the type of the object | MUST be set to `Note` |
-| `actor` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-actor) | no | May be used to identify the DSNP User who originated the activity | Use [DSNP User URI](../DSNP/Identifiers.md#dsnp-user-uri) |
+| `actor` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-actor) | no | May be used to identify the DSNP User who originated the activity | Use [DSNP User URI](../../DSNP/Identifiers.md#dsnp-user-uri) |
 | `content` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-content) | YES | Text content of the note |  |
 | `mediaType` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-mediatype) | YES | MIME type for the `content` field | MUST be set to a [supported MIME type](#supported-content-mime-types) |
 | `published` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-published) | YES | The time of publishing | MUST be [ISO8601](https://www.iso.org/iso-8601-date-and-time-format.html) |
