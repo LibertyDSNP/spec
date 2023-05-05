@@ -1,6 +1,6 @@
 {
-    "name": "liberty-protocol-spec",
-    "version": "0.0.1",
+    "name": "dsnp-spec",
+    "version": "1.2.0",
     "description": "Detailed documentation regarding the current state of the protocol",
     "license": "CC-BY-SA-4.0",
     "files": [
@@ -13,7 +13,7 @@
         "build": "mdbook build -o",
         "serve": "mdbook serve -o",
         "watch": "mdbook watch -o",
-        "spellcheck": "yaspeller .",
+        "spellcheck": "spellchecker",
         "lint-md": "remark --frail ./pages/**/*.md ./pages/*.md",
         "lint": "npm run lint-md && npm run spellcheck"
     },
@@ -22,10 +22,10 @@
         "remark-cli": "^10.0.1",
         "remark-lint": "^9.1.1",
         "remark-preset-lint-recommended": "^6.1.2",
-        "yaspeller": "^8.0.1"
+        "spellchecker-cli": "^6.1.1"
     },
     "engines": {
-        "node": ">=16.14.0 <17"
+        "node": ">=16.14.0 <20"
     },
     "remarkConfig": {
         "plugins": [

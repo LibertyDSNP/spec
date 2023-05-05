@@ -11,9 +11,15 @@ Graph connections are formed through the DSNP User Id.
 
 ## DSNP Content Hash
 
-- MUST be 32 bytes in size
-- MUST be a [keccak-256 hash](https://keccak.team/files/Keccak-submission-3.pdf) of the bytes of the content
-- MUST be serialized as [hexadecimal](Serializations.md#hexadecimal)
+- Variable length byte array (fixed length for a given hashing algorithm)
+- MUST be a valid [multihash](https://github.com/multiformats/multihash) encoding of the hash output for the bytes of the content, generated with a [Supported Hashing Algorithm](Announcements.md#supported-hashing-algorithms)
+
+### Supported Hashing Algorithms
+
+| Algorithm | Multihash Name | Leading bytes (as [varint](https://github.com/multiformats/unsigned-varint)) | Reference | DSNP Version Added |
+| --- | --- | --- | --- | --- |
+| SHA-256 | `sha2-256` | `0x1220` | [RFC 6234](https://tools.ietf.org/html/rfc6234) | 1.2.0 |
+| BLAKE2b | `blake2b-256` | `0xa0e40220` | [RFC 7693](https://tools.ietf.org/html/rfc7693) | 1.2.0 |
 
 ## DSNP Protocol Scheme
 

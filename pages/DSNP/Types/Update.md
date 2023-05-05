@@ -27,7 +27,7 @@ Updates should be ignored.
 
 ### contentHash
 
-- MUST be a valid [multihash](https://github.com/multiformats/multihash) encoding of the hash output for the bytes of the content at the URL, generated with a [Supported Hashing Algorithm](../Announcements.md#supported-hashing-algorithms).
+- MUST be a [DSNP Content Hash](../Identifiers.md#dsnp-content-hash) 
 
 ### url
 
