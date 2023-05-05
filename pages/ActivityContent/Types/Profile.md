@@ -30,14 +30,20 @@ Profiles are used to provide additional user information display.
       "href": "https://placekitten.com/256/256",
       "mediaType": "image/jpeg",
       "width": "256",
-      "height": "256"
+      "height": "256",
+      "hash": [
+        "QmVmUqGYtHcVgpTFR64bHNcLGGFEeWxmUP6pV2C2RbWpKT"
+      ]
     },
     {
       "type": "Link",
       "href": "https://placekitten.com/64/64",
       "mediaType": "image/jpeg",
       "width": "64",
-      "height": "64"
+      "height": "64",
+      "hash": [
+        "QmcAh1rov5GcddekCffGeRnaSyiji6ATmfGWpxXYJHgJZx"
+      ]
     }
   ],
   "published": "1970-01-01T00:00:00+00:00"
