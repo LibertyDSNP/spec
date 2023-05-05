@@ -264,10 +264,15 @@ Graph connections are formed through the DSNP User Id.</p>
 </ul>
 <h2 id="dsnp-content-hash"><a class="header" href="#dsnp-content-hash">DSNP Content Hash</a></h2>
 <ul>
-<li>MUST be 32 bytes in size</li>
-<li>MUST be a <a href="https://keccak.team/files/Keccak-submission-3.pdf">keccak-256 hash</a> of the bytes of the content</li>
-<li>MUST be serialized as <a href="DSNP/Serializations.html#hexadecimal">hexadecimal</a></li>
+<li>Variable length byte array (fixed length for a given hashing algorithm)</li>
+<li>MUST be a valid <a href="https://github.com/multiformats/multihash">multihash</a> encoding of the hash output for the bytes of the content, generated with a <a href="DSNP/Announcements.html#supported-hashing-algorithms">Supported Hashing Algorithm</a></li>
 </ul>
+<h3 id="supported-hashing-algorithms"><a class="header" href="#supported-hashing-algorithms">Supported Hashing Algorithms</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Algorithm</th><th>Multihash Name</th><th>Leading bytes (as <a href="https://github.com/multiformats/unsigned-varint">varint</a>)</th><th>Reference</th><th>DSNP Version Added</th></tr></thead><tbody>
+<tr><td>SHA-256</td><td><code>sha2-256</code></td><td><code>0x1220</code></td><td><a href="https://tools.ietf.org/html/rfc6234">RFC 6234</a></td><td>1.2.0</td></tr>
+<tr><td>BLAKE2b</td><td><code>blake2b-256</code></td><td><code>0xa0e40220</code></td><td><a href="https://tools.ietf.org/html/rfc7693">RFC 7693</a></td><td>1.2.0</td></tr>
+</tbody></table>
+</div>
 <h2 id="dsnp-protocol-scheme"><a class="header" href="#dsnp-protocol-scheme">DSNP Protocol Scheme</a></h2>
 <ul>
 <li>MUST always be the string <code>dsnp://</code></li>
@@ -602,7 +607,6 @@ Care should be taken to ensure that User Id values greater than or equal to 2<su
 <li>Both Alice and Bob generate an asymmetric key pair for use with X25519 <abbr title="Elliptic Curve Integrated Encryption Scheme">ECIES</abbr>.
 Each publishes a Public Key Announcement with their generated public key with a <code>keyType</code> value of <code>keyAgreement</code>.</li>
 </ol>
-<!-- yaspeller ignore:start -->
 <table style="table-layout:fixed">
 <tr><th>Libsodium</th><th>Algorithm</th></tr>
 <tr><td>
@@ -622,11 +626,9 @@ Each publishes a Public Key Announcement with their generated public key with a 
 (B<sub>public</sub>, B<sub>secret</sub>) &#8592; <abbr title="Key Generation Function">KGF</abbr>()
 </tt></pre>
 </td></tr></table>
-<!-- yaspeller ignore:end -->
 <ol start="2">
 <li>When Alice wants to interact with Bob, she looks up Bob's public key and performs an X25519 Elliptic-curve Diffie-Hellman key exchange operation using her secret key and Bob's public key, generating a root shared secret.</li>
 </ol>
-<!-- yaspeller ignore:start -->
 <table style="table-layout:fixed">
 <tr><th>Libsodium</th><th>Algorithm</th></tr>
 <tr><td>
@@ -642,11 +644,9 @@ RootSharedSecret<sub>AB</sub> &#8592;
   <abbr title="Elliptic-curve Diffie-Hellman">ECDH</abbr>(B<sub>public</sub>, A<sub>secret</sub>)
 </pre></tt>
 </td></tr></table>
-<!-- yaspeller ignore:end -->
 <ol start="3">
 <li>Alice derives a context-specific subkey <code>CtxSharedSecret<sub>Bob</sub></code> from the shared secret <code>RootSharedSecret</code> as the master key, Bob's DSNP User Id as the 64-bit key identifier, and the ASCII encoding of the <a href="DSNP/Types/PRId.html#contexts">PRId Context</a> string (<code>&quot;PRIdCtx0&quot;</code> for connections).</li>
 </ol>
-<!-- yaspeller ignore:start -->
 <table style="table-layout:fixed">
 <tr><th>Libsodium</th><th>Algorithm</th></tr>
 <tr><td>
@@ -668,12 +668,10 @@ CtxSharedSecret<sub>A→B</sub> &#8592
     personal = "PRIdCtx0" || {0})
 </pre></tt>
 </td></tr></table>
-<!-- yaspeller ignore:end -->
 <ol start="4">
-<li>Alice uses Bob's DSNP User Id to form a 8-byte little-endian message.
+<li>Alice uses Bob's DSNP User Id to form an 8-byte little-endian message.
 Alice encrypts this message using <a href="http://cr.yp.to/snuffle/xsalsa-20110204.pdf">XSalsa20</a> with the PRId key <code>CtxSharedSecret<sub>A→B</sub></code> and a nonce of her own User Id (little-endian) followed by 16 zero bytes.</li>
 </ol>
-<!-- yaspeller ignore:start -->
 <table style="table-layout:fixed">
 <tr><th>Libsodium</th><th>Algorithm</th></tr>
 <tr><td>
@@ -705,7 +703,6 @@ PRId<sub>A→B,C</sub> &#8592
   )
 </pre></tt>
 </td></tr></table>
-<!-- yaspeller ignore:end -->
 <ol start="6">
 <li>Alice adds the generated PRId to the relevant list of PRIds and publishes an updated copy via the <a href="DSNP/Types/../UserData.html#replace-user-data-operation">Replace User Data</a> Operation.</li>
 </ol>
@@ -726,15 +723,13 @@ The third party can repeat the encryption step using Alice and Bob's User Ids, a
 </tbody></table>
 </div>
 <p>An implementation of the PRId generation algorithm should produce the following outputs:</p>
-<!-- yaspeller ignore:start -->
 <div class="table-wrapper"><table><thead><tr><th>Output</th><th>Value</th></tr></thead><tbody>
 <tr><td><tt>PRId<sub>A→B</sub></tt></td><td><code>0xace4d2995b1a829c</code></td></tr>
 <tr><td><tt>CtxSharedSecret<sub>A→B</sub></tt></td><td><code>0x37cb1a870f0c1dce06f5116faf145ac2cf7a2f7d30136be4eea70c324932e6d2</code></td></tr>
 <tr><td><tt>PRId<sub>B→A</sub></tt></td><td><code>0x1a53b02a26503600</code></td></tr>
 <tr><td><tt>CtxSharedSecret<sub>B→A</sub></tt></td><td><code>0x32c45c49fcfe12f9db60e74fa66416c5a05832c298814d82032a6783a4b1fca0</code></td></tr>
 </tbody></table>
-</div><!-- yaspeller ignore:end -->
-<div style="break-before: page; page-break-before: always;"></div><h1 id="batch-publications"><a class="header" href="#batch-publications">Batch Publications</a></h1>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="batch-publications"><a class="header" href="#batch-publications">Batch Publications</a></h1>
 <p>A Batch Publication is an <a href="https://github.com/apache/parquet-format">Apache Parquet</a> file with a collection of <a href="DSNP/Announcements.html">Announcements</a>.</p>
 <h2 id="implementation-requirements"><a class="header" href="#implementation-requirements">Implementation Requirements</a></h2>
 <h3 id="discoverable"><a class="header" href="#discoverable">Discoverable</a></h3>
@@ -821,16 +816,9 @@ Depending on the implementation, Announcements may be published directly to the 
 The reader MUST perform a validation of the Announcement at read time to ensure authenticity.
 Implementations MUST provide a way to validate that the <a href="DSNP/Identifiers.html">identifier</a> associated with a given <a href="DSNP/Announcements.html">Announcement</a> is authentic.</p>
 <h2 id="external-content-urls-and-hashes"><a class="header" href="#external-content-urls-and-hashes">External Content URLs and Hashes</a></h2>
-<p>Where Announcements refer to external documents (such as Activity Content documents), these are referenced by both a URL and a content hash.
-The content hash MUST be generated by applying a Supported Hashing Algorithm to the full, unaltered contents retrieved from the URL.
+<p>Where Announcements refer to external documents (such as Activity Content documents), these are referenced by both a URL and a <a href="DSNP/Identifiers.html#dsnp-content-hash">DSNP Content Hash</a>.
+The content hash MUST be generated by applying a <a href="DSNP/Identifiers.html#supported-hashing-algorithms">Supported Hashing Algorithm</a> to the full, unaltered contents retrieved from the URL.
 When readers retrieve content referenced in an Announcement, they can validate the authenticity of the content by regenerating the hash output and comparing it with the content hash recorded in the Announcement.</p>
-<p>DSNP Announcements encode content hashes using the <a href="https://github.com/multiformats/multihash">multihash</a> specification.</p>
-<h3 id="supported-hashing-algorithms"><a class="header" href="#supported-hashing-algorithms">Supported Hashing Algorithms</a></h3>
-<div class="table-wrapper"><table><thead><tr><th>Algorithm</th><th>Multihash Name</th><th>Leading bytes (as <a href="https://github.com/multiformats/unsigned-varint">varint</a>)</th><th>Reference</th><th>DSNP Version Added</th></tr></thead><tbody>
-<tr><td>SHA-256</td><td><code>sha2-256</code></td><td><code>0x1220</code></td><td><a href="https://tools.ietf.org/html/rfc6234">RFC 6234</a></td><td>1.2.0</td></tr>
-<tr><td>BLAKE2b</td><td><code>blake2b-256</code></td><td><code>0xa0e40220</code></td><td><a href="https://tools.ietf.org/html/rfc7693">RFC 7693</a></td><td>1.2.0</td></tr>
-</tbody></table>
-</div>
 <h2 id="duplicate-handling"><a class="header" href="#duplicate-handling">Duplicate Handling</a></h2>
 <p>Due to the nature of asynchronous communication, duplicate Announcements may occur.
 In the case of duplicates, the first Announcement should be considered the ONLY valid Announcement.
@@ -921,7 +909,7 @@ It is NOT possible to revert a tombstone.</p>
 </ul>
 <h3 id="contenthash"><a class="header" href="#contenthash">contentHash</a></h3>
 <ul>
-<li>MUST be a valid <a href="https://github.com/multiformats/multihash">multihash</a> encoding of the hash output for the bytes of the content at the URL, generated with a <a href="DSNP/Types/../Announcements.html#supported-hashing-algorithms">Supported Hashing Algorithm</a>.</li>
+<li>MUST be a <a href="DSNP/Types/../Identifiers.html#dsnp-content-hash">DSNP Content Hash</a></li>
 </ul>
 <h3 id="fromid-1"><a class="header" href="#fromid-1">fromId</a></h3>
 <ul>
@@ -957,7 +945,7 @@ but includes an <code>inReplyTo</code> field for noting it as a reply to a given
 </ul>
 <h3 id="contenthash-1"><a class="header" href="#contenthash-1">contentHash</a></h3>
 <ul>
-<li>MUST be a valid <a href="https://github.com/multiformats/multihash">multihash</a> encoding of the hash output for the bytes of the content at the URL, generated with a <a href="DSNP/Types/../Announcements.html#supported-hashing-algorithms">Supported Hashing Algorithm</a>.</li>
+<li>MUST be a <a href="DSNP/Types/../Identifiers.html#dsnp-content-hash">DSNP Content Hash</a></li>
 </ul>
 <h3 id="fromid-2"><a class="header" href="#fromid-2">fromId</a></h3>
 <ul>
@@ -1054,7 +1042,7 @@ The reference content <em>MUST be of profile type</em>.</p>
 </ul>
 <h3 id="contenthash-2"><a class="header" href="#contenthash-2">contentHash</a></h3>
 <ul>
-<li>MUST be a valid <a href="https://github.com/multiformats/multihash">multihash</a> encoding of the hash output for the bytes of the content at the URL, generated with a <a href="DSNP/Types/../Announcements.html#supported-hashing-algorithms">Supported Hashing Algorithm</a>.</li>
+<li>MUST be a <a href="DSNP/Types/../Identifiers.html#dsnp-content-hash">DSNP Content Hash</a></li>
 </ul>
 <h3 id="fromid-4"><a class="header" href="#fromid-4">fromId</a></h3>
 <ul>
@@ -1101,7 +1089,7 @@ Updates should be ignored.</p>
 </ul>
 <h3 id="contenthash-3"><a class="header" href="#contenthash-3">contentHash</a></h3>
 <ul>
-<li>MUST be a valid <a href="https://github.com/multiformats/multihash">multihash</a> encoding of the hash output for the bytes of the content at the URL, generated with a <a href="DSNP/Types/../Announcements.html#supported-hashing-algorithms">Supported Hashing Algorithm</a>.</li>
+<li>MUST be a <a href="DSNP/Types/../Identifiers.html#dsnp-content-hash">DSNP Content Hash</a> </li>
 </ul>
 <h3 id="url-3"><a class="header" href="#url-3">url</a></h3>
 <ul>
@@ -1824,14 +1812,20 @@ Implementers who extend their support for Activity Streams objects beyond the su
       &quot;href&quot;: &quot;https://placekitten.com/256/256&quot;,
       &quot;mediaType&quot;: &quot;image/jpeg&quot;,
       &quot;width&quot;: &quot;256&quot;,
-      &quot;height&quot;: &quot;256&quot;
+      &quot;height&quot;: &quot;256&quot;,
+      &quot;hash&quot;: [
+        &quot;QmVmUqGYtHcVgpTFR64bHNcLGGFEeWxmUP6pV2C2RbWpKT&quot;
+      ]
     },
     {
       &quot;type&quot;: &quot;Link&quot;,
       &quot;href&quot;: &quot;https://placekitten.com/64/64&quot;,
       &quot;mediaType&quot;: &quot;image/jpeg&quot;,
       &quot;width&quot;: &quot;64&quot;,
-      &quot;height&quot;: &quot;64&quot;
+      &quot;height&quot;: &quot;64&quot;,
+      &quot;hash&quot;: [
+        &quot;QmcAh1rov5GcddekCffGeRnaSyiji6ATmfGWpxXYJHgJZx&quot;
+      ]
     }
   ],
   &quot;published&quot;: &quot;1970-01-01T00:00:00+00:00&quot;
