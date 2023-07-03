@@ -1,7 +1,9 @@
 Alexa
 announcementType
+attributeSetType
 Avro
 Base58
+[Bb]itwise
 BLAKE2b
 Brötli
 CalVer
@@ -57,6 +59,7 @@ multicodec
 multihash-encoded
 multikey
 NaCl
+non-DSNP
 objectId
 OGG
 Parachain
@@ -79,6 +82,7 @@ SDK
 SHA-256
 Stateful
 stringified
+subjectContentHash
 subkey
 SVG
 targetAnnouncementType
@@ -96,6 +100,9 @@ UTF-8
 v[0-9]+(\.[0-9]+)*
 vanishingly
 varint
+verificationOf
+verifier
+[Vv]erifier-specific
 W3C
 WebM
 WebP
