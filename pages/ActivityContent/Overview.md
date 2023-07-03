@@ -45,10 +45,11 @@ URLs in DSNP-compatible Activity Content MUST use one of the following URL schem
 | [LibertyDSNP/activity-content-java](https://github.com/LibertyDSNP/activity-content-java) | Java/Kotlin |
 | [LibertyDSNP/activity-content-swift](https://github.com/LibertyDSNP/activity-content-swift) | Swift |
 
-<!--- Uncomment for pre-release changes and prefix the version with `pre-[next version]` --->
+<!--- Uncomment for pre-release changes and prefix the version with `pre-[next version]` -->
 ## Prerelease Changelog
 
-- DIP-273 Content Addressing
+- [DIP-257](https://github.com/LibertyDSNP/spec/issues/257) Attribute Sets and Attestation
+- [DIP-273](https://github.com/LibertyDSNP/spec/issues/273) Content Addressing
 
 ## Releases
 

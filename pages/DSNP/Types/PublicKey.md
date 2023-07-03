@@ -35,6 +35,7 @@ The most recently published key (if one exists) for a given key type should be t
 | Value | Name | Allowed Algorithms ([multicodec](https://github.com/multiformats/multicodec/blob/master/table.csv)) | Purpose |
 | --- | --- | --- | --- |
 | 1 | `keyAgreement` | `x25519-pub` | A Curve25519 public key that can be used in key exchange protocols to generate a shared secret |
+| 2 | `assertionMethod` | `ed25519-pub` | A public key that can be used for verifying digital signature proofs of verifiable credentials |
 
 ### keyId
 

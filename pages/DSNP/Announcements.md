@@ -18,6 +18,9 @@ Each Announcement has an enumerated type for use when separating out a stream of
 | 5 | ~~[Profile](Types/Profile.md)~~<sup>c</sup> | ~~a profile~~ | ~~YES~~ | ~~no~~ |
 | 6 | [Update](Types/Update.md) | an update to content| YES | no |
 | 7 | ~~[Public Key](Types/PublicKey.md)~~<sup>b</sup> | ~~a public key for secure communication~~ | ~~no~~ | ~~no~~ |
+| 8 | [User Attribute Set](Types/UserAttributeSet.md) | an attribute set for a DSNP User | YES | YES |
+| 9 | [DSNP Content Attribute Set](Types/DSNPContentAttributeSet.md) | an attribute set for a DSNP content item | YES | YES |
+| 10 | [External Content Attribute Set](Types/ExternalContentAttributeSet.md) | an attribute set for a non-DSNP content item | YES | YES |
 
 <sup>a</sup> Since DSNP version 1.2, social graph changes use [User Data](UserData.md) operations as described in the [Graph](Graph.md) section. 
 

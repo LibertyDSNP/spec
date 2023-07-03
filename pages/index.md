@@ -11,12 +11,13 @@ Through the DSNP, we hope to mitigate and ideally solve these challenges in the 
 
 ## How to Read This Specification
 
-There are three core specifications currently.
+There are three core specifications and one system specification currently.
 
 | Name | Version | Description |
 | --- | --- | --- |
 | [DSNP](DSNP/Overview.md) | pre-1.3.0 | The system-agnostic DSNP specification |
 | [Activity Content](ActivityContent/Overview.md) | pre-1.3.0 | A specification for DSNP-referenced content (subset of W3C Activity Streams) |
+| [Verifiable Credentials](VerifiableCredentials/Overview.md) | pre-1.3.0 | Use of W3C Verifiable Credentials and DIDs with DSNP |
 | [DSNP Over Frequency](Frequency/Overview.md) | - | DSNP Over Frequency specification |
 
 Each specification is divided into several modules.
