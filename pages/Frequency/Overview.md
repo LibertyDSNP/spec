@@ -50,4 +50,4 @@ Official schemas may be found in [GitHub](https://github.com/LibertyDSNP/schemas
 
 | Last Update Date | Frequency Release | DSNP Version |
 | --- | --- | --- |
-| 2023-04-19 | 1.5.2+ | 1.2.0 |
+| 2023-07-17 | 1.5.2+ | 1.2.0 |
