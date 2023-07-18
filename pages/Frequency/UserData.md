@@ -8,9 +8,9 @@ On Frequency, User Data and select Announcements are mapped to Schemas which use
 
 | User Data Set | Schema Id Mainnet | Schema Id Rococo | Frequency Model Type | Frequency Payload Location | Settings |
 | --- | --- | --- | --- | --- | --- |
-| [Public Follows](../DSNP/Graph.md#public-follows) | TBD | 13 | [`AvroBinary`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.AvroBinary) | [`Paginated`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.Paginated) | None |
-| [Private Follows](../DSNP/Graph.md#private-follows) | TBD | 14 | [`AvroBinary`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.AvroBinary) | [`Paginated`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.Paginated) | None |
-| [Private Connections](../DSNP/Graph.md#private-connections) | TBD | 15 | [`AvroBinary`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.AvroBinary) | [`Paginated`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.Paginated) | None |
+| [Public Follows](../DSNP/Graph.md#public-follows) | 8 | 13 | [`AvroBinary`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.AvroBinary) | [`Paginated`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.Paginated) | None |
+| [Private Follows](../DSNP/Graph.md#private-follows) | 9 | 14 | [`AvroBinary`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.AvroBinary) | [`Paginated`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.Paginated) | None |
+| [Private Connections](../DSNP/Graph.md#private-connections) | 10 | 15 | [`AvroBinary`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.AvroBinary) | [`Paginated`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.Paginated) | None |
 
 [Pseudonymous Relationship Identifiers](./../DSNP/Graph.md#pseudonymous-relationship-identifiers) (PRIds) are stored along side Private Connections in the same Stateful Storage page.
 
@@ -20,7 +20,7 @@ Source code for each schema is located in the [LibertyDSNP/schemas](https://gith
 
 | Announcement | Schema Id Mainnet | Schema Id Rococo | Frequency Model Type | Frequency Payload Location | Settings |
 | --- | --- | --- | --- | --- | --- |
-| [Public Key](../DSNP/Types/PublicKey.md) | TBD | 7 (_v1.3.0+_) | [`AvroBinary`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.AvroBinary) | [`Itemized`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.Itemized) | [Append Only](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.SchemaSetting.html#variant.AppendOnly), [Signature Required](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.SchemaSetting.html#variant.SignatureRequired) |
+| [Public Key](../DSNP/Types/PublicKey.md) | 7 | 7 (_v1.3.0+_) | [`AvroBinary`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.AvroBinary) | [`Itemized`](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.Itemized) | [Append Only](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.SchemaSetting.html#variant.AppendOnly), [Signature Required](https://libertydsnp.github.io/frequency/common_primitives/schema/enum.SchemaSetting.html#variant.SignatureRequired) |
 
 
 ## Read Operation Mapping
