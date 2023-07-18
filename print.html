@@ -1421,10 +1421,10 @@ Strings are used to avoid issues with different implementations of numbers.</p>
 <tr><td><a href="Frequency/./Publishing.html">Reaction</a></td><td>4</td><td>4</td></tr>
 <tr><td><a href="Frequency/./Publishing.html">Profile</a></td><td>6</td><td>5</td></tr>
 <tr><td><a href="Frequency/./Publishing.html">Update</a></td><td>5</td><td>6</td></tr>
-<tr><td><a href="Frequency/./Publishing.html">Public Key</a></td><td>TBD</td><td>18</td></tr>
-<tr><td><a href="Frequency/./UserData.html">Public Follows</a></td><td>TBD</td><td>13</td></tr>
-<tr><td><a href="Frequency/./UserData.html">Private Follows</a></td><td>TBD</td><td>14</td></tr>
-<tr><td><a href="Frequency/./UserData.html">Private Connections</a></td><td>TBD</td><td>15</td></tr>
+<tr><td><a href="Frequency/./Publishing.html">Public Key</a></td><td>7</td><td>18</td></tr>
+<tr><td><a href="Frequency/./UserData.html">Public Follows</a></td><td>8</td><td>13</td></tr>
+<tr><td><a href="Frequency/./UserData.html">Private Follows</a></td><td>9</td><td>14</td></tr>
+<tr><td><a href="Frequency/./UserData.html">Private Connections</a></td><td>10</td><td>15</td></tr>
 </tbody></table>
 </div><!--
 ### Obsolete
@@ -1441,7 +1441,7 @@ Strings are used to avoid issues with different implementations of numbers.</p>
 
 --->
 <div class="table-wrapper"><table><thead><tr><th>Last Update Date</th><th>Frequency Release</th><th>DSNP Version</th></tr></thead><tbody>
-<tr><td>2023-04-19</td><td>1.5.2+</td><td>1.2.0</td></tr>
+<tr><td>2023-07-17</td><td>1.5.2+</td><td>1.2.0</td></tr>
 </tbody></table>
 </div><div style="break-before: page; page-break-before: always;"></div><h1 id="frequency-identity"><a class="header" href="#frequency-identity">Frequency Identity</a></h1>
 <h2 id="identity-1"><a class="header" href="#identity-1">Identity</a></h2>
@@ -1664,16 +1664,16 @@ It can also be used to look up the state of prior Records related to an Identity
 <h2 id="user-data-sets"><a class="header" href="#user-data-sets">User Data Sets</a></h2>
 <!-- Update ./Overview.md if a Schema Id is updated  -->
 <div class="table-wrapper"><table><thead><tr><th>User Data Set</th><th>Schema Id Mainnet</th><th>Schema Id Rococo</th><th>Frequency Model Type</th><th>Frequency Payload Location</th><th>Settings</th></tr></thead><tbody>
-<tr><td><a href="Frequency/../DSNP/Graph.html#public-follows">Public Follows</a></td><td>TBD</td><td>13</td><td><a href="https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.AvroBinary"><code>AvroBinary</code></a></td><td><a href="https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.Paginated"><code>Paginated</code></a></td><td>None</td></tr>
-<tr><td><a href="Frequency/../DSNP/Graph.html#private-follows">Private Follows</a></td><td>TBD</td><td>14</td><td><a href="https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.AvroBinary"><code>AvroBinary</code></a></td><td><a href="https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.Paginated"><code>Paginated</code></a></td><td>None</td></tr>
-<tr><td><a href="Frequency/../DSNP/Graph.html#private-connections">Private Connections</a></td><td>TBD</td><td>15</td><td><a href="https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.AvroBinary"><code>AvroBinary</code></a></td><td><a href="https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.Paginated"><code>Paginated</code></a></td><td>None</td></tr>
+<tr><td><a href="Frequency/../DSNP/Graph.html#public-follows">Public Follows</a></td><td>8</td><td>13</td><td><a href="https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.AvroBinary"><code>AvroBinary</code></a></td><td><a href="https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.Paginated"><code>Paginated</code></a></td><td>None</td></tr>
+<tr><td><a href="Frequency/../DSNP/Graph.html#private-follows">Private Follows</a></td><td>9</td><td>14</td><td><a href="https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.AvroBinary"><code>AvroBinary</code></a></td><td><a href="https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.Paginated"><code>Paginated</code></a></td><td>None</td></tr>
+<tr><td><a href="Frequency/../DSNP/Graph.html#private-connections">Private Connections</a></td><td>10</td><td>15</td><td><a href="https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.AvroBinary"><code>AvroBinary</code></a></td><td><a href="https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.Paginated"><code>Paginated</code></a></td><td>None</td></tr>
 </tbody></table>
 </div>
 <p><a href="Frequency/./../DSNP/Graph.html#pseudonymous-relationship-identifiers">Pseudonymous Relationship Identifiers</a> (PRIds) are stored along side Private Connections in the same Stateful Storage page.</p>
 <p>Source code for each schema is located in the <a href="https://github.com/LibertyDSNP/schemas">LibertyDSNP/schemas</a> repository.</p>
 <h2 id="announcements"><a class="header" href="#announcements">Announcements</a></h2>
 <div class="table-wrapper"><table><thead><tr><th>Announcement</th><th>Schema Id Mainnet</th><th>Schema Id Rococo</th><th>Frequency Model Type</th><th>Frequency Payload Location</th><th>Settings</th></tr></thead><tbody>
-<tr><td><a href="Frequency/../DSNP/Types/PublicKey.html">Public Key</a></td><td>TBD</td><td>7 (<em>v1.3.0+</em>)</td><td><a href="https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.AvroBinary"><code>AvroBinary</code></a></td><td><a href="https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.Itemized"><code>Itemized</code></a></td><td><a href="https://libertydsnp.github.io/frequency/common_primitives/schema/enum.SchemaSetting.html#variant.AppendOnly">Append Only</a>, <a href="https://libertydsnp.github.io/frequency/common_primitives/schema/enum.SchemaSetting.html#variant.SignatureRequired">Signature Required</a></td></tr>
+<tr><td><a href="Frequency/../DSNP/Types/PublicKey.html">Public Key</a></td><td>7</td><td>7 (<em>v1.3.0+</em>)</td><td><a href="https://libertydsnp.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.AvroBinary"><code>AvroBinary</code></a></td><td><a href="https://libertydsnp.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.Itemized"><code>Itemized</code></a></td><td><a href="https://libertydsnp.github.io/frequency/common_primitives/schema/enum.SchemaSetting.html#variant.AppendOnly">Append Only</a>, <a href="https://libertydsnp.github.io/frequency/common_primitives/schema/enum.SchemaSetting.html#variant.SignatureRequired">Signature Required</a></td></tr>
 </tbody></table>
 </div>
 <h2 id="read-operation-mapping"><a class="header" href="#read-operation-mapping">Read Operation Mapping</a></h2>
