@@ -27,10 +27,10 @@ Official schemas may be found in [GitHub](https://github.com/LibertyDSNP/schemas
 | [Reaction](./Publishing.md) | 4 | 4 |
 | [Profile](./Publishing.md) | 6 | 5 |
 | [Update](./Publishing.md) | 5 | 6 |
-| [Public Key](./Publishing.md) | TBD | 18 |
-| [Public Follows](./UserData.md) | TBD | 13 |
-| [Private Follows](./UserData.md) | TBD | 14 |
-| [Private Connections](./UserData.md) | TBD | 15 |
+| [Public Key](./Publishing.md) | 7 | 18 |
+| [Public Follows](./UserData.md) | 8 | 13 |
+| [Private Follows](./UserData.md) | 9 | 14 |
+| [Private Connections](./UserData.md) | 10 | 15 |
 
 <!--
 ### Obsolete
