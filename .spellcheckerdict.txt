@@ -3,7 +3,6 @@ announcementType
 attributeSetType
 Avro
 Base58
-[Bb]itwise
 BLAKE2b
 Brötli
 CalVer
@@ -68,6 +67,7 @@ PNG
 Polkadot
 Poly1305
 pre-configured
+[Pp]rerelease
 PRId([ABs])?
 publicKey
 repo
@@ -100,9 +100,6 @@ UTF-8
 v[0-9]+(\.[0-9]+)*
 vanishingly
 varint
-verificationOf
-verifier
-[Vv]erifier-specific
 W3C
 WebM
 WebP

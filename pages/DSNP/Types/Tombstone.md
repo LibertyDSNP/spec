@@ -34,6 +34,9 @@ It is NOT possible to revert a tombstone.
 |------ | ---- |
 | 2 | [Broadcast](../Types/Broadcast.md) |
 | 3 | [Reply](../Types/Reply.md) |
+| 8 | [User Attribute Set](../Types/UserAttributeSet.md) |
+| 9 | [DSNP Content Attribute Set](../Types/DSNPContentAttributeSet.md) |
+| 10 | [External Content Attribute Set](../Types/ExternalContentAttributeSet.md) |
 
 ### targetContentHash
 

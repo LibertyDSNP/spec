@@ -32,7 +32,7 @@ A compliant specification MUST specify a mapping from its system-specific state 
 <!--- Uncomment for pre-release changes and prefix the version with `pre-[next version]` -->
 ## Prerelease Changelog
 
-DIP-xxx Attribute Set and Verification Announcements
+DIP-xxx Attribute Set Announcements
 
 ## Releases
 

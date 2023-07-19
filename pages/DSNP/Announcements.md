@@ -21,7 +21,6 @@ Each Announcement has an enumerated type for use when separating out a stream of
 | 8 | [User Attribute Set](Types/UserAttributeSet.md) | an attribute set for a DSNP User | YES | YES |
 | 9 | [DSNP Content Attribute Set](Types/DSNPContentAttributeSet.md) | an attribute set for a DSNP content item | YES | YES |
 | 10 | [External Content Attribute Set](Types/ExternalContentAttributeSet.md) | an attribute set for a non-DSNP content item | YES | YES |
-| 11 | [Verification](Types/Verification.md) | verification of an attribute set announcement | YES | YES |
 
 <sup>a</sup> Since DSNP version 1.2, social graph changes use [User Data](UserData.md) operations as described in the [Graph](Graph.md) section.
 
