@@ -49,8 +49,8 @@ Uppercase C and C
 ## community
 All lowercase
 
-## Content Announcement
-Uppercase C and A
+## content announcement
+All lowercase
 
 ## Content Attribute Set  
 
