@@ -203,5 +203,8 @@ All lowercase
 ## User Attribute Set
 Uppercase U, A and S
 
+## verifier
+All lowercase
+
 ## We/Us/Our
 Should not be used in context with Frequency
