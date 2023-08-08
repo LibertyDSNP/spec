@@ -75,6 +75,9 @@ All lowercase after acronym
 ## DSNP Batch Publications
 Uppercase Acronym plus uppercase B and P
 
+## DSNP content
+Uppercase acronym, lowercase c
+
 ## DSNP Content Hash
 Uppercase Acronym plus uppercase C and H
 
@@ -99,8 +102,8 @@ Uppercase Acronym plus uppercase P and S
 ## DSNP Specification
 Uppercase DSNP and S, avoid preceding with the word "the"
 
-## DSNP User
-Uppercase DSNP and U
+## DSNP user
+Uppercase DSNP and lowercase u
 
 ## DSNP User Id
 Uppercase acronym, U and I, avoid preceding with the word "the"
