@@ -111,9 +111,6 @@ Uppercase acronym, U and I, avoid preceding with the word "the"
 ## DSNP User URI
 Uppercase Acronyms plus uppercase U
 
-## End User
-Uppercase E and U
-
 ##  Exclamation Marks
 Should be avoided
 
@@ -199,6 +196,9 @@ Uppercase V, C, S and D
 
 ## Update Announcement
 Uppercase U and A
+
+## user
+All lowercase
 
 ## User Attribute Set
 Uppercase U, A and S
