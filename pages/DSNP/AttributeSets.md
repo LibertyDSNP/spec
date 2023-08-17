@@ -1,6 +1,9 @@
 # Attribute Sets
 
-Attribute sets are sender-controlled data, associated with DSNP users (self or others), DSNP content, or any other content (original or not) that has a public URL. Attribute sets have a cryptographically authenticated creator, and a subject, i.e. the entity being described (which may be the same). Attribute data can be published as a DSNP Announcement for all to see, or only revealed on demand, and may be represented by simple or complex data types. Attribute sets can be tombstoned.
+Attribute sets are sender-controlled data, associated with DSNP users (self or others), DSNP content, or any other content (original or not) that has a public URL.
+Attribute sets have a cryptographically authenticated creator, and a subject (the entity being described), which may be the same.
+Attribute data can be published as a DSNP Announcement for all to see, or only revealed on demand, and may be represented by simple or complex data types.
+Attribute sets can be tombstoned.
 
 ## Announcement Types
 
@@ -12,7 +15,10 @@ Attribute Sets are expressed using three announcement types.
 
 ## Attribute Set data
 
-### Verifiable Credential support
+The data of an attribute set is represented as a claim (or set of claims) within a credential document.
+Credential documents are anchored to the announcement by the `url` and `hash` fields.
+
+### Verifiable Credential format
 
 Credentials should conform to the [Verifiable Credentials Data Model](https://www.w3.org/TR/2022/REC-vc-data-model-20220303/), expressed in JSON.
 
@@ -49,19 +55,51 @@ A DSNP Verifiable Credential Document MAY optionally contain the following field
 
 ## Attribute Set Type
 
-Any number of attribute sets may share an attribute set type, which defines a schema for attribute set data. Attribute set types have a well known canonical name and (in most cases) a well defined schema, expressed using a W3C Verifiable Credential Schema document.
+Any number of Attribute Sets may share an Attribute Set Type, which defines a schema for attribute set data.
+Attribute Set Types have a well known canonical name and (in most cases) a well defined schema, expressed using a W3C Verifiable Credential Schema document.
 
-DSNP supports (but does not mandate) Attribute Set Types that can be described in different Verifiable Credential Schema documents over time in order to support the needs of schema evolution, while preserving backward and forward compatibility. Proof signatures from a given DSNP user (the schema author) tie different schema documents to the same well known Attribute Set Type via a canonical naming scheme. This allows applications to perform reliable lookups against a canonically named attribute set type, regardless of the specific version that may be used by an individual credential document.
+DSNP supports (but does not mandate) Attribute Set Types that can be described in different Verifiable Credential Schema documents over time in order to address the needs of schema evolution, while preserving backward and forward compatibility.
+Proof signatures from a given DSNP user (the schema author) tie different schema documents to the same well known Attribute Set Type via a canonical naming scheme.
+This allows applications to perform reliable lookups against a canonically named Attribute Set Type, regardless of the specific version that may be used by an individual credential document.
 
-### Verifiable Credential Schema support
+### Verifiable Credential Schema compatibility
 
-The schema for an attribute set type may be defined using the format described in the Verifiable Credential JSON Schemas proposal. This format provides a metadata wrapper around a JSON schema document.
+The schema for an attribute set type may be defined using the format described in the Verifiable Credential JSON Schemas proposal.
+This format provides a metadata wrapper around a JSON schema document.
 
-Empty schemas (Verifiable Credential Schema Documents with `"schema": {}`) are allowed; however, schemaless attribute set types may be preferred in this situation. Empty schemas are useful in situations where no attribute data fields are relevant but the schema author wishes to assert authorship.
+Empty schemas (Verifiable Credential Schema Documents with `"schema": {}`) are allowed; however, schemaless attribute set types may be preferred in this situation.
+Empty schemas are useful in situations where no attribute data fields are relevant but the schema author wishes to assert authorship.
+
+A DSNP Verifiable Credential Schema Document MUST contain the following fields:
+
+* `@context`, as specified by W3C:
+  * MUST be an array
+  * MUST include the string "https://www.w3.org/ns/credentials/v2".
+* `type`
+  * MUST be an array
+  * MUST contain the strings `"VerifiableCredential"` and `"VerifiableCredentialSchema2023"`
+* `issuer`
+  * This field is required, even for credential schema documents that do not include attestation. Self-sovereign documents should use the document creator's URI, which could be a DSNP User URI or DID.
+* `issuanceDate`
+  * As specified by W3C.
+* `credentialSubject`, containing the JSON schema as specified by W3C
+  * The `name` property within this object is used in the canonical naming algorithm below.
+
+To aid with canonical naming and schema evolution, a DSNP Verifiable Credential Schema Document MAY contain the following fields:
+
+* `proof`, an object with the following properties
+  * `type` MUST be `"Ed25519Signature2020"`
+  * `verificationMethod` MUST reference a valid public key
+  * `created` timestamp as specified by W3C
+  * `proofPurpose` MUST be `assertionMethod`
+  * `proofValue` MUST be a multibase-encoded signature. The input for the signature is the entirety of the schema document (minus the proof section), as JSON with all extraneous whitespace removed.
+
+Schema documents MAY have `proof` sections that do not conform to the above requirements, but if so, they are not eligible for the canonical naming scheme.
 
 ### Canonical naming
 
-All Attribute Set Announcement Types use an attributeSetType field. This field is designed to provide a unique name for an Attribute Set Type, namespaced to avoid collision with incompatible schema files.
+All Attribute Set Announcement Types use an `attributeSetType` field.
+This field is designed to provide a unique name for an Attribute Set Type, namespaced to avoid collision with incompatible schema files.
 
 Attribute Set Type canonical names are constructed as follows:
 
@@ -79,7 +117,8 @@ Examples:
 
 ## Public Key references
 
-Both Verifiable Credential Schema Documents and Verifiable Credentials may include proof sections. It is expected (though not mandated) that these will often use cryptographic signatures based on the author or issuer's key.
+Both Verifiable Credential Schema documents and Verifiable Credential documents may include proof sections.
+It is expected (though not mandated) that these will often use cryptographic signatures based on the author or issuer's key.
 
 DSNP Users may announce a Public Key for use in signing these documents by using the [Public Key Announcement](Types/PublicKey.md) with the key type of `assertionMethod`. A key announced in this fashion can be referenced using a DSNP URI as follows:
 `dsnp://_dsnpUserId_#_keyId_`
@@ -94,7 +133,7 @@ The key pair used as an assertion method SHOULD be different from any control ke
 
 Trust in an attribute set may be assigned based on a combination of the announcement's `sender` and `issuer`. It is left to the DSNP consumer to determine which attribute sets it will trust.
 
-Trust SHOULD be accompanied by verification of the documents linked to an attribute set announcement.
+Trust SHOULD be accompanied by verification of the documents linked to an Attribute Set Announcement.
 
 ### Summary of verification responsibilities
 
