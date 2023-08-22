@@ -2,3 +2,4 @@
 .vscode
 node_modules/
 book
+.DS_Store

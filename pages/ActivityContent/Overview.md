@@ -16,7 +16,7 @@ DSNP uses only the following content types at the root level:
 
 | Name | Description | DSNP Announcements |
 | ---- | ----------- | -------------------- |
-[Note](Types/Note.md) | standard user content | [Broadcast](../DSNP/Types/Broadcast.md), [Reply](../DSNP/Types/Reply.md) |
+[Note](Types/Note.md) | standard user content | [Broadcast](../DSNP/Types/Broadcast.md), [Reply](../DSNP/Types/Reply.md), [Update](../DSNP/Types/Update.md) |
 [Profile](Types/Profile.md) | user profile content | [Profile](../DSNP/Types/Profile.md) |
 
 ## Associated Types
