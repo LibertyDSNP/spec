@@ -36,7 +36,7 @@ A DSNP Verifiable Credential Document MUST contain the following fields:
 * `issuanceDate`
   * As specified by W3C.
 * `credentialSubject` – containing two parts:
-  * An `id` that identifies the subject of the claim data. This might be a DSNP User, an ActivityStreams Note, a document on the web accessible by HTTP or IPFS, or any other URL with fixed (immutable) content.
+  * An `id` that identifies the subject of the claim data. This might be a DSNP User, an Activity Streams Note, a document on the web accessible by HTTP or IPFS, or any other URL with fixed (immutable) content.
   * The "claim" (in W3C parlance) that is being made about the subject, in the format specified by the Attribute Set Type's schema.
 
 A DSNP Verifiable Credential Document MAY optionally contain the following fields
@@ -67,7 +67,7 @@ This allows applications to perform reliable lookups against a canonically named
 The schema for an attribute set type may be defined using the format described in the Verifiable Credential JSON Schemas proposal.
 This format provides a metadata wrapper around a JSON schema document.
 
-Empty schemas (Verifiable Credential Schema Documents with `"schema": {}`) are allowed; however, schemaless attribute set types may be preferred in this situation.
+Empty schemas (Verifiable Credential Schema Documents with `"jsonSchema": {}`) are allowed; however, schemaless attribute set types may be preferred in this situation.
 Empty schemas are useful in situations where no attribute data fields are relevant but the schema author wishes to assert authorship.
 
 A DSNP Verifiable Credential Schema Document MUST contain the following fields:
@@ -80,8 +80,7 @@ A DSNP Verifiable Credential Schema Document MUST contain the following fields:
   * MUST contain the strings `"VerifiableCredential"` and `"VerifiableCredentialSchema2023"`
 * `issuer`
   * This field is required, even for credential schema documents that do not include attestation. Self-sovereign documents should use the document creator's URI, which could be a DSNP User URI or DID.
-* `issuanceDate`
-  * As specified by W3C.
+* `issuanceDate`, as specified by W3C
 * `credentialSubject`, containing the JSON schema as specified by W3C
   * The `name` property within this object is used in the canonical naming algorithm below.
 
@@ -143,7 +142,7 @@ When verifying a credential document, a consumer SHOULD:
 * Verify that the content hash of the Credential Document matches the value specified in the Attribute Set Announcement's `contentHash` field. (This is the same operation as required for other content-anchoring announcements.)
 * Verify that the credential document is well formed (it should comply with the generic JSON schema for verifiable credential documents, and include a valid combination of fields).
 * Verify that the credential's `expirationDate`, if present, has not passed.
-* If the subject of the credential document is not a URL beginning with "dsnp://", verify the subjectContentHash by retrieving the subject URL and applying the indicated hash function. URLs beginning with "`dsnp://`" do not need a hash check as they already include a self-reflective content hash. They should, however, be checked for existence.
+* If the subject of the credential document is not a URL beginning with "`dsnp://`", verify the `subjectContentHash` by retrieving the subject URL and applying the indicated hash function. URLs beginning with "`dsnp://`" do not need a hash check as they already include a self-reflective content hash. They should, however, be checked for existence.
 * If present, retrieve the Credential Schema Document from the URL specified in the `credentialSchema.id` field.
 * Validate the Credential Schema Document against the generic JSON schema for Verifiable Credential Schema.
 * Validate that the claim content in the `credentialSubject` field conforms to the schema.
