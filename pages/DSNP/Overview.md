@@ -32,7 +32,7 @@ A compliant specification MUST specify a mapping from its system-specific state 
 <!--- Uncomment for pre-release changes and prefix the version with `pre-[next version]` -->
 ## Prerelease Changelog
 
-DIP-xxx Attribute Set Announcements
+DIP-257 Attribute Set Announcements
 
 ## Releases
 
@@ -40,6 +40,6 @@ DSNP system specifications MUST specify the version(s) of the DSNP specification
 
 | Version | Description | Release Date | Changelog |
 | --- | --- | --- | --- |
-DIP-220, DIP-225, DIP-226, DIP-227, DIP-228 | 2023-04-11 | [Changelog](https://github.com/LibertyDSNP/spec/releases/tag/DSNP-v1.2.0) |
+| [1.2.0](https://github.com/LibertyDSNP/spec/tree/DSNP-v1.2.0) | DIP-210, DIP-216, DIP-220, DIP-225, DIP-226, DIP-227, DIP-228 | 2023-04-11 | [Changelog](https://github.com/LibertyDSNP/spec/releases/tag/DSNP-v1.2.0) |
 | [1.1.0](https://github.com/LibertyDSNP/spec/tree/DSNP-v1.1.0) | DIP-148, DIP-149, DIP-150, DIP-165, DIP-180 | 2022-05-06 | [Changelog](https://github.com/LibertyDSNP/spec/releases/tag/DSNP-v1.1.0) |
 | [1.0.0](https://github.com/LibertyDSNP/spec/tree/DSNP-v1.0.0) | Initial Release | 2021-09-09 | [Changelog](https://github.com/LibertyDSNP/spec/releases/tag/DSNP-v1.0.0) |
