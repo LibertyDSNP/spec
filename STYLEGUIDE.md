@@ -52,7 +52,7 @@ All lowercase
 ## content announcement
 All lowercase
 
-## Content Attribute Set  
+## Content Attribute Set
 
 ## content hash
 All lowercase
@@ -91,7 +91,7 @@ Only acronym is uppercase
 Uppercase Acronym plus uppercase I
 
 ## DSNP identity
-Uppercase Acronym lowercase i 
+Uppercase Acronym lowercase i
 
 ## DSNP Id
 Short for DSNP identity, Uppercase Acronym lowercase when spelled out

@@ -36,7 +36,7 @@ A DSNP Verifiable Credential Document MUST contain the following fields:
 * `issuanceDate`
   * As specified by W3C.
 * `credentialSubject` – containing two parts:
-  * An `id` that identifies the subject of the claim data. This might be a DSNP User, an ActivityStreams Note, a document on the web accessible by HTTP or IPFS, or any other URL with fixed (immutable) content. 
+  * An `id` that identifies the subject of the claim data. This might be a DSNP User, an ActivityStreams Note, a document on the web accessible by HTTP or IPFS, or any other URL with fixed (immutable) content.
   * The "claim" (in W3C parlance) that is being made about the subject, in the format specified by the Attribute Set Type's schema.
 
 A DSNP Verifiable Credential Document MAY optionally contain the following fields
