@@ -32,11 +32,11 @@ A DSNP Verifiable Credential Document MUST contain the following fields:
   * MUST contain the string "`VerifiableCredential`"
   * If a schema document is specified, MUST also contain a string matching the schema's name property.
 * `issuer`
-  * This field is required, even for credential documents that do not include attestation. Self-sovereign documents should use the document creator's URI, which could be a DSNP User URL or DID.
+  * This field is required, even for credential documents that do not include attestation. It MUST be a DSNP DID. Unsigned documents should use the document creator's DID.
 * `issuanceDate`
   * As specified by W3C.
 * `credentialSubject` – containing two parts:
-  * An `id` that identifies the subject of the claim data. This might be a DSNP User, an Activity Streams Note, a document on the web accessible by HTTP or IPFS, or any other URL with fixed (immutable) content.
+  * An `id` that identifies the subject of the claim data. This MUST correspond with the `subject` field in an Attribute Set Announcement: for a User Attribute Set, it should be a DSNP User URI; for a DSNP Content Attribute Set, it should be a DSNP Content URI; and for an External Content Attribute Set, it should be the URL of an online document on the web accessible by HTTPS.
   * The "claim" (in W3C parlance) that is being made about the subject, in the format specified by the Attribute Set Type's schema.
 
 A DSNP Verifiable Credential Document MAY optionally contain the following fields
@@ -74,24 +74,28 @@ A DSNP Verifiable Credential Schema Document MUST contain the following fields:
 
 * `@context`, as specified by W3C:
   * MUST be an array
-  * MUST include the string "https://www.w3.org/ns/credentials/v2".
+  * MUST include the string ""https://www.w3.org/2018/credentials/v1"
 * `type`
   * MUST be an array
-  * MUST contain the strings `"VerifiableCredential"` and `"VerifiableCredentialSchema2023"`
+  * MUST contain the strings `"VerifiableCredential"` and `"JsonSchemaCredential"`
 * `issuer`
-  * This field is required, even for credential schema documents that do not include attestation. Self-sovereign documents should use the document creator's URI, which could be a DSNP User URI or DID.
+  * This field is required, even for credential schema documents that do not themselves include attestation. It MUST be a DSNP DID. Unsigned documents should use the document creator's DID.
 * `issuanceDate`, as specified by W3C
 * `credentialSubject`, containing the JSON schema as specified by W3C
-  * The `name` property within this object is used in the canonical naming algorithm below.
+  * `type` MUST be `"JsonSchema"`
+  * `jsonSchema` MUST be a valid JSON Schema 2020-12 object
+    * `$schema` MUST be `"https://json-schema.org/draft/2020-12/schema"`
+    * `title` MUST match a string within the referencing credential's `type` array. The `title` property is used in the canonical naming algorithm below.
 
 To aid with canonical naming and schema evolution, a DSNP Verifiable Credential Schema Document MAY contain the following fields:
 
 * `proof`, an object with the following properties
-  * `type` MUST be `"Ed25519Signature2020"`
-  * `verificationMethod` MUST reference a valid public key
+  * `type` MUST be `"DataIntegrityProof"`
+  * `cryptosuite` MUST be `"eddsa-2022"`
+  * `verificationMethod` MUST reference a valid public key in DID form
   * `created` timestamp as specified by W3C
   * `proofPurpose` MUST be `assertionMethod`
-  * `proofValue` MUST be a multibase-encoded signature. The input for the signature is the entirety of the schema document (minus the proof section), as JSON with all extraneous whitespace removed.
+  * `proofValue` MUST be a multibase-encoded signature. The signature is generated using the JSON Linked Data Signatures algorithm.
 
 Schema documents MAY have `proof` sections that do not conform to the above requirements, but if so, they are not eligible for the canonical naming scheme.
 
@@ -102,9 +106,9 @@ This field is designed to provide a unique name for an Attribute Set Type, names
 
 Attribute Set Type canonical names are constructed as follows:
 
-* MUST be in the format `_attributeSetTypeNamespace_` + "`#`" + `attributeSetTypeName`, where `attributeSetTypeNamespace` MUST be either a multihash content hash (encoded as a multibase string), the DSNP User URI of the schema author (beginning with "`dsnp://`"), a DID for the schema author that is trusted by the implementation (beginning with the string "`did:`"), or the empty string (for schemaless attribute set types).
+* MUST be in the format `_attributeSetTypeNamespace_` + "`#`" + `attributeSetTypeName`, where `attributeSetTypeNamespace` MUST be either a multihash content hash (encoded as a multibase string), the DSNP DID of the schema author (beginning with "`did:dsnp:`"), another DID for the schema author that is trusted by the implementation (beginning with the string "`did:`"), or the empty string (for schemaless attribute set types).
 * `attributeSetTypeName` MUST match a declared type value in the Attribute Set Value Document
-* If `attributeSetTypeNamespace` is a DSNP User URI or DID, it must match the schema author in the schema referenced from the credential document, and the schema must include a proof that can be verified using the author's public key.
+* If `attributeSetTypeNamespace` is a DID, it must match the schema author in the schema referenced from the credential document, and the schema must include a proof that can be verified using the author's public key.
 * If `attributeSetTypeNamespace` is empty, the credential document MUST NOT reference a schema.
 * If `attributeSetTypeNamespace` is a multibase string, it must match the multihash content hash of the schema file referenced from the credential document.
 
@@ -112,17 +116,19 @@ Examples:
 
 * Schemaless: `#IsHuman`
 * Unsigned schema: `zQmQNHNfHnbgJJ6nK4UPx2VtTUCafAKCbqZJ6ZRYUGjoeFj#BSC`
-* Signed schema: `dsnp://12345678909876#TimeZone`
+* Signed schema: `did:dsnp:12345678909876#TimeZone`
 
 ## Public Key references
 
 Both Verifiable Credential Schema documents and Verifiable Credential documents may include proof sections.
 It is expected (though not mandated) that these will often use cryptographic signatures based on the author or issuer's key.
 
-DSNP Users may announce a Public Key for use in signing these documents by using the [Public Key Announcement](Types/PublicKey.md) with the key type of `assertionMethod`. A key announced in this fashion can be referenced using a DSNP URI as follows:
-`dsnp://_dsnpUserId_#_keyId_`
+DSNP Users may announce a Public Key for use in signing these documents by using the [Public Key Announcement](Types/PublicKey.md) with the key type of `assertionMethod`.
+A key announced in this fashion can be referenced using a DSNP URI as follows:
+`did:dsnp:_dsnpUserId_#_keyIdentifier_`
 
-In this format, both DSNP User Id and Key Id are 64-bit unsigned integers, represented in decimal form.
+In this format, the DSNP User Id is a 64-bit unsigned integer, represented in decimal form.
+The key identifier is system-specific.
 
 A verifier must ensure that the DSNP User Id referenced this way is the same as the author or issuer field.
 
@@ -133,6 +139,8 @@ The key pair used as an assertion method SHOULD be different from any control ke
 Trust in an attribute set may be assigned based on a combination of the announcement's `sender` and `issuer`. It is left to the DSNP consumer to determine which attribute sets it will trust.
 
 Trust SHOULD be accompanied by verification of the documents linked to an Attribute Set Announcement.
+
+TODO write more here about the `trust` section.
 
 ### Summary of verification responsibilities
 
