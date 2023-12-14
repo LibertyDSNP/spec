@@ -54,3 +54,63 @@
   "published": "1970-01-01T00:00:00+00:00"
 }
 ```
+
+## Interaction
+
+Activity objects that support the `tag` vocabulary may include or link to credentials that conform to DSNP's Attribute Set model in the form of an Interaction.
+This enables simple discovery of credentials and attestation that may be relevant for a user to include on their DSNP profile or relate to a specific content item being broadcast.
+
+In contrast to Attribute Set Announcements, Interactions may occur anonymously; the Verifiable Credential does not need to address a specific DSNP User as its subject.
+This allows for the issuance of Interaction credentials outside of an authenticated DSNP application context, and in scenarios where users wish to remain anonymous to the issuer.
+
+An interaction tag consists of a reference URL (the `href` field), a relationship identifier in the form of a DSNP Attribute Set Type (the `rel` field), an interaction nonce as described below (the `nonce` field), and an interaction ticket (a Verifiable Credential that minimally includes an `interactionId` and repeats the `href` field).
+
+Proof that the credential was issued to the subject responsible for posting the content that includes the interaction tag is based on the usage of a cryptographic hash.
+To acquire an anonymous Interaction credential, a DSNP User generates and records a random nonce of any length (192 bits or more is suggested).
+The user then concatenates their DSNP User Id (in little-endian 64-bit format) with the nonce and generates a message digest using a [supported hashing algorithm](Hash.md#supported-algorithms).
+The multibase-encoded hash output is then sent to the credential issuer to be included as an `interactionId` key in the `credentialSubject` field of the generated document.
+It is intentionally meaningless to the issuer.
+The issuer may include any other fields in the `credentialSubject` as desired, and then generate a signature proof.
+The signed credential is then included in the interaction tag (see example).
+
+When posting content including the Interaction tag, the user must include the nonce (as the `nonce` key) in order for consuming applications to verify that the originator of the content is responsible for generating the interaction.
+A verifier can inspect the DSNP User Id of the sender of the content and the nonce, and repeat the hashing process to check if it matches the value from `interactionId`.
+
+| Property | Base Spec | Required | Description | Restrictions |
+| --- | --- | --- | --- | --- |
+| `type` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-type) | YES | Identifies the tag as type `Interaction` |  MUST be `Interaction`  |
+| `href` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-id) | YES | URI of tagged item | MUST be the same as the corresponding field within the `credentialSubject` |
+| `rel` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-id) | YES | URI of tagged item | MUST be a DSNP Attribute Set Type corresponding to the interaction ticket credential document |
+| `nonce` | DSNP extension | YES | Multibase-encoded random byte string |  |
+| `ticket` | DSNP extension | YES | W3C Verifiable Credential object | MUST include `interactionId` and `href` within its `credentialSubject` field |
+
+### Example
+
+```json
+{
+  "@context": "https://www.w3.org/ns/activitystreams",
+  "type": "Note",
+  "content": "This rug really ties the room together.",
+  "mediaType": "text/plain",
+  "tag": [
+    {
+      "type": "Interaction",
+      "href": "https://thebiglebowski.fandom.com/wiki/The_Rug",
+      "rel": "dsnp://123456#AcmeVerifiedPurchase",
+      "nonce": "...",
+      "ticket": {
+        ...
+        "credentialSubject": {
+          "interactionId": "...",
+          "href": "https://thebiglebowski.fandom.com/wiki/The_Rug",
+          "reference": {
+            "transactionId": "ABC123"
+          }
+        },
+        ...
+      }
+    }
+  ],
+  "published": "1970-01-01T00:00:00+00:00"
+}
+```

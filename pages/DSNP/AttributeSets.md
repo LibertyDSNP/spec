@@ -1,17 +1,21 @@
 # Attribute Sets
 
-Attribute sets are sender-controlled data, associated with DSNP users (self or others), DSNP content, or any other content (original or not) that has a public URL.
+Attribute sets enable structured data to be associated with DSNP users (self or others), DSNP content, or any other content (original or not) that has a public URL.
 Attribute sets have a cryptographically authenticated creator, and a subject (the entity being described), which may be the same.
-Attribute data can be published as a DSNP Announcement for all to see, or only revealed on demand, and may be represented by simple or complex data types.
+Attribute data can be published as a DSNP Announcement for all to see, or only revealed on demand, and may be represented by simple or complex data types defined using JSON Schema.
+
 Attribute sets can be tombstoned.
+Applications MUST treat tombstoned Attribute Set Announcements as nonexistent.
 
 ## Announcement Types
 
-Attribute Sets are expressed using three announcement types.
+Attribute Sets are expressed using three announcement types, depending on the type of subject being described.
 
 1. A _User Attribute Set_ Announcement (8), where the subject is identified by its DSNP User Id.
 1. A _DSNP Content Attribute Set_ (9), where the subject is identified by its DSNP Content URI.
 1. An _External Content Attribute Set_ (10), where the subject is identified by its URL and hashcode.
+
+An alternative to announcing an Attribute Set is to include it as an Interaction Tag within an Activity Content Note or Profile.
 
 ## Attribute Set data
 
@@ -32,12 +36,12 @@ A DSNP Verifiable Credential Document MUST contain the following fields:
   * MUST contain the string "`VerifiableCredential`"
   * If a schema document is specified, MUST also contain a string matching the schema's name property.
 * `issuer`
-  * This field is required, even for credential documents that do not include attestation. It MUST be a DSNP DID. Unsigned documents should use the document creator's DID.
+  * This field is required, even for credential documents that do not include attestation. It MUST be a DSNP DID. Credential documents without a signature proof should use the document creator's DID.
 * `issuanceDate`
   * As specified by W3C.
 * `credentialSubject` – containing two parts:
-  * An `id` that identifies the subject of the claim data. This MUST correspond with the `subject` field in an Attribute Set Announcement: for a User Attribute Set, it should be a DSNP User URI; for a DSNP Content Attribute Set, it should be a DSNP Content URI; and for an External Content Attribute Set, it should be the URL of an online document on the web accessible by HTTPS.
-  * The "claim" (in W3C parlance) that is being made about the subject, in the format specified by the Attribute Set Type's schema.
+  * An `id` that identifies the subject of the claim data. This MUST correspond with the `subject` field in an Attribute Set Announcement: for a User Attribute Set, it should be a DSNP User URI; for a DSNP Content Attribute Set, it should be a DSNP Content URI; and for an External Content Attribute Set, it should be the URL of an online document on the web accessible over HTTPS.
+  * The "claim" (in W3C parlance) that is being made about the subject, in the format specified by the Attribute Set Type's associated JSON schema (if any).
 
 A DSNP Verifiable Credential Document MAY optionally contain the following fields
 
@@ -97,7 +101,7 @@ To aid with canonical naming and schema evolution, a DSNP Verifiable Credential 
   * `proofPurpose` MUST be `assertionMethod`
   * `proofValue` MUST be a multibase-encoded signature. The signature is generated using the JSON Linked Data Signatures algorithm.
 
-Schema documents MAY have `proof` sections that do not conform to the above requirements, but if so, they are not eligible for the canonical naming scheme.
+Schema documents MAY have `proof` sections that do not conform to the above requirements, but if so, they are not verifiable for use with the canonical naming scheme.
 
 ### Canonical naming
 
@@ -140,8 +144,6 @@ Trust in an attribute set may be assigned based on a combination of the announce
 
 Trust SHOULD be accompanied by verification of the documents linked to an Attribute Set Announcement.
 
-TODO write more here about the `trust` section.
-
 ### Summary of verification responsibilities
 
 When verifying a credential document, a consumer SHOULD:
@@ -158,3 +160,50 @@ When verifying a credential document, a consumer SHOULD:
 * Verify the issuer proof, if present.
 
 Verifiers should take care that transient errors (for example, a URL being unreachable due to temporary network issues) do not lead to false negatives.
+
+### Trust chains
+
+Applications are free to make their own trust decisions, and display or incorporate verified credentials based on their `issuer`.
+However, in many real world scenarios, the originator of a type of credential may authorize agents to issue the credential, based on any number of approval or certification processes external to DSNP.
+The controller of a DSNP Attribute Set Type can encode its requirements for trusted agents within a custom `trust` field of the credential schema document.
+
+To capture this requirement, DSNP uses an optional, protocol-specific `trust` key within the `dsnp` key under the `credentialSubject` section of the schema credential. 
+The `trust` key can contain one or both subkeys `oneOf` or `allOf`, which in turn contain a list of Attribute Set Types.
+These indicate to the consumer that the author of the credential schema recommends that a credential of the defined type should only be trusted if its issuer has been the subject of separate Attribute Set Announcements referencing verified credentias of the indicated type.
+
+In the case of `oneOf`, the verifier should check that the issuer has been the subject of a verified credential conforming to at least one of the given Attribute Set Types.
+In the case of `allOf`, the verifier should should check that the issuer has been the subject of verified credentials for every given Attribute Set Type.
+
+For example, Entity A may authorize its agents to issue credentials of type `dsnp://123456#CertifiedWhaleBiologist` to individuals that meet the certification standard that Entity A defines.
+Entity A defines a second attribute set type, `dsnp://123456#AuthorizedWhaleBiologistCertifier` by publishing a schema credential, and then issues a DSNP User Attribute Set Announcement of that type to Entity B.
+Entity A then includes the `dsnp://123456#AuhorizedWhaleBiologistCertifier` in the `credentialSubject.trust.allOf` value (in this example, using `oneOf` would be equivalent) of the credential schema with type `CertifiedWhaleBiologist`, generates the signature proof, and publishes the schema document.
+Entity B can now issue `dsnp://123456#CertifiedWhaleBiologist` credentials to users that can be verified through the trust chain.
+
+### Displaying credentials
+
+The DSNP schema credential document MAY contain an additional `display` key within the `dsnp` key under `credentialSubject`.
+This allows the authors of attribute set types to recommend how a credential should be displayed within a user interface.
+
+To allow for localizable text, a map of content language codes (following `BCP-47`, so using the same form as the HTTP `Content-Language` header) to display text can be used under the subkey `label`.
+A content language key of `"*"` indicates a wildcard or default value, as in HTTP.
+
+Example:
+```
+...
+"credentialSubject": {
+  "type": "JsonSchema",
+  "jsonSchema": {
+    ...
+  },
+  "dsnp": {
+    "display": {
+      "label": {
+        "en-US": "Whale Biologist",
+        "es-ES": "Biólogo de Ballenas"
+      }
+    }
+  }
+}
+```
+
+DSNP applications should treat the `display` section as a recommendation but not a mandate, and are free to indicate the presence of a verified credential in other forms.
