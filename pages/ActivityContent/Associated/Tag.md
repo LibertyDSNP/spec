@@ -31,7 +31,7 @@
 | --- | --- | --- | --- | --- |
 | `name` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-name) | no | The text of the tag |  |
 | `type` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-type) | YES | Identifies the tag as type `Mention` |  MUST be `Mention`  |
-| `id` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-id) | YES | Link to the user mentioned | MUST be a [DSNP User URI](../../DSNP/Identifiers.md#dsnp-user-uri) |
+| `href` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-id) | YES | Link to the user mentioned | MUST be a [DSNP User URI](../../DSNP/Identifiers.md#dsnp-user-uri) |
 
 ### Example
 
@@ -48,7 +48,7 @@
     {
       "name": "@sally",
       "type": "Mention",
-      "id": "dsnp://0x12345678"
+      "href": "dsnp://12345678"
     }
   ],
   "published": "1970-01-01T00:00:00+00:00"
