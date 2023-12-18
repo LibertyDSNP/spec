@@ -48,7 +48,7 @@
     {
       "name": "@sally",
       "type": "Mention",
-      "id": "dsnp://0x12345678"
+      "id": "dsnp://12345678"
     }
   ],
   "published": "1970-01-01T00:00:00+00:00"
