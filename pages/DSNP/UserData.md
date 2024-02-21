@@ -19,6 +19,7 @@ DSNP implementations MUST support the following User Data Types:
 | <a name="private-follows">`privateFollows`</a> | 1.2 | `curve25519xsalsa20poly1305` |  [`DEFLATE`](https://en.wikipedia.org/wiki/Deflate) | [GraphEdge](Types/GraphEdge.md) |
 | <a name="private-connections">`privateConnections`</a> | 1.2 | `curve25519xsalsa20poly1305` | [`DEFLATE`](https://en.wikipedia.org/wiki/Deflate) | [GraphEdge](Types/GraphEdge.md) |
 | <a name="private-connection-prids">`privateConnectionPRIds`</a> | 1.2 | NONE | NONE | [PRId](Types/PRId.md) |
+| `attestations`</a> | 1.3 | NONE | [`DEFLATE`](https://en.wikipedia.org/wiki/Deflate) | [Attestation](Types/Attestation.md) |
 
 Data for each data type is initially formatted as a stream of Avro objects that should conform to the schema specified.
 Avro file- and block-level information (including in-stream schema) is omitted.

@@ -42,4 +42,8 @@
         - [Location](ActivityContent/Associated/Location.md)
         - [Tag](ActivityContent/Associated/Tag.md)
         - [Attachments](ActivityContent/Associated/Attachments.md)
+- [Verifiable Credentials](VerifiableCredentials/Overview.md)
+    - [Verifiable Credential](VerifiableCredentials/Types/VerifiableCredential.md)
+    - [Verifiable Credential Schema](VerifiableCredentials/Types/VerifiableCredentialSchema.md) 
+    - [DID](VerifiableCredentials/Types/DID.md) 
 - [Glossary](Reference/Glossary.md)
