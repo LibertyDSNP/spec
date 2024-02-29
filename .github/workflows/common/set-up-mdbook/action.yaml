@@ -1,23 +1,24 @@
 name: "Install mdBook with Plugins"
-description: 'Shared action steps to install mdBook with required plugins'
+description: "Shared action steps to install mdBook with required plugins"
+inputs:
+  token:
+    description: "Pass through for secrets.GITHUB_TOKEN"
+    required: true
 runs:
   using: "composite"
   steps:
     - name: Setup mdBook 📚
-      uses: peaceiris/actions-mdbook@adeb05db28a0c0004681db83893d56c0388ea9ea
+      uses: jontze/action-mdbook@0765bef0c7c5792f93bf3ed3d487a0ca32c9da33
       with:
-        mdbook-version: 'latest'
+        token: ${{ inputs.token }}
+        mdbook-version: "~0.4.37" # Use a semver compatible string
+        # Optional Plugins have to be enabled
+        use-linkcheck: true
+        linkcheck-version: "~0.7.7"
 
-    - name: Install mdbook-linkcheck plugin
+    - name: Show mdbook version
       shell: bash
-      run: |
-        curl -s https://api.github.com/repos/Michael-F-Bryan/mdbook-linkcheck/releases/latest \
-          | grep browser_download_url \
-          | grep $(rustc -Vv | grep host | cut -d' ' -f2) \
-          | cut -d : -f 2,3 \
-          | tr -d \" \
-          | wget -qi - -O mdbook-linkcheck.zip
-
-        unzip mdbook-linkcheck.zip -d mdbook-linkcheck
-        chmod +x mdbook-linkcheck/mdbook-linkcheck
-        echo "$PWD/mdbook-linkcheck" >> $GITHUB_PATH
+      run: mdbook --version
+    - name: Show linkchecker version
+      shell: bash
+      run: mdbook-linkcheck --version

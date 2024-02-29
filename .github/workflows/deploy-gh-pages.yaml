@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     tags:
-      - '[0-9][0-9][0-9][0-9].[0-9][0-9].[0-9][0-9][0-9]'
+      - "[0-9][0-9][0-9][0-9].[0-9][0-9].[0-9][0-9][0-9]"
 
 permissions:
   contents: read
@@ -19,6 +19,8 @@ jobs:
 
       - name: Set up mdBook 📚
         uses: ./.github/workflows/common/set-up-mdbook
+        with:
+          token: ${{secrets.GITHUB_TOKEN}}
 
       - name: Setup Pages
         id: pages
@@ -28,7 +30,7 @@ jobs:
         run: mdbook build
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./book/html
 
@@ -42,4 +44,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v3
+        uses: actions/deploy-pages@v4
