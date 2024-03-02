@@ -87,6 +87,18 @@ Issuers of interaction tickets are encouraged to use the `display` extension des
 | `nonce` | DSNP extension | YES | Multibase-encoded random byte string (a minimum deserialized size of 24 bytes is recommended) |  |
 | `ticket` | DSNP extension | YES | W3C Verifiable Credential object | MUST include `interactionId` and `href` within its `credentialSubject` field |
 
+### Provenance of Tickets (Non-Normative)
+
+Part of the provenance of a ticket relies upon having a DSNP User Id and nonce that are hashed by the requester of the ticket.
+Ideally, the requester could prove that they were the user indicated by the DSNP User Id.
+Similar assertions are often done by providing signatures: the user could sign a message including their User Id with the private key associated with a public key they manage as user data, in much the same way that the issuer of a Verifiable Credential creates a signature proof.
+
+However, because DSNP does not prevent multiple users from associating the same public key with their accounts, it would be possible, for example, for Alice to obtain a ticket in Bob's name and give it to Bob to post, as long as Bob represents that the corresponding public key is his own by listing it as one of his DSNP public keys.
+Therefore, the provenance guarantee offered by the hashing approach on an otherwise anonymous ticket is ultimately equivalent.
+Because of this, applications should _not_ infer that the ticket requester and sender are necessarily the same entity, only that, if different, they have collaborated to obtain a ticket associated with the sender.
+
+If it is important to be able to prove definitively that the ticket requester is the same user as represented in the hash (for example, in a proof of personhood claim), the ticket issuer should ask the user to authenticate by signing a challenge with their control key, and include the unhashed User Id in the `credentialSubject`.
+
 ### Example
 
 ```json
