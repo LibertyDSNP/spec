@@ -61,6 +61,7 @@ objectId
 OGG
 Parachain
 parseable
+Paseo
 PNG
 Polkadot
 Poly1305
@@ -84,6 +85,8 @@ SVG
 targetAnnouncementType
 targetContentHash
 TBD
+[Tt]estnet
+[0-9]*[Tt]estnet
 [Tt]ombston(ed|ing)
 UINT_8
 uncompress

@@ -19,25 +19,25 @@ Official schemas may be found in [GitHub](https://github.com/LibertyDSNP/schemas
 
 <!-- These ids are duplicated here for quick reference. -->
 
-| Name | Schema Id Mainnet | Schema Id Rococo |
-| --- | --- | --- |
-| [Tombstone](./Publishing.md) | 1 | 1 |
-| [Broadcast](./Publishing.md) | 2 | 2 |
-| [Reply](./Publishing.md) | 3 | 3 |
-| [Reaction](./Publishing.md) | 4 | 4 |
-| [Profile](./Publishing.md) | 6 | 5 |
-| [Update](./Publishing.md) | 5 | 6 |
-| [Public Key](./Publishing.md) | 7 | 18 |
-| [Public Follows](./UserData.md) | 8 | 13 |
-| [Private Follows](./UserData.md) | 9 | 14 |
-| [Private Connections](./UserData.md) | 10 | 15 |
+| Name | Schema Id Mainnet | Schema Id Testnet (Paseo) | Schema Id Testnet (Rococo) |
+| --- | --- | --- | --- |
+| [Tombstone](./Publishing.md) | 1 | 1 | 1 |
+| [Broadcast](./Publishing.md) | 2 | 2 | 2 |
+| [Reply](./Publishing.md) | 3 | 3 | 3 |
+| [Reaction](./Publishing.md)| 4 | 4 | 4 |
+| [Profile](./Publishing.md) | 6 | 6 | 5 |
+| [Update](./Publishing.md)| 5 | 5 | 6 |
+| [Public Key](./Publishing.md)| 7 | 7 | 18 |
+| [Public Follows](./UserData.md)| 8 | 8 | 13 |
+| [Private Follows](./UserData.md) | 9 | 9 | 14 |
+| [Private Connections](./UserData.md) | 10 | 10 | 15 |
 
 <!--
 ### Obsolete
 
-| Name | Mainnet Block Obsoleted | Schema Id Mainnet | Schema Id Rococo |
-| --- | --- | --- | --- |
-| TBD | TBD | 0 | 0 |
+| Name | Mainnet Block Obsoleted | Schema Id Mainnet | Schema Id Testnet (Paseo) | Schema Id Testnet (Rococo) |
+| --- | --- | --- | --- | --- |
+| TBD | TBD | 0 | 0 | 0 |
 
 -->
 
