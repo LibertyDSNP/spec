@@ -17,9 +17,11 @@ Each Announcement has an enumerated type for use when separating out a stream of
 | 4 | [Reaction](Types/Reaction.md) | a public visual reply to a Broadcast | no | no |
 | 5 | [Profile](Types/Profile.md) | a profile | YES | no |
 | 6 | [Update](Types/Update.md) | an update to content| YES | no |
-| 7 | [Public Key](Types/PublicKey.md) | a public key for secure communication | no | no |
+| 7 | ~~[Public Key](Types/PublicKey.md)~~<sup>b</sup> | ~~a public key for secure communication~~ | ~~no~~ | ~~no~~ |
 
-<sup>a</sup> Since DSNP version 1.2, social graph changes use [User Data](UserData.md) operations as described in the [Graph](Graph.md) section.
+<sup>a</sup> Since DSNP version 1.2, social graph changes use [User Data](UserData.md) operations as described in the [Graph](Graph.md) section. 
+
+<sup>b</sup> Since DSNP version 1.3, public keys use [User Data](UserData.md) operations.
 
 ## Announcement Validation
 

@@ -1,5 +1,7 @@
 # Public Key Announcement
 
+<mark>_Since DSNP version 1.3, public keys use [User Data](../UserData.md) operations._</mark>
+
 A Public Key Announcement is a way to note a new cryptographic key that can be used in DSNP to secure and verify the authenticity of communications.
 
 The most recently published key (if one exists) for a given key type should be treated as the active key of that key type.

@@ -25,6 +25,7 @@ DSNP
 DSNP-compatible
 DSNP-referenced
 ECIES
+EdDSA
 [Ee]num(s)?
 Ethereum
 Extrinsics
@@ -67,7 +68,7 @@ Polkadot
 Poly1305
 pre-configured
 PRId([ABs])?
-publicKey
+[Pp]ublicKey
 repo
 RFC[1-9][0-9]*
 Ristretto
@@ -78,6 +79,7 @@ schemaless
 Schnorrkel
 SDK
 SHA-256
+SHA-512
 Stateful
 stringified
 subkey

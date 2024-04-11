@@ -1,6 +1,6 @@
 # Frequency User Data
 
-On Frequency, User Data and select Announcements are mapped to Schemas which use [Stateful Storage](https://frequency-chain.github.io/frequency/pallet_stateful_storage/index.html) for storage and retrieval of the data.
+On Frequency, User Data is mapped to Schemas which use [Stateful Storage](https://frequency-chain.github.io/frequency/pallet_stateful_storage/index.html) for storage and retrieval of the data.
 
 ## User Data Sets
 
@@ -8,19 +8,15 @@ On Frequency, User Data and select Announcements are mapped to Schemas which use
 
 | User Data Set | Deployed Schema Ids | Frequency Model Type | Frequency Payload Location | Settings |
 | --- | --- | --- | --- | --- |
+| [Public Key (Key Agreement)](../DSNP/Types/PublicKeyUserData.md) | Mainnet: 7<br />Testnet (Paseo): 7<br />Testnet (Rococo): 7 | [`AvroBinary`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.AvroBinary) | [`Itemized`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.Itemized) | [Append Only](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.SchemaSetting.html#variant.AppendOnly), [Signature Required](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.SchemaSetting.html#variant.SignatureRequired) |
 | [Public Follows](../DSNP/Graph.md#public-follows) | Mainnet: 8<br />Testnet (Paseo): 8<br />Testnet (Rococo): 13 | [`AvroBinary`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.AvroBinary) | [`Paginated`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.Paginated) | None |
 | [Private Follows](../DSNP/Graph.md#private-follows) | Mainnet: 9<br />Testnet (Paseo): 9<br />Testnet (Rococo): 14 | [`AvroBinary`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.AvroBinary) | [`Paginated`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.Paginated) | None |
 | [Private Connections](../DSNP/Graph.md#private-connections) | Mainnet: 10<br />Testnet (Paseo): 10<br />Testnet (Rococo): 15 | [`AvroBinary`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.AvroBinary) | [`Paginated`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.Paginated) | None |
+| [Public Key (Assertion Method)](../DSNP/Types/PublicKeyUserData.md) | Mainnet: TBD <br />Testnet (Paseo): 11<br />Testnet (Rococo): 100 | [`AvroBinary`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.AvroBinary) | [`Itemized`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.Itemized) | [Append Only](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.SchemaSetting.html#variant.AppendOnly), [Signature Required](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.SchemaSetting.html#variant.SignatureRequired) |
 
-[Pseudonymous Relationship Identifiers](./../DSNP/Graph.md#pseudonymous-relationship-identifiers) (PRIds) are stored along side Private Connections in the same Stateful Storage page.
+[Pseudonymous Relationship Identifiers](./../DSNP/Graph.md#pseudonymous-relationship-identifiers) (PRIds) are stored alongside Private Connections in the same Stateful Storage page.
 
 Source code for each schema is located in the [LibertyDSNP/schemas](https://github.com/LibertyDSNP/schemas) repository.
-
-## Announcements
-
-| Announcement | Deployed Schema Ids | Frequency Model Type | Frequency Payload Location | Settings |
-| --- | --- | --- | --- | --- |
-| [Public Key](../DSNP/Types/PublicKey.md) | Mainnet: 7<br />Testnet (Paseo): 7<br />Testnet (Rococo): 7 | [`AvroBinary`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.AvroBinary) | [`Itemized`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.Itemized) | [Append Only](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.SchemaSetting.html#variant.AppendOnly), [Signature Required](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.SchemaSetting.html#variant.SignatureRequired) |
 
 ## Read Operation Mapping
 
