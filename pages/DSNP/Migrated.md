@@ -1,3 +1,4 @@
 # Migrated Announcements
 
-* [Graph Change](Types/GraphChange.md)
+* [Graph Change](Types/GraphChange.md) 
+* [Profile](Types/Profile.md) 

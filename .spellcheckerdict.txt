@@ -8,6 +8,7 @@ CalVer
 CC0
 Changelog
 changeType
+cid
 [Cc]odec('s)?
 contentHash
 cryptographic
@@ -16,10 +17,11 @@ CtxSharedSecretA
 CtxSharedSecretB
 CtxSharedSecretBob
 Curve25519
-decrypt
+decrypt(ed)?
 Delegator
 Deserialize
 Diffie-Hellman
+discoverability
 [Dd]iscoverable
 DSNP
 DSNP-compatible
@@ -68,6 +70,7 @@ Polkadot
 Poly1305
 pre-configured
 PRId([ABs])?
+ProfileResource
 [Pp]ublicKey
 repo
 RFC[1-9][0-9]*

@@ -21,6 +21,7 @@ DSNP implementations MUST support the following User Data Types:
 | <a name="private-connection-prids">`privateConnectionPRIds`</a> | 1.2 | NONE | NONE | [PRId](Types/PRId.md) |
 | <a name="key-agreement-public-keys">`keyAgreementPublicKeys`</a> | 1.3 | NONE | NONE | [PublicKey](Types/PublicKeyUserData.md) |
 | <a name="assertion-method-public-keys">`assertionMethodPublicKeys`</a> | 1.3 | NONE | NONE | [PublicKey](Types/PublicKeyUserData.md) |
+| <a name="profile-resources">`profileResources`</a> | 1.3 | NONE | NONE | [ProfileResource](Types/ProfileResource.md) |
 
 Data for each data type is initially formatted as a stream of Avro objects that should conform to the schema specified.
 A DSNP system MAY limit the number of objects allowed for a given user data type; if so, this MUST be documented.
