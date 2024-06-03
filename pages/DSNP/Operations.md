@@ -13,7 +13,7 @@ Where operations are listed as using control keys or ownership proofs as input p
 ## Transaction Identifiers
 
 Each invocation of a DSNP Operation should be associated with a Transaction Identifier.
-Transaction Identifiers are used to  associate Operation invocations with asynchronously emitted State Change Records.
+Transaction Identifiers are used to associate Operation invocations with asynchronously emitted State Change Records.
 It MUST be possible to associate a DSNP State Change Record with a Transaction Identifier from a particular DSNP Operation invocation.
 Transaction Identifiers MUST be unique within an implementation.
 Transaction Identifiers MUST be serializable as a string.
