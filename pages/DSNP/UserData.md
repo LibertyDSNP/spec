@@ -19,10 +19,11 @@ DSNP implementations MUST support the following User Data Types:
 | <a name="private-follows">`privateFollows`</a> | 1.2 | `curve25519xsalsa20poly1305` |  [`DEFLATE`](https://en.wikipedia.org/wiki/Deflate) | [GraphEdge](Types/GraphEdge.md) |
 | <a name="private-connections">`privateConnections`</a> | 1.2 | `curve25519xsalsa20poly1305` | [`DEFLATE`](https://en.wikipedia.org/wiki/Deflate) | [GraphEdge](Types/GraphEdge.md) |
 | <a name="private-connection-prids">`privateConnectionPRIds`</a> | 1.2 | NONE | NONE | [PRId](Types/PRId.md) |
-| <a name="public-key-key-agreement">`publicKey_keyAgreement`</a> | 1.3 | NONE | NONE | [PublicKey](Types/PublicKeyUserData.md) |
-| <a name="public-key-assertion-method">`publicKey_assertionMethod`</a> | 1.3 | NONE | NONE | [PublicKey](Types/PublicKeyUserData.md) |
+| <a name="key-agreement-public-keys">`keyAgreementPublicKeys`</a> | 1.3 | NONE | NONE | [PublicKey](Types/PublicKeyUserData.md) |
+| <a name="assertion-method-public-keys">`assertionMethodPublicKeys`</a> | 1.3 | NONE | NONE | [PublicKey](Types/PublicKeyUserData.md) |
 
 Data for each data type is initially formatted as a stream of Avro objects that should conform to the schema specified.
+A DSNP system MAY limit the number of objects allowed for a given user data type; if so, this MUST be documented.
 Avro file- and block-level information (including in-stream schema) is omitted.
 The Avro stream is then compressed and/or encrypted as specified.
 
@@ -31,7 +32,7 @@ In the specification of cryptographic operations below, relevant methods from th
 
 ## Data Chunks
 
-Because blockchain systems often have specific limits to the amount of data that can be included in a given transaction, operations on user data deal with the data in discrete chunks.
+Because consensus systems often have specific limits to the amount of data that can be included in a given transaction, operations on user data deal with the data in discrete chunks.
 As implementation strategies may vary, implementations MUST define their own maximum chunk size in bytes to be used in the operations described below.
 
 ## Entity Tags
@@ -48,7 +49,7 @@ The Replace User Data Operation takes the following parameters:
 
 * A DSNP User Id
   * Implementations MUST ensure that the principal invoking this Operation is this user, or a transparent chain of delegation from the user to the principal exists.
-* The index of the `publicKey_keyAgreement` key pair used to encrypt any private data in the operation.
+* The index of the `keyAgreementPublicKeys` key pair used to encrypt any private data in the operation.
   (If only unencrypted user data types are included, the key index may be omitted.)
 * A map containing the set of data types to update as the keys, and tuples consisting of (1) the schema version used to encode the data type, and (2) a list where each element includes a data chunk and its associated entity tag, as the values.
 
@@ -63,8 +64,9 @@ Data chunks should be generated for each included data type using the following 
 3. For each chunk generated, the application should then:
     1. If the data type requires compression, apply the compression codec noted.
     1. If the data type requires encryption,
-        1. Retrieve the user's active (last in the list) `publicKey_keyAgreement` key, U<sub>public</sub>.
+        1. Retrieve the user's active `keyAgreementPublicKey` key, U<sub>public</sub>, and note its index.
   If no key exists, one should be created and published as User Data before invoking the Operation.
+  By convention, the key with the highest index (the last object in the Avro stream) is the active key.
         1. Create a sealed box (a payload encrypted with a symmetric key derived from an ephemeral key pair, and accompanied by the ephemeral public key), as in the [libsodium](https://doc.libsodium.org/public-key_cryptography/sealed_boxes) function `crypto_box_seal`, using U<sub>public</sub>.
         1. Include the previous `etag` value for the chunk. If the chunk is new, `etag` should be set to `null`.
   If any chunks are to be deleted, they should be included in the input identified with the existing `etag` and a `null` value for the data.
@@ -191,12 +193,12 @@ The following example illustrates the output of a Get User Data Operation invoca
       {
         "data": base64_string,
         "etag": string,
-        "keyIndex": integer
+        "keyId": integer
       },
       {
         "data": base64_string,
         "etag": string,
-        "keyIndex": integer
+        "keyId": integer
       }
     ]
   },

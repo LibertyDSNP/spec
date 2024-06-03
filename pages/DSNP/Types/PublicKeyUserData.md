@@ -33,5 +33,5 @@ The byte encoding consists of a [multicodec](https://github.com/multiformats/mul
 
 | User Data Type | Allowed Algorithms ([multicodec](https://github.com/multiformats/multicodec/blob/master/table.csv)) | Purpose |
 | --- | --- | --- |
-| `publicKey_keyAgreement` | `x25519-pub` |  A Curve25519 public key that can be used in key exchange protocols to generate a shared secret |
-| `publicKey_assertionMethod` | `ed25519-pub` | A public key for the EdDSA signature scheme using SHA-512 and Curve25519 that can be used to verify cryptographic signatures |
+| `keyAgreementPublicKeys` | `x25519-pub` |  A Curve25519 public key that can be used in key exchange protocols to generate a shared secret |
+| `assertionMethodPublicKeys` | `ed25519-pub` | A public key for the EdDSA signature scheme using SHA-512 and Curve25519 that can be used to verify cryptographic signatures |

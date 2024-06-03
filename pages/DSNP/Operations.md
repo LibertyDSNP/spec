@@ -34,7 +34,7 @@ Compliant implementations may respond to error conditions either synchronously, 
 | <a id="remove-control-key">Remove Control Key</a> | YES | User | Key | [Control Key Removal Record](Records.md#control-key-removal) |
 | <a id="publish-announcement">Publish Announcement</a> | no* | User OR Delegate | [Announcement](Announcements.md) | [Announcement Published Record](Records.md#announcement-published) |
 | <a id="publish-batch">Publish Batch</a> | no* | User OR Delegate | [Announcement Type](Announcements.md#announcement-types), [Batch Publication](BatchPublications.md) URL, Batch Publication Content Hash | [Batch Published Record](Records.md#batch-published) |
-| <a id="get-user-data">Get User Data</a> | no | Any | User's Identifier, Set of Requested [User Data Types](UserData.md#user-data-types) | Map of [User Data Types](UserData.md#user-data-types) to [Data Chunks](UserData.md#data-chunks) with optional [Key Identifiers](Types/PublicKey.md#keyid) |
+| <a id="get-user-data">Get User Data</a> | no | Any | User's Identifier, Set of Requested [User Data Types](UserData.md#user-data-types) | Map of [User Data Types](UserData.md#user-data-types) to [Data Chunks](UserData.md#data-chunks) with optional key identifiers of encryption keys for each chunk |
 | <a id="replace-user-data">Replace User Data</a> | no | User OR Delegate | User's Identifier, [Key Identifier](Types/PublicKey.md#keyid), Map of [User Data Types](UserData.md#user-data-types) to [Data Chunks](UserData.md#data-chunks) | [User Data Replaced Record](Records.md#user-data-replaced) |
 
 \* For each Announcement Type, an implementation may support one or both of these operations.

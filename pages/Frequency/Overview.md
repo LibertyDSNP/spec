@@ -27,11 +27,11 @@ Official schemas may be found in [GitHub](https://github.com/LibertyDSNP/schemas
 | [Reaction](./Publishing.md)| `dsnp.reaction` | 4 | 4 | 4 |
 | [Profile](./Publishing.md) | `dsnp.profile` | 6 | 6 | 5 |
 | [Update](./Publishing.md)| `dsnp.update` | 5 | 5 | 6 |
-| [Public Key (Key Agreement)](./UserData.md)| `dsnp.public-key-key-agreement` | 7 | 7 | 18 |
+| [Key Agreement Public Keys](./UserData.md)| `dsnp.public-key-key-agreement` | 7 | 7 | 18 |
 | [Public Follows](./UserData.md)| `dsnp.public-follows` | 8 | 8 | 13 |
 | [Private Follows](./UserData.md) | `dsnp.private-follows` | 9 | 9 | 14 |
 | [Private Connections](./UserData.md) | `dsnp.private-connections` | 10 | 10 | 15 |
-| [Public Key (Assertion Method)](./UserData.md)| `dsnp.public-key-assertion-method` | TBD | 11 | 100 |
+| [Assertion Method Public Keys](./UserData.md)| `dsnp.public-key-assertion-method` | TBD | 11 | 100 |
 
 <!--
 ### Obsolete
