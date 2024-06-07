@@ -1,8 +1,7 @@
 # Announcement Publishing
 
-On Frequency, [Announcements](../DSNP/Announcements.md) are mapped to Schemas which in turn publish Frequency Messages or Stateful Storage changes.
+On Frequency, [Announcements](../DSNP/Announcements.md) are mapped to Schemas which in turn publish Frequency Messages.
 Frequency Messages are either individual Announcements from a particular user, or a Batch Publication with a multitude of possible users.
-Frequency Stateful Storage is either direct Announcements from a particular user or [User Data](./UserData.md) changes.
 
 <!-- Links to https://frequency-chain.github.io/frequency should be updated with links to docs.frequency.xyz when able to be -->
 
@@ -16,7 +15,6 @@ Frequency Stateful Storage is either direct Announcements from a particular user
 | 4 | [Reaction](../DSNP/Types/Reaction.md) | Batched | Mainnet: 4<br />Testnet (Paseo): 4<br />Testnet (Rococo): 4 | [`Parquet`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
 | 5 | [Profile](../DSNP/Types/Profile.md) | Batched | Mainnet: 6<br />Testnet (Paseo): 6<br />Testnet (Rococo): 5 | [`Parquet`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
 | 6 | [Update](../DSNP/Types/Update.md) | Batched | Mainnet: 5<br />Testnet (Paseo): 5<br />Testnet (Rococo): 6 | [`Parquet`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
-| 7 | [Public Key](../DSNP/Types/PublicKey.md) | [Stateful](./UserData.md#announcements) | Mainnet: 7<br />Testnet (Paseo): 7<br />Testnet (Rococo): 18 | [`AvroBinary`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.AvroBinary) | [`Itemized`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.Itemized) |
 
 Source code for each schema is located in the [LibertyDSNP/schemas](https://github.com/LibertyDSNP/schemas) repository.
 
