@@ -8,7 +8,7 @@ CalVer
 CC0
 Changelog
 changeType
-cid
+(cid|CID)s?
 [Cc]odec('s)?
 contentHash
 cryptographic
@@ -29,6 +29,7 @@ DSNP-referenced
 ECIES
 EdDSA
 [Ee]num(s)?
+encodings
 Ethereum
 Extrinsics
 fromId
@@ -45,6 +46,7 @@ JSON-LD
 keccak-256
 keyId
 keyType
+Kubo
 LibertyDSNP
 libsodium
 little-endian
