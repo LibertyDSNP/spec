@@ -49,11 +49,29 @@ Any [Announcement Types](Announcements.md#announcement-types) with a `fromId` an
 
 ### Example
 ```
-dsnp://78187493520/0x1234567890abcdef0123456789abcdef0123456789abcdef0123456789abcdef
+dsnp://78187493520/QmQNHNfHnbgJJ6nK4UPx2VtTUCafAKCbqZJ6ZRYUGjoeFj
 ```
 
 | part | value |
 | ---- | ----- |
 | Scheme | `dsnp://` |
 | User Id | `78187493520` |
-| Content Hash | `0x1234567890abcdef0123456789abcdef0123456789abcdef0123456789abcdef` |
+| Content Hash | `QmQNHNfHnbgJJ6nK4UPx2VtTUCafAKCbqZJ6ZRYUGjoeFj` |
+
+## DSNP CID
+
+A DSNP CID is a valid  [Content IDentifier](https://github.com/multiformats/cid) generated using the following parameters.
+
+### Supported CID Parameters
+
+The CID specification allows CIDs to be generated with a wide and ever-growing range of possible hashing algorithms, string encodings, and block sizes.
+In order for DSNP applications to interoperate, the required functionality is limited as follows:
+
+- CID version: MUST be version 1, in order to distinguish CIDs from simple multihash values in situations where either may be used
+- Hash algorithm: MUST be `sha2-256` or `blake2b-256`
+- Encoding: MUST be `base58btc` or `base32`
+- Codec: MUST be `dag-pb` for data 256*1024 bytes or longer; `raw` for data less than 256*1024 bytes
+- Chunking: Non-leaf nodes MUST be 256*1024 bytes
+
+The rationale for these options is to allow consuming applications to attempt to generate a matching CID from a byte stream for validation purposes without the need to reprocess the stream.
+These options are intentionally aligned to interoperate with the default output of the [Kubo](https://github.com/ipfs/kubo) IPFS command line utility when invoked as `ipfs add --cid-version=1 ...`.

@@ -29,17 +29,28 @@ An implementation MUST NOT allow the user to remove the only or last remaining c
 
 A user may choose to retire their Identifier at any time.
 Once an Identifier is retired, an implementation MAY remove all state data associated with that Identifier, provided that an indication that the Identifier is retired remains, so it may not be reused in the future.
-This means that all data previously sent from the Identifier, the keys associated with the Identifier, and the delegations (see next section) associated with the Identifier may be removed.
+This means that all data previously sent from the Identifier, the keys associated with the Identifier, any user data (see below) associated with the Identifier, and the delegations (see next section) associated with the Identifier may be removed.
 
 After an Identifier is retired, any existing or future [Announcements](Announcements.md) from the Identifier should be treated as if they have been [tombstoned](Types/Tombstone.md) (for Announcement Types that support tombstoning).
 A retired Identifier MUST NOT be allowed to act as a principal for any additional DSNP [Operations](Operations.md).
 
-### Delegation
+## Delegation
 
-* An owner MUST be able to delegate permission to announce on their behalf to other parties.
+* A user MUST be able to delegate and revoke permissions to other parties to submit each type of announcement or replace each type of user data on their behalf.
 * A user MUST be able to revoke delegated permissions.
-* Announcements from a delegate MUST be able to be verify which delegate made the specific Announcement.
+* Announcements and user data updates from a delegate MUST be able to be verified as to which delegate was responsible for the action.
 * Delegation revocation MUST NOT be retroactive.
+
+## Identity-Linked State Data
+
+DSNP identities can have linked [User Data](UserData.md), which, like the identifier and delegations, forms part of the shared state of the consensus system.
+As consensus system state storage is generally much more expensive than external data storage, shared state storage is only required for data considered critical for maintaining user agency and discoverability with low latency and high availability.
+
+User data is utilized for the following types of identity-linked data:
+* Public keys that can be used to encrypt data that can later be decrypted by the user or used to verify signatures on documents created by the user
+* [Social Graphs](Graph.md), both public and private (encrypted)
+* Links to [Profile documents](../ActivityContent/Types/Profile.md)
+
 
 ## Related Operations
 
@@ -49,6 +60,8 @@ A retired Identifier MUST NOT be allowed to act as a principal for any additiona
 * [Revoke Delegation](Operations.md#revoke-delegation)
 * [Add Control Key](Operations.md#add-control-key)
 * [Remove Control Key](Operations.md#remove-control-key)
+* [Replace User Data](Operations.md#replace-user-data)
+* [Get User Data](Operations.md#get-user-data)
 
 ## Non-normative
 
