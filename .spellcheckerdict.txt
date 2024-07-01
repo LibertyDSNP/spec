@@ -9,6 +9,7 @@ CC0
 Changelog
 changeType
 (cid|CID)s?
+CIDv1
 [Cc]odec('s)?
 contentHash
 cryptographic
@@ -19,7 +20,7 @@ CtxSharedSecretBob
 Curve25519
 decrypt(ed)?
 Delegator
-Deserialize
+[Dd]eserialize(d)?
 Diffie-Hellman
 discoverability
 [Dd]iscoverable
@@ -71,6 +72,7 @@ PNG
 Polkadot
 Poly1305
 pre-configured
+Prerelease
 PRId([ABs])?
 ProfileResource
 [Pp]ublicKey
