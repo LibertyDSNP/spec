@@ -20,7 +20,7 @@ ProfileResource object serialization MUST conform to the following [Avro](https:
         },
         {
             "name": "cid",
-            "type": "string",
+            "type": "bytes",
             "doc": "Content IDentifier of resource"
         },
         {
@@ -48,7 +48,7 @@ All other document type values are reserved for future expansion.
 
 ### cid
 
-- MUST be a valid [DSNP CID](../Identifiers.md#dsnp-cid]
+- MUST be a valid (binary) [DSNP CID](../Identifiers.md#dsnp-cid)
 
 ### length
 

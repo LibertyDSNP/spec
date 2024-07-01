@@ -12,7 +12,7 @@ Graph connections are formed through the DSNP User Id.
 ## DSNP Content Hash
 
 - Variable length byte array (fixed length for a given hashing algorithm)
-- MUST be a valid [multihash](https://github.com/multiformats/multihash) encoding of the hash output for the bytes of the content, generated with a [Supported Hashing Algorithm](Announcements.md#supported-hashing-algorithms)
+- MUST be a valid [multihash](https://github.com/multiformats/multihash) encoding of the hash or content address output for the bytes of the content, generated with a [Supported Hashing Algorithm](Announcements.md#supported-hashing-algorithms)
 
 ### Supported Hashing Algorithms
 
@@ -20,6 +20,7 @@ Graph connections are formed through the DSNP User Id.
 | --- | --- | --- | --- | --- |
 | SHA-256 | `sha2-256` | `0x1220` | [RFC 6234](https://tools.ietf.org/html/rfc6234) | 1.2.0 |
 | BLAKE2b | `blake2b-256` | `0xa0e40220` | [RFC 7693](https://tools.ietf.org/html/rfc7693) | 1.2.0 |
+| CIDv1 | `cidv1` | `0x01` | See [DSNP CID](#dsnp-cid) | 1.3.0 |
 
 ## DSNP Protocol Scheme
 
@@ -60,7 +61,7 @@ dsnp://78187493520/QmQNHNfHnbgJJ6nK4UPx2VtTUCafAKCbqZJ6ZRYUGjoeFj
 
 ## DSNP CID
 
-A DSNP CID is a valid  [Content IDentifier](https://github.com/multiformats/cid) generated using the following parameters.
+A DSNP CID is a valid binary [Content IDentifier](https://github.com/multiformats/cid) generated using the following parameters.
 
 ### Supported CID Parameters
 
@@ -69,9 +70,9 @@ In order for DSNP applications to interoperate, the required functionality is li
 
 - CID version: MUST be version 1, in order to distinguish CIDs from simple multihash values in situations where either may be used
 - Hash algorithm: MUST be `sha2-256` or `blake2b-256`
-- Encoding: MUST be `base58btc` or `base32`
 - Codec: MUST be `dag-pb` for data 256*1024 bytes or longer; `raw` for data less than 256*1024 bytes
 - Chunking: Non-leaf nodes MUST be 256*1024 bytes
 
 The rationale for these options is to allow consuming applications to attempt to generate a matching CID from a byte stream for validation purposes without the need to reprocess the stream.
-These options are intentionally aligned to interoperate with the default output of the [Kubo](https://github.com/ipfs/kubo) IPFS command line utility when invoked as `ipfs add --cid-version=1 ...`.
+
+These options are intentionally aligned to interoperate with the default output of the [Kubo](https://github.com/ipfs/kubo) IPFS command line utility when invoked as `ipfs add --cid-version=1 ...` (note that the output will additionally be serialized using a multibase prefix).
