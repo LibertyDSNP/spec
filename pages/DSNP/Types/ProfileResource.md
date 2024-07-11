@@ -19,14 +19,14 @@ ProfileResource object serialization MUST conform to the following [Avro](https:
             "doc": "Type of resource"
         },
         {
-            "name": "cid",
+            "name": "contentHash",
             "type": "bytes",
-            "doc": "Content IDentifier of resource"
+            "doc": "Multihash digest of resource content"
         },
         {
             "name": "length",
             "type": "int",
-            "doc": "Length of document in bytes"
+            "doc": "Length of resource in bytes"
         }
     ]
 }
@@ -46,11 +46,11 @@ ProfileResource object serialization MUST conform to the following [Avro](https:
 
 All other document type values are reserved for future expansion.
 
-### cid
+### contentHash
 
-- MUST be a valid (binary) [DSNP CID](../Identifiers.md#dsnp-cid)
+- MUST be a valid [DSNP Content Hash](../Identifiers.md#dsnp-content-hash)
 
 ### length
 
 - MUST be a positive integer
-- MUST match the length in bytes of the document
+- MUST match the length in bytes of the resource

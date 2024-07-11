@@ -32,7 +32,7 @@ Profiles are used to provide additional user information display.
       "width": "256",
       "height": "171",
       "hash": [
-        "bafkreiddyiraqlkgoybzrydxqs5vikejphecjoizfk5rlghd7tohxahbfa"
+        "bdyqphnphmjdoumkxqbsuspribxvlsx2hx6525u3fh2dkr5bxnqritzi"
       ]
     },
     {
@@ -42,7 +42,7 @@ Profiles are used to provide additional user information display.
       "width": "64",
       "height": "43",
       "hash": [
-        "bafkreid7m3fxtdxokdb4vmvpjuu7ngo72dpjsgpttfh7bfh2gdhq6ydbjm"
+        "bdyqktr7p5hc27bx4ernmngs6tj7uyukfb4atrtq44mdmx4yntuh2s5y"
       ]
     }
   ],
