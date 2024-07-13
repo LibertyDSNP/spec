@@ -50,6 +50,8 @@ All other document type values are reserved for future expansion.
 
 - MUST be a valid [DSNP Content Hash](../Identifiers.md#dsnp-content-hash)
 
+A compliant DSNP system MUST specify how to use the `contentHash` field to retrieve the target document.
+
 ### length
 
 - MUST be a positive integer

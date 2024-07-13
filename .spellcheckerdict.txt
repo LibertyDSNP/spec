@@ -2,14 +2,13 @@ Alexa
 announcementType
 Avro
 Base58
-BLAKE2b
+BLAKE3
 Brötli
 CalVer
 CC0
 Changelog
 changeType
 (cid|CID)s?
-CIDv1
 [Cc]odec('s)?
 contentHash
 cryptographic
