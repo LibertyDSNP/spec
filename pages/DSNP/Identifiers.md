@@ -46,14 +46,15 @@ The DSNP Content URI consists of three parts: the scheme, the user id, and the c
 It is used to uniquely identify an Announcement from a given user with content.
 
 Any [Announcement Types](Announcements.md#announcement-types) with a `fromId` and `contentHash` have a DSNP Content URI.
+When encoding a DSNP Content URI, the `contentHash` field MUST be serialized as [hexadecimal](./Serializations.md#hexadecimal).
 
 ### Example
 ```
-dsnp://78187493520/QmQNHNfHnbgJJ6nK4UPx2VtTUCafAKCbqZJ6ZRYUGjoeFj
+dsnp://78187493520/0x1234567890abcdef0123456789abcdef0123456789abcdef0123456789abcdef
 ```
 
 | part | value |
 | ---- | ----- |
 | Scheme | `dsnp://` |
 | User Id | `78187493520` |
-| Content Hash | `QmQNHNfHnbgJJ6nK4UPx2VtTUCafAKCbqZJ6ZRYUGjoeFj` |
+| Content Hash | `0x1234567890abcdef0123456789abcdef0123456789abcdef0123456789abcdef` |
