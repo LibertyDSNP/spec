@@ -19,14 +19,9 @@ ProfileResource object serialization MUST conform to the following [Avro](https:
             "doc": "Type of resource"
         },
         {
-            "name": "contentHash",
-            "type": "bytes",
-            "doc": "Multihash digest of resource content"
-        },
-        {
-            "name": "length",
-            "type": "int",
-            "doc": "Length of resource in bytes"
+            "name": "contentAddress",
+            "type": "string",
+            "doc": "Content address for the resource"
         }
     ]
 }
@@ -40,19 +35,15 @@ ProfileResource object serialization MUST conform to the following [Avro](https:
 
 #### Supported Profile-Linked Resource Types
 
-| Value | Description | Specification | Content Type | DSNP Version Added |
-| --- | --- | --- | --- |
-| 1 | Activity Content Profile with DSNP extensions | [DSNP Profile](../../ActivityContent/Types/Profile.md) | `application/json` | 1.3 |
+| Value | Description | Specification | Content Type | Maximum File Size | Content Address Type | DSNP Version Added |
+| --- | --- | --- | --- | --- | --- | --- |
+| 1 | Activity Content Profile with DSNP extensions | [DSNP Profile](../../ActivityContent/Types/Profile.md) | `application/json` | 256 Kb | Supported [IPFS CID](https://docs.ipfs.tech/concepts/content-addressing/)<sup>1</sup> | 1.3 |
 
-All other document type values are reserved for future expansion.
+All other resource type values are reserved for future expansion.
 
-### contentHash
+<sup>1</sup>Supported IPFS CIDs must be CID version 1, using either `sha2-256` or `blake3` hashes with the `raw` codec and the `base32` serialization.
 
-- MUST be a valid [DSNP Content Hash](../Identifiers.md#dsnp-content-hash)
+### contentAddress
 
-A compliant DSNP system MUST specify how to use the `contentHash` field to retrieve the target document.
-
-### length
-
-- MUST be a positive integer
-- MUST match the length in bytes of the resource
+- MUST be a valid content address for the specified `type` (see table above)
+- MUST contain sufficient information for an application to perform content integrity validation, for example by comparing the `contentAddress` field to the address derived by recalculating the content address from the bytes of the retrieved resource
