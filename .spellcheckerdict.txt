@@ -70,7 +70,7 @@ MDX
 Metaschema
 MP[34]
 MSA
-multibase
+[Mm]ultibase
 [Mm]ultibase-encoded
 multicodec
 multicodec-prefixed

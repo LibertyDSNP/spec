@@ -31,16 +31,16 @@ This is facilitated by the following naming scheme.
 Attribute Set Type canonical names are constructed as follows:
 
 * MUST be in the format _attributeSetTypeNamespace_ + "`$`" + _attributeSetTypeName_, where _attributeSetTypeNamespace_ MUST be either a multihash content hash (encoded as a multibase string), the DSNP DID of the schema author (beginning with "`did:dsnp:`"), or the empty string (for schemaless attribute set types).
-* _attributeSetTypeName_ MUST match a declared type value in the Attribute Set Value Document
-* If _attributeSetTypeNamespace_ is a DID, it must match the schema author in the schema referenced from the credential document, and the schema must include a proof that can be verified using the author's public key.
+* _attributeSetTypeName_ MUST match a declared type value in the Verifiable Credential document
+* If _attributeSetTypeNamespace_ is a DID, it must match the issuer of the Verifiable Credential Schema document referenced from the credential document, and the schema document must include a proof that can be verified using the issuer's public key.
 * If _attributeSetTypeNamespace_ is empty, the credential document MUST NOT reference a schema.
 * If _attributeSetTypeNamespace_ is a multibase string, it must match the multihash content hash of the schema file referenced from the credential document.
 
 Examples:
 
-* Schemaless: `$IsHuman`
-* Unsigned schema: `zQmQNHNfHnbgJJ6nK4UPx2VtTUCafAKCbqZJ6ZRYUGjoeFj$BSC`
-* Signed schema: `did:dsnp:1234567890$TimeZone`
+- Schemaless: `$IsHuman`
+- Unsigned schema: `bciqoatksnf4szlitvzfpsdgzegmkmz74i4mpsmb76q7pro42c6fvpzq$BSC`
+- Signed schema: `did:dsnp:1234567890$TimeZone`
 
 ## Usage Patterns
 
