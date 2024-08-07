@@ -8,7 +8,7 @@ but includes an `inReplyTo` field for noting it as a reply to a given [DSNP Cont
 | Field | Description | Data Type | Serialization | Parquet Type | Bloom Filter |
 | ----- | ----------- | --------- | ------------- | ------------ | ------------ |
 | announcementType | Announcement Type Enum (`3`) | enum | [decimal](../Serializations.md#decimal) | `INT32` | no |
-| contentHash | multihash-encoded hash of content stored at URL | variable length byte array | [hexadecimal](../Serializations.md#hexadecimal) | `BYTE_ARRAY` | YES
+| contentHash | [DSNP Content Hash](../Identifiers.md#dsnp-content-hash) of content | UTF-8 | [base32 multibase](../Serializations.md#base32-multibase) | `UTF8` | YES
 | fromId | id of the user creating the Announcement | 64-bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | YES
 | inReplyTo | Target [DSNP Content URI](../Identifiers.md#dsnp-content-uri) | UTF-8 | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | YES
 | url | content URL | UTF-8 | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | no
@@ -21,7 +21,7 @@ but includes an `inReplyTo` field for noting it as a reply to a given [DSNP Cont
 
 ### contentHash
 
-- MUST be a [DSNP Content Hash](../Identifiers.md#dsnp-content-hash)
+- MUST be a valid [DSNP Content Hash](../Identifiers.md#dsnp-content-hash)
 
 ### fromId
 

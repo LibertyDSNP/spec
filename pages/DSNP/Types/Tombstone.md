@@ -10,7 +10,7 @@ It is NOT possible to revert a tombstone.
 | announcementType | Announcement Type Enum (`0`) | enum | [decimal](../Serializations.md#decimal) | `INT32` | no |
 | fromId | Id of the user creating the Announcement and the Tombstoned Announcement | 64-bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | YES
 | targetAnnouncementType | target tombstoned Announcement type | enum | [decimal](../Serializations.md#decimal) | `INT32` | no |
-| targetContentHash | target `contentHash` of the original Announcement to tombstone | variable length byte array | [hexadecimal](../Serializations.md#hexadecimal) | `BYTE_ARRAY` | YES
+| targetContentHash | target `contentHash` of the original Announcement to tombstone | UTF-8 | [base32 multibase](../Serializations.md#base32-multibase) | `UTF8` | YES
 
 ## Field Requirements
 
@@ -37,4 +37,4 @@ It is NOT possible to revert a tombstone.
 
 ### targetContentHash
 
-- MUST match a `contentHash` of previous Announcement with the same `fromId` as the Tombstone Announcement
+- MUST be the `contentHash` of a previous Announcement of an Allowed Announcement Type with the same `fromId` as the Tombstone Announcement

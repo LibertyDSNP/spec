@@ -1,8 +1,9 @@
 Alexa
 announcementType
 Avro
+base32
 Base58
-BLAKE2b
+BLAKE3
 Brötli
 CalVer
 CC0
@@ -10,6 +11,7 @@ Changelog
 changeType
 (cid|CID)s?
 [Cc]odec('s)?
+contentAddress
 contentHash
 cryptographic
 cryptographically
@@ -19,7 +21,7 @@ CtxSharedSecretBob
 Curve25519
 decrypt(ed)?
 Delegator
-Deserialize
+[Dd]eserialize(d)?
 Diffie-Hellman
 discoverability
 [Dd]iscoverable
@@ -56,7 +58,7 @@ mdBook
 MDX
 MP[34]
 MSA
-multibase
+[Mm]ultibase
 multicodec
 [Mm]ultihash
 multihash-encoded
@@ -71,6 +73,8 @@ PNG
 Polkadot
 Poly1305
 pre-configured
+Prepending
+Prerelease
 PRId([ABs])?
 ProfileResource
 [Pp]ublicKey
@@ -110,6 +114,6 @@ W3C
 WebM
 WebP
 websocket
-whitepaper
+[Ww]hitepaper
 X25519
 XSalsa20
