@@ -14,9 +14,9 @@ Strings are used to avoid issues with different implementations of numbers.
 
 | Invalid | Why | Valid |
 | --- | --- | --- |
-| `0x123` | Must be decimal | `"291"` |
-| 291 | Must be a string | `"291"` |
-| `291n` | `BigInt(291)` serialization appends an `n`  | `"291"` |
+| `"0x123"` | Must be decimal | `"291"` |
+| `291` | Must be a string | `"291"` |
+| `"291n"` | `BigInt(291)` serialization appends an `n`  | `"291"` |
 
 ## base32 multibase
 
