@@ -44,7 +44,7 @@ See also [Announcement Types](Announcements.md).
 #### Columns with Bloom Filters
 
 | Column | Primitive Type | Logical Type | Converted Type (deprecated) |
-| ------ | ---- | ---- |
+| ------ | ---- | ---- | --- |
 | contentHash | `BYTE_ARRAY` | `STRING` | `UTF8` |
 | emoji | `BYTE_ARRAY` | `STRING` | `UTF8` |
 | fromId | `INT64` | `INT(64, false)` | `UINT_64` |
