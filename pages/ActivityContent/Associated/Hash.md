@@ -3,9 +3,8 @@
 *NOT* part of the Activity Streams 2.0 Vocabulary.
 
 Activity objects linking to external content such as audio, image or video files must include a `"hash"` field for users to validate linked content.
-The value of this `"hash"` field must be an array of strings, each representing a hash output using a specific algorithm.
-Each item in the array MUST be a valid [multihash](https://github.com/multiformats/multihash) value,  serialized as a [multibase](https://github.com/multiformats/multibase) string using the `base32` encoding.
-  At least one of the deserialized multihash values must be a valid [DSNP Content Hash](../../DSNP/Identifiers.md#dsnp-content-hash).
+The value of this `"hash"` field must be an array of strings.
+Each item in the array MUST be a valid [DSNP Content Hash](../../DSNP/Identifiers.md#dsnp-content-hash) for the content associated with the hash.
 
 ### Example
 

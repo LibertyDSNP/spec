@@ -10,10 +10,10 @@ Updates should be ignored.
 | ----- | ----------- | --------- | ------------- | ------------ | ------------ |
 | announcementType | Announcement Type Enum (`6`) | enum | [decimal](../Serializations.md#decimal) | `INT32` | no |
 | fromId | id of the user creating the announcement | 64 bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | YES
-| contentHash | multihash-encoded hash of content stored at URL | variable length byte array | [hexadecimal](../Serializations.md#hexadecimal) | `BYTE_ARRAY` | YES
+| contentHash | [DSNP Content Hash](../Identifiers.md#dsnp-content-hash) of content | UTF-8 | multihash as base32 string | `UTF8` | YES
 | url | updated content URL | UTF-8 | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | no
 | targetAnnouncementType | target updated Announcement type | enum | [decimal](../Serializations.md#decimal) | `INT32` | no |
-| targetContentHash | multihash-encoded hash of target content | variable length byte array | [hexadecimal](../Serializations.md#hexadecimal) | `BYTE_ARRAY` | YES
+| targetContentHash | target `contentHash` of the original Announcement to update | multihash as base32 string | `UTF8` | YES
 
 ## Field Requirements
 
@@ -27,7 +27,7 @@ Updates should be ignored.
 
 ### contentHash
 
-- MUST be a [DSNP Content Hash](../Identifiers.md#dsnp-content-hash) 
+- MUST be a valid [DSNP Content Hash](../Identifiers.md#dsnp-content-hash) 
 
 ### url
 
@@ -49,4 +49,4 @@ Updates should be ignored.
 
 ### targetContentHash
 
-- MUST be the `contentHash` of an allowed Announcement type with the same `fromId` as the Update Announcement
+- MUST be the `contentHash` of a previous Announcement of an Allowed Announcement Type with the same `fromId` as the Update Announcement

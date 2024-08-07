@@ -11,8 +11,23 @@ Graph connections are formed through the DSNP User Id.
 
 ## DSNP Content Hash
 
-- Variable length byte array (fixed length for a given hashing algorithm)
-- MUST be a valid [multihash](https://github.com/multiformats/multihash) encoding of the hash or content address output for the bytes of the content, generated with a [Supported Hashing Algorithm](Announcements.md#supported-hashing-algorithms)
+- MUST be a multibase string using the `base32` encoding
+- MUST represent a valid [multihash](https://github.com/multiformats/multihash) encoding of the hashing algorithm output for the bytes of the content
+- MUST use a [Supported Hashing Algorithm](Announcements.md#supported-hashing-algorithms)
+
+### Serialization Steps
+
+1. Apply the Supported Hashing Algorithm to create a digest of the content.
+2. Prepend the leading bytes from the table below indicating the hashing algorithm in the multicodec table and the length of the hash output.
+3. Encode to UTF-8 using the `base32` alphabet.
+4. Prepend the `'b'` character indicating `base32` encoding.
+
+### Example
+
+1. Applying the BLAKE3 algorithm to the [DSNP Whitepaper](https://dsnp.org/dsnp_whitepaper.pdf) yields the following 32 bytes: `0x3a0393e3ee6c6fec1b13885763225fd0927884b2d431ed262899523ade281cb4`.
+2. Prepending the multihash indicator (`0x1e` for `blake3`) and hash length (`0x20` for 32 bytes) gives `0x1e203a0393e3ee6c6fec1b13885763225fd0927884b2d431ed262899523ade281cb4`
+3. Encoding this to the `base32` alphabet outputs the string `dyqdua4t4pxgy37mdmjyqv3dejp5betyqsznimpneyujsur23yubzna`.
+4. Prepending the `b` character to indicate `base32` gives us the final DSNP Content Hash of `bdyqdua4t4pxgy37mdmjyqv3dejp5betyqsznimpneyujsur23yubzna`.
 
 ### Supported Hashing Algorithms
 
@@ -46,15 +61,15 @@ The DSNP Content URI consists of three parts: the scheme, the user id, and the c
 It is used to uniquely identify an Announcement from a given user with content.
 
 Any [Announcement Types](Announcements.md#announcement-types) with a `fromId` and `contentHash` have a DSNP Content URI.
-When encoding a DSNP Content URI, the `contentHash` field MUST be serialized as [hexadecimal](./Serializations.md#hexadecimal).
+When encoding a DSNP Content URI, the `contentHash` field MUST be serialized exactly as it appears in the Announcement (that is, as a base32 multihash string).
 
 ### Example
 ```
-dsnp://78187493520/0x1234567890abcdef0123456789abcdef0123456789abcdef0123456789abcdef
+dsnp://78187493520/bdyqdua4t4pxgy37mdmjyqv3dejp5betyqsznimpneyujsur23yubzna
 ```
 
 | part | value |
 | ---- | ----- |
 | Scheme | `dsnp://` |
 | User Id | `78187493520` |
-| Content Hash | `0x1234567890abcdef0123456789abcdef0123456789abcdef0123456789abcdef` |
+| Content Hash | `bdyqdua4t4pxgy37mdmjyqv3dejp5betyqsznimpneyujsur23yubzna` |
