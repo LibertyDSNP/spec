@@ -58,7 +58,7 @@ mdBook
 MDX
 MP[34]
 MSA
-multibase
+[Mm]ultibase
 multicodec
 [Mm]ultihash
 multihash-encoded

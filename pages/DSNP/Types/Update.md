@@ -10,10 +10,10 @@ Updates should be ignored.
 | ----- | ----------- | --------- | ------------- | ------------ | ------------ |
 | announcementType | Announcement Type Enum (`6`) | enum | [decimal](../Serializations.md#decimal) | `INT32` | no |
 | fromId | id of the user creating the announcement | 64 bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | YES
-| contentHash | [DSNP Content Hash](../Identifiers.md#dsnp-content-hash) of content | UTF-8 | multihash as base32 string | `UTF8` | YES
+| contentHash | [DSNP Content Hash](../Identifiers.md#dsnp-content-hash) of content | UTF-8 | [base32 multibase](../Serializations.md#base32-multibase) | `UTF8` | YES
 | url | updated content URL | UTF-8 | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | no
 | targetAnnouncementType | target updated Announcement type | enum | [decimal](../Serializations.md#decimal) | `INT32` | no |
-| targetContentHash | target `contentHash` of the original Announcement to update | multihash as base32 string | `UTF8` | YES
+| targetContentHash | target `contentHash` of the original Announcement to update | UTF-8 | [base32 multibase](../Serializations.md#base32-multibase) | `UTF8` | YES
 
 ## Field Requirements
 

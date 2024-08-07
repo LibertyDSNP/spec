@@ -19,15 +19,13 @@ Graph connections are formed through the DSNP User Id.
 
 1. Apply the Supported Hashing Algorithm to create a digest of the content.
 2. Prepend the leading bytes from the table below indicating the hashing algorithm in the multicodec table and the length of the hash output.
-3. Encode to UTF-8 using the `base32` alphabet.
-4. Prepend the `'b'` character indicating `base32` encoding.
+3. Serialize as a [base32 multibase](./Serializations.md#base32-multibase) string.
 
 ### Example
 
 1. Applying the BLAKE3 algorithm to the [DSNP Whitepaper](https://dsnp.org/dsnp_whitepaper.pdf) yields the following 32 bytes: `0x3a0393e3ee6c6fec1b13885763225fd0927884b2d431ed262899523ade281cb4`.
-2. Prepending the multihash indicator (`0x1e` for `blake3`) and hash length (`0x20` for 32 bytes) gives `0x1e203a0393e3ee6c6fec1b13885763225fd0927884b2d431ed262899523ade281cb4`
-3. Encoding this to the `base32` alphabet outputs the string `dyqdua4t4pxgy37mdmjyqv3dejp5betyqsznimpneyujsur23yubzna`.
-4. Prepending the `b` character to indicate `base32` gives us the final DSNP Content Hash of `bdyqdua4t4pxgy37mdmjyqv3dejp5betyqsznimpneyujsur23yubzna`.
+2. Prepending the multihash indicator (`0x1e` for `blake3`) and hash length (`0x20` for 32 bytes) gives `0x1e203a0393e3ee6c6fec1b13885763225fd0927884b2d431ed262899523ade281cb4`.
+3. Serializing as a base32 multibase string gives us the final DSNP Content Hash of `bdyqdua4t4pxgy37mdmjyqv3dejp5betyqsznimpneyujsur23yubzna`.
 
 ### Supported Hashing Algorithms
 
