@@ -1,6 +1,7 @@
 Alexa
 announcementType
 Avro
+base32
 Base58
 BLAKE3
 Brötli
@@ -72,6 +73,7 @@ PNG
 Polkadot
 Poly1305
 pre-configured
+Prepending
 Prerelease
 PRId([ABs])?
 ProfileResource
@@ -112,6 +114,6 @@ W3C
 WebM
 WebP
 websocket
-whitepaper
+[Ww]hitepaper
 X25519
 XSalsa20
