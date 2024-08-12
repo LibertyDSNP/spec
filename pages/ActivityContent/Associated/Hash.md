@@ -13,8 +13,8 @@ This example gives SHA-256 and BLAKE3 hashes for the [PDF version of the DSNP wh
 ```json
 {
   "hash": [
-    "bciqgb7tvyyqn6tw4amtdj7funn5ockup6ldrkap4o5ubd77od6awi4y",
-    "bdyqdua4t4pxgy37mdmjyqv3dejp5betyqsznimpneyujsur23yubzna"
+    "bciqdnu347gcfmxzbkhgoubiobphm6readngitfywktdtbdocgogop2q",
+    "bdyqhwoxp2mc6oyaqpqyd2fvaxralslk32ggazv6nxpp342iec6652tq"
   ]
 }
 ```
