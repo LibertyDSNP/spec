@@ -27,22 +27,22 @@ Profiles are used to provide additional user information display.
   "icon": [
     {
       "type": "Link",
-      "href": "https://placekitten.com/256/256",
+      "href": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/1-month-old_kittens_32.jpg/256px-1-month-old_kittens_32.jpg",
       "mediaType": "image/jpeg",
       "width": "256",
-      "height": "256",
+      "height": "171",
       "hash": [
-        "QmVmUqGYtHcVgpTFR64bHNcLGGFEeWxmUP6pV2C2RbWpKT"
+        "bdyqphnphmjdoumkxqbsuspribxvlsx2hx6525u3fh2dkr5bxnqritzi"
       ]
     },
     {
       "type": "Link",
-      "href": "https://placekitten.com/64/64",
+      "href": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/1-month-old_kittens_32.jpg/64px-1-month-old_kittens_32.jpg",
       "mediaType": "image/jpeg",
       "width": "64",
-      "height": "64",
+      "height": "43",
       "hash": [
-        "QmcAh1rov5GcddekCffGeRnaSyiji6ATmfGWpxXYJHgJZx"
+        "bdyqktr7p5hc27bx4ernmngs6tj7uyukfb4atrtq44mdmx4yntuh2s5y"
       ]
     }
   ],

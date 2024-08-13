@@ -43,13 +43,13 @@ See also [Announcement Types](Announcements.md).
 
 #### Columns with Bloom Filters
 
-| Column | Parquet Type |
-| ------ | ---- |
-| contentHash | `BYTE_ARRAY` |
-| emoji | `BYTE_ARRAY` |
-| fromId | `BYTE_ARRAY` |
-| inReplyTo | `BYTE_ARRAY` |
-| objectId | `BYTE_ARRAY` |
+| Column | Primitive Type | Logical Type | Converted Type (deprecated) |
+| ------ | ---- | ---- | --- |
+| contentHash | `BYTE_ARRAY` | `STRING` | `UTF8` |
+| emoji | `BYTE_ARRAY` | `STRING` | `UTF8` |
+| fromId | `INT64` | `INT(64, false)` | `UINT_64` |
+| inReplyTo | `BYTE_ARRAY` | `STRING` | `UTF8` |
+| targetContentHash | `BYTE_ARRAY` | `STRING` | `UTF8` |
 
 ## Non-Normative
 

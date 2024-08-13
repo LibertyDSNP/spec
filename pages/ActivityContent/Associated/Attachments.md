@@ -44,7 +44,7 @@
           "href": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Wilhelm_Scream.ogg",
           "mediaType": "audio/ogg",
           "hash": [
-		    "QmQrGdv6Ky5sJhaVdw27y4aod5pdfihDkBTxiBkRaSGJJ7"
+            "bdyqbcji3okmzxobvaqgduz5prixmumyndzopyufultmslndi4pdebii"
           ]
         }
       ],
@@ -73,7 +73,7 @@
 | `type` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-type) | YES | Identifies the type of the object | MUST be set to `Link` |
 | `href` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-href) | YES | The URL for the given image | MUST be a [Supported URL Schema](../Overview.md#supported-url-schema) |
 | `mediaType` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-mediatype) | YES | MIME type of `href` content | |
-| `hash` | [DSNP 1.0](Hash.md) | YES | Array of hashes for linked content validation | MUST include at least one [supported hash](Hash.md#supported-algorithms) |
+| `hash` | [DSNP 1.0](Hash.md) | YES | Array of hashes for linked content validation | MUST include at least one [supported hash](../../DSNP/Identifiers.md#supported-hashing-algorithms) |
 | `height` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-height) | no | A hint as to the rendering height in device-independent pixels |  |
 | `width` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-width) | no | A hint as to the rendering width in device-independent pixels |  |
 
@@ -106,7 +106,8 @@
           "height": 228,
           "mediaType": "image/jpg",
           "hash": [
-            "2Drjgb5yoVWTpubcWmDBLJqkxrFkZamekzJoYLSWwM2ezpFkab"
+            "bciqjiqcidmzuqpvrl5cocu3l4z2uhj22xqruht3d5kx7qijvfbnjlda",
+            "bdyqbjzt5drgji5w7xhsddsynusgx2vdmakcsrr4sfin5fyfkwlpup6q"
           ]
         }
       ]
@@ -169,7 +170,7 @@
           "height": 2250,
           "mediaType": "video/webm",
           "hash": [
-            "2Drjgb4a8eC4XheBKCBcbAcaVdEWcKjMbCSZ2L2c9CQs4x98jf"
+            "bdyqed7dnok3batd7tr64trqmovfxam5tqsgxkiv2op5765pq43swtui"
           ]
         }
       ]
