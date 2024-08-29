@@ -10,7 +10,7 @@ A User Attribute Set Announcement is a way to create an authenticated (and, opti
 | fromId | id of the user creating the Announcement | 64 bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | YES |
 | subject | DSNP User Id of the attribute set subject | 64 bit unsigned integer | decimal | `UINT_64` | YES |
 | url | URL for the Verifiable Credential Document (optional) | `UTF-8` | `UTF-8` | `UTF8` | no |
-| contentHash | multihash-encoded hash of content stored at URL | variable length byte array | [hexadecimal](../Serializations.md#hexadecimal) | `BYTE_ARRAY` | YES |
+| contentHash | [DSNP Content Hash](../Identifiers.md#dsnp-content-hash) of content | UTF-8 | [base32 multibase](../Serializations.md#base32-multibase) | `UTF8` | YES |
 | attributeSetType | Canonical name of attribute set type | `UTF-8` | `UTF-8` | `UTF8` | YES |
 | issuer | URI of issuer | `UTF-8` | `UTF-8` | `UTF8` | YES |
 
@@ -43,11 +43,11 @@ A User Attribute Set Announcement is a way to create an authenticated (and, opti
 
 ### contentHash
 
-- MUST be a [DSNP Content Hash](../Identifiers.md#dsnp-content-hash)
+- MUST be a valid [DSNP Content Hash](../Identifiers.md#dsnp-content-hash)
 
 ### attributeSetType
 
-- MUST be a valid [Attribute Set Type canonical name](../Identifiers.md#attribute-set-type-canonical-name)
+- MUST be a valid [Attribute Set Type canonical name](../AttributeSets.md#canonical-naming)
 
 ### issuer
 

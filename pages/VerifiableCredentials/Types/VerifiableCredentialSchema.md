@@ -14,8 +14,8 @@ A schema credential specializes the meaning of the following fields:
 | Property | Required | JSON Type | Description | Restrictions |
 | --- | --- | --- | --- | --- |
 | `type` | YES | Array of strings | Type of credential | MUST contain the strings `"VerifiableCredential"` and `"JsonSchemaCredential"` |
-|`credentialSubject` | YES | Object | Object containing JSON schema and DSNP extensions | See below |
-| `credentialSchema` | YES | Object | Metaschema defining JSON Schema types | See below for required contents |
+|`credentialSubject` | YES | Object | Object containing JSON schema and DSNP extensions | See [Credential Subject](#credential-subject) |
+| `credentialSchema` | YES | Object | Metaschema defining JSON Schema types | See [Credential Schema](#credential-schema) |
 
 ### Credential Schema
 The required `credentialSchema` object MUST follow the specification and contain:
@@ -35,8 +35,8 @@ A DSNP Verifiable Credential Schema document's `credentialSubject` object uses t
 | Property | Required | JSON Type | Description | Restrictions |
 | --- | --- | --- | --- | --- |
 | `type` | YES | String | Type of subject matter | MUST be `JsonSchema` |
-| `jsonSchema` | YES | Object | Embedded JSON Schema object | See below |
-| `dsnp` | NO | Object | DSNP extension object | See below |
+| `jsonSchema` | YES | Object | Embedded JSON Schema object | See [JSON Schema](#json-schema) |
+| `dsnp` | NO | Object | DSNP extension object | See [DSNP Extensions](#dsnp-extensions) |
 
 #### JSON Schema
 
@@ -49,7 +49,7 @@ The JSON Schema object is formed as follows:
 
 The remainder of the schema object should be interpreted as per the relevant JSON schema specification.
 
-##### Valid DSNP JSON Schema versions
+##### Valid DSNP JSON Schema Versions
 
 DSNP applications MUST support the following JSON Schema versions:
 
@@ -164,8 +164,8 @@ The above example might be translated as "A credential conforming to this schema
       },
       "trust": {
         "oneOf": [
-          "did:dsnp:123456$CarDealership",
-          "did:dsnp:123456$TaxOffice"
+          "did:dsnp:123456$AuthorizedCarDealership",
+          "did:dsnp:123456$OfficialTaxOffice"
         ]
       }
     }

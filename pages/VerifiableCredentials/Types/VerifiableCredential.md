@@ -1,6 +1,6 @@
 # Verifiable Credential
 
-Credentials should conform to the [Verifiable Credentials Data Model 1.1](https://www.w3.org/TR/vc-data-model-1.1/), expressed as JSON-LD.
+Credentials should conform to the [Verifiable Credentials Data Model 1.1](https://www.w3.org/TR/vc-data-model-1.1/) or [Verifiable Credentials Data Model 2.0](https://www.w3.org/TR/vc-data-model-2.0/), expressed as [JSON-LD](https://json-ld.org/).
 The fields noted below consist only of those with requirements or semantics that differ from the underlying specification.
 
 ## JSON-LD Contexts
@@ -9,7 +9,7 @@ The following JSON-LD context values are valid for use with DSNP:
 
 | Object | `@context` |
 | --- | --- |
-| Verifiable Credential | `https://www.w3.org/2018/credentials/v1` |
+| Verifiable Credential | `https://www.w3.org/2018/credentials/v1`<br>`https://www.w3.org/ns/credentials/v2` |
 
 ## Verifiable Credential Document
 
@@ -17,12 +17,12 @@ A DSNP Verifiable Credential JSON document specializes the following fields:
 
 | Property | Required | JSON Type | Description | Restrictions |
 | --- | --- | --- | --- | --- |
-| `@context` | YES | Array of strings | JSON-LD @context | MUST include `"https://www.w3.org/2018/credentials/v1"` |
+| `@context` | YES | Array of strings | JSON-LD @context | MUST include `"https://www.w3.org/2018/credentials/v1"` or `"https://www.w3.org/ns/credentials/v2"` |
 | `type` | YES | Array of strings | Type of credential | MUST contain `"VerifiableCredential"` per specification; if a `credentialSchema` is present, MUST also contain a string matching the referenced JSON Schema's `title`.  |
-| `issuer` | YES | String or Object | DID or object identifying credential issuer | See below |
-|`credentialSubject` | YES | Object | Object identifying subject and claim | See below |
-| `credentialSchema` | no | Object | Reference to schema for this credential | See below |
-| `proof` | no | Object | Cryptographic proof of authorship by `issuer` | See below |
+| `issuer` | YES | String or Object | DID or object identifying credential issuer | See [Issuer](#issuer) |
+|`credentialSubject` | YES | Object | Object identifying subject and claim | See [Credential Subject](#credential-subject) |
+| `credentialSchema` | no | Object | Reference to schema for this credential | See [Credential Schema](#credential-schema) |
+| `proof` | no | Object | Cryptographic proof of authorship by `issuer` | See [Proof](#proof) |
 
 ### Issuer
 
@@ -36,15 +36,17 @@ In the object form, the issuer may optionally include references to its own cred
 | Property | Required | JSON Type | Description | Restrictions |
 | --- | --- | --- | --- | --- |
 | `id` | YES | String | DID of issuer | Must be a [DSNP DID](./DID.md) |
-| `authority` | no | Array | List of relevant credentials with issuer as subject | See below |
+| `authority` | no | Array | List of relevant credentials with issuer as subject | See [Authority](#authority) |
 
-Objects in the `authority` array MUST have the following properties:
+#### Authority
+
+Objects in the `issuer.authority` array MUST have the following properties:
 
 | Property | Required | JSON Type | Description | Restrictions |
 | --- | --- | --- | --- | --- |
 | `id` | YES | String | URL of Verifiable Credential | MUST be a DSNP Verifiable Credential |
 | `rel` | YES | String | The linked credential's attribute set type | MUST be a DSNP [Attribute Set Type](../../DSNP/AttributeSets.md#attribute-set-type) corresponding to the referenced credential document |
-| `hash` | YES | Array |  Array of hashes for linked content validation | MUST include at least one [supported hash](../../ActivityContent/Associated/Hash.md#supported-algorithms) |
+| `digestMultibase` | YES | Array |  Array of hashes for linked content validation | MUST include at least one [supported hash](../../ActivityContent/Associated/Hash.md#supported-algorithms) |
 
 Examples:
 
@@ -59,15 +61,15 @@ Examples:
     {
       "id": "https://mydsnpcreds.net/86420-fp",
       "rel": "did:dsnp:123456$FairTradeProducer",
-      "hash": [
-        "QmQrGdv6Ky5sJhaVdw27y4aod5pdfihDkBTxiBkRaSGJJ7"
+      "digestMultibase": [
+        "bciqdnu347gcfmxzbkhgoubiobphm6readngitfywktdtbdocgogop2q"
       ]
     },
     {
       "id": "https://mydsnpcreds.net/86420-ap",
       "rel": "did:dsnp:123456$AppleProducer",
-      "hash": [
-        "2Drjgb4a8eC4XheBKCBcbAcaVdEWcKjMbCSZ2L2c9CQs4x98jf"
+      "digestMultibase": [
+        "bdyqhwoxp2mc6oyaqpqyd2fvaxralslk32ggazv6nxpp342iec6652tq"
       ]
     }
   ]
@@ -86,7 +88,7 @@ The remainder of the contents of the `credentialSubject` value MUST conform to t
 
 | Property | Required | JSON Type | Description | Restrictions |
 | --- | --- | --- | --- | --- |
-| `id` | YES | String | URL of schema document | MUST reference a [DSNP Verifiable Credential Schema](./VerifiableCredentialSchema.md) |
+| `id` | YES | String | URL of schema document | If `type` is `JsonSchemaCredential`, MUST reference a [DSNP Verifiable Credential Schema](./VerifiableCredentialSchema.md) |
 
 ### Proof
 
@@ -116,7 +118,7 @@ The remainder of the contents of the `credentialSubject` value MUST conform to t
     "id": "https://dsnp.org/schema/examples/vehicle_owner.json"
   },
   "credentialSubject": {
-    "id": "did:dsnp:999999",
+    "id": "dsnp://999999",
     "make": "DeLorean",
     "model": "DMC-12",
     "year": 1981

@@ -1,6 +1,6 @@
 # DIDs
 
-DSNP Users are referenced in Verifiable Credentials documents in compliance with the [Decentralized Identifiers v1.0](https://www.w3.org/TR/did-core/) specification.
+DSNP Users are referenced in Verifiable Credentials documents via DIDs compliant with the [Decentralized Identifiers v1.0](https://www.w3.org/TR/did-core/) specification.
 
 Applications that make use of Verifiable Credentials issued by DSNP Users MUST be able to resolve DSNP User DIDs to DID documents in order to verify that signatures were created with keys controlled by that user.
 A DSNP DID document is effectively a document aggregating DSNP User Data.
@@ -13,7 +13,7 @@ A DSNP DID uses `dsnp` (lowercase) as the method name and the DSNP User Id as th
 `did:dsnp:123456`
 
 This DID identifies the DSNP User with User Id 123456.
-In this format, the DSNP User Id is represented in decimal form. 
+In this format, the DSNP User Id is serialized in decimal form with no additional punctuation. 
 
 References to identifiers within a DID document are formed by appending URL fragments to a DID.
 For example, a Verifiable Credential might reference the public key to be used to verify a document's signature as `did:dsnp:123456#key1`, assuming the document included a `verificationMethod` with `"id": "key1"`.
@@ -26,9 +26,12 @@ A DSNP DID document is a JSON-LD document representing key material associated w
 | --- | --- | --- | --- | --- |
 | `@context` | YES | Array of strings | JSON-LD @context | MUST include `"https://www.w3.org/ns/did/v1"` |
 | `id` | YES | String | The DID described by this document | MUST be of the form `did:dsnp:{userId}` |
-| `verificationMethod` | NO | Array of Verification Method objects | Set of public keys that may be referenced from `assertionMethod` and `keyAgreement` arrays |
-| `assertionMethod` | NO | Array  | Set of public keys used to generate digital signatures | MUST include or reference all relevant keys present in DSNP User Data |
-| `keyAgreement` | NO | Array | Set of public keys used to generate shared secrets | MUST include or reference all relevant keys present in DSNP User Data |
+| `verificationMethod` | NO | Array of Verification Method objects | Set of public keys that may be referenced from `assertionMethod`, `authentication`, and `keyAgreement` arrays |
+| `assertionMethod` | NO | Array  | Set of public keys used to generate digital signatures | MUST include or reference all relevant keys present in DSNP User Data `assertionMethodPublicKeys` |
+| `authentication` | NO | Array  | Set of public keys used as DSNP control keys | MAY include or reference any keys used as control keys |
+| `keyAgreement` | NO | Array | Set of public keys used to generate shared secrets | MUST include or reference all relevant keys present in DSNP User Data `keyAgreementPublicKeys` |
+
+Additional properties defined in the DID specification MAY be present.
 
 ### Public Key Representation
 
