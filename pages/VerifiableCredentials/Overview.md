@@ -1,7 +1,7 @@
 # Verifiable Credentials Specification
 __Version pre-1.3.0__
 
-[Attribute Sets](../DSNP/AttributeSets.md) and [Attestation](../../ActivityContent/Associated/Attachments.md#attestation) attachments shared via DSNP reference data documents containing Verifiable Credentials and related objects.
+[Attribute Sets](../DSNP/AttributeSets.md) and [Attestation](../ActivityContent/Associated/Attachments.md#attestation) attachments shared via DSNP reference data documents containing Verifiable Credentials and related objects.
 For DSNP purposes, certain restrictions and extensions are applied to the base World Wide Web Consortium (W3C) specification documents noted below.
 When there are DSNP extensions, they are guaranteed to use non-colliding terms.
 

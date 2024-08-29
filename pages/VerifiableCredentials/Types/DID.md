@@ -56,16 +56,25 @@ DSNP DID resolvers MUST serialize keys in the Multikey format, defined in [Verif
   "@context": [
     "https://www.w3.org/ns/did/v1"
   ],
-  "id": "did:dsnp:13972",
-  "assertionMethod": [
+  "id": "did:dsnp:645313",
+  "authentication": [
     {
       "@context": "https://w3id.org/security/multikey/v1",
-      "id": "did:dsnp:13972#z6MkuzE4hBVHTmwFff37ZuPQs9sbkdJo8jifN9sZ1jXbgyMp",
+      "id": "did:dsnp:645313#z6QP1gZa1xAGCtsPzZSc5mdTDtrGsWUyf12TmU6pSu15SXUr",
       "type": "Multikey",
-      "controller": "did:dsnp:13972",
-      "publicKeyMultibase": "z6MkuzE4hBVHTmwFff37ZuPQs9sbkdJo8jifN9sZ1jXbgyMp"
+      "controller": "did:dsnp:645313",
+      "publicKeyMultibase": "z6QP1gZa1xAGCtsPzZSc5mdTDtrGsWUyf12TmU6pSu15SXUr"
     }
   ],
-  "keyAgreement": []
+  "assertionMethod": [],
+  "keyAgreement": [
+    {
+      "@context": "https://w3id.org/security/multikey/v1",
+      "id": "did:dsnp:645313#z6LSoYFtPRBEizFQ2zYXEXBPP96t9gNFWjZVJTfXWqzMhw9e",
+      "type": "Multikey",
+      "controller": "did:dsnp:645313",
+      "publicKeyMultibase": "z6LSoYFtPRBEizFQ2zYXEXBPP96t9gNFWjZVJTfXWqzMhw9e"
+    }
+  ]
 }
 ```
