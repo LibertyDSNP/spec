@@ -1,7 +1,7 @@
 # Verifiable Credentials Specification
 __Version pre-1.3.0__
 
-[Attribute Sets](../DSNP/AttributeSets.md), [Attestation](../../ActivityContent/Associated/Attachments.md#attestation) attachments, and [Interaction](../ActivityContent/Associated/Attachments.md#interaction) attachents shared via DSNP reference data documents containing Verifiable Credentials and related objects.
+[Attribute Sets](../DSNP/AttributeSets.md) and [Attestation](../../ActivityContent/Associated/Attachments.md#attestation) attachments shared via DSNP reference data documents containing Verifiable Credentials and related objects.
 For DSNP purposes, certain restrictions and extensions are applied to the base World Wide Web Consortium (W3C) specification documents noted below.
 When there are DSNP extensions, they are guaranteed to use non-colliding terms.
 
@@ -63,7 +63,7 @@ See the individual pages for details of restrictions to and extensions on each t
 
 ## Additional Fields
 
-DSNP application developers may choose to support more of the relevant JSON-LD vocabularies from the specifications above as long as doing so does not conflict with this specification, but should note that other conformant applications may not recognize those additions.
+DSNP application developers may choose to support more of the relevant JSON-LD vocabularies from the specifications above as long as doing so does not conflict with this specification, but should note that other conforming applications may not recognize those additions.
 Implementers who extend their support for Verifiable Credentials objects beyond the subset defined here do so at their own risk.
 
 ## Verifiable Presentations
