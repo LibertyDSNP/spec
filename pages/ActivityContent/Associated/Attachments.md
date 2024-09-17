@@ -208,3 +208,57 @@
   "published": "1970-01-01T00:00:00+00:00"
 }
 ```
+
+## Attestations
+
+Attestation attachments are DSNP extensions to the Activity Content model that allow users to attach Verifiable Credentials corresponding to an Attribute Set Type with their DSNP profile or a social media post.
+
+The Verifiable Credential found at the indicated URL must include the user's [DSNP User URI](../../DSNP/Identifiers.md#dsnp-user-uri) in its `credentialSubject.id` field.
+
+| Property | Base Spec | Required | Description | Restrictions |
+| --- | --- | --- | --- | --- |
+| `type` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-type) | YES | Identifies the type of the object | MUST be set to `Attestation` |
+| `url` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-url) | YES | An array of links for the given credential | MUST be a [Verifiable Credential Link](#verifiable-credential-link) |
+| `name` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-name) | no | The display name for the attestation |  |
+
+### Verifiable Credential Link
+
+Attestation attachments must contain a link to a Verifiable Credential document.
+The link must contain a relationship identifier in the form of a DSNP Attribute Set Type (the `rel` field) to allow applications to determine the type of credential expected.
+
+| Property | Base Spec | Required | Description | Restrictions |
+| --- | --- | --- | --- | --- |
+| `type` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-type) | YES | Identifies the type of the object | MUST be set to `Link` |
+| `rel` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-id) | YES | The attestation's attribute set type | MUST be a DSNP [Attribute Set Type](../../DSNP/AttributeSets.md#attribute-set-type) corresponding to the referenced credential document |
+| `href` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-href) | YES | The URL for the associated Verifiable Credential | MUST be a [Supported URL Schema](../Overview.md#supported-url-schema) |
+| `mediaType` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-mediatype) | YES | MIME type of `href` content | MUST be set to [`application/vc`](https://www.w3.org/TR/vc-data-model-2.0/#vc-ld-media-type) |
+| `hash` | [DSNP extension](Hash.md) | YES | Array of hashes for linked content validation | MUST include at least one [supported hash](Hash.md#supported-algorithms) |
+
+#### Example
+
+```json
+{
+  "@context": "https://www.w3.org/ns/activitystreams",
+  "type": "Profile",
+  "content": "I am a doctor. You're doing this all wrong.",
+  "mediaType": "text/plain",
+  "attachments": [
+    {
+      "type": "Attestation",
+      "name": "My Degree",
+      "url": [
+        {
+          "type": "Link",
+          "rel": "did:dsnp:123456$AcmeMedicalAssociationPhysician",
+          "href": "https://acmemedicalassn.org/credentials/degree-123.json",
+          "mediaType": "application/vc",
+          "hash": [
+		    "bciqdnu347gcfmxzbkhgoubiobphm6readngitfywktdtbdocgogop2q"
+          ]
+        }
+      ]
+    }
+  ],
+  "published": "1970-01-01T00:00:00+00:00"
+}
+```

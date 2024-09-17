@@ -32,9 +32,10 @@ A compliant specification MUST specify a mapping from its system-specific state 
 <!--- Uncomment for pre-release changes and prefix the version with `pre-[next version]` --->
 ## Prerelease Changelog
 
-- DIP-263 User Data for Public Keys
-- DIP-267 User Data for Profile Resources
-- DIP-273 Content Addressing
+- [DIP-257](https://github.com/LibertyDSNP/spec/issues/257) Attribute Sets and Attestation
+- [DIP-263](https://github.com/LibertyDSNP/spec/issues/263) User Data for Public Keys
+- [DIP-267](https://github.com/LibertyDSNP/spec/issues/267) User Data for Profile Resources
+- [DIP-273](https://github.com/LibertyDSNP/spec/issues/273) Content Addressing
 
 ## Releases
 

@@ -7,20 +7,27 @@ Here you can find the detailed specification documentation for DSNP, official DS
 
 Free communication among users on the Internet faces a variety of problems in the modern day.
 These challenges include censorship by state and corporate actors, the amplification of misinformation through viral content, and an ever-shrinking collection of near monopolies with absolute power over social interaction in the twenty-first century.
-Through the DSNP, we hope to mitigate and ideally solve these challenges in the way social interaction operates online.
+Through DSNP, we hope to mitigate and ideally solve these challenges in the way social interaction operates online.
 
 ## How to Read This Specification
 
-There are three core specifications currently.
+There are three core specifications and one system specification currently.
+Each specification is divided into several modules.
+Each module describes a mostly self-contained aspect of the specification.
+
+### Core Specifications
 
 | Name | Version | Description |
 | --- | --- | --- |
 | [DSNP](DSNP/Overview.md) | pre-1.3.0 | The system-agnostic DSNP specification |
 | [Activity Content](ActivityContent/Overview.md) | pre-1.3.0 | A specification for DSNP-referenced content (subset of W3C Activity Streams) |
-| [DSNP Over Frequency](Frequency/Overview.md) | - | DSNP Over Frequency specification |
+| [Verifiable Credentials](VerifiableCredentials/Overview.md) | pre-1.3.0 | Use of W3C Verifiable Credentials and DIDs with DSNP |
 
-Each specification is divided into several modules.
-Each module describes a mostly self-contained aspect of the specification.
+### System Specifications
+
+| Consensus System | DSNP System Specification |
+| --- | --- |
+| [Frequency](https://frequency.xyz) | [DSNP Over Frequency](Frequency/Overview.md) |
 
 ## Versioning
 
@@ -33,4 +40,4 @@ All interactions must follow the [Code of Conduct](https://github.com/LibertyDSN
 
 ## Learning More
 
-In addition to this document, more resources regarding the project can be found at [DSNP.org](https://www.dsnp.org), including the blog, forum, code repository, and SDK.
+In addition to this document, more resources regarding the project can be found at [DSNP.org](https://www.dsnp.org), including the blog, forum, code repositories, and other supporting software libraries and examples.
