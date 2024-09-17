@@ -1,5 +1,5 @@
 # Activity Content Specification
-__Version pre-1.3.0__
+__Version 1.3.0__
 
 Content references shared via the DSNP consist of URLs pointing to documents containing Activity Streams JSON objects.
 For the purposes of the DSNP, restrictions are placed on the [Activity Streams 2.0](https://www.w3.org/TR/activitystreams-core/) specification.
@@ -45,23 +45,24 @@ URLs in DSNP-compatible Activity Content MUST use one of the following URL schem
 | [LibertyDSNP/activity-content-java](https://github.com/LibertyDSNP/activity-content-java) | Java/Kotlin |
 | [LibertyDSNP/activity-content-swift](https://github.com/LibertyDSNP/activity-content-swift) | Swift |
 
-<!--- Uncomment for pre-release changes and prefix the version with `pre-[next version]` -->
+<!--- Uncomment for pre-release changes and prefix the version with `pre-[next version]`
 ## Prerelease Changelog
 
-- [DIP-257](https://github.com/LibertyDSNP/spec/issues/257) Attribute Sets and Attestation
-- [DIP-273](https://github.com/LibertyDSNP/spec/issues/273) Content Addressing
+- [DIP-xxx](https://github.com/LibertyDSNP/spec/issues/xxx) Name of Feature
+--->
 
 ## Releases
 
 | Version | Description | Release Date | Changelog |
 | --- | --- | --- | --- |
+| [1.3.0](https://github.com/LibertyDSNP/spec/tree/ActivityContent-v1.3.0) | DIP-257 | 2024-09-17 | [Changelog](https://github.com/LibertyDSNP/spec/releases/tag/ActivityContent-v1.3.0) |
 | [1.2.0](https://github.com/LibertyDSNP/spec/tree/ActivityContent-v1.2.0) | DIP-210 | 2023-04-11 | [Changelog](https://github.com/LibertyDSNP/spec/releases/tag/ActivityContent-v1.2.0) |
 | [1.1.0](https://github.com/LibertyDSNP/spec/tree/ActivityContent-v1.1.0) | DIP-158 | 2022-05-05 | [Changelog](https://github.com/LibertyDSNP/spec/releases/tag/ActivityContent-v1.1.0) |
 | [1.0.0](https://github.com/LibertyDSNP/spec/tree/ActivityContent-v1.0.0) | Initial Release | 2021-09-09 | [Changelog](https://github.com/LibertyDSNP/spec/releases/tag/ActivityContent-v1.0.0) |
 
 ## Non-Normative
 
-## Additional Fields
+### Additional Fields
 
 Implementers may choose to support more of the Activity Streams standard as long as it does not conflict with this specification, but should note that other implementations may not recognize those additions.
 Implementers who extend their support for Activity Streams objects beyond the subset defined here do so at their own risk.

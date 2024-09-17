@@ -1,5 +1,5 @@
 # Verifiable Credentials Specification
-__Version pre-1.3.0__
+__Version 1.3.0__
 
 [Attribute Sets](../DSNP/AttributeSets.md) and [Attestation](../ActivityContent/Associated/Attachments.md#attestation) attachments shared via DSNP reference data documents containing Verifiable Credentials and related objects.
 For DSNP purposes, certain restrictions and extensions are applied to the base World Wide Web Consortium (W3C) specification documents noted below.
@@ -47,17 +47,17 @@ See the individual pages for details of restrictions to and extensions on each t
 | [LibertyDSNP/dsnp-verifiable-credentials](https://github.com/LibertyDSNP/dsnp-verifiable-credentials) | JavaScript/TypeScript |
 | [LibertyDSNP/dsnp-did-resolver](https://github.com/LibertyDSNP/dsnp-did-resolver) | JavaScript/TypeScript |
 
-<!--- Uncomment for pre-release changes and prefix the version with `pre-[next version]` -->
+<!--- Uncomment for pre-release changes and prefix the version with `pre-[next version]`
 ## Prerelease Changelog
 
-- [DIP-257](https://github.com/LibertyDSNP/spec/issues/257) Attribute Sets and Attestation
+- [DIP-xxx](https://github.com/LibertyDSNP/spec/issues/xxx) Name of Feature
+--->
 
-<!-- Uncomment and add when released
 ## Releases
 
 | Version | Description | Release Date | Changelog |
 | --- | --- | --- | --- |
--->
+| 1.3.0 | DIP-257 | 2024-09-17 | [Changelog](https://github.com/LibertyDSNP/spec/releases/tag/VerifiableCredentials-v1.3.0) |
 
 ## Non-Normative
 
@@ -68,7 +68,7 @@ Implementers who extend their support for Verifiable Credentials objects beyond 
 
 ### Verifiable Presentations
 
-[Verifiable Presentations](https://www.w3.org/TR/2024/CRD-vc-data-model-2.0-20240823/#verifiable-presentations) combine one or more Verifiable Credentials in a single document.
+[Verifiable Presentations](https://www.w3.org/TR/vc-data-model-2.0/#verifiable-presentations) combine one or more Verifiable Credentials in a single document.
 These might be existing Verifiable Credentials, whether or not previously published, or new Verifiable Credentials derived from non-public source credentials using methods like zero-knowledge proofs.
 At this time, Verifiable Presentations are not directly tied to DSNP content or announcements.
 However, application and service providers may be interested in implementing functionality using Verifiable Presentations with DSNP Verifiable Credentials.
