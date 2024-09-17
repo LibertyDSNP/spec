@@ -36,7 +36,7 @@ A DSNP Verifiable Credential Schema document's `credentialSubject` object uses t
 | --- | --- | --- | --- | --- |
 | `type` | YES | String | Type of subject matter | MUST be `JsonSchema` |
 | `jsonSchema` | YES | Object | Embedded JSON Schema object | See [JSON Schema](#json-schema) |
-| `dsnp` | NO | Object | DSNP extension object | See [DSNP Extensions](#dsnp-extensions) |
+| `dsnp` | no | Object | DSNP extension object | See [DSNP Extensions](#dsnp-extensions) |
 
 #### JSON Schema
 

@@ -6,15 +6,15 @@ Attribute set data may appear in several modes: it can be published as a DSNP An
 
 ## Data Model
 
-The conceptual model for Attribute Sets includes three types of data:
+The conceptual model for attribute sets includes three types of data:
 
-1. A schema encoding rules for validating attribute set data. This MUST be in the form of a [DSNP Verifiable Credential Schema](../VerifiableCredentials/Types/VerifiableCredentialSchema.md) (a Verifiable Credential that contains a JSON Schema document).
+1. A schema that encodes rules for validating attribute set data. This MUST be in the form of a [DSNP Verifiable Credential Schema](../VerifiableCredentials/Types/VerifiableCredentialSchema.md) (a Verifiable Credential that contains a JSON Schema document).
 2. The attribute set data itself. This MUST be serialized as a [DSNP Verifiable Credential](../VerifiableCredentials/Types/VerifiableCredential.md).
 3. A reference to the attribute set data, which may take one of several different forms depending on the desired usage pattern.
 
 ## Attribute Set Type
 
-An Attribute Set Type is an identifier that is used to group Attribute Sets that share the same data structure and semantic meaning.
+An Attribute Set Type is an identifier that is used to group attribute sets that share the same data structure and semantic meaning.
 Attribute Set Types have a well known canonical name and (in most cases) a well defined schema, expressed using a Verifiable Credential Schema document.
 
 ### Versioning
@@ -31,10 +31,10 @@ This is facilitated by the following naming scheme.
 Attribute Set Type canonical names are constructed as follows:
 
 * MUST be in the format _attributeSetTypeNamespace_ + "`$`" + _attributeSetTypeName_, where _attributeSetTypeNamespace_ MUST be either a multihash content hash (encoded as a multibase string), the DSNP DID of the schema author (beginning with "`did:dsnp:`"), or the empty string (for schemaless attribute set types).
-* _attributeSetTypeName_ MUST match a declared type value in the Verifiable Credential document
-* If _attributeSetTypeNamespace_ is a DID, it must match the issuer of the Verifiable Credential Schema document referenced from the credential document, and the schema document must include a proof that can be verified using the issuer's public key.
+* _attributeSetTypeName_ MUST match a declared type value in the Verifiable Credential document.
+* If _attributeSetTypeNamespace_ is a DID, it MUST match the issuer of the Verifiable Credential Schema document referenced from the credential document, and the schema document MUST include a proof that can be verified using the issuer's public key.
 * If _attributeSetTypeNamespace_ is empty, the credential document MUST NOT reference a schema.
-* If _attributeSetTypeNamespace_ is a multibase string, it must match the multihash content hash of the schema file referenced from the credential document.
+* If _attributeSetTypeNamespace_ is a multibase string, it MUST match the multihash content hash of the schema file referenced from the credential document.
 
 Examples:
 
@@ -46,13 +46,13 @@ Examples:
 
 ### Attribute Set Announcements
 
-The Announcement model allows Attribute Sets to be consumed as events providing context or metadata to the social network.
+The Announcement model allows attribute sets to be consumed as events providing context or metadata to the social network.
 Attribute Set Announcements allow DSNP Users to associate data or make assertions about their own account, other DSNP Users, content on DSNP, or even content external to DSNP.
 Credential documents are anchored to the announcement by the `url` and `hash` fields.
 
-Applications consuming these Announcements can index and use the associated Attribute Sets to inform their user experience.
-For example, a fact-checking organization can publish Attribute Set announcements to flag content it deems to be misinformation, and interested applications that trust the organization's determinations can provide warning labels on social media posts.
-Similarly, an organization might attach metadata in the form of Attribute Sets to denote DSNP User Ids that are operated by government actors.
+Applications consuming these announcements can index and use the associated attribute sets to inform their user experience.
+For example, a fact-checking organization can publish Attribute Set Announcements to flag content it deems to be misinformation, and interested applications that trust the organization's determinations can provide warning labels on social media posts.
+Similarly, an organization might attach metadata in the form of attribute sets to denote DSNP User Ids that are operated by government actors.
 
 Attribute Set Announcements cannot be updated once published, but can be tombstoned.
 Applications MUST treat tombstoned Attribute Set Announcements as nonexistent.
@@ -69,7 +69,7 @@ Attribute Set announcements are expressed using three announcement types, depend
 
 ### Attestation Attachments
 
-Attribute Sets associated with and controlled by a DSNP User can be referenced as [Attestation Attachments](../ActivityContent/Associated/Attachments.md#attestation) to a user's [Profile](./Types/Profile.md) document, or to an Activity Content Note object that is referenced from a Broadcast or Reply announcement.
+Attribute sets associated with and controlled by a DSNP User can be referenced as [Attestation Attachments](../ActivityContent/Associated/Attachments.md#attestation) to a user's [Profile](./Types/Profile.md) document, or to an Activity Content Note object that is referenced from a Broadcast or Reply announcement.
 
 Profile-linked attestations are necessary in cases where an attestation is required in order for a consumer to verify chains of trust designated by schema controllers, such as an accreditation that gives the organization represented by the DSNP User Id the authority to issue credentials to others.
 
@@ -91,7 +91,7 @@ Both Verifiable Credential Schema documents and Verifiable Credential documents 
 DSNP Users may control one or more key pairs for use in signing these documents and make these discoverable using the `assertionMethod` User Data type.
 A key announced in this fashion can be referenced within the proof using a [DSNP DID](../VerifiableCredentials/Types/DID.md) with a key identifier, as in `did:dsnp:123456#key1`.
 
-A verifier must ensure that the DSNP User Id referenced this way (that is, the substring of the DID before the first `#` character) is the same as the issuer field.
+A verifier MUST ensure that the DSNP User Id referenced this way (that is, the substring of the DID before the first `#` character) is the same as the issuer field.
 
 Following the principle of least privilege, the key pair used to issue credentials SHOULD be different from any control keys used to authenticate transactions.
 
@@ -100,7 +100,7 @@ Following the principle of least privilege, the key pair used to issue credentia
 Trust in an attribute set may be assigned based on a combination of its Attribute Set Type and issuer.
 It is left to each application that acts as a DSNP consumer to determine which attribute sets it will trust.
 
-Trust MUST be accompanied by verification of the documents linked to an Attribute Set reference.
+Trust MUST be accompanied by verification of the documents linked to an attribute set reference.
 
 ### Summary of Verification Responsibilities
 

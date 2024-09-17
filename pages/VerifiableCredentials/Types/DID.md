@@ -26,10 +26,10 @@ A DSNP DID document is a JSON-LD document representing key material associated w
 | --- | --- | --- | --- | --- |
 | `@context` | YES | Array of strings | JSON-LD @context | MUST include `"https://www.w3.org/ns/did/v1"` |
 | `id` | YES | String | The DID described by this document | MUST be of the form `did:dsnp:{userId}` |
-| `verificationMethod` | NO | Array of Verification Method objects | Set of public keys that may be referenced from `assertionMethod`, `authentication`, and `keyAgreement` arrays |
-| `assertionMethod` | NO | Array  | Set of public keys used to generate digital signatures | MUST include or reference all relevant keys present in DSNP User Data `assertionMethodPublicKeys` |
-| `authentication` | NO | Array  | Set of public keys used as DSNP control keys | MAY include or reference any keys used as control keys |
-| `keyAgreement` | NO | Array | Set of public keys used to generate shared secrets | MUST include or reference all relevant keys present in DSNP User Data `keyAgreementPublicKeys` |
+| `verificationMethod` | no | Array of Verification Method objects | Set of public keys that may be referenced from `assertionMethod`, `authentication`, and `keyAgreement` arrays |
+| `assertionMethod` | no | Array  | Set of public keys used to generate digital signatures | MUST include or reference all relevant keys present in DSNP User Data `assertionMethodPublicKeys` |
+| `authentication` | no | Array  | Set of public keys used as DSNP control keys | MAY include or reference any keys used as control keys |
+| `keyAgreement` | no | Array | Set of public keys used to generate shared secrets | MUST include or reference all relevant keys present in DSNP User Data `keyAgreementPublicKeys` |
 
 Additional properties defined in the DID specification MAY be present.
 

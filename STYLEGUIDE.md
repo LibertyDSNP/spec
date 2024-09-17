@@ -10,6 +10,9 @@ or [DSNP on GitHub](https://github.com/LibertyDSNP/spec)
 * General words that aren't specific to DSNP are lowercase (i.e., announcement, batch, content hash).
 * Attribute is lowercase except when combined with an announcement or a specific DSNP set type. (i.e., Attribute Set Announcement)
 
+## Activity Content
+Uppercase A and C
+
 ## announcement
 Generally all lowercase
 
@@ -188,11 +191,13 @@ Uppercase U, A, S and A
 ## verifier
 Lowercase v
 
-## Verifiable Credential Document
-Uppercase V, C and D
+## Verifiable Credential
+Uppercase V and C. Singular for one document/credential; plural when referring to the specification.
+If followed by "document", that should be lowercase.
 
-## Verifier Credential Schema Document
-Uppercase V, C, S and D
+## Verifiable Credential Schema
+Uppercase V, C, S.
+If followed by "document", that should be lowercase.
 
 ## Update Announcement
 Uppercase U and A
@@ -208,3 +213,6 @@ All lowercase
 
 ## We/Us/Our
 Should not be used in context with Frequency
+
+## YES and no
+When describing required items, use an all caps "YES", otherwise a lowercase "no".

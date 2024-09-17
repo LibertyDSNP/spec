@@ -7,11 +7,11 @@ A User Attribute Set Announcement is a way to create an authenticated (and, opti
 | Field | Description | Data Type | Serialization | Parquet Type | Bloom Filter |
 | ----- | ----------- | --------- | ------------- | ------------ | ------------ |
 | announcementType | Announcement Type Enum (`8`) | enum | [decimal](../Serializations.md#decimal) | `INT32` | no |
-| fromId | id of the user creating the Announcement | 64 bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | YES |
+| fromId | Id of the user creating the announcement | 64 bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | YES |
 | subject | DSNP User Id of the attribute set subject | 64 bit unsigned integer | decimal | `UINT_64` | YES |
-| url | URL for the Verifiable Credential Document (optional) | `UTF-8` | `UTF-8` | `UTF8` | no |
+| url | URL for the Verifiable Credential document | `UTF-8` | `UTF-8` | `UTF8` | no |
 | contentHash | [DSNP Content Hash](../Identifiers.md#dsnp-content-hash) of content | UTF-8 | [base32 multibase](../Serializations.md#base32-multibase) | `UTF8` | YES |
-| attributeSetType | Canonical name of attribute set type | `UTF-8` | `UTF-8` | `UTF8` | YES |
+| attributeSetType | Canonical name of Attribute Set Type | `UTF-8` | `UTF-8` | `UTF8` | YES |
 | issuer | URI of issuer | `UTF-8` | `UTF-8` | `UTF8` | YES |
 
 ## Field Requirements
@@ -23,7 +23,7 @@ A User Attribute Set Announcement is a way to create an authenticated (and, opti
 ### fromId
 
 - MUST be a [DSNP User Id](../Identifiers.md#dsnp-user-id)
-- MUST have authorized the creation of the Announcement, either directly or via a transparent chain of delegation
+- MUST have authorized the creation of the announcement, either directly or via a transparent chain of delegation
 
 ### subject
 

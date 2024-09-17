@@ -224,7 +224,7 @@ The Verifiable Credential found at the indicated URL must include the user's [DS
 ### Verifiable Credential Link
 
 Attestation attachments must contain a link to a Verifiable Credential document.
-The link must contain a relationship identifier in the form of a DSNP Attribute Set Type (the `rel` field), to allow applications to determine the type of credential expected.
+The link must contain a relationship identifier in the form of a DSNP Attribute Set Type (the `rel` field) to allow applications to determine the type of credential expected.
 
 | Property | Base Spec | Required | Description | Restrictions |
 | --- | --- | --- | --- | --- |

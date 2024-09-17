@@ -13,10 +13,10 @@ Therefore, compatibility with the following versions and specifications should b
 Current usage with DSNP relies on the following specifications:
 
 | Specification | Version/Status | Relevant JSON-LD `@context` Values |
-| --- | --- | --- | 
- | Verifiable Credentials Data Model | [1.1 (W3C Recommendation)](https://www.w3.org/TR/vc-data-model-1.1)<br>[2.0 (W3C Candidate Recommendation Draft 23 August 2024)](https://www.w3.org/TR/2024/CRD-vc-data-model-2.0-20240823/) | `https://www.w3.org/2018/credentials/v1`<br>`https://www.w3.org/ns/credentials/v2` |
- | Verifiable Credential Data Integrity | [1.0 (W3C Candidate Recommendation Draft 3 August 2024)](https://www.w3.org/TR/2024/CRD-vc-data-integrity-20240803/) | `https://w3id.org/security/data-integrity/v2` |
- | Verifiable Credentials JSON Schema | [(W3C Candidate Recommendation Draft  18 December 2023)](https://www.w3.org/TR/2023/CRD-vc-json-schema-20231218/) | |
+| --- | --- | --- |
+ | Verifiable Credentials Data Model | [1.1 (W3C Recommendation)](https://www.w3.org/TR/vc-data-model-1.1)<br>[2.0 (W3C Candidate Recommendation Draft 15 September 2024)](https://www.w3.org/TR/2024/CRD-vc-data-model-2.0-20240915/) | `https://www.w3.org/2018/credentials/v1`<br>`https://www.w3.org/ns/credentials/v2` |
+ | Verifiable Credential Data Integrity | [1.0 (W3C Candidate Recommendation Draft 16 September 2024)](https://www.w3.org/TR/2024/CRD-vc-data-integrity-20240916/) | `https://w3id.org/security/data-integrity/v2`<br>`https://w3id.org/security/multikey/v1` |
+ | Verifiable Credentials JSON Schema | [(W3C Candidate Recommendation Draft 12 September 2024)](https://www.w3.org/TR/2023/CRD-vc-json-schema-20240912/) | |
  | Decentralized Identifiers (DIDs) | [1.0 (W3C Recommendation 19 July 2022)](https://www.w3.org/TR/2022/REC-did-core-20220719/) | `https://www.w3.org/ns/did/v1` |
 
 ### Cryptography
@@ -26,7 +26,7 @@ DSNP compliant applications MUST support the following cryptosuites, which corre
 
 | Specification | Version/Status | Multikey codec |
 | --- | --- | --- |
-| Data Integrity EdDSA Cryptosuites | [1.0 (W3C Candidate Recommendation Draft 16 August 2024)](https://www.w3.org/TR/2024/CRD-vc-di-eddsa-20240816/) | `ed25519-pub` |
+| Data Integrity EdDSA Cryptosuites | [1.0 (W3C Candidate Recommendation Draft 16 September 2024)](https://www.w3.org/TR/2024/CRD-vc-di-eddsa-20240924/) | `ed25519-pub` |
 
 
 ## DSNP Usage Details
@@ -61,12 +61,12 @@ See the individual pages for details of restrictions to and extensions on each t
 
 ## Non-Normative
 
-## Additional Fields
+### Additional Fields
 
 DSNP application developers may choose to support more of the relevant JSON-LD vocabularies from the specifications above as long as doing so does not conflict with this specification, but should note that other conforming applications may not recognize those additions.
 Implementers who extend their support for Verifiable Credentials objects beyond the subset defined here do so at their own risk.
 
-## Verifiable Presentations
+### Verifiable Presentations
 
 [Verifiable Presentations](https://www.w3.org/TR/2024/CRD-vc-data-model-2.0-20240823/#verifiable-presentations) combine one or more Verifiable Credentials in a single document.
 These might be existing Verifiable Credentials, whether or not previously published, or new Verifiable Credentials derived from non-public source credentials using methods like zero-knowledge proofs.
