@@ -32,9 +32,9 @@ Official schemas may be found in [GitHub](https://github.com/LibertyDSNP/schemas
 | [Private Connections](./UserData.md) | `dsnp.private-connections` | 10 | 10 |
 | [Assertion Method Public Keys](./UserData.md) | `dsnp.public-key-assertion-method` | TBD | 11 |
 | [Profile Resources](./UserData.md) | `dsnp.profile-resources` | TBD | 570 |
-| [User Attribute Set](./Publishing.md) | `dsnp.user-attribute-set` | TBD | TBD |
-| [DSNP Content Attribute Set](./Publishing.md) | `dsnp.dsnp-content-attribute-set` | TBD | TBD |
-| [DSNP Content Attribute Set](./Publishing.md) | `dsnp.ext-content-attribute-set` | TBD | TBD |
+| [User Attribute Set](./Publishing.md) | `dsnp.user-attribute-set` | TBD | 579 |
+| [DSNP Content Attribute Set](./Publishing.md) | `dsnp.dsnp-content-attribute-set` | TBD | 580 |
+| [DSNP Content Attribute Set](./Publishing.md) | `dsnp.ext-content-attribute-set` | TBD | 581 |
 
 <!--
 ### Obsolete
