@@ -21,20 +21,20 @@ Official schemas may be found in [GitHub](https://github.com/LibertyDSNP/schemas
 
 | Name | Schema Name | Schema Id Mainnet | Schema Id Testnet (Paseo) |
 | --- | --- | --- | --- |
-| [Tombstone](./Publishing.md) | `dsnp.tombstone` | 1 | 1 |
-| [Broadcast](./Publishing.md) | `dsnp.broadcast` | 2 | 2 |
-| [Reply](./Publishing.md) | `dsnp.reply` | 3 | 3 |
+| [Tombstone](./Publishing.md) | `dsnp.tombstone` | 16 | 16 |
+| [Broadcast](./Publishing.md) | `dsnp.broadcast` | 17 | 17 |
+| [Reply](./Publishing.md) | `dsnp.reply` | 18 | 18 |
 | [Reaction](./Publishing.md)| `dsnp.reaction` | 4 | 4 |
-| [Update](./Publishing.md)| `dsnp.update` | 5 | 5 |
+| [Update](./Publishing.md)| `dsnp.update` | 19 | 19 |
 | [Key Agreement Public Keys](./UserData.md)| `dsnp.public-key-key-agreement` | 7 | 7 |
 | [Public Follows](./UserData.md)| `dsnp.public-follows` | 8 | 8 |
 | [Private Follows](./UserData.md) | `dsnp.private-follows` | 9 | 9 |
 | [Private Connections](./UserData.md) | `dsnp.private-connections` | 10 | 10 |
-| [Assertion Method Public Keys](./UserData.md) | `dsnp.public-key-assertion-method` | TBD | 11 |
-| [Profile Resources](./UserData.md) | `dsnp.profile-resources` | TBD | 570 |
-| [User Attribute Set](./Publishing.md) | `dsnp.user-attribute-set` | TBD | 579 |
-| [DSNP Content Attribute Set](./Publishing.md) | `dsnp.dsnp-content-attribute-set` | TBD | 580 |
-| [DSNP Content Attribute Set](./Publishing.md) | `dsnp.ext-content-attribute-set` | TBD | 581 |
+| [Assertion Method Public Keys](./UserData.md) | `dsnp.public-key-assertion-method` | 14 | 14 |
+| [Profile Resources](./UserData.md) | `dsnp.profile-resources` | 15 | 15 |
+| [User Attribute Set](./Publishing.md) | `dsnp.user-attribute-set` | 11 | 11 |
+| [DSNP Content Attribute Set](./Publishing.md) | `dsnp.dsnp-content-attribute-set` | 12 | 12 |
+| [External Content Attribute Set](./Publishing.md) | `dsnp.ext-content-attribute-set` | 13 | 13 |
 
 <!--
 ### Obsolete
@@ -54,4 +54,4 @@ Official schemas may be found in [GitHub](https://github.com/LibertyDSNP/schemas
 
 | Last Update Date | Frequency Release | DSNP Version |
 | --- | --- | --- |
-| 2024-09-18 | 1.13.0+ | 1.3.0 |
+| 2024-09-20 | 1.13.0+ | 1.3.0 |
