@@ -19,9 +19,9 @@ Each module describes a mostly self-contained aspect of the specification.
 
 | Name | Version | Description |
 | --- | --- | --- |
-| [DSNP](DSNP/Overview.md) | pre-1.3.0 | The system-agnostic DSNP specification |
-| [Activity Content](ActivityContent/Overview.md) | pre-1.3.0 | A specification for DSNP-referenced content (subset of W3C Activity Streams) |
-| [Verifiable Credentials](VerifiableCredentials/Overview.md) | pre-1.3.0 | Use of W3C Verifiable Credentials and DIDs with DSNP |
+| [DSNP](DSNP/Overview.md) | 1.3.0 | The system-agnostic DSNP specification |
+| [Activity Content](ActivityContent/Overview.md) | 1.3.0 | A specification for DSNP-referenced content (subset of W3C Activity Streams) |
+| [Verifiable Credentials](VerifiableCredentials/Overview.md) | 1.3.0 | Use of W3C Verifiable Credentials and DIDs with DSNP |
 
 ### System Specifications
 
