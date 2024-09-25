@@ -32,7 +32,7 @@ Official schemas may be found in [GitHub](https://github.com/LibertyDSNP/schemas
 | [Private Connections](./UserData.md) | `dsnp.private-connections` | 10 | 10 |
 | [Assertion Method Public Keys](./UserData.md) | `dsnp.public-key-assertion-method` | 14 | 14 |
 | [Profile Resources](./UserData.md) | `dsnp.profile-resources` | 15 | 15 |
-| [User Attribute Set](./Publishing.md) | `dsnp.user-attribute-set` | 11 | 11 |
+| [User Attribute Set](./Publishing.md) | `dsnp.user-attribute-set` | 20 | 20 |
 | [DSNP Content Attribute Set](./Publishing.md) | `dsnp.dsnp-content-attribute-set` | 12 | 12 |
 | [External Content Attribute Set](./Publishing.md) | `dsnp.ext-content-attribute-set` | 13 | 13 |
 
