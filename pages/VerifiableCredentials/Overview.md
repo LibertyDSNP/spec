@@ -22,7 +22,7 @@ Current usage with DSNP relies on the following specifications:
 ### Cryptography
 
 The Data Integrity specification provides a generic format for expressing cryptographic proofs, where the detailed representation of each data item is defined in individual cryptosuites.
-DSNP compliant applications MUST support the following cryptosuites, which correspond to the allowed algorithms for `assertionMethod` [Public Keys](../DSNP/Types/PublicKey.md):
+DSNP compliant applications MUST support the following cryptosuites, which correspond to the allowed algorithms for the DSNP User Data item [`assertionMethodPublicKeys`](../DSNP/Types/PublicKeyUserData.md#allowed-key-types):
 
 | Specification | Version/Status | Multikey codec |
 | --- | --- | --- |
