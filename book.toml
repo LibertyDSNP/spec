@@ -1,5 +1,5 @@
 [book]
-authors = ["Unfinished"]
+authors = ["Project Liberty Institute"]
 language = "en"
 multilingual = false
 src = "pages"
@@ -21,3 +21,6 @@ exclude = ['en\.bitcoin\.it', 'github\.com/LibertyDSNP/spec', 'w3\.org']
 
 [output.html.fold]
 enable = true
+
+# https://github.com/jonahgoldwastaken/mdbook-external-links
+[preprocessor.external-links]
