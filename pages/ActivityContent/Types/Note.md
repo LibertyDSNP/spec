@@ -13,6 +13,7 @@
 | `attachment` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-attachment) | no | Array of attached links or media | MUST be one of the [Supported Attachments](../Associated/Attachments.md) |
 | `tag` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-tag) | no | Array of tags/mentions | MUST follow [Tag Type](../Associated/Tag.md) |
 | `location` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-location) | no | For location | MUST follow [Location Type](../Associated/Location.md) |
+| `inReplyTo` |  [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-inreplyto) | no | Identifies the content being replied to | MUST be a [DSNP Content URI](../../DSNP/Identifiers.md#dsnp-content-uri) |
 
 ## Supported Content MIME Types
 
@@ -22,6 +23,7 @@
 
 ## Examples
 
+### Basic Note
 ```json
 {
   "@context": "https://www.w3.org/ns/activitystreams",
@@ -31,6 +33,20 @@
   "published": "1970-01-01T00:00:00+00:00"
 }
 ```
+
+### Note Replying to a DSNP Note
+```json
+{
+  "@context": "https://www.w3.org/ns/activitystreams",
+  "type": "Note",
+  "inReplyTo": "dsnp://123456/bdyqdua4t4pxgy37mdmjyqv3dejp5betyqsznimpneyujsur23yubzna",
+  "content": "Hello world!",
+  "mediaType": "text/plain",
+  "published": "1970-01-01T00:00:00+00:00"
+}
+```
+
+### Note with a Link Attachment
 
 ```json
 {
