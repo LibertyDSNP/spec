@@ -24,9 +24,7 @@ jobs:
         run: npm run lint
 
       - name: Set up mdBook 📚
-        uses: ./.github/workflows/common/set-up-mdbook
-        with:
-          token: ${{secrets.GITHUB_TOKEN}}
+        run: cargo install mdbook mdbook-linkcheck mdbook-external-links
 
       - name: Build mdBook 📚
         run: mdbook build
