@@ -8,6 +8,7 @@ runs:
   using: "composite"
   steps:
     - name: Setup mdBook 📚
+      shell: bash
       run: cargo install mdbook mdbook-linkcheck mdbook-external-links
     - name: Show mdbook version
       shell: bash
