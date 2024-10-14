@@ -41,17 +41,17 @@ Definitions:
 Algorithm:
 
 1. Both Alice and Bob generate an asymmetric key pair for use with X25519 <abbr title="Elliptic Curve Integrated Encryption Scheme">ECIES</abbr>.
-   Each publishes a Public Key Announcement with their generated public key with a `keyType` value of `keyAgreement`.
+   Each uses the [Replace User Data](../UserData.md#replace-user-data-operation) Operation to publish their generated public key in `keyAgreementPublicKeys`.
 
 <table style="table-layout:fixed">
 <tr><th>Libsodium</th><th>Algorithm</th></tr>
 <tr><td>
 <tt>
 <pre>
-<a href="https://libsodium.gitbook.io/doc/public-key_cryptography/authenticated_encryption#key-pair-generation">crypto_box_keypair</a>(
+<a href="https://libsodium.gitbook.io/doc/public-key_cryptography/authenticated_encryption#key-pair-generation" target="_blank">crypto_box_keypair</a>(
   &a_public,
   &a_secret);
-<a href="https://libsodium.gitbook.io/doc/public-key_cryptography/authenticated_encryption#key-pair-generation">crypto_box_keypair</a>(
+<a href="https://libsodium.gitbook.io/doc/public-key_cryptography/authenticated_encryption#key-pair-generation" target="_blank">crypto_box_keypair</a>(
   &b_public, 
   &b_secret);
   </pre>
@@ -71,7 +71,7 @@ Algorithm:
 <tr><th>Libsodium</th><th>Algorithm</th></tr>
 <tr><td>
 <tt><pre>
-<a href="https://libsodium.gitbook.io/doc/public-key_cryptography/authenticated_encryption#precalculation-interface">crypto_box_beforenm</a>(
+<a href="https://libsodium.gitbook.io/doc/public-key_cryptography/authenticated_encryption#precalculation-interface" target="_blank">crypto_box_beforenm</a>(
   &root_shared_secret,
   b_public,
   a_secret);
@@ -83,13 +83,13 @@ RootSharedSecret<sub>AB</sub> &#8592;
 </pre></tt>
 </td></tr></table>
 
-3. Alice derives a context-specific subkey <code>CtxSharedSecret<sub>Bob</sub></code> from the shared secret `RootSharedSecret` as the master key, Bob's DSNP User Id as the 64-bit key identifier, and the ASCII encoding of the [PRId Context](#contexts) string (`"PRIdCtx0"` for connections).
+3. Alice derives a context-specific subkey <code>CtxSharedSecret<sub>A→B</sub></code> from the shared secret <code>RootSharedSecret<sub>AB</sub></code> as the master key, Bob's DSNP User Id as the 64-bit key identifier, and the ASCII encoding of the [PRId Context](#contexts) string (`"PRIdCtx0"` for connections).
 
 <table style="table-layout:fixed">
 <tr><th>Libsodium</th><th>Algorithm</th></tr>
 <tr><td>
 <tt><pre>
-<a href="https://libsodium.gitbook.io/doc/key_derivation">crypto_kdf_derive_from_key</a>(
+<a href="https://libsodium.gitbook.io/doc/key_derivation" target="_blank">crypto_kdf_derive_from_key</a>(
   ctx_shared_secret,
   32,
   b_user_id,
@@ -98,7 +98,7 @@ RootSharedSecret<sub>AB</sub> &#8592;
 </pre></tt>
 </td><td>
 <tt><pre>
-CtxSharedSecret<sub>A→B</sub> &#8592
+CtxSharedSecret<sub>A→B,C</sub> &#8592
   Blake2b<sub>256</sub>(
     key = RootSharedSecret<sub>AB</sub>,
     message = {},
@@ -108,7 +108,7 @@ CtxSharedSecret<sub>A→B</sub> &#8592
 </td></tr></table>
 
 4. Alice uses Bob's DSNP User Id to form an 8-byte little-endian message.
-Alice encrypts this message using [XSalsa20](http://cr.yp.to/snuffle/xsalsa-20110204.pdf) with the PRId key <code>CtxSharedSecret<sub>A→B</sub></code> and a nonce of her own User Id (little-endian) followed by 16 zero bytes.
+Alice encrypts this message using [XSalsa20](http://cr.yp.to/snuffle/xsalsa-20110204.pdf) with the PRId key <code>CtxSharedSecret<sub>A→B,C</sub></code> and a nonce of her own User Id (little-endian) followed by 16 zero bytes.
 
 <table style="table-layout:fixed">
 <tr><th>Libsodium</th><th>Algorithm</th></tr>
@@ -120,7 +120,7 @@ for (i = 0; i < 8; i++) {
   nonce[i] = (user_id_a >> (i*8))
     & 0xff;
 }<br>
-<a href="https://libsodium.gitbook.io/doc/secret-key_cryptography/secretbox#detached-mode">crypto_secretbox_detached</a>(
+<a href="https://libsodium.gitbook.io/doc/secret-key_cryptography/secretbox#detached-mode" target="_blank">crypto_secretbox_detached</a>(
   &prid,
   &mac_unused,
   user_id_b,
@@ -136,7 +136,7 @@ for (i = 0; i < 8; i++) {
 PRId<sub>A→B,C</sub> &#8592
   XSalsa20(
     message = Id<sub>B</sub>,
-    key = CtxSharedSecret<sub>A→B</sub>,
+    key = CtxSharedSecret<sub>A→B,C</sub>,
     nonce = Padded24BytesLE(Id<sub>A</sub>)
   )
 </pre></tt>
@@ -147,7 +147,7 @@ PRId<sub>A→B,C</sub> &#8592
 Similarly, Bob can calculate the same root shared secret `RootSharedSecret` using <code>Alice<sub>public</sub></code> and <code>Bob<sub>secret</sub></code> and derive the same <code>PRId<sub>A→B,C</sub></code> in order to check if it is in Alice's published PRIds.
 Bob can also derive the PRId subkey for Alice's DSNP User Id and encrypt Alice's User Id, using his own as the nonce, to generate the Bob-to-Alice PRId (<code>PRId<sub>B→A,C</sub></code>), and then publish it to his own list, if desired.
 
-If Alice or Bob wants to prove to a third party that their PRIds are in each other's PRId list, they can provide the third party with their own subkey <code>CtxSharedSecret<sub>A→B</sub></code> or <code>CtxSharedSecret<sub>B→A</sub></code>.
+If Alice or Bob wants to prove to a third party that their PRIds are in each other's PRId list, they can provide the third party with their own subkey <code>CtxSharedSecret<sub>A→B,C</sub></code> or <code>CtxSharedSecret<sub>B→A,C</sub></code>.
 The third party can repeat the encryption step using Alice and Bob's User Ids, and check that the output is present in the published set of PRIds. The root shared secret `RootSharedSecret` (used as a master key in this algorithm) should _not_ be divulged.
 
 ### Test Vector
@@ -169,6 +169,6 @@ An implementation of the PRId generation algorithm should produce the following 
 | Output | Value |
 | --- | --- |
 | <tt>PRId<sub>A→B</sub></tt> | `0xace4d2995b1a829c` |
-| <tt>CtxSharedSecret<sub>A→B</sub></tt> | `0x37cb1a870f0c1dce06f5116faf145ac2cf7a2f7d30136be4eea70c324932e6d2` |
+| <tt>CtxSharedSecret<sub>A→B,C</sub></tt> | `0x37cb1a870f0c1dce06f5116faf145ac2cf7a2f7d30136be4eea70c324932e6d2` |
 | <tt>PRId<sub>B→A</sub></tt> | `0x1a53b02a26503600` |
-| <tt>CtxSharedSecret<sub>B→A</sub></tt> | `0x32c45c49fcfe12f9db60e74fa66416c5a05832c298814d82032a6783a4b1fca0` |
+| <tt>CtxSharedSecret<sub>B→A,C</sub></tt> | `0x32c45c49fcfe12f9db60e74fa66416c5a05832c298814d82032a6783a4b1fca0` |

@@ -22,7 +22,6 @@ cryptographically
 [Cc]ryptosuites
 CtxSharedSecretA
 CtxSharedSecretB
-CtxSharedSecretBob
 Curve25519
 decrypt(ed)?
 Delegator
@@ -100,6 +99,7 @@ repo
 resolvers
 RFC[1-9][0-9]*
 Ristretto
+RootSharedSecretAB
 RPC
 S3
 schemaless

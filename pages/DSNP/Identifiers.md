@@ -13,7 +13,7 @@ Graph connections are formed through the DSNP User Id.
 
 - MUST be a multibase string using the `base32` encoding
 - MUST represent a valid [multihash](https://github.com/multiformats/multihash) encoding of the hashing algorithm output for the bytes of the content
-- MUST use a [Supported Hashing Algorithm](Announcements.md#supported-hashing-algorithms)
+- MUST use a [Supported Hashing Algorithm](#supported-hashing-algorithms)
 
 ### Serialization Steps
 

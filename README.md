@@ -30,8 +30,7 @@ Note: Remember that you can link to the tag on GitHub before creating the tag.
 To build the spec generator locally, install [mdBook](https://github.com/rust-lang/mdBook.git) and [link checker](https://github.com/Michael-F-Bryan/mdbook-linkcheck). The link checker will run during build process and throw warnings for any broken internal or external links.
 
 ``` bash
-cargo install mdbook
-cargo install mdbook-linkcheck
+cargo install mdbook mdbook-linkcheck mdbook-external-links
 ```
 
 To run the spec generator locally and preview the formatted spec website, use the following commands:
