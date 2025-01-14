@@ -15,9 +15,9 @@ DSNP implementations MUST support the following User Data Types:
 
 | System Name | Version | Encryption Algorithm | Compression Codec | Avro Object Type |
 | --- | --- | --- | --- | --- |
-| <a name="public-follows">`publicFollows`</a> | 1.2 | NONE | [`DEFLATE`](https://en.wikipedia.org/wiki/Deflate) | [GraphEdge](Types/GraphEdge.md) |
-| <a name="private-follows">`privateFollows`</a> | 1.2 | `curve25519xsalsa20poly1305` |  [`DEFLATE`](https://en.wikipedia.org/wiki/Deflate) | [GraphEdge](Types/GraphEdge.md) |
-| <a name="private-connections">`privateConnections`</a> | 1.2 | `curve25519xsalsa20poly1305` | [`DEFLATE`](https://en.wikipedia.org/wiki/Deflate) | [GraphEdge](Types/GraphEdge.md) |
+| <a name="public-follows">`publicFollows`</a> | 1.2 | NONE | <a href="https://en.wikipedia.org/wiki/Deflate" title="" target="_blank">`DEFLATE`</a> | [GraphEdge](Types/GraphEdge.md) |
+| <a name="private-follows">`privateFollows`</a> | 1.2 | `curve25519xsalsa20poly1305` | <a href="https://en.wikipedia.org/wiki/Deflate" title="" target="_blank">`DEFLATE`</a> | [GraphEdge](Types/GraphEdge.md) |
+| <a name="private-connections">`privateConnections`</a> | 1.2 | `curve25519xsalsa20poly1305` | <a href="https://en.wikipedia.org/wiki/Deflate" title="" target="_blank">`DEFLATE`</a> | [GraphEdge](Types/GraphEdge.md) |
 | <a name="private-connection-prids">`privateConnectionPRIds`</a> | 1.2 | NONE | NONE | [PRId](Types/PRId.md) |
 | <a name="key-agreement-public-keys">`keyAgreementPublicKeys`</a> | 1.3 | NONE | NONE | [PublicKey](Types/PublicKeyUserData.md) |
 | <a name="assertion-method-public-keys">`assertionMethodPublicKeys`</a> | 1.3 | NONE | NONE | [PublicKey](Types/PublicKeyUserData.md) |
