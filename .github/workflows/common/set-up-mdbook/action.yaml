@@ -8,8 +8,14 @@ runs:
   using: "composite"
   steps:
     - name: Setup mdBook 📚
-      shell: bash
-      run: cargo install mdbook mdbook-linkcheck mdbook-external-links
+      uses: jontze/action-mdbook@0765bef0c7c5792f93bf3ed3d487a0ca32c9da33
+      with:
+        token: ${{ inputs.token }}
+        mdbook-version: "~0.4.37" # Use a semver compatible string
+        # Optional Plugins have to be enabled
+        use-linkcheck: true
+        linkcheck-version: "~0.7.7"
+
     - name: Show mdbook version
       shell: bash
       run: mdbook --version
