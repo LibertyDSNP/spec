@@ -23,4 +23,4 @@ exclude = ['en\.bitcoin\.it', 'github\.com/LibertyDSNP/spec', 'w3\.org']
 enable = true
 
 # https://github.com/jonahgoldwastaken/mdbook-external-links
-[preprocessor.external-links]
+# [preprocessor.external-links]
