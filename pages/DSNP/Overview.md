@@ -31,6 +31,7 @@ A compliant specification MUST specify a mapping from its system-specific state 
 
 <!--- Uncomment for pre-release changes and prefix the version with `pre-[next version]` --->
 ## Prerelease Changelog
+<!--- [DIP-xxx](https://github.com/LibertyDSNP/spec/issues/xxx) Name of Feature --->
 
 - [DIP-287](https://github.com/LibertyDSNP/spec/issues/287) DSNP Content URI Specificity
 
