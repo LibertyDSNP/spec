@@ -1,7 +1,7 @@
 # Operations
 ## Method of execution
 DSNP Operations are executed on Frequency via on-chain transactions, also known as extrinsic calls.
-An extrinsic is a type of function defined in a [Substrate](https://substrate.io/) Pallet.
+An extrinsic is a type of function defined in the [Polkadot Protocol Specification](https://spec.polkadot.network/id-extrinsics).
 A Pallet is a Substrate runtime module and also a Cargo crate.
 
 ### MSA Pallet
