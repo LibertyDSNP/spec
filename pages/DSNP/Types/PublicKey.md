@@ -49,7 +49,7 @@ It may also provide a hint to the user if they ever need to regenerate their pri
 
 - MUST be a public key of an allowed algorithm for `keyType`, encoded in `multikey` format
 
-The `multikey` encoding of public keys is described in the draft [did:key Method](https://w3c-ccg.github.io/did-method-key/) specification.
+The `multikey` encoding of public keys is described in the draft [did:key Method](https://w3c-ccg.github.io/did-key-spec/) specification.
 The byte encoding consists of a [multicodec](https://github.com/multiformats/multicodec/blob/master/table.csv) key identifier (as a varint) followed by the public key's binary data in the codec's described format.
 
 If serializing the `multicodec` value as a string, `base58btc` encoding is recommended.
