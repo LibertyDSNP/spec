@@ -1,4 +1,6 @@
 name: Verify PR
+permissions:
+  contents: read
 
 on:
   pull_request:
