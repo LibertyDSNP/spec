@@ -1,16 +1,16 @@
-# DSNP Content Attribute Set Announcement
+# User Attribute Set Announcement
 
-A DSNP Content Attribute Set Announcement is a way to create an authenticated (and, optionally, attested) attribute set for a DSNP content item.
+A User Attribute Set Announcement is a way to create an authenticated (and, optionally, attested) attribute set for a DSNP User.
 
 ## Fields
 
 | Field | Description | Data Type | Serialization | Parquet Type | Bloom Filter |
 | ----- | ----------- | --------- | ------------- | ------------ | ------------ |
-| announcementType | Announcement Type Enum (`9`) | enum | [decimal](../Serializations.md#decimal) | `INT32` | no |
-| fromId | Id of the user creating the announcement | 64 bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | YES |
-| subject | DSNP Content URI of the attribute set subject | [DSNP Content URI](../Identifiers.md#dsnp-content-uri) | `UTF-8` | `UTF8` | YES |
+| announcementType | Announcement Type Enum (`8`) | enum | [decimal](../../Core/Serializations.md#decimal) | `INT32` | no |
+| fromId | Id of the user creating the announcement | 64 bit unsigned integer | [decimal](../../Core/Serializations.md#decimal) | `UINT_64` | YES |
+| subject | DSNP User Id of the attribute set subject | 64 bit unsigned integer | decimal | `UINT_64` | YES |
 | url | URL for the Verifiable Credential document | `UTF-8` | `UTF-8` | `UTF8` | no |
-| contentHash | [DSNP Content Hash](../Identifiers.md#dsnp-content-hash) of content | UTF-8 | [base32 multibase](../Serializations.md#base32-multibase) | `UTF8` | YES |
+| contentHash | [DSNP Content Hash](../../Core/Identifiers.md#dsnp-content-hash) of content | UTF-8 | [base32 multibase](../../Core/Serializations.md#base32-multibase) | `UTF8` | YES |
 | attributeSetType | Canonical name of Attribute Set Type | `UTF-8` | `UTF-8` | `UTF8` | YES |
 | issuer | URI of issuer | `UTF-8` | `UTF-8` | `UTF8` | YES |
 
@@ -18,16 +18,16 @@ A DSNP Content Attribute Set Announcement is a way to create an authenticated (a
 
 ### announcementType
 
-- MUST be fixed to `9`
+- MUST be fixed to `8`
 
 ### fromId
 
-- MUST be a [DSNP User Id](../Identifiers.md#dsnp-user-id)
+- MUST be a [DSNP User Id](../../Core/Identifiers.md#dsnp-user-id)
 - MUST have authorized the creation of the announcement, either directly or via a transparent chain of delegation
 
 ### subject
 
-- MUST be a [DSNP Content URI](../Identifiers.md#dsnp-content-uri)
+- MUST be a [DSNP User Id](../../Core/Identifiers.md#dsnp-user-id)
 
 ### url
 
@@ -43,11 +43,11 @@ A DSNP Content Attribute Set Announcement is a way to create an authenticated (a
 
 ### contentHash
 
-- MUST be a valid [DSNP Content Hash](../Identifiers.md#dsnp-content-hash)
+- MUST be a valid [DSNP Content Hash](../../Core/Identifiers.md#dsnp-content-hash)
 
 ### attributeSetType
 
-- MUST be a valid [Attribute Set Type canonical name](../AttributeSets.md#canonical-naming)
+- MUST be a valid [Attribute Set Type canonical name](../../Core/AttributeSets.md#canonical-naming)
 
 ### issuer
 

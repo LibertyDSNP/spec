@@ -4,7 +4,7 @@
 
 Activity objects linking to external content such as audio, image or video files must include a `"hash"` field for users to validate linked content.
 The value of this `"hash"` field must be an array of strings.
-Each item in the array MUST be a valid [DSNP Content Hash](../../DSNP/Identifiers.md#dsnp-content-hash) for the content associated with the hash.
+Each item in the array MUST be a valid [DSNP Content Hash](../../DSNP/Protocols/Core/Identifiers.md#dsnp-content-hash) for the content associated with the hash.
 
 ### Example
 

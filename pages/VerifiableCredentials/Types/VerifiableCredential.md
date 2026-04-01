@@ -45,7 +45,7 @@ Objects in the `issuer.authority` array MUST have the following properties:
 | Property | Required | JSON Type | Description | Restrictions |
 | --- | --- | --- | --- | --- |
 | `id` | YES | String | URL of Verifiable Credential | MUST be a DSNP Verifiable Credential |
-| `rel` | YES | String | The linked credential's attribute set type | MUST be a DSNP [Attribute Set Type](../../DSNP/AttributeSets.md#attribute-set-type) corresponding to the referenced credential document |
+| `rel` | YES | String | The linked credential's attribute set type | MUST be a DSNP [Attribute Set Type](../../DSNP/Protocols/Core/AttributeSets.md#attribute-set-type) corresponding to the referenced credential document |
 | `digestMultibase` | YES | Array |  Array of hashes for linked content validation | MUST include at least one [supported hash](../../ActivityContent/Associated/Hash.md#supported-algorithms) |
 
 Examples:
@@ -80,7 +80,7 @@ Examples:
 
 | Property | Required | JSON Type | Description | Restrictions |
 | --- | --- | --- | --- | --- |
-| `id` | YES | String | Subject of the claim data | If describing a DSNP User, MUST be a [DSNP User URI](../../DSNP/Identifiers.md#dsnp-user-uri); if describing DSNP content, MUST be a [DSNP Content URI](../../DSNP/Identifiers.md#dsnp-content-uri) |
+| `id` | YES | String | Subject of the claim data | If describing a DSNP User, MUST be a [DSNP User URI](../../DSNP/Protocols/Core/Identifiers.md#dsnp-user-uri); if describing DSNP content, MUST be a [DSNP Content URI](../../DSNP/Protocols/Core/Identifiers.md#dsnp-content-uri) |
 
 The remainder of the contents of the `credentialSubject` value MUST conform to the JSON schema found via the `credentialSchema` object.
 

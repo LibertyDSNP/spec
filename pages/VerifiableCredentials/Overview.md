@@ -1,7 +1,7 @@
 # Verifiable Credentials Specification
 __Version 1.3.0__
 
-[Attribute Sets](../DSNP/AttributeSets.md) and [Attestation](../ActivityContent/Associated/Attachments.md#attestation) attachments shared via DSNP reference data documents containing Verifiable Credentials and related objects.
+[Attribute Sets](../DSNP/Protocols/Core/AttributeSets.md) and [Attestation](../ActivityContent/Associated/Attachments.md#attestation) attachments shared via DSNP reference data documents containing Verifiable Credentials and related objects.
 For DSNP purposes, certain restrictions and extensions are applied to the base World Wide Web Consortium (W3C) specification documents noted below.
 When there are DSNP extensions, they are guaranteed to use non-colliding terms.
 
@@ -22,7 +22,7 @@ Current usage with DSNP relies on the following specifications:
 ### Cryptography
 
 The Data Integrity specification provides a generic format for expressing cryptographic proofs, where the detailed representation of each data item is defined in individual cryptosuites.
-DSNP compliant applications MUST support the following cryptosuites, which correspond to the allowed algorithms for the DSNP User Data item [`assertionMethodPublicKeys`](../DSNP/Types/PublicKeyUserData.md#allowed-key-types):
+DSNP compliant applications MUST support the following cryptosuites, which correspond to the allowed algorithms for the DSNP User Data item [`assertionMethodPublicKeys`](../DSNP/Protocols/Core/Types/PublicKeyUserData.md#allowed-key-types):
 
 | Specification | Version/Status | Multikey codec |
 | --- | --- | --- |

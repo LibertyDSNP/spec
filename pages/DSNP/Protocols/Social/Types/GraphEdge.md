@@ -31,7 +31,7 @@ GraphEdge object serialization MUST conform to the following [Avro](https://avro
 
 ### userId
 
-- MUST be a [DSNP User Id](../Identifiers.md#dsnp-user-id)
+- MUST be a [DSNP User Id](../../Core/Identifiers.md#dsnp-user-id)
 
 <mark>To allow for optimal compression, User Ids are stored using the <tt>long</tt> type in Avro schema, which is a 64-bit _signed_ integer.
     Care should be taken to ensure that User Id values greater than or equal to 2<sup>63</sup>, where used by an implementation, are converted correctly between signed and unsigned representations.</mark>

@@ -8,8 +8,8 @@ Attribute set data may appear in several modes: it can be published as a DSNP An
 
 The conceptual model for attribute sets includes three types of data:
 
-1. A schema that encodes rules for validating attribute set data. This MUST be in the form of a [DSNP Verifiable Credential Schema](../VerifiableCredentials/Types/VerifiableCredentialSchema.md) (a Verifiable Credential that contains a JSON Schema document).
-2. The attribute set data itself. This MUST be serialized as a [DSNP Verifiable Credential](../VerifiableCredentials/Types/VerifiableCredential.md).
+1. A schema that encodes rules for validating attribute set data. This MUST be in the form of a [DSNP Verifiable Credential Schema](../../../VerifiableCredentials/Types/VerifiableCredentialSchema.md) (a Verifiable Credential that contains a JSON Schema document).
+2. The attribute set data itself. This MUST be serialized as a [DSNP Verifiable Credential](../../../VerifiableCredentials/Types/VerifiableCredential.md).
 3. A reference to the attribute set data, which may take one of several different forms depending on the desired usage pattern.
 
 ## Attribute Set Type
@@ -63,13 +63,13 @@ Attribute Set announcements are expressed using three announcement types, depend
 
 | Announcement Type | Id | Subject identifier |
 | --- | --- | --- |
-| [User Attribute Set](./Types/UserAttributeSet.md) | 8 | [DSNP DID](../VerifiableCredentials/Types/DID.md) |
-| [DSNP Content Attribute Set](./Types/DSNPContentAttributeSet.md) | 9 | [DSNP Content URI](./Identifiers.md#dsnp-content-uri) |
-| [External Content Attribute Set](./Types/ExternalContentAttributeSet.md) | 10 | URL and hash |
+| [User Attribute Set](./../Social/Types/UserAttributeSet.md) | 8 | [DSNP DID](../../../VerifiableCredentials/Types/DID.md) |
+| [DSNP Content Attribute Set](./../Social/Types/DSNPContentAttributeSet.md) | 9 | [DSNP Content URI](./Identifiers.md#dsnp-content-uri) |
+| [External Content Attribute Set](./../Social/Types/ExternalContentAttributeSet.md) | 10 | URL and hash |
 
 ### Attestation Attachments
 
-Attribute sets associated with and controlled by a DSNP User can be referenced as [Attestation Attachments](../ActivityContent/Associated/Attachments.md#attestation) to a user's [Profile](./Types/Profile.md) document, or to an Activity Content Note object that is referenced from a Broadcast or Reply announcement.
+Attribute sets associated with and controlled by a DSNP User can be referenced as [Attestation Attachments](../../../ActivityContent/Associated/Attachments.md#attestation) to a user's [Profile](../../../ActivityContent/Types/Profile.md) document, or to an Activity Content Note object that is referenced from a Broadcast or Reply announcement.
 
 Profile-linked attestations are necessary in cases where an attestation is required in order for a consumer to verify chains of trust designated by schema controllers, such as an accreditation that gives the organization represented by the DSNP User Id the authority to issue credentials to others.
 
@@ -89,7 +89,7 @@ Developers are encouraged to consider the [Verifiable Presentation Request](http
 Both Verifiable Credential Schema documents and Verifiable Credential documents may include proof sections.
 
 DSNP Users may control one or more key pairs for use in signing these documents and make these discoverable using the `assertionMethod` User Data type.
-A key announced in this fashion can be referenced within the proof using a [DSNP DID](../VerifiableCredentials/Types/DID.md) with a key identifier, as in `did:dsnp:123456#key1`.
+A key announced in this fashion can be referenced within the proof using a [DSNP DID](../../../VerifiableCredentials/Types/DID.md) with a key identifier, as in `did:dsnp:123456#key1`.
 
 A verifier MUST ensure that the DSNP User Id referenced this way (that is, the substring of the DID before the first `#` character) is the same as the issuer field.
 

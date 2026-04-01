@@ -37,7 +37,7 @@ ProfileResource object serialization MUST conform to the following [Avro](https:
 
 | Value | Description | Specification | Content Type | Maximum File Size | Content Address Type | DSNP Version Added |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | Activity Content Profile with DSNP extensions | [DSNP Profile](../../ActivityContent/Types/Profile.md) | `application/json` | 256 Kb | Supported [IPFS CID](https://docs.ipfs.tech/concepts/content-addressing/)<sup>1</sup> | 1.3 |
+| 1 | Activity Content Profile with DSNP extensions | [DSNP Profile](../../../../ActivityContent/Types/Profile.md) | `application/json` | 256 Kb | Supported [IPFS CID](https://docs.ipfs.tech/concepts/content-addressing/)<sup>1</sup> | 1.3 |
 
 All other resource type values are reserved for future expansion.
 

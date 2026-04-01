@@ -6,7 +6,7 @@ This specification is intended to cover the concept of identity and how identity
 
 DSNP [Identifiers](Identifiers.md) form the basis for pseudo-anonymous streams of content.
 While some users may choose to link or expose their real-world identity, DSNP implementations MUST NOT require such data exposure for account creation.
-The [social graph](Graph.md) is formed using this Identifier so that a user's connections maintain integrity regardless of changes in any user's client choices or access changes.
+The [social graph](../Social/Graph.md) is formed using this Identifier so that a user's connections maintain integrity regardless of changes in any user's client choices or access changes.
 
 ### Pseudo Anonymity
 
@@ -31,7 +31,7 @@ A user may choose to retire their Identifier at any time.
 Once an Identifier is retired, an implementation MAY remove all state data associated with that Identifier, provided that an indication that the Identifier is retired remains, so it may not be reused in the future.
 This means that all data previously sent from the Identifier, the keys associated with the Identifier, any user data (see below) associated with the Identifier, and the delegations (see next section) associated with the Identifier may be removed.
 
-After an Identifier is retired, any existing or future [Announcements](Announcements.md) from the Identifier should be treated as if they have been [tombstoned](Types/Tombstone.md) (for Announcement Types that support tombstoning).
+After an Identifier is retired, any existing or future [Announcements](Announcements.md) from the Identifier should be treated as if they have been [tombstoned](../Social/Types/Tombstone.md) (for Announcement Types that support tombstoning).
 A retired Identifier MUST NOT be allowed to act as a principal for any additional DSNP [Operations](Operations.md).
 
 ## Delegation
@@ -48,8 +48,8 @@ As consensus system state storage is generally much more expensive than external
 
 User data is utilized for the following types of identity-linked data:
 * Public keys that can be used to encrypt data that can later be decrypted by the user or used to verify signatures on documents created by the user
-* [Social Graphs](Graph.md), both public and private (encrypted)
-* Links to [Profile documents](../ActivityContent/Types/Profile.md)
+* [Social Graphs](../Social/Graph.md), both public and private (encrypted)
+* Links to [Profile documents](../../../ActivityContent/Types/Profile.md)
 
 
 ## Related Operations
@@ -69,7 +69,7 @@ User data is utilized for the following types of identity-linked data:
 
 There are times when one might desire retroactive revocation of delegation, if for example, a key were found to have been compromised at an earlier time.
 However, retroactive revocation is much more difficult from a caching and performance perspective.
-Instead [reverting any undesirable Announcements](Announcements.md#reverting-an-announcement) via [Tombstones](Types/Tombstone.md) allows a user to choose which specific events need reverting and then notify the network of that change.
+Instead [reverting any undesirable Announcements](Announcements.md#reverting-an-announcement) via [Tombstones](../Social/Types/Tombstone.md) allows a user to choose which specific events need reverting and then notify the network of that change.
 
 To this end, any [Batch Publications](BatchPublications.md) can always be validated from the perspective of the time they were published, and do not require re-validation at future read times.
 The validity of a Batch is thus immutable.

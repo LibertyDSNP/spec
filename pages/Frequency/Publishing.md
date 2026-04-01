@@ -1,6 +1,6 @@
 # Announcement Publishing
 
-On Frequency, [Announcements](../DSNP/Announcements.md) are mapped to Schemas which in turn publish Frequency Messages.
+On Frequency, [Announcements](../DSNP/Protocols/Core/Announcements.md) are mapped to Schemas which in turn publish Frequency Messages.
 Frequency Messages are either individual Announcements from a particular user, or a Batch Publication with a multitude of possible users.
 
 <!-- Links to https://frequency-chain.github.io/frequency should be updated with links to docs.frequency.xyz when able to be -->
@@ -9,20 +9,20 @@ Frequency Messages are either individual Announcements from a particular user, o
 
 | Enum | Announcement | Type | Deployed Schema Id | Frequency Model Type | Frequency Payload Location |
 | :--: | --- | --- | --- | --- | --- |
-| 0 | [Tombstone](../DSNP/Types/Tombstone.md) | Batched | Mainnet: 16<br />Testnet (Paseo): 16 | [`Parquet`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
-| 2 | [Broadcast](../DSNP/Types/Broadcast.md) | Batched | Mainnet: 17<br />Testnet (Paseo): 17 | [`Parquet`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
-| 3 | [Reply](../DSNP/Types/Reply.md) | Batched | Mainnet: 18<br />Testnet (Paseo): 18 | [`Parquet`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
-| 4 | [Reaction](../DSNP/Types/Reaction.md) | Batched | Mainnet: 4<br />Testnet (Paseo): 4 | [`Parquet`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
-| 6 | [Update](../DSNP/Types/Update.md) | Batched | Mainnet: 19<br />Testnet (Paseo): 19 | [`Parquet`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
-| 8 | [User Attribute Set](../DSNP/Types/UserAttributeSet.md) | Batched | Mainnet: 20 <br />Testnet (Paseo): 20 | [`Parquet`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
-| 9 | [DSNP Content Attribute Set](../DSNP/Types/DSNPContentAttributeSet.md) | Batched | Mainnet: 12 <br />Testnet (Paseo): 12 | [`Parquet`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
-| 10 | [External Content Attribute Set](../DSNP/Types/ExternalContentAttributeSet.md) | Batched | Mainnet: 13 <br />Testnet (Paseo): 13 | [`Parquet`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
+| 0 | [Tombstone](../DSNP/Protocols/Social/Types/Tombstone.md) | Batched | Mainnet: 16<br />Testnet (Paseo): 16 | [`Parquet`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
+| 2 | [Broadcast](../DSNP/Protocols/Social/Types/Broadcast.md) | Batched | Mainnet: 17<br />Testnet (Paseo): 17 | [`Parquet`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
+| 3 | [Reply](../DSNP/Protocols/Social/Types/Reply.md) | Batched | Mainnet: 18<br />Testnet (Paseo): 18 | [`Parquet`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
+| 4 | [Reaction](../DSNP/Protocols/Social/Types/Reaction.md) | Batched | Mainnet: 4<br />Testnet (Paseo): 4 | [`Parquet`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
+| 6 | [Update](../DSNP/Protocols/Social/Types/Update.md) | Batched | Mainnet: 19<br />Testnet (Paseo): 19 | [`Parquet`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
+| 8 | [User Attribute Set](../DSNP/Protocols/Social/Types/UserAttributeSet.md) | Batched | Mainnet: 20 <br />Testnet (Paseo): 20 | [`Parquet`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
+| 9 | [DSNP Content Attribute Set](../DSNP/Protocols/Social/Types/DSNPContentAttributeSet.md) | Batched | Mainnet: 12 <br />Testnet (Paseo): 12 | [`Parquet`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
+| 10 | [External Content Attribute Set](../DSNP/Protocols/Social/Types/ExternalContentAttributeSet.md) | Batched | Mainnet: 13 <br />Testnet (Paseo): 13 | [`Parquet`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.ModelType.html#variant.Parquet) | [`IPFS`](https://frequency-chain.github.io/frequency/common_primitives/schema/enum.PayloadLocation.html#variant.IPFS) |
 
 Source code for each schema is located in the [LibertyDSNP/schemas](https://github.com/LibertyDSNP/schemas) repository.
 
 ## Batch Publications
 
-Frequency uses [DSNP Batch Publications](../DSNP/BatchPublications.md) for some types of Announcements.
+Frequency uses [DSNP Batch Publications](../DSNP/Protocols/Core/BatchPublications.md) for some types of Announcements.
 Parquet files are stored on [IPFS](https://ipfs.io/), but are discovered through Frequency Messages.
 
 DSNP Batch Publications [MUST be validated](./Validation.md) upon fetching to ensure data and permission integrity.

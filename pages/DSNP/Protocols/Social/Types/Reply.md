@@ -1,0 +1,45 @@
+# Reply Announcement
+
+A Reply Announcement is the same as a [Broadcast Announcement](Broadcast.md),
+but includes an `inReplyTo` field for noting it as a reply to a given [DSNP Content URI](../../Core/Identifiers.md#dsnp-content-uri).
+
+## Fields
+
+| Field | Description | Data Type | Serialization | Parquet Type | Bloom Filter |
+| ----- | ----------- | --------- | ------------- | ------------ | ------------ |
+| announcementType | Announcement Type Enum (`3`) | enum | [decimal](../../Core/Serializations.md#decimal) | `INT32` | no |
+| contentHash | [DSNP Content Hash](../../Core/Identifiers.md#dsnp-content-hash) of content | UTF-8 | [base32 multibase](../../Core/Serializations.md#base32-multibase) | `UTF8` | YES
+| fromId | id of the user creating the Announcement | 64-bit unsigned integer | [decimal](../../Core/Serializations.md#decimal) | `UINT_64` | YES
+| inReplyTo | Target [DSNP Content URI](../../Core/Identifiers.md#dsnp-content-uri) | UTF-8 | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | YES
+| url | content URL | UTF-8 | [UTF-8](https://datatracker.ietf.org/doc/html/rfc3629) | `UTF8` | no
+
+## Field Requirements
+
+### announcementType
+
+- MUST be fixed to `3`
+
+### contentHash
+
+- MUST be a valid [DSNP Content Hash](../../Core/Identifiers.md#dsnp-content-hash)
+
+### fromId
+
+- MUST be a [DSNP User Id](../../Core/Identifiers.md#dsnp-user-id)
+- MUST have authorized the creation of the Announcement, either directly or via a transparent chain of delegation
+
+### inReplyTo
+
+- MUST be a [DSNP Content URI](../../Core/Identifiers.md#dsnp-content-uri)
+
+### url
+
+- MUST NOT refer to localhost or any reserved IP addresses as defined in [RFC6890](https://datatracker.ietf.org/doc/html/rfc6890)
+- Resource MUST be one of the supported [Activity Content](../../../../ActivityContent/Overview.md) Types
+- MUST use one of the supported URL Schemes
+
+#### Supported URL Schemes
+
+| Scheme | Description | Reference | DSNP Version Added |
+| ------ |------------ | --------- | ------------------ |
+| HTTPS | Hypertext Transfer Protocol Secure | [RFC2818](https://datatracker.ietf.org/doc/html/rfc2818) | 1.0 |

@@ -89,7 +89,7 @@ These accreditations MUST be included by the issuer using the `authority` key un
 The `trust` object contains one or both of the `oneOf` or `allOf` keys, each containing an array of strings.
 Each string MUST be a valid DSNP Attribute Set Type.
 
-See [Attribute Sets](../../DSNP/AttributeSets.md) for a detailed discussion of Attribute Set Types and their derivation.
+See [Attribute Sets](../../DSNP/Protocols/Core/AttributeSets.md) for a detailed discussion of Attribute Set Types and their derivation.
 
 A `trust` object containing both `oneOf` and `allOf` sections should be construed as requiring any of the `oneOf` constraints as well as all of the `allOf` constraints.
 

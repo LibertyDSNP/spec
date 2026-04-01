@@ -73,7 +73,7 @@
 | `type` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-type) | YES | Identifies the type of the object | MUST be set to `Link` |
 | `href` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-href) | YES | The URL for the given image | MUST be a [Supported URL Schema](../Overview.md#supported-url-schema) |
 | `mediaType` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-mediatype) | YES | MIME type of `href` content | |
-| `hash` | [DSNP 1.0](Hash.md) | YES | Array of hashes for linked content validation | MUST include at least one [supported hash](../../DSNP/Identifiers.md#supported-hashing-algorithms) |
+| `hash` | [DSNP 1.0](Hash.md) | YES | Array of hashes for linked content validation | MUST include at least one [supported hash](../../DSNP/Protocols/Core/Identifiers.md#supported-hashing-algorithms) |
 | `height` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-height) | no | A hint as to the rendering height in device-independent pixels |  |
 | `width` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-width) | no | A hint as to the rendering width in device-independent pixels |  |
 
@@ -213,7 +213,7 @@
 
 Attestation attachments are DSNP extensions to the Activity Content model that allow users to attach Verifiable Credentials corresponding to an Attribute Set Type with their DSNP profile or a social media post.
 
-The Verifiable Credential found at the indicated URL must include the user's [DSNP User URI](../../DSNP/Identifiers.md#dsnp-user-uri) in its `credentialSubject.id` field.
+The Verifiable Credential found at the indicated URL must include the user's [DSNP User URI](../../DSNP/Protocols/Core/Identifiers.md#dsnp-user-uri) in its `credentialSubject.id` field.
 
 | Property | Base Spec | Required | Description | Restrictions |
 | --- | --- | --- | --- | --- |
@@ -229,7 +229,7 @@ The link must contain a relationship identifier in the form of a DSNP Attribute 
 | Property | Base Spec | Required | Description | Restrictions |
 | --- | --- | --- | --- | --- |
 | `type` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-type) | YES | Identifies the type of the object | MUST be set to `Link` |
-| `rel` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-id) | YES | The attestation's attribute set type | MUST be a DSNP [Attribute Set Type](../../DSNP/AttributeSets.md#attribute-set-type) corresponding to the referenced credential document |
+| `rel` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-id) | YES | The attestation's attribute set type | MUST be a DSNP [Attribute Set Type](../../DSNP/Protocols/Core/AttributeSets.md#attribute-set-type) corresponding to the referenced credential document |
 | `href` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-href) | YES | The URL for the associated Verifiable Credential | MUST be a [Supported URL Schema](../Overview.md#supported-url-schema) |
 | `mediaType` | [Activity Vocabulary 2.0](https://www.w3.org/TR/activitystreams-vocabulary/#dfn-mediatype) | YES | MIME type of `href` content | MUST be set to [`application/vc`](https://www.w3.org/TR/vc-data-model-2.0/#vc-ld-media-type) |
 | `hash` | [DSNP extension](Hash.md) | YES | Array of hashes for linked content validation | MUST include at least one [supported hash](Hash.md#supported-algorithms) |

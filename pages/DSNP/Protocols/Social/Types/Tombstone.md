@@ -7,10 +7,10 @@ It is NOT possible to revert a tombstone.
 
 | Field | Description | Data Type | Serialization | Parquet Type | Bloom Filter |
 | ----- | ----------- | --------- | ------------- | ------------ | ------------ |
-| announcementType | Announcement Type Enum (`0`) | enum | [decimal](../Serializations.md#decimal) | `INT32` | no |
-| fromId | Id of the user creating the Announcement and the Tombstoned Announcement | 64-bit unsigned integer | [decimal](../Serializations.md#decimal) | `UINT_64` | YES
-| targetAnnouncementType | target tombstoned Announcement type | enum | [decimal](../Serializations.md#decimal) | `INT32` | no |
-| targetContentHash | target `contentHash` of the original Announcement to tombstone | UTF-8 | [base32 multibase](../Serializations.md#base32-multibase) | `UTF8` | YES
+| announcementType | Announcement Type Enum (`0`) | enum | [decimal](../../Core/Serializations.md#decimal) | `INT32` | no |
+| fromId | Id of the user creating the Announcement and the Tombstoned Announcement | 64-bit unsigned integer | [decimal](../../Core/Serializations.md#decimal) | `UINT_64` | YES
+| targetAnnouncementType | target tombstoned Announcement type | enum | [decimal](../../Core/Serializations.md#decimal) | `INT32` | no |
+| targetContentHash | target `contentHash` of the original Announcement to tombstone | UTF-8 | [base32 multibase](../../Core/Serializations.md#base32-multibase) | `UTF8` | YES
 
 ## Field Requirements
 
@@ -20,12 +20,12 @@ It is NOT possible to revert a tombstone.
 
 ### fromId
 
-- MUST be a [DSNP User Id](../Identifiers.md#dsnp-user-id)
+- MUST be a [DSNP User Id](../../Core/Identifiers.md#dsnp-user-id)
 - MUST have authorized the creation of the Announcement, either directly or via a transparent chain of delegation
 
 ### targetAnnouncementType
 
-- MUST be the [Announcement Type](../Announcements.md#announcement-types) of the target Announcement
+- MUST be the [Announcement Type](../../Core/Announcements.md#announcement-types) of the target Announcement
 - MUST ONLY be a Tombstone allowed Announcement Type
 
 #### Tombstone Allowed Announcement Types
