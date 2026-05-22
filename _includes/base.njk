@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" class="coal no-js sidebar-visible">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if title %}{{ title }} - {% endif %}{{ siteTitle }}</title>
+  <meta name="theme-color" content="#1c1c1c">
+
+  <link rel="stylesheet" href="{{ '/css/variables.css' | url }}">
+  <link rel="stylesheet" href="{{ '/css/general.css' | url }}">
+  <link rel="stylesheet" href="{{ '/css/chrome.css' | url }}">
+  <link rel="stylesheet" href="{{ '/css/print.css' | url }}" media="print">
+
+  <link id="highlight-css"      rel="stylesheet" href="{{ '/highlight.css' | url }}">
+  <link id="tomorrow-night-css" rel="stylesheet" href="{{ '/tomorrow-night.css' | url }}" disabled>
+  <link id="ayu-highlight-css"  rel="stylesheet" href="{{ '/ayu-highlight.css' | url }}" disabled>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="{{ '/pagefind-ui/ui.css' | url }}">
+
+  <style>
+    /* Override book.js scroll animation: keep menu bar pinned at top */
+    #menu-bar { position: sticky !important; top: 0 !important; margin-left: 0 !important; margin-right: 0 !important; }
+    /* Remove the negative margin that compensated for the now-removed hover placeholder */
+    .page { margin-top: 0 !important; }
+    /* Search modal */
+    #search-modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(0,0,0,0.5);
+    }
+    #search-modal-backdrop.open { display: block; }
+    #search-modal {
+      position: absolute;
+      top: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(640px, 90vw);
+      max-height: 80vh;
+      overflow-y: auto;
+      background: var(--bg);
+      border: 1px solid var(--table-border-color);
+      border-radius: 4px;
+      padding: 12px;
+      --pagefind-ui-text: var(--fg);
+      --pagefind-ui-background: var(--bg);
+      --pagefind-ui-border: var(--table-border-color);
+      --pagefind-ui-primary: var(--links);
+    }
+  </style>
+
+  <!-- Restore sidebar/theme state before first paint; mark JS as available -->
+  <script>
+    (function () {
+      var html = document.documentElement;
+      html.classList.remove('no-js');
+      html.classList.add('js');
+      var stored = localStorage.getItem('dsnp-sidebar');
+      if (stored === 'hidden') {
+        html.classList.remove('sidebar-visible');
+        html.classList.add('sidebar-hidden');
+      }
+      var theme = localStorage.getItem('dsnp-theme');
+      if (theme && theme !== 'coal') {
+        html.classList.remove('coal');
+        html.classList.add(theme);
+      }
+    })();
+  </script>
+</head>
+<body>
+  {% set editPageUrl = page.inputPath | editUrl %}
+  {% set prevPage = nav.flat | prevPage(page.url) %}
+  {% set nextPage = nav.flat | nextPage(page.url) %}
+
+  <!-- Sidebar -->
+  <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+    <div class="sidebar-scrollbox">
+      {% include "sidebar.njk" %}
+    </div>
+    <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+  </nav>
+
+  <!-- Page wrapper: menu bar lives here so it shares the content-pane width -->
+  <div id="page-wrapper" class="page-wrapper">
+
+    <!-- Menu bar -->
+    <div id="menu-bar" class="menu-bar sticky bordered">
+      <div class="left-buttons">
+        <button id="sidebar-toggle" class="icon-button" type="button"
+          title="Toggle Table of Contents" aria-label="Toggle Table of Contents"
+          aria-controls="sidebar" aria-expanded="true">
+          <i class="fa fa-bars"></i>
+        </button>
+        <div style="position:relative">
+          <button id="theme-toggle" class="icon-button" type="button"
+            title="Change theme" aria-label="Change theme" aria-haspopup="true"
+            aria-expanded="false" aria-controls="theme-list">
+            <i class="fa fa-paint-brush"></i>
+          </button>
+          <ul id="theme-list" class="theme-popup" role="listbox" aria-label="Themes">
+            <li role="option"><button id="coal" class="theme">Coal</button></li>
+            <li role="option"><button id="light" class="theme">Light</button></li>
+          </ul>
+        </div>
+      </div>
+
+      <h1 class="menu-title">{{ siteTitle }}</h1>
+
+      <div class="right-buttons">
+        <button id="search-toggle" class="icon-button" type="button"
+          title="Search" aria-label="Search" aria-haspopup="dialog">
+          <i class="fa fa-search"></i>
+        </button>
+        <a href="{{ gitRepoUrl }}" title="Git repository" class="icon-button">
+          <i class="fa fa-github"></i>
+        </a>
+        <a href="{{ editPageUrl }}" title="Suggest an edit" class="icon-button">
+          <i class="fa fa-edit"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="page">
+
+      <!-- Page content -->
+      <div id="content" class="content">
+        <main>
+          {{ content | safe }}
+        </main>
+      </div>
+
+      <!-- Mobile prev/next (shown on narrow screens) -->
+      <div class="nav-wrapper" aria-label="Page navigation">
+        {% if prevPage %}
+          <a rel="prev" href="{{ prevPage.url | url }}" class="mobile-nav-chapters previous"
+            title="{{ prevPage.title }}">&#8249;</a>
+        {% endif %}
+        {% if nextPage %}
+          <a rel="next" href="{{ nextPage.url | url }}" class="mobile-nav-chapters next"
+            title="{{ nextPage.title }}">&#8250;</a>
+        {% endif %}
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Search modal -->
+  <div id="search-modal-backdrop" role="dialog" aria-modal="true" aria-label="Search">
+    <div id="search-modal">
+      <div id="search"></div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script>var default_theme = 'coal'; var playground_copyable = true;</script>
+  <script src="{{ '/clipboard.min.js' | url }}"></script>
+  <script src="{{ '/highlight.js' | url }}"></script>
+  <script src="{{ '/book.js' | url }}"></script>
+  <script type="module">
+    import { PagefindUI } from "{{ '/pagefind-ui/ui.js' | url }}";
+    const ui = new PagefindUI({ element: "#search", showSubResults: true, bundlePath: "/pagefind/" });
+
+    const backdrop = document.getElementById("search-modal-backdrop");
+    const toggle = document.getElementById("search-toggle");
+
+    function openSearch() {
+      backdrop.classList.add("open");
+      backdrop.querySelector("input").focus();
+    }
+    function closeSearch() {
+      backdrop.classList.remove("open");
+    }
+
+    toggle.addEventListener("click", openSearch);
+    backdrop.addEventListener("click", (e) => { if (e.target === backdrop) closeSearch(); });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeSearch();
+      if ((e.key === "s" || e.key === "/") && e.target === document.body) { e.preventDefault(); openSearch(); }
+    });
+  </script>
+</body>
+</html>

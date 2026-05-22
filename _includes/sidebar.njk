@@ -1,0 +1,30 @@
+{% macro renderNode(node, currentUrl, ancestorUrls) %}
+  {% set isActive = node.url == currentUrl %}
+  {% set isExpanded = node.children.length and (isActive or node.url in ancestorUrls) %}
+  <li class="chapter-item{% if isExpanded %} expanded{% endif %}{% if isActive %} active{% endif %}">
+    {% if node.hasLink %}
+      <a href="{{ node.url | url }}"{% if isActive %} class="active"{% endif %}>{{ node.title }}</a>
+    {% else %}
+      <div>{{ node.title }}</div>
+    {% endif %}
+    {% if node.children.length %}
+      <a class="toggle" href="#"><div></div></a>
+    {% endif %}
+  </li>
+  {% if node.children.length %}
+    <li>
+      <ol class="section">
+        {% for child in node.children %}
+          {{ renderNode(child, currentUrl, ancestorUrls) }}
+        {% endfor %}
+      </ol>
+    </li>
+  {% endif %}
+{% endmacro %}
+
+{% set ancestorUrls = page.url | ancestorUrls %}
+<ol class="chapter">
+  {% for node in nav.tree %}
+    {{ renderNode(node, page.url, ancestorUrls) }}
+  {% endfor %}
+</ol>

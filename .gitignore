@@ -1,5 +1,5 @@
 .idea
 .vscode
 node_modules/
-book
+_site
 .DS_Store
