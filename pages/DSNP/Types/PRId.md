@@ -2,7 +2,13 @@
 
 A Pseudonymous Relationship Identifier is represented by the PRId object type.
 
+In DSNP 1.4, a new, post-quantum approach to PRIds has been introduced.
+The prior approach is documented and referred to below as a "Classical PRId", and remains for backward compatibility.
+Implementations are encouraged to migrate to the post-quantum algorithm as soon as possible when adopting 1.4, but will require a migration period where both approaches co-exist.
+
 ## Serialization
+
+### Classical PRId
 
 PRId object serialization MUST conform to the following [Avro](https://avro.apache.org) schema:
 
@@ -16,6 +22,48 @@ PRId object serialization MUST conform to the following [Avro](https://avro.apac
 }
 ```
 
+### Post-Quantum PRId Accumulator
+
+When using the [post-quantum algorithm](#post-quantum-algorithm), the on-chain record is a `PRIdAccumulator` rather than a flat list of `PRId` values.
+`PRIdAccumulator` object serialization MUST conform to the following [Avro](https://avro.apache.org) schema:
+
+```
+{
+    "namespace": "org.dsnp",
+    "name": "PRIdAccumulator",
+    "type": "record",
+    "doc": "On-chain post-quantum PRId commitment: Merkle root over PRId set and content address of encrypted witness data",
+    "fields": [
+        {
+            "name": "merkleRoot",
+            "type": {
+                "type": "fixed",
+                "name": "MerkleRoot",
+                "size": 32
+            },
+            "doc": "SHA2-256 Merkle root over the sorted set of PRId leaf hashes"
+        },
+        {
+            "name": "witnessCid",
+            "type": "bytes",
+            "doc": "CIDv1 content address of the Parquet witness file containing per-relationship encrypted witness records"
+        }
+    ]
+}
+```
+
+### Post-Quantum PRId Witness Schema
+
+The witness Parquet file referenced by `witnessCid` MUST conform to the following schema, with records in randomized order:
+
+```
+message PRIdWitnessRecord {
+    required binary ciphertext;
+}
+```
+
+Each `ciphertext` field encodes a self-contained encrypted witness record as described in [Witness Record Encryption](#witness-record-encryption).
+
 ## Generation
 
 PRIds are generated cryptographically to represent a relationship from one user to another within a specified context, in a privacy-preserving manner.
@@ -24,11 +72,12 @@ PRIds are generated cryptographically to represent a relationship from one user 
 
 The following context values are currently defined for PRIds. All other values are reserved for future use.
 
-| Context Id | Description | Context string |
-| --- | --- | --- |
-| 0 | Connection | `PRIdCtx0` |
+| Context Id | Description | Context string | Algorithm |
+| --- | --- | --- | --- |
+| 0 | Connection | `PRIdCtx0` | [Classical](#classical-algorithm) |
+| 1 | Connection (post-quantum) | `PRIdCtx1` | [Post-Quantum](#post-quantum-algorithm) |
 
-### Algorithm
+### Classical Algorithm
 
 In the following section, the Alice to Bob identifier for context C is called PRId<sub>A→B,C</sub>, and the corresponding Bob to Alice identifier is called PRId<sub>B→A,C</sub>.
 
@@ -172,3 +221,139 @@ An implementation of the PRId generation algorithm should produce the following 
 | <tt>CtxSharedSecret<sub>A→B,C</sub></tt> | `0x37cb1a870f0c1dce06f5116faf145ac2cf7a2f7d30136be4eea70c324932e6d2` |
 | <tt>PRId<sub>B→A</sub></tt> | `0x1a53b02a26503600` |
 | <tt>CtxSharedSecret<sub>B→A,C</sub></tt> | `0x32c45c49fcfe12f9db60e74fa66416c5a05832c298814d82032a6783a4b1fca0` |
+
+### Post-Quantum Algorithm
+
+The classical algorithm relies on X25519 Diffie-Hellman, which is broken by Shor's algorithm on a quantum computer.
+The post-quantum algorithm replaces the ECDH-derived shared secret with a keyed hash function, producing Merkle leaf values that are fully deterministic and regenerable by Alice from her ML-KEM-768 secret key without any interaction.
+Because the on-chain record is a Merkle root rather than a list of per-relationship values, the individual leaf values never appear on-chain and carry no size constraint.
+Alice delivers each counterparty's leaf value and Merkle membership proof via an ML-KEM-encrypted record published to the content-addressable layer.
+The on-chain footprint remains compact: a 32-byte Merkle root plus a content address, stored as a single `PRIdAccumulator` record in [`privateConnectionPRIdsPQ`](../UserData.md#private-connection-prids-pq).
+
+This construction is secure under the hardness of SHA2-256 preimage finding (Merkle tree) and ML-KEM-768 (witness encryption), both of which are [NIST-approved](https://csrc.nist.gov/pubs/fips/203/final) and resistant to known quantum attacks.
+
+#### PRId Master Key
+
+Alice derives a 32-byte PRId master key from her ML-KEM-768 secret key using HKDF with SHA2-256:
+
+<table style="table-layout:fixed">
+<tr><th>Algorithm</th></tr>
+<tr><td><tt><pre>
+k<sub>A</sub> &#8592;
+  HKDF-SHA2-256(
+    ikm  = A<sub>mlkem,secret</sub>,
+    salt = {},
+    info = "DSNPPRIdMasterKey")
+</pre></tt></td></tr></table>
+
+`k_A` MUST NOT be shared or published. It is re-derivable at any time from Alice's ML-KEM-768 secret key.
+
+#### Merkle Accumulator Construction
+
+1. Compute a 32-byte leaf value for each connection Bob with DSNP User Id <code>Id<sub>B</sub></code> and context string <code>ctx</code>:
+
+<table style="table-layout:fixed">
+<tr><th>Algorithm</th></tr>
+<tr><td><tt><pre>
+L<sub>A&#8594;B,C</sub> &#8592;
+  HMAC-SHA2-256(
+    key     = k<sub>A</sub>,
+    message = LE64(Id<sub>B</sub>) || ctx)
+</pre></tt></td></tr></table>
+
+Where `LE64(Id_B)` is Bob's DSNP User Id encoded as an 8-byte little-endian integer and `ctx` is the ASCII context string (e.g., `"PRIdCtx1"` for connections).
+
+2. Sort leaf values in ascending byte order. Pad to the next power of two by appending the fixed constant `SHA2-256("DSNPPRIdPadding")` as needed.
+
+3. Build the Merkle tree bottom-up using domain-separated internal nodes:
+
+<table style="table-layout:fixed">
+<tr><th>Algorithm</th></tr>
+<tr><td><tt><pre>
+N &#8592; SHA2-256(0x01 || left<sub>child</sub> || right<sub>child</sub>)
+</pre></tt></td></tr></table>
+
+The `0x01` prefix on internal nodes prevents second-preimage attacks; leaf values are HMAC outputs and are structurally distinct from SHA2-256 internal nodes.
+
+4. The `merkleRoot` is the 32-byte root node value.
+
+#### Witness Record Encryption
+
+For each connection Bob, Alice constructs an encrypted witness record as follows:
+
+1. Compute Bob's Merkle proof path: the sequence of `(sibling_hash: bytes[32], position: 0x00=left | 0x01=right)` pairs needed to reconstruct `merkleRoot` from Bob's leaf.
+
+2. Encode the witness plaintext:
+
+```
+witness_plaintext =
+    L_A→B,C (32 bytes, the leaf value)
+    || proof_length (1 byte, number of proof steps)
+    || for each step: sibling_hash (32 bytes) || position (1 byte)
+```
+
+3. Encapsulate to Bob's ML-KEM-768 public key and encrypt with AES-256-GCM:
+
+<table style="table-layout:fixed">
+<tr><th>Algorithm</th></tr>
+<tr><td><tt><pre>
+(kem_ct, ss) &#8592;
+  ML-KEM-768.Encapsulate(B<sub>mlkem,public</sub>)
+nonce &#8592; random 12 bytes
+encrypted &#8592;
+  AES-256-GCM(
+    key     = ss,
+    nonce   = nonce,
+    message = witness_plaintext)
+ciphertext = kem_ct || nonce || encrypted
+</pre></tt></td></tr></table>
+
+`kem_ct` is 1,088 bytes; `encrypted` includes a 16-byte GCM authentication tag.
+The final `ciphertext` field stored in the Parquet witness file is `kem_ct || nonce || encrypted`.
+
+#### Publishing
+
+1. Generate all witness records as above.
+2. Serialize as a Parquet file conforming to the [witness schema](#post-quantum-prid-witness-schema), with records in **randomized order** so that record position reveals no relationship information.
+3. Upload to the content-addressable layer (e.g., IPFS) and obtain a `CIDv1`.
+4. Publish a single `PRIdAccumulator` Avro record containing `merkleRoot` and `witnessCid` via the [Replace User Data](../UserData.md#replace-user-data-operation) Operation for [`privateConnectionPRIdsPQ`](../UserData.md#private-connection-prids-pq).
+
+Alice SHOULD regenerate and republish the witness file — using a fresh random ordering of records each time — whenever her [`privateConnections`](../UserData.md#private-connections) list changes.
+The previous witness file MAY be unpinned from the content-addressable layer once the new accumulator is published on-chain, as the witness data is fully regenerable (see [Regenerability](#regenerability)).
+
+#### Verification by Bob
+
+To verify his relationship is represented in Alice's `privateConnectionPRIdsPQ`:
+
+1. Retrieve Alice's `PRIdAccumulator` from the on-chain User Data.
+2. Fetch the Parquet witness file using `witnessCid`.
+3. For each record in the witness file, attempt decryption:
+   - Extract `kem_ct = ciphertext[0:1088]`
+   - `ss = ML-KEM-768.Decapsulate(B_mlkem_secret, kem_ct)` (implicit rejection on failure)
+   - Attempt `AES-256-GCM.Decrypt(key=ss, remaining bytes)` — if the GCM tag verifies, the record is Bob's
+4. From the decrypted plaintext, extract the leaf value `L_A→B,C` and the Merkle proof path.
+5. Verify: apply the proof path to `L_A→B,C` and confirm the result equals Alice's published `merkleRoot`.
+
+Bob SHOULD cache his decrypted witness plaintext to avoid re-scanning the witness file on subsequent checks.
+
+#### Regenerability
+
+The witness Parquet file is fully regenerable by Alice at any time from:
+- Her ML-KEM-768 secret key (to re-derive `k_A` and all leaf values)
+- Her [`privateConnections`](../UserData.md#private-connections) User Data (to enumerate connection User Ids)
+- Each connection's published ML-KEM-768 public key (to re-encrypt witness records)
+
+The witness file therefore does not require the strongest on-chain durability guarantees and is appropriate for the content-addressable layer.
+If a witness file becomes unavailable, Alice can regenerate and republish it without any change to the on-chain `merkleRoot`.
+
+#### Third-Party Proofs
+
+To prove to a third party that Bob is in Alice's published connection set, Bob performs two steps:
+
+1. **Prove DSNP identity.** Bob demonstrates that he is the holder of his DSNP User Id, for example by signing a verifier-supplied challenge with his ML-DSA-65 key. This establishes which published ML-KEM-768 public key is his, without reference to any relationship.
+
+2. **Prove Merkle membership.** Bob reveals his leaf value `L_A→B,C` and its Merkle proof path. The third party verifies the proof against Alice's published `merkleRoot`, confirming the leaf is in Alice's accumulator.
+
+The third party accepts the combination: the person who completed step 1 holds a leaf that is included in Alice's published set.
+
+Bob's active participation is required for each proof instance. The leaf value `L_A→B,C` is only accessible to Bob (via his ML-KEM-768 secret key decapsulating the witness record), so no third party can construct or reuse this proof without Bob's involvement.

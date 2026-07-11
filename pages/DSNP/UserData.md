@@ -17,10 +17,13 @@ DSNP implementations MUST support the following User Data Types:
 | --- | --- | --- | --- | --- |
 | <a name="public-follows">`publicFollows`</a> | 1.2 | NONE | <a href="https://en.wikipedia.org/wiki/Deflate" title="" target="_blank">`DEFLATE`</a> | [GraphEdge](Types/GraphEdge.md) |
 | <a name="private-follows">`privateFollows`</a> | 1.2 | `curve25519xsalsa20poly1305` | <a href="https://en.wikipedia.org/wiki/Deflate" title="" target="_blank">`DEFLATE`</a> | [GraphEdge](Types/GraphEdge.md) |
+| <a name="private-follows-pq">`privateFollowsPQ`</a> | 1.4 | `x25519mlkem768chacha20poly1305` | <a href="https://en.wikipedia.org/wiki/Deflate" title="" target="_blank">`DEFLATE`</a> | [GraphEdge](Types/GraphEdge.md) |
 | <a name="private-connections">`privateConnections`</a> | 1.2 | `curve25519xsalsa20poly1305` | <a href="https://en.wikipedia.org/wiki/Deflate" title="" target="_blank">`DEFLATE`</a> | [GraphEdge](Types/GraphEdge.md) |
+| <a name="private-connections-pq">`privateConnectionsPQ`</a> | 1.4 | `x25519mlkem768chacha20poly1305` | <a href="https://en.wikipedia.org/wiki/Deflate" title="" target="_blank">`DEFLATE`</a> | [GraphEdge](Types/GraphEdge.md) |
 | <a name="private-connection-prids">`privateConnectionPRIds`</a> | 1.2 | NONE | NONE | [PRId](Types/PRId.md) |
-| <a name="key-agreement-public-keys">`keyAgreementPublicKeys`</a> | 1.3 | NONE | NONE | [PublicKey](Types/PublicKeyUserData.md) |
-| <a name="assertion-method-public-keys">`assertionMethodPublicKeys`</a> | 1.3 | NONE | NONE | [PublicKey](Types/PublicKeyUserData.md) |
+| <a name="private-connection-prids-pq">`privateConnectionPRIdsPQ`</a> | 1.4 | NONE | NONE | [PRIdAccumulator](Types/PRId.md#post-quantum-prid-accumulator) |
+| <a name="key-agreement-public-keys">`keyAgreementPublicKeys`</a> | 1.4 | NONE | NONE | [PublicKey](Types/PublicKeyUserData.md) |
+| <a name="assertion-method-public-keys">`assertionMethodPublicKeys`</a> | 1.4 | NONE | NONE | [PublicKey](Types/PublicKeyUserData.md) |
 | <a name="profile-resources">`profileResources`</a> | 1.3 | NONE | NONE | [ProfileResource](Types/ProfileResource.md) |
 
 Data for each data type is initially formatted as a stream of Avro objects that should conform to the schema specified.
@@ -30,6 +33,55 @@ The Avro stream is then compressed and/or encrypted as specified.
 
 `curve25519xsalsa20poly1305` (that is, X25519 key exchange, XSalsa20 encryption, and Poly1305 message authentication) is the default authenticated encryption algorithm used in the [NaCl](https://nacl.cr.yp.to) ("Salt") library, and its successor [libsodium](https://libsodium.org).
 In the specification of cryptographic operations below, relevant methods from these libraries are noted. While these specific libraries are not required for DSNP compatibility, they are highly recommended.
+
+Version 1.4 of `keyAgreementPublicKeys` and `assertionMethodPublicKeys` extends these types to allow optional [post-quantum public keys](Types/PublicKeyUserData.md#allowed-key-types) alongside classical keys.
+`privateConnectionPRIdsPQ` (version 1.4) stores a single `PRIdAccumulator` record per user: a SHA2-256 Merkle root over the user's PRId set, together with a content address pointing to a Parquet file of ML-KEM-768-encrypted per-relationship witness records on the content-addressable layer.
+Unlike classical `privateConnectionPRIds`, the witness file is fully regenerable by the publishing user and does not require on-chain durability; only the `PRIdAccumulator` record itself is stored on-chain.
+
+`privateFollowsPQ` and `privateConnectionsPQ` (version 1.4) are post-quantum equivalents of `privateFollows` and `privateConnections`, encrypted with `x25519mlkem768chacha20poly1305` (the [X-Wing](https://www.ietf.org/archive/id/draft-connolly-cfrg-xwing-kem-06.txt) hybrid KEM combined with ChaCha20-Poly1305 AEAD) instead of `curve25519xsalsa20poly1305`.
+An implementation MAY enable either or both of the classical and post-quantum types simultaneously; the goal is eventual transition to PQ-only once implementations are mature.
+The system names `privateFollows`/`privateConnections` and `privateFollowsPQ`/`privateConnectionsPQ` are distinct so that both can coexist on-chain during a transition period.
+
+### x25519mlkem768chacha20poly1305
+
+The `x25519mlkem768chacha20poly1305` algorithm is the [X-Wing](https://www.ietf.org/archive/id/draft-connolly-cfrg-xwing-kem-06.txt) hybrid KEM (combining X25519 and [ML-KEM-768](https://csrc.nist.gov/pubs/fips/203/final)) used for key encapsulation, followed by [ChaCha20-Poly1305](https://www.rfc-editor.org/rfc/rfc8439) AEAD for encryption.
+
+X-Wing is designed to provide security if either X25519 or ML-KEM-768 is secure, providing a hedge against future cryptanalytic advances against either algorithm.
+To use this algorithm, the recipient MUST have published both an `x25519-pub` key in `keyAgreementPublicKeys` and an `mlkem768-pub` key in `keyAgreementPublicKeys`.
+
+Encryption proceeds as follows:
+
+1. Retrieve the recipient's active `x25519-pub` key (U<sub>x25519,public</sub>) and `mlkem768-pub` key (U<sub>mlkem,public</sub>) from their `keyAgreementPublicKeys` User Data.
+2. Perform X-Wing encapsulation to produce a shared secret and ciphertext:
+
+<table style="table-layout:fixed">
+<tr><th>Algorithm</th></tr>
+<tr><td><tt><pre>
+(xwing_ct, ss) &#8592;
+  XWing.Encapsulate(
+    U<sub>x25519,public</sub>,
+    U<sub>mlkem,public</sub>)
+</pre></tt></td></tr></table>
+
+`xwing_ct` is 1,120 bytes (32-byte X25519 ephemeral public key + 1,088-byte ML-KEM-768 ciphertext).
+
+3. Encrypt the compressed Avro payload with ChaCha20-Poly1305:
+
+<table style="table-layout:fixed">
+<tr><th>Algorithm</th></tr>
+<tr><td><tt><pre>
+nonce &#8592; random 12 bytes
+encrypted &#8592;
+  ChaCha20-Poly1305(
+    key     = ss,
+    nonce   = nonce,
+    message = payload)
+ciphertext = xwing_ct || nonce || encrypted
+</pre></tt></td></tr></table>
+
+`encrypted` includes a 16-byte Poly1305 authentication tag. The final on-chain value is `xwing_ct || nonce || encrypted`.
+
+Decryption reverses these steps: extract `xwing_ct = ciphertext[0:1120]`, decapsulate using the recipient's X25519 and ML-KEM-768 secret keys to recover `ss`, then decrypt the remainder with ChaCha20-Poly1305.
 
 ## Data Chunks
 
