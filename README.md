@@ -27,31 +27,28 @@ Note: Remember that you can link to the tag on GitHub before creating the tag.
 
 ## Running Locally
 
-To build the spec generator locally, install [mdBook](https://github.com/rust-lang/mdBook.git) and [link checker](https://github.com/Michael-F-Bryan/mdbook-linkcheck). The link checker will run during build process and throw warnings for any broken internal or external links.
+Node.js 20 or later is required.
 
-``` bash
-cargo install mdbook mdbook-linkcheck mdbook-external-links
-```
-
-To run the spec generator locally and preview the formatted spec website, use the following commands:
+Install dependencies:
 
 ``` bash
 npm install
-npm run build
 ```
 
-To run the spec generator locally and also actively build after each change, use the following command:
-
-``` bash
-npm run serve
-```
-
-Once the local server is running, the spec will automatically open in the browser. A live-reloading preview of the spec can also be viewed at <http://localhost:3000>.
+| Command | Description |
+| --- | --- |
+| `npm run build` | Build the site into `_site/` |
+| `npm run serve` | Build and serve with live reload at <http://localhost:8080> |
+| `npm run lint` | Run Markdown linter and spell checker |
+| `npm run linkcheck` | Check all internal and external links (run after `build`) |
 
 ## Tools and frameworks used in this repo
 
-* [mdBook](https://rust-lang.github.io/mdBook/)
-* [MDX](https://mdxjs.com/)
+* [Eleventy (11ty)](https://www.11ty.dev/) — static site generator
+* [markdown-it](https://github.com/markdown-it/markdown-it) — Markdown renderer
+* [linkinator](https://github.com/JustinBeckwith/linkinator) — link checker
+* [remark](https://remark.js.org/) — Markdown linter
+* [spellchecker-cli](https://github.com/tbroadley/spellchecker-cli) — spell checker
 
 ## Contributing a specification
 
@@ -68,10 +65,5 @@ Once the local server is running, the spec will automatically open in the browse
 
 ### Release process
 
-1. Deployment step of the GitHub actions workflow is triggered by tags fitting the regex:
-
-   ``` bash
-      ^\d{8}\.\d+
-   ```
-
-2. Trigger will deploy the latest successful artifact from main branch.
+1. The deploy GitHub Actions workflow is triggered by tags matching the CalVer pattern `YYYY.MM.###`.
+2. The workflow builds the site with Eleventy (`npm run build`) and deploys the `_site/` directory to GitHub Pages.
